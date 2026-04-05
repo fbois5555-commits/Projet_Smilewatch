@@ -1,2 +1,3 @@
 # Projet_Smilewatch
-Une incroyable montre connéctée hybridre 
+Une incroyable montre connéctée hybride 
+
