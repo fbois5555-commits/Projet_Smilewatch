@@ -1,0 +1,9 @@
+Manufacturer=Texas Instruments
+PartNumber=BQ24040DSQR
+PartCategory=Integrated Circuit
+PackageCategory=Small Outline No-lead
+PinCount=11
+Version=3.1
+Released=2019-09-29 03:08:56
+Downloaded=2026-04-15 20:00:21
+3D=Y

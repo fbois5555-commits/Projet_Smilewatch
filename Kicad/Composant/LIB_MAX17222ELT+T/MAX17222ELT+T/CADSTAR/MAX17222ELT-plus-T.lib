@@ -1,0 +1,16 @@
+.MAX17222ELT-plus-T :1 ;Boost Switching Regulator IC Positive Adjustable 1.8V 1 Output 500mA (Switch) 6-WDFN
+MAX17222ELTT
+*STM IC
+*NGS
+*PLB 1="OUT" 2="LX" 3="GND" 4="SEL" 5="IN" 6="EN"
+*MXP 6
+*DFN MAX17222ELT-plus-T
+~!Mouser Part Number (700-MAX17222ELT+T)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Analog-Devices-Maxim-Integrated/MAX17222ELT%2bT?qs=u4fy%2FsgLU9PcvsZj65z6yw%3D%3D)
+~!Manufacturer_Name (Analog Devices)
+~!Manufacturer_Part_Number (MAX17222ELT+T)
+~!Link Datasheet (https://www.analog.com/MAX17222/datasheet)
+~!Height (0.8mm)
+~!3D_Model (MAX17222ELT+T)
+MAX17222ELT-plus-T
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 6.1!U 

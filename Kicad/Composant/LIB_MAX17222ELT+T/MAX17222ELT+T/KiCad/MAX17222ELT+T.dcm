@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MAX17222ELT+T
+D Boost Switching Regulator IC Positive Adjustable 1.8V 1 Output 500mA (Switch) 6-WDFN
+K
+F https://www.analog.com/MAX17222/datasheet
+$ENDCMP
+#
+#End Doc Library

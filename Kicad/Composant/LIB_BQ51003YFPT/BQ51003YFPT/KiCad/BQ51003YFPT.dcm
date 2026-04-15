@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP BQ51003YFPT
+D BQ51003 Wireless Power Receiver
+K
+F http://www.ti.com/lit/gpn/BQ51003
+$ENDCMP
+#
+#End Doc Library

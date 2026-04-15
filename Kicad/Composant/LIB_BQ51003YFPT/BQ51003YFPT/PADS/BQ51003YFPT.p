@@ -1,0 +1,45 @@
+*PADS-LIBRARY-PART-TYPES-V9*
+
+BQ51003YFPT BGA28C40P4X7_188X301X50 I ANA 7 1 0 0 0
+TIMESTAMP 2026.04.15.18.49.37
+"Mouser Part Number" 595-BQ51003YFPT
+"Mouser Price/Stock" https://www.mouser.co.uk/ProductDetail/Texas-Instruments/BQ51003YFPT?qs=QCUnHQQYO1rX6GZ4rUhwCg%3D%3D
+"Manufacturer_Name" Texas Instruments
+"Manufacturer_Part_Number" BQ51003YFPT
+"Description" BQ51003 Wireless Power Receiver
+"Datasheet Link" http://www.ti.com/lit/gpn/BQ51003
+"Geometry.Height" 0.5mm
+GATE 1 28 0
+BQ51003YFPT
+A1 0 U PGND_1
+A2 0 U PGND_2
+A3 0 U PGND_3
+A4 0 U PGND_4
+B1 0 U AC2_1
+B2 0 U AC2_2
+B3 0 U AC1_1
+B4 0 U AC1_2
+C1 0 U BOOT2
+C2 0 U RECT_1
+C3 0 U RECT_2
+C4 0 U BOOT1
+D1 0 U OUT_1
+D2 0 U OUT_2
+D3 0 U OUT_3
+D4 0 U OUT_4
+E1 0 U COMM2
+E2 0 U CLAMP2
+E3 0 U CLAMP1
+E4 0 U COMM1
+F1 0 U TS-CTRL
+F2 0 U FOD
+F3 0 U \AD-EN
+F4 0 U \CHG
+G1 0 U ILIM
+G2 0 U EN2
+G3 0 U EN1
+G4 0 U AD
+
+*END*
+*REMARK* SamacSys ECAD Model
+256205/1876124/2.50/28/3/Integrated Circuit

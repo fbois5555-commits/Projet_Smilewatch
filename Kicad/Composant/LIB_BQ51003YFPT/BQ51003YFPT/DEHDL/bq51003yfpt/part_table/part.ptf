@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'BQ51003YFPT'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Texas Instruments", "BQ51003YFPT" (!) = "", "BGA28C40P4X7_188X301X50", "BGA", "595-BQ51003YFPT", "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/BQ51003YFPT?qs=QCUnHQQYO1rX6GZ4rUhwCg%3D%3D", "BQ51003 Wireless Power Receiver", "http://www.ti.com/lit/gpn/BQ51003", "0.5 mm"
+END_PART
+
+END.

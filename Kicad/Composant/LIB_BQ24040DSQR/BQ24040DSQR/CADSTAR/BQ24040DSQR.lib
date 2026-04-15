@@ -1,0 +1,16 @@
+.BQ24040DSQR :1 ;1A Single-Input, Single Cell Li-Ion Battery Charger. Vovp=6.6V | Linear
+SON40P200X200X80-11N
+*STM IC
+*NGS
+*PLB 1="IN" 2="ISET" 3="VSS" 4="PRETERM" 5="'PG'" 6="NC" 7="ISET2" 8="'CHG'" 9="TS" 10="OUT" 11="EP"
+*MXP 11
+*DFN BQ24040DSQR
+~!Mouser Part Number (595-BQ24040DSQR)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Texas-Instruments/BQ24040DSQR?qs=c7TMWs5treTJYvOlVMq%252B%2Fw%3D%3D)
+~!Manufacturer_Name (Texas Instruments)
+~!Manufacturer_Part_Number (BQ24040DSQR)
+~!Link Datasheet (http://www.ti.com/lit/gpn/bq24040)
+~!Height (0.8mm)
+~!3D_Model (BQ24040DSQR)
+BQ24040DSQR
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 11.1!U 10.1!U 9.1!U 8.1!U 7.1!U 6.1!U 

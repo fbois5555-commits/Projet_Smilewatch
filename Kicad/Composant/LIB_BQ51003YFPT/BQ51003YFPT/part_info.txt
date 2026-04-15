@@ -1,0 +1,9 @@
+Manufacturer=Texas Instruments
+PartNumber=BQ51003YFPT
+PartCategory=Integrated Circuit
+PackageCategory=BGA
+PinCount=28
+Version=2.1
+Released=2020-09-17 13:06:56
+Downloaded=2026-04-15 18:49:37
+3D=Y

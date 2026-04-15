@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'BQ24040DSQR'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Texas Instruments", "BQ24040DSQR" (!) = "", "SON40P200X200X80-11N", "Small Outline No-lead", "595-BQ24040DSQR", "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/BQ24040DSQR?qs=c7TMWs5treTJYvOlVMq%252B%2Fw%3D%3D", "1A Single-Input, Single Cell Li-Ion Battery Charger. Vovp=6.6V | Linear", "http://www.ti.com/lit/gpn/bq24040", "0.8 mm"
+END_PART
+
+END.

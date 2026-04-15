@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "MAX17222ELT+T"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2024-11-06-03:56:57)
+    (mountForm default
+        (footprintRef "MAX17222ELTT")
+        (spec "System")
+    )
+)

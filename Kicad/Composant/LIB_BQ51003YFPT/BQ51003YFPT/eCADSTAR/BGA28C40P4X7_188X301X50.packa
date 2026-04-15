@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "BQ51003YFPT"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2020-07-04-11:01:49)
+    (mountForm default
+        (footprintRef "BGA28C40P4X7_188X301X50")
+        (spec "System")
+    )
+)

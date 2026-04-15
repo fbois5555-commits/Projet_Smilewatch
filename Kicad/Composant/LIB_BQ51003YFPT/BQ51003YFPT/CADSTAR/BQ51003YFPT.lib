@@ -1,0 +1,17 @@
+.BQ51003YFPT :1 ;BQ51003 Wireless Power Receiver
+BGA28C40P4X7_188X301X50
+*STM IC
+*NGS
+*PNM 1=A1 2=A2 3=A3 4=A4 5=B1 6=B2 7=B3 8=B4 9=C1 10=C2 11=C3 12=C4 13=D1 14=D2 15=D3 16=D4 17=E1 18=E2 19=E3 20=E4 21=F1 22=F2 23=F3 24=F4 25=G1 26=G2 27=G3 28=G4
+*PLB 1="PGND_1" 2="PGND_2" 3="PGND_3" 4="PGND_4" 5="AC2_1" 6="AC2_2" 7="AC1_1" 8="AC1_2" 9="BOOT2" 10="RECT_1" 11="RECT_2" 12="BOOT1" 13="OUT_1" 14="OUT_2" 15="OUT_3" 16="OUT_4" 17="COMM2" 18="CLAMP2" 19="CLAMP1" 20="COMM1" 21="TS-CTRL" 22="FOD" 23="'AD-EN'" 24="'CHG'" 25="ILIM" 26="EN2" 27="EN1" 28="AD"
+*MXP 28
+*DFN BQ51003YFPT
+~!Mouser Part Number (595-BQ51003YFPT)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Texas-Instruments/BQ51003YFPT?qs=QCUnHQQYO1rX6GZ4rUhwCg%3D%3D)
+~!Manufacturer_Name (Texas Instruments)
+~!Manufacturer_Part_Number (BQ51003YFPT)
+~!Link Datasheet (http://www.ti.com/lit/gpn/BQ51003)
+~!Height (0.5mm)
+~!3D_Model (BQ51003YFPT)
+BQ51003YFPT
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 6.1!U 7.1!U 8.1!U 9.1!U 10.1!U 11.1!U 12.1!U 13.1!U 14.1!U 15.1!U 16.1!U 17.1!U 18.1!U 19.1!U 20.1!U 21.1!U 22.1!U 23.1!U 24.1!U 25.1!U 26.1!U 27.1!U 28.1!U 
