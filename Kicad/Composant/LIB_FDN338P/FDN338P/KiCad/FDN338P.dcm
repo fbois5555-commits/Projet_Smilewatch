@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP FDN338P
+D Fast switching speed; RDS(ON) = 155 m @ VGS = 2.5 V; RDS(ON)= 115 m @ VGS = 4.5 V ; SuperSOT -3 provides low RDS(ON) and 30% higherpower handling capability than SOT23 in the samefootprint; High performance trench technology for extremely low RDS(ON); 1.6 A, 20 V
+K
+F https://www.onsemi.com/pub/Collateral/FDN338P-D.pdf
+$ENDCMP
+#
+#End Doc Library

@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'VEML6030'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Vishay", "VEML6030" (!) = "", "VEML6030", "Other", "78-VEML6030", "https://www.mouser.co.uk/ProductDetail/Vishay-Semiconductors/VEML6030?qs=oeTp6q%252Bm7GMZCCnCKRrv4g%3D%3D", "VEML6030 Vishay, Ambient Light Sensor, Ambient Light to Digital Data I2C 6-Pin", "https://www.vishay.com/docs/84366/veml6030.pdf", "0.87 mm"
+END_PART
+
+END.

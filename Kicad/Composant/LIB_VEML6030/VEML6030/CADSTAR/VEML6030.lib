@@ -1,0 +1,16 @@
+.VEML6030 :1 ;VEML6030 Vishay, Ambient Light Sensor, Ambient Light to Digital Data I2C 6-Pin
+VEML6030
+*STM IC
+*NGS
+*PLB 1="GND" 2="SDA" 3="INT" 4="ADD" 5="SCL" 6="VDD"
+*MXP 6
+*DFN VEML6030
+~!Mouser Part Number (78-VEML6030)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Vishay-Semiconductors/VEML6030?qs=oeTp6q%252Bm7GMZCCnCKRrv4g%3D%3D)
+~!Manufacturer_Name (Vishay)
+~!Manufacturer_Part_Number (VEML6030)
+~!Link Datasheet (https://www.vishay.com/docs/84366/veml6030.pdf)
+~!Height (0.87mm)
+~!3D_Model (VEML6030)
+VEML6030
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 6.1!U 

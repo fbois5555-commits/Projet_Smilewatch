@@ -1,0 +1,16 @@
+.FDN338P :1 ;Fast switching speed; RDS(ON) = 155 m @ VGS = 2.5 V; RDS(ON)= 115 m @ VGS = 4.5 V ; SuperSOT -3 provides low RDS(ON) and 30% higherpower handling capability than SOT23 in the samefootprint; High performance trench technology for extremely low RDS(ON); 1.6 A, 20 V
+SOT95P237X112-3N
+*STM Q
+*NGS
+*PLB 1="G" 2="S" 3="D"
+*MXP 3
+*DFN FDN338P
+~!Mouser Part Number (512-FDN338P)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/onsemi-Fairchild/FDN338P?qs=HK%252BeIG1iaag%252B6528k3ktAg%3D%3D)
+~!Manufacturer_Name (onsemi)
+~!Manufacturer_Part_Number (FDN338P)
+~!Link Datasheet (https://www.onsemi.com/pub/Collateral/FDN338P-D.pdf)
+~!Height (1.12mm)
+~!3D_Model (FDN338P)
+FDN338P
+1.1!U 2.1!U 3.1!U 

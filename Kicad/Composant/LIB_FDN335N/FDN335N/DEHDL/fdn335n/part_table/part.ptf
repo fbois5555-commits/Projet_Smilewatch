@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'FDN335N'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "onsemi", "FDN335N" (!) = "", "SOT95P251X112-3N", "SOT23 (3-Pin)", "512-FDN335N", "https://www.mouser.co.uk/ProductDetail/onsemi-Fairchild/FDN335N?qs=mdiO5HdF0KhZ%2F6bKTj3K6A%3D%3D", "High power and current handling capability.; 1.7 A, 20 V; Low gate charge (3.5nC typical).; High performance trench technology for extremely lowRDS(ON).; RDS(on) = 0.07  @ VGS = 4.5 V; RDS(on) = 0.100  @ VGS = 2.5 V", "https://www.onsemi.com/pub/Collateral/FDN335N-D.PDF", "1.12 mm"
+END_PART
+
+END.

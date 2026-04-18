@@ -1,0 +1,152 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "DRV2605LYZFR"
+   (description "Haptic Driver for ERM and LRA with Built-In Library and Smart Loop Architecture")
+   (family "ANA")
+   (package "BGA9C50P3X3_144X144X62")
+   (attribute "Datasheet Link" "http://www.ti.com/lit/gpn/drv2605l")
+   (attribute "Geometry.Height" "0.625mm")
+   (attribute "Mouser Part Number" "595-DRV2605LYZFR")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/DRV2605LYZFR?qs=7z%252BmIopC6%2FIPohzEGVWenA%3D%3D")
+   (attribute "Manufacturer_Name" "Texas Instruments")
+   (attribute "Manufacturer_Part_Number" "DRV2605LYZFR")
+   (gate
+    (symbol "DRV2605LYZFR")
+    (pin "EN" A1 PS)
+    (pin "REG" A2 PS)
+    (pin "OUT+" A3 PS)
+    (pin "IN/TRIG" B1 PS)
+    (pin "SDA" B2 PS)
+    (pin "GND" B3 PS)
+    (pin "SCL" C1 PS)
+    (pin "VDD" C2 PS)
+    (pin "OUT-" C3 PS)
+   )
+  )
+  (symbol "DRV2605LYZFR"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 1100 100) (pt 1100 -500) (pt 200 -500) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -200) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -300) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -400) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1300 0) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1300 -100) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1300 -200) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1300 -300) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "BGA9C50P3X3_144X144X62"
+   (units MM)
+   (layer OCCA
+    (graphic
+     (stroke 0.05)
+     (path
+      (closed true)
+      (pt -1.735 1.735)
+      (pt 1.735 1.735)
+      (pt 1.735 -1.735)
+      (pt -1.735 -1.735)
+      (pt -1.735 1.735))))
+   (layer TASM
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -0.72 0.72)
+      (pt 0.72 0.72)
+      (pt 0.72 -0.72)
+      (pt -0.72 -0.72)
+      (pt -0.72 0.72))))
+   (layer TASM
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed false)
+      (pt -0.72 0.352)
+      (pt -0.352 0.72))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt -0.5 0.995)
+      (pt 0.995 0.995)
+      (pt 0.995 -0.995)
+      (pt -0.995 -0.995)
+      (pt -0.995 0.5)
+      (pt -0.5 0.995))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (circle
+      (pt -0.895 0.995) (pt -1.095 0.995)
+     )
+    )
+   )
+   (leg A1 (pt -0.5 0.5) (padstack 0))
+   (leg A2 (pt 0 0.5) (padstack 0))
+   (leg A3 (pt 0.5 0.5) (padstack 0))
+   (leg B1 (pt -0.5 0) (padstack 0))
+   (leg B2 (pt 0 0) (padstack 0))
+   (leg B3 (pt 0.5 0) (padstack 0))
+   (leg C1 (pt -0.5 -0.5) (padstack 0))
+   (leg C2 (pt 0 -0.5) (padstack 0))
+   (leg C3 (pt 0.5 -0.5) (padstack 0))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (round 0.29))
+   )
+   (model "DRV2605LYZFR.stp"
+    (euler 0 0 0)
+    (offset 0 0 0)
+   )
+  )
+ )
+)

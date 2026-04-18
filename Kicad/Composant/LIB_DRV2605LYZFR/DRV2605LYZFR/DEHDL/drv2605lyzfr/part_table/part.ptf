@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'DRV2605LYZFR'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Texas Instruments", "DRV2605LYZFR" (!) = "", "BGA9C50P3X3_144X144X62", "BGA", "595-DRV2605LYZFR", "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/DRV2605LYZFR?qs=7z%252BmIopC6%2FIPohzEGVWenA%3D%3D", "Haptic Driver for ERM and LRA with Built-In Library and Smart Loop Architecture", "http://www.ti.com/lit/gpn/drv2605l", "0.625 mm"
+END_PART
+
+END.

@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'FDN338P'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "onsemi", "FDN338P" (!) = "", "SOT95P237X112-3N", "SOT23 (3-Pin)", "512-FDN338P", "https://www.mouser.co.uk/ProductDetail/onsemi-Fairchild/FDN338P?qs=HK%252BeIG1iaag%252B6528k3ktAg%3D%3D", "Fast switching speed; RDS(ON) = 155 m @ VGS = 2.5 V; RDS(ON)= 115 m @ VGS = 4.5 V ; SuperSOT -3 provides low RDS(ON) and 30% higherpower handling capability than SOT23 in the samefootprint; High performance trench technology for extremely low RDS(ON); 1.6 A, 20 V", "https://www.onsemi.com/pub/Collateral/FDN338P-D.pdf", "1.12 mm"
+END_PART
+
+END.

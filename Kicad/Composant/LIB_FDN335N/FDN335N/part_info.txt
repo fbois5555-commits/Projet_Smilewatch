@@ -1,0 +1,9 @@
+Manufacturer=onsemi
+PartNumber=FDN335N
+PartCategory=MOSFET (N-Channel)
+PackageCategory=SOT23 (3-Pin)
+PinCount=3
+Version=5.1
+Released=2015-04-13 16:43:17
+Downloaded=2026-04-18 15:21:33
+3D=Y

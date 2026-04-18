@@ -1,0 +1,9 @@
+Manufacturer=Vishay
+PartNumber=VEML6030
+PartCategory=Integrated Circuit
+PackageCategory=Other
+PinCount=6
+Version=1.1
+Released=2019-06-06 12:41:51
+Downloaded=2026-04-16 10:18:58
+3D=Y

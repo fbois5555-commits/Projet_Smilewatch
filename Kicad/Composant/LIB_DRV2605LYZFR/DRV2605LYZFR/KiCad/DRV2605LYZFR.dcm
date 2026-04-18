@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP DRV2605LYZFR
+D Haptic Driver for ERM and LRA with Built-In Library and Smart Loop Architecture
+K
+F http://www.ti.com/lit/gpn/drv2605l
+$ENDCMP
+#
+#End Doc Library

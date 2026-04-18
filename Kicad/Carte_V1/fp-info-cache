@@ -1,4 +1,18 @@
-26757756190869681
+26773743568153573
+AP2127k-1.8TRG1
+SOT95P282X145-5N
+SOT-23-5_2024-1
+Integrated Circuit
+0
+5
+5
+AP2127k-3.3TRG1
+SOT95P282X145-5N
+SOT-23-5_2024
+Integrated Circuit
+0
+5
+5
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -59373,6 +59387,13 @@ ceramic
 0
 3
 3
+DRV2605LYZFR
+BGA9C50P3X3_144X144X62
+YZF (S-XBGA-N9)
+Integrated Circuit
+0
+9
+9
 Diode_SMD
 D_0201_0603Metric
 Diode SMD 0201 (0603 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: https://www.vishay.com/docs/20052/crcw0201e3.pdf), generated with kicad-footprint-generator
@@ -61403,6 +61424,20 @@ Switch
 0
 4
 4
+FDN335N
+SOT95P251X112-3N
+SuperSOT-3 (FS PKG Code 32)
+MOSFET (N-Channel)
+0
+3
+3
+FDN338P
+SOT95P237X112-3N
+SOT−23, 3 Lead CASE 527AG−01 ISSUE O
+MOSFET (P-Channel)
+0
+3
+3
 Ferrite_THT
 LairdTech_28C0236-0JW-10
 Ferrite, vertical, LairdTech 28C0236-0JW-10, https://assets.lairdtech.com/home/brandworld/files/28C0236-0JW-10.pdf, JW Miller core https://www.bourns.com/products/magnetic-products/j.w.-miller-through-hole-ferrite-beads-emi-filters
@@ -70615,6 +70650,34 @@ Yellow 5381 Series LED
 0
 2
 2
+LIB_VEML6030
+VEML6030
+VEML6030-3
+Integrated Circuit
+0
+6
+6
+LSM6DSOXTR
+LGA-14_1
+LGA-14_1
+Accelerometer
+0
+14
+14
+MAX17222ELT+T
+MAX17222ELTT
+MAX17222ELT+T-1
+Integrated Circuit
+0
+6
+6
+MAX30101EEFD+T
+14-LEAD-OESIP
+14-Lead-OESIP
+Integrated Circuit
+0
+14
+14
 MagIC_THT_Wurth
 U_Wurth_MagIC-FDSM_17301xx35
 MagI³C-FDSM Fixed Step Down Regulator Module,https://www.we-online.com/components/products/datasheet/173010335.pdf

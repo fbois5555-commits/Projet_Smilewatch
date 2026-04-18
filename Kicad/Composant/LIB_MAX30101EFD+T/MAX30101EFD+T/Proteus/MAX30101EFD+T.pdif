@@ -1,0 +1,167 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "MAX30101EFD+T"
+   (description "Biometric Sensors Integrated Optical Sensor")
+   (family "ANA")
+   (package "14-LEAD-OESIP")
+   (attribute "Datasheet Link" "https://datasheets.maximintegrated.com/en/ds/MAX30101.pdf")
+   (attribute "Mouser Part Number" "700-MAX30101EFD+T")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Analog-Devices-Maxim-Integrated/MAX30101EFD%2bT?qs=sITqEBh490kEm6CNcTH1tQ%3D%3D")
+   (attribute "Manufacturer_Name" "Analog Devices")
+   (attribute "Manufacturer_Part_Number" "MAX30101EFD+T")
+   (gate
+    (symbol "MAX30101EFD+T")
+    (pin "N.C._1" 1 PS)
+    (pin "SCL" 2 PS)
+    (pin "SDA" 3 PS)
+    (pin "PGND" 4 PS)
+    (pin "N.C._2" 5 PS)
+    (pin "N.C._3" 6 PS)
+    (pin "N.C._4" 7 PS)
+    (pin "N.C._5" 8 PS)
+    (pin "VLED+_1" 9 PS)
+    (pin "VLED+_2" 10 PS)
+    (pin "VDD" 11 PS)
+    (pin "GND" 12 PS)
+    (pin "$INT$" 13 PS)
+    (pin "N.C._6" 14 PS)
+   )
+  )
+  (symbol "MAX30101EFD+T"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 1200 100) (pt 1200 -700) (pt 200 -700) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -200) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -300) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -400) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -500) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -600) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1400 -600) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1400 -500) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1400 -400) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1400 -300) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1400 -200) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1400 -100) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1400 0) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "14-LEAD-OESIP"
+   (units MM)
+   (layer TASM
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed true)
+      (pt -1.65 2.8)
+      (pt 1.65 2.8)
+      (pt 1.65 -2.8)
+      (pt -1.65 -2.8)
+      (pt -1.65 2.8))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt -1.65 2.8)
+      (pt 1.65 2.8))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt 1.65 -2.8)
+      (pt -1.65 -2.8))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (circle
+      (pt -2.27867 2.603) (pt -2.15933 2.603)
+     )
+    )
+   )
+   (leg 1 (pt -1.2 2.4) (padstack 0))
+   (leg 2 (pt -1.2 1.6) (padstack 0))
+   (leg 3 (pt -1.2 0.8) (padstack 0))
+   (leg 4 (pt -1.2 0) (padstack 0))
+   (leg 5 (pt -1.2 -0.8) (padstack 0))
+   (leg 6 (pt -1.2 -1.6) (padstack 0))
+   (leg 7 (pt -1.2 -2.4) (padstack 0))
+   (leg 8 (pt 1.2 -2.4) (padstack 0))
+   (leg 9 (pt 1.2 -1.6) (padstack 0))
+   (leg 10 (pt 1.2 -0.8) (padstack 0))
+   (leg 11 (pt 1.2 0) (padstack 0))
+   (leg 12 (pt 1.2 0.8) (padstack 0))
+   (leg 13 (pt 1.2 1.6) (padstack 0))
+   (leg 14 (pt 1.2 2.4) (padstack 0))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (rectf 0.35 0.75 0 0 0))
+   )
+   (model "MAX30101EFD+T.stp"
+    (euler 90 0 0)
+    (offset 0 0 0.23000000417232513)
+   )
+  )
+ )
+)
