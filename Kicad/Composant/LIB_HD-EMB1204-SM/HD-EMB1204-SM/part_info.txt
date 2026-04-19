@@ -1,0 +1,9 @@
+Manufacturer=PUI Audio
+PartNumber=HD-EMB1204-SM
+PartCategory=Motor
+PackageCategory=Other
+PinCount=6
+Version=1.1
+Released=2024-11-13 10:45:51
+Downloaded=2026-04-19 22:10:26
+3D=Y

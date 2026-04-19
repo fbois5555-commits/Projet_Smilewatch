@@ -1,0 +1,17 @@
+.SKSLLAE010 :1 ;Switch Tactile N.O. SPST Button Gull Wing 0.05A 12VDC 1.6N SMD Automotive T/R
+SKSLLAE010
+*STM S
+*NGS
+*PNM 1=1 2=2 3=MP1 4=MP2
+*PLB 1="NO_1" 2="NO_2" 3="MP1" 4="MP2"
+*MXP 4
+*DFN SKSLLAE010
+~!Mouser Part Number (688-SKSLLAE010)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Alps-Alpine/SKSLLAE010?qs=9kmVzdp4bk0xNY%252Br3ZkAyw%3D%3D)
+~!Manufacturer_Name (ALPS Electric)
+~!Manufacturer_Part_Number (SKSLLAE010)
+~!Link Datasheet (https://tech.alpsalpine.com/prod/e/html/tact/surfacemount/sksl/sksllae010.html)
+~!Height (2.2mm)
+~!3D_Model (SKSLLAE010)
+SKSLLAE010
+1.1!U 2.1!U 3.1!U 4.1!U 

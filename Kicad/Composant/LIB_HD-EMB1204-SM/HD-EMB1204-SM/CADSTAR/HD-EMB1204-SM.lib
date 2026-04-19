@@ -1,0 +1,16 @@
+.HD-EMB1204-SM :1 ;12X4MM ERM HAPTIC 12000RPM
+HDEMB1204SM
+*STM M
+*NGS
+*PLB 1="+" 2="-" 3="3" 4="4" 5="5" 6="6"
+*MXP 6
+*DFN HD-EMB1204-SM
+~!Mouser Part Number (665-HD-EMB1204-SM)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/PUI-Audio/HD-EMB1204-SM?qs=9vOqFld9vZVRpcI8oM%2FXRA%3D%3D)
+~!Manufacturer_Name (PUI Audio)
+~!Manufacturer_Part_Number (HD-EMB1204-SM)
+~!Link Datasheet (https://api.puiaudio.com/filename/HD-EMB1204-SM.pdf)
+~!Height (3.6mm)
+~!3D_Model (HD-EMB1204-SM)
+HD-EMB1204-SM
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 6.1!U 

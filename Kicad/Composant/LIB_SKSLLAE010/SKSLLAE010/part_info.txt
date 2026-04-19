@@ -1,0 +1,9 @@
+Manufacturer=ALPS Electric
+PartNumber=SKSLLAE010
+PartCategory=Switch
+PackageCategory=Other
+PinCount=4
+Version=1.2
+Released=2021-06-02 06:39:25
+Downloaded=2026-04-18 14:04:38
+3D=Y

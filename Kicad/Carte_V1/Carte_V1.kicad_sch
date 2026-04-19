@@ -5,284 +5,6 @@
 	(uuid "e4efabaa-8f8a-45c1-9ca2-024a812f83b7")
 	(paper "A4")
 	(lib_symbols
-		(symbol "DRV2605LYZFR:DRV2605LYZFR"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "IC"
-				(at 29.21 7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Value" "DRV2605LYZFR"
-				(at 29.21 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Footprint" "BGA9C50P3X3_144X144X62"
-				(at 29.21 -94.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "http://www.ti.com/lit/gpn/drv2605l"
-				(at 29.21 -194.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Description" "Haptic Driver for ERM and LRA with Built-In Library and Smart Loop Architecture"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Height" "0.625"
-				(at 29.21 -394.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Mouser Part Number" "595-DRV2605LYZFR"
-				(at 29.21 -494.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/DRV2605LYZFR?qs=7z%252BmIopC6%2FIPohzEGVWenA%3D%3D"
-				(at 29.21 -594.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Name" "Texas Instruments"
-				(at 29.21 -694.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Part_Number" "DRV2605LYZFR"
-				(at 29.21 -794.92 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-					(hide yes)
-				)
-			)
-			(symbol "DRV2605LYZFR_1_1"
-				(rectangle
-					(start 5.08 2.54)
-					(end 27.94 -12.7)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at 0 0 0)
-					(length 5.08)
-					(name "EN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 0)
-					(length 5.08)
-					(name "REG"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -5.08 0)
-					(length 5.08)
-					(name "OUT+"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 0)
-					(length 5.08)
-					(name "IN/TRIG"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -10.16 0)
-					(length 5.08)
-					(name "SDA"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 33.02 0 180)
-					(length 5.08)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 33.02 -2.54 180)
-					(length 5.08)
-					(name "SCL"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "C1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 33.02 -5.08 180)
-					(length 5.08)
-					(name "VDD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "C2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 33.02 -7.62 180)
-					(length 5.08)
-					(name "OUT-"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "C3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Diode:BAT54S"
 			(pin_names
 				(offset 0)
@@ -607,147 +329,6 @@
 		)
 	)
 	(symbol
-		(lib_id "DRV2605LYZFR:DRV2605LYZFR")
-		(at 129.54 111.76 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5734127e-09c4-4335-8515-2d9c1332bda5")
-		(property "Reference" "IC8"
-			(at 146.05 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "DRV2605LYZFR"
-			(at 146.05 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "DRV2605LYZFR:BGA9C50P3X3_144X144X62"
-			(at 158.75 206.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.ti.com/lit/gpn/drv2605l"
-			(at 158.75 306.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Description" "Haptic Driver for ERM and LRA with Built-In Library and Smart Loop Architecture"
-			(at 129.54 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Height" "0.625"
-			(at 158.75 506.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "595-DRV2605LYZFR"
-			(at 158.75 606.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/DRV2605LYZFR?qs=7z%252BmIopC6%2FIPohzEGVWenA%3D%3D"
-			(at 158.75 706.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "Texas Instruments"
-			(at 158.75 806.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "DRV2605LYZFR"
-			(at 158.75 906.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(pin "B2"
-			(uuid "a9299f23-b162-4233-8bd4-1df744b3a499")
-		)
-		(pin "A2"
-			(uuid "12f92c2e-09d7-4bc0-99d2-a1bc5d721b4b")
-		)
-		(pin "A3"
-			(uuid "0675c1e7-a5b5-471e-a704-e0b6f42c722b")
-		)
-		(pin "B1"
-			(uuid "cbfea54d-a1e5-4ce2-89c5-4e923e6e4e61")
-		)
-		(pin "A1"
-			(uuid "a51eb3be-9543-4975-bce4-cec21f115cd6")
-		)
-		(pin "B3"
-			(uuid "579e972a-d776-4857-9573-8df5bca88b72")
-		)
-		(pin "C1"
-			(uuid "b6c35345-40b5-4e7c-9b21-b2496297416c")
-		)
-		(pin "C3"
-			(uuid "4c907b3d-9329-46cf-b93e-8cfa473baf5d")
-		)
-		(pin "C2"
-			(uuid "324d5bd0-f453-45df-befe-49388424ccd7")
-		)
-		(instances
-			(project "Carte_V1"
-				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7"
-					(reference "IC8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Diode:BAT54S")
 		(at 85.09 101.6 0)
 		(unit 1)
@@ -820,7 +401,7 @@
 		)
 	)
 	(sheet
-		(at 99.06 45.72)
+		(at 115.57 41.91)
 		(size 34.29 24.13)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -836,7 +417,7 @@
 		)
 		(uuid "3752ffc6-cb5b-455d-84da-35df72ee3e67")
 		(property "Sheetname" "Capteurs"
-			(at 99.06 45.0084 0)
+			(at 115.57 41.1984 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -845,7 +426,99 @@
 			)
 		)
 		(property "Sheetfile" "Capteurs.kicad_sch"
-			(at 99.06 70.4346 0)
+			(at 115.57 66.6246 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "ALS_INT" input
+			(at 149.86 49.53 0)
+			(uuid "0dbddf37-885d-4195-9796-4d036cec6e56")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "HR_INT" input
+			(at 149.86 54.61 0)
+			(uuid "bbee41de-8fde-4796-ab86-71df89e435c9")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "TEMP_ALERT" input
+			(at 149.86 59.69 0)
+			(uuid "628aa82f-829d-46a6-9cdb-03783556403f")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "I2C1_HR_SCL" input
+			(at 115.57 49.53 180)
+			(uuid "3a23ad25-6278-486d-85f4-9995b6f14a5b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "I2C1_HR_SDA" input
+			(at 115.57 59.69 180)
+			(uuid "9e58e0ed-dcd8-4fbc-a006-bde535fea2a9")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "Carte_V1"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 162.56 41.91)
+		(size 26.67 30.48)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "5e498beb-3919-4416-a5c9-a753f9598750")
+		(property "Sheetname" "Moteur"
+			(at 162.56 41.1984 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Moteur.kicad_sch"
+			(at 162.56 72.9746 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -856,7 +529,7 @@
 		(instances
 			(project "Carte_V1"
 				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7"
-					(page "4")
+					(page "5")
 				)
 			)
 		)
@@ -895,6 +568,36 @@
 				(justify left top)
 			)
 		)
+		(pin "CHG" input
+			(at 85.09 45.72 0)
+			(uuid "e1d4c63a-9e7f-4196-a86c-9214689231e1")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "EN_5V_HR" input
+			(at 85.09 53.34 0)
+			(uuid "e43f93e7-29d0-463a-b821-6517b9bb28ba")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "PG" input
+			(at 85.09 49.53 0)
+			(uuid "a1359c9b-1702-4049-9a25-bcc576ce21a8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 		(instances
 			(project "Carte_V1"
 				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7"
@@ -904,7 +607,7 @@
 		)
 	)
 	(sheet
-		(at 196.85 81.28)
+		(at 215.9 68.58)
 		(size 50.8 38.1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -920,7 +623,7 @@
 		)
 		(uuid "f8ffc91d-02db-40ce-81ee-06fb41b9d4ee")
 		(property "Sheetname" "MCU"
-			(at 196.85 80.5684 0)
+			(at 215.9 67.8684 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -929,12 +632,32 @@
 			)
 		)
 		(property "Sheetfile" "MCU.kicad_sch"
-			(at 196.85 119.9646 0)
+			(at 215.9 107.2646 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
+			)
+		)
+		(pin "I2C1_HR_SCL" input
+			(at 215.9 81.28 180)
+			(uuid "fb63e61a-8035-4869-b5a8-46297986d721")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "I2C1_HR_SDA" input
+			(at 215.9 90.17 180)
+			(uuid "a0628654-ce43-4dde-87ea-8eae78a27af2")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 			)
 		)
 		(instances

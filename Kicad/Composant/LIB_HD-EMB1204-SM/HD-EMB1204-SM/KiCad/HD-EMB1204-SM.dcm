@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP HD-EMB1204-SM
+D 12X4MM ERM HAPTIC 12000RPM
+K
+F https://api.puiaudio.com/filename/HD-EMB1204-SM.pdf
+$ENDCMP
+#
+#End Doc Library

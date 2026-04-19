@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'SKSLLAE010'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "ALPS Electric", "SKSLLAE010" (!) = "", "SKSLLAE010", "Other", "688-SKSLLAE010", "https://www.mouser.co.uk/ProductDetail/Alps-Alpine/SKSLLAE010?qs=9kmVzdp4bk0xNY%252Br3ZkAyw%3D%3D", "Switch Tactile N.O. SPST Button Gull Wing 0.05A 12VDC 1.6N SMD Automotive T/R", "https://tech.alpsalpine.com/prod/e/html/tact/surfacemount/sksl/sksllae010.html", "2.2 mm"
+END_PART
+
+END.
