@@ -1,4 +1,4 @@
-26780850032650011
+26784403229713359
 AP2127k-1.8TRG1
 SOT95P282X145-5N
 SOT-23-5_2024-1
@@ -70672,6 +70672,13 @@ Yellow 5381 Series LED
 2
 2
 LIB_VEML6030
+ConnectorMicromatch-14
+ConnectorMicromatch-14
+
+0
+14
+14
+LIB_VEML6030
 VEML6030
 VEML6030-3
 Integrated Circuit
@@ -97439,6 +97446,13 @@ rotary encoder illuminated switch vertical
 0
 9
 8
+SKSLLAE010
+SKSLLAE010
+SKSLLAE010-3
+Switch
+0
+4
+4
 Sensor
 ASAIR_AM2302_P2.54mm_Lead2.75mm_TabDown
 Temperature and humidity module, http://akizukidenshi.com/download/ds/aosong/AM2302.pdf

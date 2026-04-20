@@ -1,0 +1,9 @@
+Manufacturer=Kyocera AVX
+PartNumber=046841015100846+
+PartCategory=Connector
+PackageCategory=Other
+PinCount=15
+Version=1.2
+Released=2020-02-14 11:22:53
+Downloaded=2026-04-20 08:50:23
+3D=Y

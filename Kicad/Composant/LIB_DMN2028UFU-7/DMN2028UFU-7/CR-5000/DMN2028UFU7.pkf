@@ -1,0 +1,10 @@
+(unit MM)
+
+(package "DMN2028UFU7"
+    (type UNDEF)
+    (uver 2)
+    (mountForm default
+        (footprintRef "DMN2028UFU7")
+        (spec "default")
+    )
+)

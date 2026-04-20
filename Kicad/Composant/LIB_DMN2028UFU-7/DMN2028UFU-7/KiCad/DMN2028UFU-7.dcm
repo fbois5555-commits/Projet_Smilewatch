@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP DMN2028UFU-7
+D MOSFET N-Ch Enh Mode FET 20Vdss 10Vgss 40A
+K
+F https://www.diodes.com/assets/Datasheets/DMN2028UFU.pdf
+$ENDCMP
+#
+#End Doc Library

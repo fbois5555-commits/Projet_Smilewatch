@@ -1,0 +1,16 @@
+.DMN2028UFU-7 :1 ;MOSFET N-Ch Enh Mode FET 20Vdss 10Vgss 40A
+DMN2028UFU7
+*STM Q
+*NGS
+*PLB 1="S1" 3="G1" 4="G2" 5="S2" 7="D1/D2"
+*MXP 5
+*DFN DMN2028UFU-7
+~!Mouser Part Number (621-DMN2028UFU-7)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/DMN2028UFU-7?qs=MNIFWdyJgboGsRP6KB2Mmw%3D%3D)
+~!Manufacturer_Name (Diodes Incorporated)
+~!Manufacturer_Part_Number (DMN2028UFU-7)
+~!Link Datasheet (https://www.diodes.com/assets/Datasheets/DMN2028UFU.pdf)
+~!Height (0.65mm)
+~!3D_Model (DMN2028UFU-7)
+DMN2028UFU-7
+1.1!U 3.1!U 4.1!U 5.1!U 7.1!U 

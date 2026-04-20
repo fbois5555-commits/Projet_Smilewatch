@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART '046841015100846_'
+CLASS = IO
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Kyocera AVX", "046841015100846+" (!) = "", "046841015100846", "Other", "346-046841015100846+", "https://www.mouser.co.uk/ProductDetail/Kyocera-Electronic-Components/046841015100846%2b?qs=PzGy0jfpSMuyQjeU3eGyKw%3D%3D", "FFC & FPC Connectors", "https://www.mouser.de/datasheet/2/909/6841-1381151.pdf", "3.6 mm"
+END_PART
+
+END.

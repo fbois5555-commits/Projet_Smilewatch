@@ -1,0 +1,26 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model DMN2028UFU-7
+#/1223223/1876124/2.50/5/3/MOSFET (N-Channel)
+DEF DMN2028UFU-7 Q 0 30 Y Y 1 F N
+F0 "Q" 950 300 50 H V L CNN
+F1 "DMN2028UFU-7" 950 200 50 H V L CNN
+F2 "DMN2028UFU7" 950 100 50 H I L CNN
+F3 "https://www.diodes.com/assets/Datasheets/DMN2028UFU.pdf" 950 0 50 H I L CNN
+F4 "MOSFET N-Ch Enh Mode FET 20Vdss 10Vgss 40A" 950 -100 50 H I L CNN "Description"
+F5 "0.65" 950 -200 50 H I L CNN "Height"
+F6 "621-DMN2028UFU-7" 950 -300 50 H I L CNN "Mouser Part Number"
+F7 "https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/DMN2028UFU-7?qs=MNIFWdyJgboGsRP6KB2Mmw%3D%3D" 950 -400 50 H I L CNN "Mouser Price/Stock"
+F8 "Diodes Incorporated" 950 -500 50 H I L CNN "Manufacturer_Name"
+F9 "DMN2028UFU-7" 950 -600 50 H I L CNN "Manufacturer_Part_Number"
+DRAW
+X S1 1 0 0 200 R 50 50 0 0 P
+X G1 3 0 -100 200 R 50 50 0 0 P
+X G2 4 0 -200 200 R 50 50 0 0 P
+X S2 5 1100 0 200 L 50 50 0 0 P
+X D1/D2 7 1100 -100 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 900 100 900 -300 200 -300 200 100 N
+ENDDRAW
+ENDDEF
+#
+#End Library

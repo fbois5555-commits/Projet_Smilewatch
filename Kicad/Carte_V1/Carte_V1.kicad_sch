@@ -4,402 +4,7 @@
 	(generator_version "9.0")
 	(uuid "e4efabaa-8f8a-45c1-9ca2-024a812f83b7")
 	(paper "A4")
-	(lib_symbols
-		(symbol "Diode:BAT54S"
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "D"
-				(at 2.54 -5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "BAT54S"
-				(at -6.35 3.175 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-				(at 1.905 3.175 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://www.diodes.com/assets/Datasheets/ds11005.pdf"
-				(at -3.048 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Vr 30V, If 200mA, Dual schottky barrier diode, in series, SOT-323"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "schottky diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "SOT?23*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "BAT54S_0_1"
-				(polyline
-					(pts
-						(xy -4.445 1.27) (xy -4.445 -1.27) (xy -2.54 0) (xy -4.445 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -3.81 0) (xy -1.27 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -3.175 -1.27) (xy -3.175 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 1.27) (xy -1.905 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 -1.27) (xy -3.175 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 -1.27) (xy -2.54 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.905 1.27) (xy -1.905 1.016)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.905 0) (xy 1.905 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 0 0)
-					(radius 0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 0) (xy 3.81 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.905 1.27) (xy 1.905 -1.27) (xy 3.81 0) (xy 1.905 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.175 -1.27) (xy 3.175 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.81 1.27) (xy 4.445 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.81 -1.27) (xy 3.175 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.81 -1.27) (xy 3.81 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 4.445 1.27) (xy 4.445 1.016)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "BAT54S_1_1"
-				(pin passive line
-					(at -7.62 0 0)
-					(length 3.81)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -5.08 90)
-					(length 5.08)
-					(name "COM"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 7.62 0 180)
-					(length 3.81)
-					(name "K"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-	)
-	(symbol
-		(lib_id "Diode:BAT54S")
-		(at 85.09 101.6 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8b73a511-55d8-4206-9235-af767b9b655e")
-		(property "Reference" "D1"
-			(at 85.09 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "BAT54S"
-			(at 85.09 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
-			(at 86.995 98.425 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/ds11005.pdf"
-			(at 82.042 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Vr 30V, If 200mA, Dual schottky barrier diode, in series, SOT-323"
-			(at 85.09 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "da9b04bf-1b20-4f1c-b308-adf084a8cb31")
-		)
-		(pin "3"
-			(uuid "a71a8636-2629-4095-aa2a-d72005ce6906")
-		)
-		(pin "2"
-			(uuid "1e411c7c-ff1d-4fdc-bff9-79f79b2d43d3")
-		)
-		(instances
-			(project "Carte_V1"
-				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7"
-					(reference "D1")
-					(unit 1)
-				)
-			)
-		)
-	)
+	(lib_symbols)
 	(sheet
 		(at 115.57 41.91)
 		(size 34.29 24.13)
@@ -535,6 +140,58 @@
 		)
 	)
 	(sheet
+		(at 182.88 102.87)
+		(size 48.26 35.56)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "738ef8eb-de53-4d22-9128-625d0df1d35c")
+		(property "Sheetname" "Ecran"
+			(at 182.88 102.1584 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Ecran.kicad_sch"
+			(at 182.88 139.0146 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "GPIO_EC" input
+			(at 182.88 113.03 180)
+			(uuid "e70ceb9c-5726-4529-ae16-1388be559e8a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "Carte_V1"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
 		(at 53.34 41.91)
 		(size 31.75 25.4)
 		(exclude_from_sim no)
@@ -607,7 +264,7 @@
 		)
 	)
 	(sheet
-		(at 215.9 68.58)
+		(at 214.63 46.99)
 		(size 50.8 38.1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -623,7 +280,7 @@
 		)
 		(uuid "f8ffc91d-02db-40ce-81ee-06fb41b9d4ee")
 		(property "Sheetname" "MCU"
-			(at 215.9 67.8684 0)
+			(at 214.63 46.2784 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -632,7 +289,7 @@
 			)
 		)
 		(property "Sheetfile" "MCU.kicad_sch"
-			(at 215.9 107.2646 0)
+			(at 214.63 85.6746 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -641,7 +298,7 @@
 			)
 		)
 		(pin "I2C1_HR_SCL" input
-			(at 215.9 81.28 180)
+			(at 214.63 59.69 180)
 			(uuid "fb63e61a-8035-4869-b5a8-46297986d721")
 			(effects
 				(font
@@ -651,7 +308,7 @@
 			)
 		)
 		(pin "I2C1_HR_SDA" input
-			(at 215.9 90.17 180)
+			(at 214.63 68.58 180)
 			(uuid "a0628654-ce43-4dde-87ea-8eae78a27af2")
 			(effects
 				(font
