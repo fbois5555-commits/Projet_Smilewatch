@@ -5,9 +5,109 @@
 	(uuid "e4efabaa-8f8a-45c1-9ca2-024a812f83b7")
 	(paper "A4")
 	(lib_symbols)
+	(wire
+		(pts
+			(xy 133.35 90.17) (xy 142.24 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "48914a7a-bc56-493e-ad6f-5db32e36a9af")
+	)
+	(wire
+		(pts
+			(xy 133.35 106.68) (xy 142.24 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4bb890bd-65aa-4edc-8dac-ec588a4f6299")
+	)
+	(wire
+		(pts
+			(xy 85.09 110.49) (xy 106.68 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5fcb1237-86f5-406f-80e0-9dca48b1abf2")
+	)
+	(wire
+		(pts
+			(xy 85.09 118.11) (xy 106.68 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "74e22e0d-b22b-4973-a62c-c0bea48ec688")
+	)
+	(wire
+		(pts
+			(xy 83.82 96.52) (xy 106.68 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7f2eb1a1-37f7-4675-92e9-9f144e711fa4")
+	)
+	(wire
+		(pts
+			(xy 133.35 114.3) (xy 142.24 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "87a050f8-c087-4323-8ec6-fef32dfa0bfb")
+	)
+	(wire
+		(pts
+			(xy 133.35 116.84) (xy 142.24 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a9d3eeb9-1625-4724-8d26-6c2f7a8e1bd0")
+	)
+	(wire
+		(pts
+			(xy 133.35 101.6) (xy 142.24 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b6299dd8-513a-4e8d-ad37-c208d239ba4f")
+	)
+	(wire
+		(pts
+			(xy 133.35 111.76) (xy 142.24 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f7a274ad-958e-4087-adf9-55576ad715fa")
+	)
+	(wire
+		(pts
+			(xy 85.09 114.3) (xy 106.68 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc66d832-af0b-4985-b50c-6a36514ca23b")
+	)
 	(sheet
-		(at 115.57 41.91)
-		(size 34.29 24.13)
+		(at 142.24 99.06)
+		(size 20.32 22.86)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -22,7 +122,7 @@
 		)
 		(uuid "3752ffc6-cb5b-455d-84da-35df72ee3e67")
 		(property "Sheetname" "Capteurs"
-			(at 115.57 41.1984 0)
+			(at 142.24 98.3484 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31,7 +131,7 @@
 			)
 		)
 		(property "Sheetfile" "Capteurs.kicad_sch"
-			(at 115.57 66.6246 0)
+			(at 142.24 122.5046 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -40,37 +140,37 @@
 			)
 		)
 		(pin "ALS_INT" input
-			(at 149.86 49.53 0)
+			(at 142.24 101.6 180)
 			(uuid "0dbddf37-885d-4195-9796-4d036cec6e56")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(pin "HR_INT" input
-			(at 149.86 54.61 0)
+			(at 142.24 111.76 180)
 			(uuid "bbee41de-8fde-4796-ab86-71df89e435c9")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(pin "TEMP_ALERT" input
-			(at 149.86 59.69 0)
+			(at 142.24 106.68 180)
 			(uuid "628aa82f-829d-46a6-9cdb-03783556403f")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(pin "I2C1_HR_SCL" input
-			(at 115.57 49.53 180)
+			(at 142.24 114.3 180)
 			(uuid "3a23ad25-6278-486d-85f4-9995b6f14a5b")
 			(effects
 				(font
@@ -80,7 +180,7 @@
 			)
 		)
 		(pin "I2C1_HR_SDA" input
-			(at 115.57 59.69 180)
+			(at 142.24 116.84 180)
 			(uuid "9e58e0ed-dcd8-4fbc-a006-bde535fea2a9")
 			(effects
 				(font
@@ -98,8 +198,8 @@
 		)
 	)
 	(sheet
-		(at 162.56 41.91)
-		(size 26.67 30.48)
+		(at 71.12 93.98)
+		(size 12.7 5.08)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -114,7 +214,7 @@
 		)
 		(uuid "5e498beb-3919-4416-a5c9-a753f9598750")
 		(property "Sheetname" "Moteur"
-			(at 162.56 41.1984 0)
+			(at 71.12 93.2684 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -123,12 +223,22 @@
 			)
 		)
 		(property "Sheetfile" "Moteur.kicad_sch"
-			(at 162.56 72.9746 0)
+			(at 71.12 99.6446 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
+			)
+		)
+		(pin "EN_DRV" input
+			(at 83.82 96.52 0)
+			(uuid "bd883722-89d2-434d-8500-a25f5d8d1d33")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 		(instances
@@ -140,8 +250,8 @@
 		)
 	)
 	(sheet
-		(at 182.88 102.87)
-		(size 48.26 35.56)
+		(at 142.24 87.63)
+		(size 12.7 5.08)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -156,7 +266,7 @@
 		)
 		(uuid "738ef8eb-de53-4d22-9128-625d0df1d35c")
 		(property "Sheetname" "Ecran"
-			(at 182.88 102.1584 0)
+			(at 142.24 86.9184 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -165,7 +275,7 @@
 			)
 		)
 		(property "Sheetfile" "Ecran.kicad_sch"
-			(at 182.88 139.0146 0)
+			(at 142.24 93.2946 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -174,7 +284,7 @@
 			)
 		)
 		(pin "GPIO_EC" input
-			(at 182.88 113.03 180)
+			(at 142.24 90.17 180)
 			(uuid "e70ceb9c-5726-4529-ae16-1388be559e8a")
 			(effects
 				(font
@@ -192,8 +302,8 @@
 		)
 	)
 	(sheet
-		(at 53.34 41.91)
-		(size 31.75 25.4)
+		(at 71.12 106.68)
+		(size 13.97 15.24)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -208,7 +318,7 @@
 		)
 		(uuid "f511e4ac-6fe9-4198-b162-5d283554f9eb")
 		(property "Sheetname" "Alimentation"
-			(at 53.34 41.1984 0)
+			(at 71.12 105.9684 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -217,7 +327,7 @@
 			)
 		)
 		(property "Sheetfile" "Alimentation_sch.kicad_sch"
-			(at 53.34 67.8946 0)
+			(at 71.12 122.5046 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -226,7 +336,7 @@
 			)
 		)
 		(pin "CHG" input
-			(at 85.09 45.72 0)
+			(at 85.09 110.49 0)
 			(uuid "e1d4c63a-9e7f-4196-a86c-9214689231e1")
 			(effects
 				(font
@@ -236,7 +346,7 @@
 			)
 		)
 		(pin "EN_5V_HR" input
-			(at 85.09 53.34 0)
+			(at 85.09 118.11 0)
 			(uuid "e43f93e7-29d0-463a-b821-6517b9bb28ba")
 			(effects
 				(font
@@ -246,7 +356,7 @@
 			)
 		)
 		(pin "PG" input
-			(at 85.09 49.53 0)
+			(at 85.09 114.3 0)
 			(uuid "a1359c9b-1702-4049-9a25-bcc576ce21a8")
 			(effects
 				(font
@@ -264,8 +374,8 @@
 		)
 	)
 	(sheet
-		(at 214.63 46.99)
-		(size 50.8 38.1)
+		(at 106.68 83.82)
+		(size 26.67 38.1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -280,7 +390,7 @@
 		)
 		(uuid "f8ffc91d-02db-40ce-81ee-06fb41b9d4ee")
 		(property "Sheetname" "MCU"
-			(at 214.63 46.2784 0)
+			(at 106.68 83.1084 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -289,7 +399,7 @@
 			)
 		)
 		(property "Sheetfile" "MCU.kicad_sch"
-			(at 214.63 85.6746 0)
+			(at 106.68 122.5046 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -298,8 +408,38 @@
 			)
 		)
 		(pin "I2C1_HR_SCL" input
-			(at 214.63 59.69 180)
+			(at 133.35 114.3 0)
 			(uuid "fb63e61a-8035-4869-b5a8-46297986d721")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "I2C1_HR_SDA" input
+			(at 133.35 116.84 0)
+			(uuid "a0628654-ce43-4dde-87ea-8eae78a27af2")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "ALS_INT" input
+			(at 133.35 101.6 0)
+			(uuid "58841b1b-2773-435c-8d1b-1d5cb9e6c8c9")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "CHG" input
+			(at 106.68 110.49 180)
+			(uuid "8c5e2a46-85be-4ba7-bd37-9b5dfa8fa7a9")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -307,14 +447,64 @@
 				(justify left)
 			)
 		)
-		(pin "I2C1_HR_SDA" input
-			(at 214.63 68.58 180)
-			(uuid "a0628654-ce43-4dde-87ea-8eae78a27af2")
+		(pin "EN_5V_HR" input
+			(at 106.68 118.11 180)
+			(uuid "da3616d5-329e-4f20-8a54-c883f5c77c00")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+		(pin "EN_DRV" input
+			(at 106.68 96.52 180)
+			(uuid "01035e26-2681-4c41-96e1-291110bb24f5")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "GPIO_EC" input
+			(at 133.35 90.17 0)
+			(uuid "a3a44a46-7718-4815-9281-7fe332e42c47")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "HR_INT" input
+			(at 133.35 111.76 0)
+			(uuid "bd1dff47-fca3-4801-97ef-a03d774dfd41")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "PG" input
+			(at 106.68 114.3 180)
+			(uuid "3119ad7b-1ac1-4ac1-8ac3-68757e9af231")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "TEMP_ALERT" input
+			(at 133.35 106.68 0)
+			(uuid "b173191f-3738-4b5b-a5ef-ef78d78740fe")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 			)
 		)
 		(instances
