@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'TW_05_02_G_D_157_075'
+CLASS = IO
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "SAMTEC", "TW-05-02-G-D-157-075" (!) = "", "HDRV10W51P200_2X5_1000X400X769P", "Header, Vertical", "200-TW0502GD157075", "https://www.mouser.co.uk/ProductDetail/Samtec/TW-05-02-G-D-157-075?qs=%252BZP6%2F%252BtExtCZO5EqZnHIsg%3D%3D", "Board to Board & Mezzanine Connectors 2.00 mm Flex Stack, Flexible Board Stacker, Surface Mount", "", "7.694 mm"
+END_PART
+
+END.

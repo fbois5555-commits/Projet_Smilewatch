@@ -1,0 +1,16 @@
+.TW-05-02-G-D-157-075 :1 ;Board to Board & Mezzanine Connectors 2.00 mm Flex Stack, Flexible Board Stacker, Surface Mount
+HDRV10W51P200_2X5_1000X400X769P
+*STM J
+*NGS
+*PLB 1="1" 2="2" 3="3" 4="4" 5="5" 6="6" 7="7" 8="8" 9="9" 10="10"
+*MXP 10
+*DFN TW-05-02-G-D-157-075
+~!Mouser Part Number (200-TW0502GD157075)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Samtec/TW-05-02-G-D-157-075?qs=%252BZP6%2F%252BtExtCZO5EqZnHIsg%3D%3D)
+~!Manufacturer_Name (SAMTEC)
+~!Manufacturer_Part_Number (TW-05-02-G-D-157-075)
+~!Link Datasheet (-)
+~!Height (7.694mm)
+~!3D_Model (TW-05-02-G-D-157-075)
+TW-05-02-G-D-157-075
+1.1!U 3.1!U 5.1!U 7.1!U 9.1!U 2.1!U 4.1!U 6.1!U 8.1!U 10.1!U 

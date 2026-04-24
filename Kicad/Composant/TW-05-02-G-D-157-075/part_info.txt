@@ -1,0 +1,9 @@
+Manufacturer=SAMTEC
+PartNumber=TW-05-02-G-D-157-075
+PartCategory=Connector
+PackageCategory=Header, Vertical
+PinCount=10
+Version=1.1
+Released=2020-06-25 15:39:12
+Downloaded=2026-04-24 13:38:03
+3D=Y

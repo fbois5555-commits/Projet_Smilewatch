@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "TW-05-02-G-D-157-075"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2020-06-25-15:39:12)
+    (mountForm default
+        (footprintRef "HDRV10W51P200_2X5_1000X400X769P")
+        (spec "System")
+    )
+)

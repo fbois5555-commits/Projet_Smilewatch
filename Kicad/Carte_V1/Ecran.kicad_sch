@@ -902,7 +902,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "LIB_VEML6030:ConnectorMicromatch-14"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1069,7 +1069,7 @@
 						)
 					)
 				)
-				(pin output line
+				(pin input line
 					(at -2.54 -20.32 0)
 					(length 2.54)
 					(name "8"
@@ -1667,6 +1667,16 @@
 	)
 	(wire
 		(pts
+			(xy 223.52 91.44) (xy 250.19 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45ef8874-cdd7-43d9-bb5b-8bb971f09e17")
+	)
+	(wire
+		(pts
 			(xy 185.42 102.87) (xy 185.42 105.41)
 		)
 		(stroke
@@ -1687,7 +1697,7 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 93.98) (xy 152.4 93.98)
+			(xy 144.78 102.87) (xy 152.4 102.87)
 		)
 		(stroke
 			(width 0)
@@ -1717,7 +1727,7 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 97.79) (xy 168.91 105.41)
+			(xy 168.91 101.6) (xy 168.91 105.41)
 		)
 		(stroke
 			(width 0)
@@ -1777,7 +1787,7 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 93.98) (xy 152.4 105.41)
+			(xy 152.4 102.87) (xy 152.4 105.41)
 		)
 		(stroke
 			(width 0)
@@ -1797,7 +1807,7 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 97.79) (xy 168.91 97.79)
+			(xy 163.83 101.6) (xy 168.91 101.6)
 		)
 		(stroke
 			(width 0)
@@ -1844,16 +1854,6 @@
 			(type default)
 		)
 		(uuid "9aebec06-611d-47c4-b0d7-3935385706c9")
-	)
-	(wire
-		(pts
-			(xy 245.11 91.44) (xy 250.19 91.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9e8ede00-69e7-4778-ad4e-f4d6ec584cae")
 	)
 	(wire
 		(pts
@@ -2057,6 +2057,16 @@
 	)
 	(wire
 		(pts
+			(xy 233.68 96.52) (xy 250.19 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e7c5cc1d-acfb-4727-a186-b70c2249a430")
+	)
+	(wire
+		(pts
 			(xy 160.02 43.18) (xy 160.02 52.07)
 		)
 		(stroke
@@ -2074,16 +2084,6 @@
 			(type default)
 		)
 		(uuid "f05d9efb-2b97-4ad7-ad11-16688461e54b")
-	)
-	(wire
-		(pts
-			(xy 245.11 96.52) (xy 250.19 96.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f1bcb773-bd1b-4ecf-aec0-c2f280f35ee1")
 	)
 	(wire
 		(pts
@@ -2156,7 +2156,7 @@
 		(uuid "05112cbb-da36-4666-8e09-8f9989cf641a")
 	)
 	(label "IREF"
-		(at 208.28 93.98 180)
+		(at 144.78 102.87 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2176,7 +2176,7 @@
 		(uuid "1601619a-3073-4dae-80de-fb2a6f2b40e5")
 	)
 	(label "VCOMH"
-		(at 208.28 97.79 180)
+		(at 163.83 101.6 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2194,16 +2194,6 @@
 			(justify left bottom)
 		)
 		(uuid "2f4b0688-1844-4b05-b840-e54c552a74f0")
-	)
-	(label "VSS"
-		(at 245.11 91.44 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "3e5117c8-d7ed-4586-ad75-ed758806096a")
 	)
 	(label "CIN"
 		(at 215.9 22.86 180)
@@ -2325,16 +2315,6 @@
 		)
 		(uuid "ded39cc3-f8c9-43ef-875b-8ba2597feced")
 	)
-	(label "RES"
-		(at 245.11 96.52 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "e318e34c-4d4d-45b7-b12d-2394cf270aff")
-	)
 	(label "VDD"
 		(at 245.11 93.98 0)
 		(effects
@@ -2419,6 +2399,83 @@
 			(justify right)
 		)
 		(uuid "1df87569-c77e-43fc-9374-150df1356c7e")
+	)
+	(hierarchical_label "RES"
+		(shape input)
+		(at 233.68 96.52 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4d10bb4c-28d1-4162-8126-dd78cb138d6b")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 223.52 91.44 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "106ce563-a220-4f74-bb6e-3a8afd9bd1f1")
+		(property "Reference" "#PWR090"
+			(at 223.52 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 223.52 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 223.52 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 223.52 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 223.52 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "43698e8b-617f-4354-9321-1181afb2c686")
+		)
+		(instances
+			(project "Carte_V1"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/738ef8eb-de53-4d22-9128-625d0df1d35c"
+					(reference "#PWR090")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Device:C_Small")
@@ -3035,7 +3092,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "390k Ohm"
+		(property "Value" "180k Ohm"
 			(at 154.94 109.2199 0)
 			(effects
 				(font
@@ -3154,7 +3211,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 196.85 80.01 0)
+		(at 196.85 80.01 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3163,21 +3220,21 @@
 		(fields_autoplaced yes)
 		(uuid "b9a8eb35-9240-49ae-879c-9ce41770d41f")
 		(property "Reference" "C44"
-			(at 199.39 78.7462 0)
+			(at 199.39 78.7335 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "100nF"
-			(at 199.39 81.2862 0)
+			(at 199.39 81.2735 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"

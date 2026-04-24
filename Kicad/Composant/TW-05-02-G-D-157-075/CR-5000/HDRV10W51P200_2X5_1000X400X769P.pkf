@@ -1,0 +1,10 @@
+(unit MM)
+
+(package "HDRV10W51P200_2X5_1000X400X769P"
+    (type UNDEF)
+    (uver 2)
+    (mountForm default
+        (footprintRef "HDRV10W51P200_2X5_1000X400X769P")
+        (spec "default")
+    )
+)
