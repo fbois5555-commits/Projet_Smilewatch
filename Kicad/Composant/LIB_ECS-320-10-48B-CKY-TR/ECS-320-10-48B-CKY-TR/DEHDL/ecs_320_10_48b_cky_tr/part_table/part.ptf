@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'ECS_320_10_48B_CKY_TR'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "ECS", "ECS-320-10-48B-CKY-TR" (!) = "", "ECS3201048BCKYTR", "Other", "520-S3201048BCKYTR", "https://www.mouser.co.uk/ProductDetail/ECS/ECS-320-10-48B-CKY-TR?qs=zW32dvEIR3umcnJFx9fznA%3D%3D", "Crystals CRYSTAL 32.000MHZ ECX-1048B +/-10ppm +/-10ppm 10pF 150 Ohm Fundamental -30 C 85 C Surface Mount 4-SMD, No Lead W 1.20mm x 1.00mm) (0.33mm)", "", "0.33 mm"
+END_PART
+
+END.

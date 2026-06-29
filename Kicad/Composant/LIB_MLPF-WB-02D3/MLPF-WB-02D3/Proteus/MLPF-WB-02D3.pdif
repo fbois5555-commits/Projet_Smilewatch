@@ -1,0 +1,117 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "MLPF-WB-02D3"
+   (description "2.4 GHz low pass filter matched to STM32WB5x and STM32WB1x in WLCSP and UFBGA packages")
+   (family "ANA")
+   (package "CSPG_2025")
+   (attribute "Datasheet Link" "https://www.st.com/resource/en/datasheet/mlpf-wb-02d3.pdf")
+   (attribute "Mouser Part Number" "511-MLPF-WB-02D3")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/STMicroelectronics/MLPF-WB-02D3?qs=T%252BzbugeAwjhlflKeEN03Bg%3D%3D")
+   (attribute "Manufacturer_Name" "STMicroelectronics")
+   (attribute "Manufacturer_Part_Number" "MLPF-WB-02D3")
+   (gate
+    (symbol "MLPF-WB-02D3")
+    (pin "OUT" A1 PS)
+    (pin "GND4" A2 PS)
+    (pin "IN" A3 PS)
+    (pin "GND3" B1 PS)
+    (pin "GND2" B2 PS)
+    (pin "GND1" B3 PS)
+   )
+  )
+  (symbol "MLPF-WB-02D3"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 900 100) (pt 900 -300) (pt 200 -300) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -200) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1100 0) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1100 -100) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1100 -200) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "CSPG_2025"
+   (units MM)
+   (layer TASM
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -0.5 -0.8)
+      (pt 0.5 -0.8)
+      (pt 0.5 0.8)
+      (pt -0.5 0.8)
+      (pt -0.5 -0.8))))
+   (layer OCCA
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -1.5 1.8)
+      (pt 1.5 1.8)
+      (pt 1.5 -1.8)
+      (pt -1.5 -1.8)
+      (pt -1.5 1.8))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -1 0.577)
+      (arc (pt -1 0.577) (pt -1.1 0.527) (pt -1 0.627) (start 180.0) (sweep .0))
+      (pt -1.1 0.577)
+      (arc (pt -1.1 0.577) (pt -1.1 0.527) (pt -1 0.627) (start 180.0) (sweep 180.0))
+      (pt -1 0.577))))
+   (leg A1 (pt -0.25 0.577) (padstack 0))
+   (leg A2 (pt -0.25 0) (padstack 0))
+   (leg A3 (pt -0.25 -0.577) (padstack 0))
+   (leg B1 (pt 0.25 0.577) (padstack 0))
+   (leg B2 (pt 0.25 0) (padstack 0))
+   (leg B3 (pt 0.25 -0.577) (padstack 0))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (round 0.32))
+   )
+   (model "MLPF-WB-02D3.stp"
+    (euler 0 0 0)
+    (offset 0 0 0)
+   )
+  )
+ )
+)

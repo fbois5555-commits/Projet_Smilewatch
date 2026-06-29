@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART '2450AT07A0100001T'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "JOHANSON TECHNOLOGY", "2450AT07A0100001T" (!) = "", "2450AT07A0100001T", "Other", "609-2450AT07A0100001", "https://www.mouser.co.uk/ProductDetail/Johanson-Technology/2450AT07A0100001T?qs=jRuttqqUwMTp3VGKP6FABg%3D%3D", "RF ANT 2.4GHZ CHIP SOLDER SMD 2.44 GHz RF Chip Antenna HEIGHT-0.37", "https://www.johansontechnology.com/docs/4417/Antenna-2450AT07A0100001T.pdf", "0.37 mm"
+END_PART
+
+END.

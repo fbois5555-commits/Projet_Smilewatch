@@ -1,0 +1,108 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "2450AT07A0100001T"
+   (description "RF ANT 2.4GHZ CHIP SOLDER SMD 2.44 GHz RF Chip Antenna HEIGHT-0.37")
+   (family "ANA")
+   (package "2450AT07A0100001T")
+   (attribute "Datasheet Link" "https://www.johansontechnology.com/docs/4417/Antenna-2450AT07A0100001T.pdf")
+   (attribute "Geometry.Height" "0.37mm")
+   (attribute "Mouser Part Number" "609-2450AT07A0100001")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Johanson-Technology/2450AT07A0100001T?qs=jRuttqqUwMTp3VGKP6FABg%3D%3D")
+   (attribute "Manufacturer_Name" "JOHANSON TECHNOLOGY")
+   (attribute "Manufacturer_Part_Number" "2450AT07A0100001T")
+   (gate
+    (symbol "2450AT07A0100001T")
+    (pin "FEED_1" 1 PS)
+    (pin "GND_1" 2 PS)
+    (pin "GND_2" 3 PS)
+    (pin "FEED_2" 4 PS)
+   )
+  )
+  (symbol "2450AT07A0100001T"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 1100 100) (pt 1100 -200) (pt 200 -200) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 1300 -100) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1300 0) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "2450AT07A0100001T"
+   (units MM)
+   (layer TASM
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -0.25 -0.5)
+      (pt 0.25 -0.5)
+      (pt 0.25 0.5)
+      (pt -0.25 0.5)
+      (pt -0.25 -0.5))))
+   (layer OCCA
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -1.3 1.5)
+      (pt 1.3 1.5)
+      (pt 1.3 -1.5)
+      (pt -1.3 -1.5)
+      (pt -1.3 1.5))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed false)
+      (pt 0.9 -0.3)
+      (arc (pt 0.900 -0.300) (pt 0.800 -0.350) (pt 0.900 -0.250) (start 180.0) (sweep .0))
+      (pt 0.8 -0.3)
+      (arc (pt 0.800 -0.300) (pt 0.800 -0.350) (pt 0.900 -0.250) (start 180.0) (sweep 180.0))
+      (pt 0.9 -0.3)
+      (arc (pt 0.900 -0.300) (pt 0.800 -0.350) (pt 0.900 -0.250) (start 180.0) (sweep .0))
+      (pt 0.8 -0.3))))
+   (leg 1 (pt 0.175 -0.300) (padstack 0))
+   (leg 2 (pt 0.175 0.300) (padstack 0))
+   (leg 3 (pt -0.175 0.300) (padstack 0))
+   (leg 4 (pt -0.175 -0.300) (padstack 0))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (rectf 0.250 0.300 0 0 90.000))
+   )
+   (model "2450AT07A0100001T.stp"
+    (euler 90 0 90)
+    (offset 0 0 0.18000000715255737)
+   )
+  )
+ )
+)

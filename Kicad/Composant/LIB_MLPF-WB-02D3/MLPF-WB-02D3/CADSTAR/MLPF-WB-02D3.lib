@@ -1,0 +1,17 @@
+.MLPF-WB-02D3 :1 ;2.4 GHz low pass filter matched to STM32WB5x and STM32WB1x in WLCSP and UFBGA packages
+CSPG_2025
+*STM FL
+*NGS
+*PNM 1=A1 2=A2 3=A3 4=B1 5=B2 6=B3
+*PLB 1="OUT" 2="GND4" 3="IN" 4="GND3" 5="GND2" 6="GND1"
+*MXP 6
+*DFN MLPF-WB-02D3
+~!Mouser Part Number (511-MLPF-WB-02D3)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/STMicroelectronics/MLPF-WB-02D3?qs=T%252BzbugeAwjhlflKeEN03Bg%3D%3D)
+~!Manufacturer_Name (STMicroelectronics)
+~!Manufacturer_Part_Number (MLPF-WB-02D3)
+~!Link Datasheet (https://www.st.com/resource/en/datasheet/mlpf-wb-02d3.pdf)
+~!Height (-)
+~!3D_Model (MLPF-WB-02D3)
+MLPF-WB-02D3
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 6.1!U 

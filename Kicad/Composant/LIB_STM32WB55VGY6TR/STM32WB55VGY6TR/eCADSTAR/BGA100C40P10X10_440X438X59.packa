@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "STM32WB55VGY6TR"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2020-02-04-10:27:54)
+    (mountForm default
+        (footprintRef "BGA100C40P10X10_440X438X59")
+        (spec "System")
+    )
+)

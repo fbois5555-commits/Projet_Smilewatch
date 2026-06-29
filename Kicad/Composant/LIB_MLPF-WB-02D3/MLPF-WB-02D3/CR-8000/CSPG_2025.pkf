@@ -1,0 +1,10 @@
+(unit MM)
+
+(package "CSPG_2025"
+    (type UNDEF)
+    (uver 2)
+    (mountForm default
+        (footprintRef "CSPG_2025")
+        (spec "default")
+    )
+)

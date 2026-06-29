@@ -1,0 +1,16 @@
+.ECS-320-10-48B-CKY-TR :1 ;Crystals CRYSTAL 32.000MHZ ECX-1048B +/-10ppm +/-10ppm 10pF 150 Ohm Fundamental -30 C 85 C Surface Mount 4-SMD, No Lead W 1.20mm x 1.00mm) (0.33mm)
+ECS3201048BCKYTR
+*STM Y
+*NGS
+*PLB 1="IN/OUT" 2="GND & LID" 3="OUT/IN" 4="NC"
+*MXP 4
+*DFN ECS-320-10-48B-CKY-TR
+~!Mouser Part Number (520-S3201048BCKYTR)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/ECS/ECS-320-10-48B-CKY-TR?qs=zW32dvEIR3umcnJFx9fznA%3D%3D)
+~!Manufacturer_Name (ECS)
+~!Manufacturer_Part_Number (ECS-320-10-48B-CKY-TR)
+~!Link Datasheet (-)
+~!Height (0.33mm)
+~!3D_Model (ECS-320-10-48B-CKY-TR)
+ECS-320-10-48B-CKY-TR
+1.1!U 2.1!U 3.1!U 4.1!U 

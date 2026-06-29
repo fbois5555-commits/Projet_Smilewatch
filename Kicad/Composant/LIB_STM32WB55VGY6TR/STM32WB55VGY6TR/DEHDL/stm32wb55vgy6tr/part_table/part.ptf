@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'STM32WB55VGY6TR'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "STMicroelectronics", "STM32WB55VGY6TR" (!) = "", "BGA100C40P10X10_440X438X59", "BGA", "511-STM32WB55VGY6TR", "https://www.mouser.co.uk/ProductDetail/STMicroelectronics/STM32WB55VGY6TR?qs=lYGu3FyN48e4iwYOkj%252BV4w%3D%3D", "Ultra-low-power dual core Arm Cortex-M4 MCU 64 MHz, Cortex-M0+ 32MHz with 1 Mbyte of Flash memory, Bluetooth 5, 802.15.4, USB, LCD, AES-256", "https://www.st.com/resource/en/datasheet/stm32wb55cc.pdf", "0.59 mm"
+END_PART
+
+END.

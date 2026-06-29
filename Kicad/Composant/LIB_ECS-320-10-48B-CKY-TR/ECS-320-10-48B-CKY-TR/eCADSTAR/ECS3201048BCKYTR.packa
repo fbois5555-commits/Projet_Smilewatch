@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "ECS-320-10-48B-CKY-TR"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2021-07-06-14:41:26)
+    (mountForm default
+        (footprintRef "ECS3201048BCKYTR")
+        (spec "System")
+    )
+)

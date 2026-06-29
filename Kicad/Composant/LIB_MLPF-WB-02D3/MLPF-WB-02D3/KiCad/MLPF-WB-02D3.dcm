@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MLPF-WB-02D3
+D 2.4 GHz low pass filter matched to STM32WB5x and STM32WB1x in WLCSP and UFBGA packages
+K
+F https://www.st.com/resource/en/datasheet/mlpf-wb-02d3.pdf
+$ENDCMP
+#
+#End Doc Library

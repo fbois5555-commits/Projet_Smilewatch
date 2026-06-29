@@ -1,0 +1,9 @@
+Manufacturer=JOHANSON TECHNOLOGY
+PartNumber=2450AT07A0100001T
+PartCategory=Antenna
+PackageCategory=Other
+PinCount=4
+Version=1.4
+Released=2025-07-11 08:15:36
+Downloaded=2026-06-06 18:39:25
+3D=Y

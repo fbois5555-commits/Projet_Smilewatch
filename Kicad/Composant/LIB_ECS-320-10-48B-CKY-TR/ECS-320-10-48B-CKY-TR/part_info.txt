@@ -1,0 +1,9 @@
+Manufacturer=ECS
+PartNumber=ECS-320-10-48B-CKY-TR
+PartCategory=Crystal or Oscillator
+PackageCategory=Other
+PinCount=4
+Version=1.2
+Released=2021-07-06 14:41:26
+Downloaded=2026-06-06 08:53:15
+3D=Y

@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP STM32WB55VGY6TR
+D Ultra-low-power dual core Arm Cortex-M4 MCU 64 MHz, Cortex-M0+ 32MHz with 1 Mbyte of Flash memory, Bluetooth 5, 802.15.4, USB, LCD, AES-256
+K
+F https://www.st.com/resource/en/datasheet/stm32wb55cc.pdf
+$ENDCMP
+#
+#End Doc Library

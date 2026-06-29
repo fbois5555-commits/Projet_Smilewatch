@@ -1,0 +1,16 @@
+.ECS-.327-7-1210-TR :1 ;Crystals 32.786kHz 7pF 20ppm -40C +85C
+ECS32791210TR
+*STM Y
+*NGS
+*PLB 1="1" 2="2"
+*MXP 2
+*DFN ECS-.327-7-1210-TR
+~!Mouser Part Number (520-.327-7-1210T)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/ECS/ECS-.327-7-1210-TR?qs=Mv7BduZupUgzlni7BruPqw%3D%3D)
+~!Manufacturer_Name (ECS)
+~!Manufacturer_Part_Number (ECS-.327-7-1210-TR)
+~!Link Datasheet (https://www.ecsxtal.com/store/pdf/ECX-1210.pdf)
+~!Height (0.35mm)
+~!3D_Model (ECS-.327-7-1210-TR)
+ECS-.327-7-1210-TR
+1.1!U 2.1!U 

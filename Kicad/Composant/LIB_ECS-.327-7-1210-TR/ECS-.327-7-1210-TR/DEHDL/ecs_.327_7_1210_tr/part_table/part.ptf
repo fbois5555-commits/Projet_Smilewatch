@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'ECS_.327_7_1210_TR'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "ECS", "ECS-.327-7-1210-TR" (!) = "", "ECS32791210TR", "Other", "520-.327-7-1210T", "https://www.mouser.co.uk/ProductDetail/ECS/ECS-.327-7-1210-TR?qs=Mv7BduZupUgzlni7BruPqw%3D%3D", "Crystals 32.786kHz 7pF 20ppm -40C +85C", "https://www.ecsxtal.com/store/pdf/ECX-1210.pdf", "0.35 mm"
+END_PART
+
+END.

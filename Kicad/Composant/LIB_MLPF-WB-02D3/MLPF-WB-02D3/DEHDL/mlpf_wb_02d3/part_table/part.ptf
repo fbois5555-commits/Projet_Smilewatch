@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'MLPF_WB_02D3'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET";
+{========================================================================================}
+ "STMicroelectronics", "MLPF-WB-02D3" (!) = "", "CSPG_2025", "Other", "511-MLPF-WB-02D3", "https://www.mouser.co.uk/ProductDetail/STMicroelectronics/MLPF-WB-02D3?qs=T%252BzbugeAwjhlflKeEN03Bg%3D%3D", "2.4 GHz low pass filter matched to STM32WB5x and STM32WB1x in WLCSP and UFBGA packages", "https://www.st.com/resource/en/datasheet/mlpf-wb-02d3.pdf"
+END_PART
+
+END.

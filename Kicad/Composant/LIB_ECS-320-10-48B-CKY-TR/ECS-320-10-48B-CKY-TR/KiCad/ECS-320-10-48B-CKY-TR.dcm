@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP ECS-320-10-48B-CKY-TR
+D Crystals CRYSTAL 32.000MHZ ECX-1048B +/-10ppm +/-10ppm 10pF 150 Ohm Fundamental -30 C 85 C Surface Mount 4-SMD, No Lead W 1.20mm x 1.00mm) (0.33mm)
+K
+F 
+$ENDCMP
+#
+#End Doc Library

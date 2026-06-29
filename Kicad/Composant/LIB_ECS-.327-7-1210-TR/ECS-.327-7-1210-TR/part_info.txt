@@ -1,0 +1,9 @@
+Manufacturer=ECS
+PartNumber=ECS-.327-7-1210-TR
+PartCategory=Crystal or Oscillator
+PackageCategory=Other
+PinCount=2
+Version=1.1
+Released=2019-01-30 09:23:16
+Downloaded=2026-06-06 09:48:07
+3D=Y

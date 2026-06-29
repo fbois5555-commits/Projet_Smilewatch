@@ -1,0 +1,9 @@
+Manufacturer=STMicroelectronics
+PartNumber=MLPF-WB-02D3
+PartCategory=Filter
+PackageCategory=Other
+PinCount=6
+Version=6.1
+Released=2022-09-06 11:17:13
+Downloaded=2026-06-05 17:51:00
+3D=Y
