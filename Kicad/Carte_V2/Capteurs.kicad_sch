@@ -1108,16 +1108,16 @@
 		(uuid "6170b800-b154-4d03-a84c-81f159b06185")
 	)
 	(junction
-		(at 191.77 52.07)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6c3403e8-9d2b-4bf2-81ae-97776dc07ec7")
-	)
-	(junction
 		(at 195.58 104.14)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8181683a-5cb2-4132-b00e-148450686679")
+	)
+	(junction
+		(at 186.69 52.07)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "89ab8fd5-3c6b-41e5-8178-e94b581a7c4e")
 	)
 	(junction
 		(at 195.58 101.6)
@@ -1181,7 +1181,7 @@
 	)
 	(wire
 		(pts
-			(xy 191.77 44.45) (xy 191.77 45.72)
+			(xy 186.69 44.45) (xy 186.69 45.72)
 		)
 		(stroke
 			(width 0)
@@ -1241,16 +1241,6 @@
 	)
 	(wire
 		(pts
-			(xy 191.77 52.07) (xy 200.66 52.07)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "400be2d5-d789-4ef1-8165-2395a0900595")
-	)
-	(wire
-		(pts
 			(xy 262.89 40.64) (xy 262.89 43.18)
 		)
 		(stroke
@@ -1271,7 +1261,7 @@
 	)
 	(wire
 		(pts
-			(xy 191.77 50.8) (xy 191.77 52.07)
+			(xy 186.69 50.8) (xy 186.69 52.07)
 		)
 		(stroke
 			(width 0)
@@ -1411,7 +1401,7 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 52.07) (xy 191.77 52.07)
+			(xy 184.15 52.07) (xy 186.69 52.07)
 		)
 		(stroke
 			(width 0)
@@ -1458,6 +1448,16 @@
 			(type default)
 		)
 		(uuid "d8021dd3-42dd-4d87-a352-dad45305733c")
+	)
+	(wire
+		(pts
+			(xy 186.69 52.07) (xy 200.66 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dd284807-e7a5-4c70-b664-428f5707e7e0")
 	)
 	(wire
 		(pts
@@ -1939,6 +1939,15 @@
 				(hide yes)
 			)
 		)
+		(property "JLCPCB Part#" "C1525"
+			(at 203.2 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "3448a91a-344b-4a02-9e6d-ab076e76867c")
 		)
@@ -2001,6 +2010,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 259.08 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "JLCPCB Part#" "C15849"
 			(at 259.08 113.03 0)
 			(effects
 				(font
@@ -2192,6 +2210,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "JLCPCB Part#" "C132182"
+			(at 200.66 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -2461,6 +2488,15 @@
 				(hide yes)
 			)
 		)
+		(property "JLCPCB Part#" "C481766"
+			(at 195.58 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "be7ac7ff-41d0-4c2d-a069-e5f87bb8137c")
 		)
@@ -2699,6 +2735,15 @@
 				(hide yes)
 			)
 		)
+		(property "JLCPCB Part#" "C70225"
+			(at 262.89 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "a597f3ec-7de9-412f-8fd7-bb3d0e1a1e24")
 		)
@@ -2769,6 +2814,15 @@
 				(hide yes)
 			)
 		)
+		(property "JLCPCB Part#" "C1525"
+			(at 248.92 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "ab139be8-33b2-4fa5-a331-65b2b0940c69")
 		)
@@ -2786,7 +2840,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 191.77 48.26 0)
+		(at 186.69 48.26 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2795,7 +2849,7 @@
 		(fields_autoplaced yes)
 		(uuid "8bfcfbf5-4651-40ab-b98c-0eda704287c9")
 		(property "Reference" "R9"
-			(at 194.31 46.9899 0)
+			(at 189.23 46.9899 0)
 			(effects
 				(font
 					(size 1.016 1.016)
@@ -2803,8 +2857,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
-			(at 194.31 49.5299 0)
+		(property "Value" "10k Ohm"
+			(at 189.23 49.5299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2813,7 +2867,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 191.77 48.26 0)
+			(at 186.69 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2822,7 +2876,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 191.77 48.26 0)
+			(at 186.69 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2831,7 +2885,16 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 191.77 48.26 0)
+			(at 186.69 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "JLCPCB Part#" "C5184071"
+			(at 186.69 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2922,7 +2985,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 191.77 44.45 0)
+		(at 186.69 44.45 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2931,7 +2994,7 @@
 		(fields_autoplaced yes)
 		(uuid "91303473-9e01-4a4d-b4f5-8729c08b97b8")
 		(property "Reference" "#PWR032"
-			(at 191.77 48.26 0)
+			(at 186.69 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2940,7 +3003,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 191.77 39.37 0)
+			(at 186.69 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2948,7 +3011,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 191.77 44.45 0)
+			(at 186.69 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2957,7 +3020,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 191.77 44.45 0)
+			(at 186.69 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2966,7 +3029,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 191.77 44.45 0)
+			(at 186.69 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3099,6 +3162,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 246.38 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "JLCPCB Part#" "C1525"
 			(at 246.38 113.03 0)
 			(effects
 				(font

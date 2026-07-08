@@ -1419,6 +1419,15 @@
 				(hide yes)
 			)
 		)
+		(property "JLCPCB Part#" "C15849"
+			(at 170.18 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "95c047c7-20bb-4a8e-8023-c467ccb45016")
 		)
@@ -1671,6 +1680,15 @@
 				(hide yes)
 			)
 		)
+		(property "JLCPCB Part#" "C2869341"
+			(at 105.41 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "B2"
 			(uuid "a9299f23-b162-4233-8bd4-1df744b3a499")
 		)
@@ -1828,6 +1846,15 @@
 				(hide yes)
 			)
 		)
+		(property "JLCPCB Part#" "C1525"
+			(at 156.21 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "9e36eecc-2b40-43be-a76f-f079df10265c")
 		)
@@ -1948,6 +1975,15 @@
 				(hide yes)
 			)
 		)
+		(property "JLCPCB Part#" "C20107647"
+			(at 199.39 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "83125228-d1af-4682-8ce0-0128051a11b1")
 		)
@@ -2022,6 +2058,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 90.17 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "JLCPCB Part#" "C15849"
 			(at 90.17 69.85 0)
 			(effects
 				(font

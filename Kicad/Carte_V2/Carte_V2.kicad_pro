@@ -58,20 +58,7 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [
-        [
-          "shorting_items|113671610|68511029|444dad4c-f736-48c0-af37-5d72c5c9c072|cd2b5808-d1d8-4f87-84f3-c76d9a481577",
-          "Sans importance, viens de l'empreintes et n'est pas utilisé "
-        ],
-        [
-          "shorting_items|116451372|71887851|444dad4c-f736-48c0-af37-5d72c5c9c072|5d3c60b7-c86b-449d-ba43-cb22b555ed72",
-          "Sans importance, viens de l'empreintes et n'est pas utilisé "
-        ],
-        [
-          "shorting_items|117479831|70662181|444dad4c-f736-48c0-af37-5d72c5c9c072|a9e9de4f-3573-4e11-b0d9-46e8450ffa89",
-          "Sans importance, viens de l'empreintes et n'est pas utilisé "
-        ]
-      ],
+      "drc_exclusions": [],
       "meta": {
         "version": 2
       },
@@ -152,7 +139,7 @@
         "min_track_width": 0.2,
         "min_via_annular_width": 0.05,
         "min_via_diameter": 0.25,
-        "solder_mask_to_copper_clearance": 0.0,
+        "solder_mask_to_copper_clearance": 0.005,
         "use_height_for_length_calcs": true
       },
       "teardrop_options": [
@@ -528,7 +515,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../../3D/Carte_V2.step",
+      "step": "../../3D/Carte_V2.3.step",
       "svg": "",
       "vrml": ""
     },
@@ -552,7 +539,7 @@
       "exclude_dnp": false,
       "fields_ordered": [
         {
-          "group_by": false,
+          "group_by": true,
           "label": "Reference",
           "name": "Reference",
           "show": true
@@ -640,14 +627,20 @@
           "label": "#",
           "name": "${ITEM_NUMBER}",
           "show": false
+        },
+        {
+          "group_by": false,
+          "label": "JLCPCB Part#",
+          "name": "JLCPCB Part#",
+          "show": true
         }
       ],
       "filter_string": "",
       "group_symbols": true,
       "include_excluded_from_bom": true,
       "name": "",
-      "sort_asc": true,
-      "sort_field": "Reference"
+      "sort_asc": false,
+      "sort_field": "${EXCLUDE_FROM_BOM}"
     },
     "connection_grid_size": 50.0,
     "drawing": {
