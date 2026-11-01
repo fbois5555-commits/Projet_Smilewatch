@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smilewatch V2 — Cockpit de Suivi de Projet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #080c14;
+            --bg-surface: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --bg-card-hover: rgba(51, 65, 85, 0.7);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-focus: rgba(0, 210, 255, 0.4);
+            
+            --accent-cyan: #00e5ff;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
+            --accent-purple: #8b5cf6;
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            
+            --glow-cyan: 0 0 25px rgba(0, 229, 255, 0.25);
+            --glow-green: 0 0 25px rgba(16, 185, 129, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(0, 229, 255, 0.07) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.07) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* Top Header */
+        header {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1.25rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .brand-badge {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: var(--glow-cyan);
+        }
+
+        .brand-title h1 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .brand-title span.tag {
+            font-size: 0.72rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 999px;
+            background: rgba(0, 229, 255, 0.15);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .brand-title p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .header-stats {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .stat-chip {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .stat-chip .label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .stat-chip .val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 1300px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            flex: 1;
+        }
+
+        /* Progress Card */
+        .progress-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            backdrop-filter: blur(12px);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .progress-details h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .progress-details p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .progress-bar-wrap {
+            height: 12px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 999px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-green));
+            border-radius: 999px;
+            width: 0%;
+            transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+        }
+
+        .progress-counters {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .progress-counters span strong {
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .countdown-box {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            min-width: 180px;
+        }
+
+        .countdown-box .sub {
+            font-size: 0.72rem;
+            color: var(--accent-orange);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .countdown-box .timer {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .countdown-box .target {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            gap: 0.75rem;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 0.75rem;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 1px solid transparent;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .tab-btn.active {
+            color: var(--accent-cyan);
+            background: rgba(0, 229, 255, 0.1);
+            border-color: rgba(0, 229, 255, 0.3);
+            font-weight: 600;
+        }
+
+        .tab-btn .badge-count {
+            font-size: 0.75rem;
+            padding: 0.15rem 0.45rem;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.3);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Content Sections */
+        .tab-content {
+            display: none;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .tab-content.active {
+            display: flex;
+        }
+
+        /* Day / Section Cards */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .section-progress {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Tasks Grid */
+        .tasks-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .task-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: flex-start;
+            gap: 1.25rem;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .task-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-focus);
+            transform: translateX(4px);
+        }
+
+        .task-card.completed {
+            border-color: rgba(16, 185, 129, 0.3);
+            background: rgba(16, 185, 129, 0.05);
+            opacity: 0.75;
+        }
+
+        .task-card.completed:hover {
+            opacity: 1;
+        }
+
+        .task-card.completed .task-title {
+            text-decoration: line-through;
+            color: var(--text-secondary);
+        }
+
+        /* Checkbox Styling */
+        .task-checkbox-wrap {
+            margin-top: 0.15rem;
+        }
+
+        .custom-checkbox {
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            border: 2px solid var(--text-muted);
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            color: transparent;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .task-card:hover .custom-checkbox {
+            border-color: var(--accent-cyan);
+        }
+
+        .task-card.completed .custom-checkbox {
+            background: var(--accent-green);
+            border-color: var(--accent-green);
+            color: #000;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Task Info */
+        .task-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .task-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .task-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .task-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.3rem;
+        }
+
+        .tag-pill {
+            font-size: 0.72rem;
+            padding: 0.15rem 0.55rem;
+            border-radius: 6px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .tag-kicad { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+        .tag-meca { background: rgba(139, 92, 246, 0.15); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.3); }
+        .tag-cadran { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+        .tag-firmware { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .tag-urgent { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+
+        .task-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Inventory Table */
+        .inventory-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        table.inv-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        table.inv-table th {
+            background: rgba(15, 23, 42, 0.9);
+            padding: 1rem 1.25rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        table.inv-table td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+        }
+
+        table.inv-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+
+        .status-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .status-stock { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .status-ordered { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+        .status-todo { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+        /* Floating Controls */
+        .footer-bar {
+            margin-top: auto;
+            border-top: 1px solid var(--border-subtle);
+            padding: 1.25rem 2rem;
+            background: rgba(15, 23, 42, 0.6);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            font-family: inherit;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-cyan {
+            background: rgba(0, 229, 255, 0.15);
+            border-color: rgba(0, 229, 255, 0.4);
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        .btn-cyan:hover {
+            background: rgba(0, 229, 255, 0.25);
+            box-shadow: var(--glow-cyan);
+        }
+
+        /* Toast notification */
+        #toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #1e293b;
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            padding: 0.85rem 1.4rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: none;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">
+            <div class="brand-badge">⏱️</div>
+            <div class="brand-title">
+                <h1>Smilewatch V2 <span class="tag">Cockpit R&D</span></h1>
+                <p>Montre connectée hybride — STM32WB55 • Miyota 2035 • OLED 0.5" • SLM 316L</p>
+            </div>
+        </div>
+
+        <div class="header-stats">
+            <div class="stat-chip">
+                <span class="label">Jalon Commandes S2</span>
+                <span class="val" id="countdown-days">-- j</span>
+            </div>
+            <div class="stat-chip">
+                <span class="label">Progression S1</span>
+                <span class="val" id="s1-percent">0%</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Global Progress Card -->
+        <section class="progress-card">
+            <div class="progress-details">
+                <h2>Semaine 1 : Figeage & Préparation des Commandes</h2>
+                <p>Cochez chaque tâche terminée au fur et à mesure. Vos progrès sont automatiquement sauvegardés localement.</p>
+                
+                <div class="progress-bar-wrap">
+                    <div class="progress-bar-fill" id="global-progress-bar"></div>
+                </div>
+
+                <div class="progress-counters">
+                    <span>Terminées : <strong id="count-done">0</strong> / <strong id="count-total">0</strong></span>
+                    <span>Taux d'achèvement : <strong id="count-percent">0%</strong></span>
+                    <span>Prochaine étape : <strong id="next-task-name" style="color:var(--accent-cyan)">Inventaire & Mesure Nappe</strong></span>
+                </div>
+            </div>
+
+            <div class="countdown-box">
+                <span class="sub">🎯 Objectif Jalon</span>
+                <div class="timer" id="timer-display">Dimanche 01 Nov</div>
+                <span class="target">Envoi PCBA JLCPCB + SLM 316L</span>
+            </div>
+        </section>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('tab-s1')">
+                📅 Semaine 1 (Focus Quotidien)
+                <span class="badge-count" id="badge-s1">0/7</span>
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-inventory')">
+                📦 Inventaire Matériel & Commandes
+                <span class="badge-count" id="badge-inv">9/15</span>
+            </button>
+            <button class="tab-btn" onclick="switchTab('tab-roadmap')">
+                🗺️ Feuille de Route Globale (7 Semaines)
+            </button>
+        </nav>
+
+        <!-- TAB 1: SEMAINE 1 (JOUR PAR JOUR) -->
+        <div id="tab-s1" class="tab-content active">
+            
+            <!-- LUNDI 26 OCT -->
+            <div class="section-header">
+                <div class="section-title">
+                    <span>🛠️ Lundi 26 Octobre</span> — Inventaire & Corrections Électroniques KiCad V2
+                </div>
+                <span class="section-progress" id="prog-lundi">0/6</span>
+            </div>
+
+            <div class="tasks-list">
+                <div class="task-card completed" data-id="t1" onclick="toggleTask('t1')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">Transmettre la liste du matériel déjà acheté / en stock</div>
+                        <div class="task-desc">Partager à Antigravity la liste exacte de vos composants, écrans, moteurs, batteries et outillages pour croiser avec la BOM et éviter les doublons.</div>
+                        <div class="task-tags">
+                            <span class="tag-pill tag-urgent">Priorité Immédiate</span>
+                            <span class="tag-pill tag-kicad">Approvisionnement</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-card completed" data-id="t2" onclick="toggleTask('t2')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">Arbitrage nappe OLED CH1115 (Pas & Connecteur vs Soudure)</div>
+                        <div class="task-desc">✅ Validé par Datasheet V2 (Topwin QG-8848TSWYG02) : Nappe 14 broches au pas propriétaire de 0.62 mm. Pas de connecteur standard existant -> <strong>Soudure directe à plat confirmée</strong> (gain d'épaisseur en Z).</div>
+                        <div class="task-tags">
+                            <span class="tag-pill tag-kicad">Validé Datasheet V2</span>
+                            <span class="tag-pill tag-kicad">Soudure Directe</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-card completed" data-id="t3" onclick="toggleTask('t3')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">Cohérence nappe écran KiCad V2</div>
+                        <div class="task-desc">✅ État d'origine intact et fonctionnel préservé (<code>C39</code> / <code>ConnectorMicromatch-14</code>). Cotes physiques et pinout 14 broches à 0.62 mm 100% validés avec la datasheet.</div>
+                        <div class="task-tags">
+                            <span class="tag-pill tag-kicad">Validé & Fonctionnel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-card completed" data-id="t4" onclick="toggleTask('t4')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">Correction critique DRV2605L (Vibreur haptique)</div>
+                        <div class="task-desc">Dans <code>Moteur.kicad_sch</code>, déconnecter la broche <code>A2 (REG)</code> du rail <code>+1V8</code>. Elle doit uniquement être reliée à un condensateur 1 µF vers GND pour préserver le LDO interne.</div>
+                        <div class="task-tags">
+                            <span class="tag-pill tag-urgent">Bug Critique</span>
+                            <span class="tag-pill tag-kicad">Sécurité IC</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-card completed" data-id="t5" onclick="toggleTask('t5')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">Sécurisation Miyota 2035 (Arbitré : Routage direct sans 0 Ω)</div>
+                        <div class="task-desc">✅ Non retenu / Arbitré : Pas de résistance 0 Ω insérée par manque de place sur Carte_V2. Liaison directe retenue depuis le pont en H, sécurité de la bobine garantie par timer firmware (impulsion 10-31 ms max).</div>
+                        <div class="task-tags">
+                            <span class="tag-pill tag-kicad">Miyota</span>
+                            <span class="tag-pill tag-kicad">Arbitré</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-card completed" data-id="t6" onclick="toggleTask('t6')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">DELs de debug hardware (Arbitré : Non retenu)</div>
+                        <div class="task-desc">✅ Non retenu / Arbitré : Abandonné en raison de la saturation d'espace sur Carte_V2 (WLCSP-100 sans micro-vias). Débogage matériel assuré via Tag-Connect SWD (SWDIO/SWCLK/VCP UART) et télémétrie BLE.</div>
+                        <div class="task-tags">
+                            <span class="tag-pill tag-firmware">Debug</span>
+                            <span class="tag-pill tag-kicad">Arbitré</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-card completed" data-id="t19" onclick="toggleTask('t19')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">Revue par les pairs de Carte_V2 (Figeage & Contrôle croisé)</div>
+                        <div class="task-desc">Dossier Carte_V2 figé pour relecture externe par les pairs. DRC épuré (0 court-circuit, adaptation 50 Ω validée, isolation bord ≥ 0.20 mm JLCPCB).</div>
+                        <div class="task-tags">
+                            <span class="tag-pill tag-kicad">Carte_V2</span>
+                            <span class="tag-pill tag-urgent">Revue Pairs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-card completed"" data-id="t20" onclick="toggleTask('t20')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">Audit & Contrôle de la Carte Capteurs V2 (Carte_Capteur_V2)</div>
+                        <div class="task-desc">Contrôle complet de la carte fille : MAX30101 (PPG), TMP117 (Temp), MAX17222 (Boost +5V), TCA9517D (Translateur I2C), connecteur Samtec 10 broches et nettoyage des annotations de schéma.</div>
+                        <div class="task-tags">
+                            <span class="tag-pill tag-kicad">Carte_Capteur</span>
+                            <span class="tag-pill tag-firmware">I2C & Optique</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MARDI 27 OCT -->
+            <div class="section-header" style="margin-top: 1.5rem;">
+                <div class="section-title">
+                    <span>🎨 Mardi 27 Octobre</span> — Conception du PCB Cadran (FR4 0.4 mm)
+                </div>
+            </div>
+
+            <div class="tasks-list">
+                <div class="task-card completed" data-id="t7" onclick="toggleTask('t7')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">Création du projet KiCad Cadran & Board Outline</div>
+                        <div class="task-desc">Définir le contour circulaire précis aux cotes intérieures de la lunette/réhaut, épaisseur FR4 0.4 mm.</div>
+                        <div class="task-tags"><span class="tag-pill tag-cadran">Cadran</span></div>
+                    </div>
+                </div>
+
+                <div class="task-card completed" data-id="t8" onclick="toggleTask('t8')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">Découpe de la fenêtre OLED (6h) et perçage canon d'aiguilles</div>
+                        <div class="task-desc">Positionner au dixième de millimètre la fenêtre d'affichage CH1115 et le trou central pour les axes du Miyota 2035.</div>
+                        <div class="task-tags"><span class="tag-pill tag-cadran">Horlogerie</span></div>
+                    </div>
+                </div>
+
+                <div class="task-card completed" data-id="t9" onclick="toggleTask('t9')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">Graphisme des index horaires en dorure ENIG sur masque Noir Mat</div>
+                        <div class="task-desc">Tracer les index en cuivre nu avec dorure électrolytique or (ENIG) pour un rendu luxe, avec encoches d'alignement avec le posage O4.</div>
+                        <div class="task-tags"><span class="tag-pill tag-cadran">Design Luxe</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MERCREDI 28 OCT -->
+            <div class="section-header" style="margin-top: 1.5rem;">
+                <div class="section-title">
+                    <span>⚙️ Mercredi 28 Octobre</span> — Figeage CAO 3D & Préparation SLM Inox 316L
+                </div>
+            </div>
+
+            <div class="tasks-list">
+                <div class="task-card" data-id="t10" onclick="toggleTask('t10')" style="border: 2px solid var(--accent-cyan); background: rgba(0, 229, 255, 0.08); box-shadow: var(--glow-cyan);">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title" style="color: var(--accent-cyan); font-weight: 700;">⭐ PRIORITÉ ABSOLUE : Assemblage 3D complet & Vérification scrupuleuse des jeux (Montre.SLDASM)</div>
+                        <div class="task-desc">Vérifier scrupuleusement les cotations et empilements avec les nouvelles pièces (<code>Carte_V2.3f</code>, <code>Carte_Capteur_V2f</code>, <code>Cadran_k</code>, Miyota, OLED, Batterie LIR3048, Carrure 316L). Contrôler l'empilement axial Z (garde aiguilles/saphir &ge; 0.35 mm, logement batterie 5.1 mm avec Poron, rayon nappe OLED) et radial (jeu PCB/carrure 0.20 mm, antenne RF &ge; 1.0 mm, hauteur axe couronne/tige) pour que <strong>TOUT s'emboîte parfaitement pour commander au plus vite</strong> avant le départ en décembre !</div>
+                        <div class="task-tags">
+                            <span class="tag-pill tag-urgent">Priorité Immédiate</span>
+                            <span class="tag-pill tag-meca">Assemblage 3D</span>
+                            <span class="tag-pill tag-cadran">Chaîne de cotes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-card" data-id="t11" onclick="toggleTask('t11')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">Dépôt des devis & Lancement commandes Hardware (Carrure SLM 316L + PCB JLCPCB)</div>
+                        <div class="task-desc">Dès l'assemblage 3D validé, exporter le STEP final de la carrure 316L pour le devis SLM + réusinage CNC, et générer les Gerbers 6 couches JLCPCB pour lancer la production avant de quitter l'école en décembre.</div>
+                        <div class="task-tags">
+                            <span class="tag-pill tag-meca">SLM 316L & CNC</span>
+                            <span class="tag-pill tag-kicad">JLCPCB 6 Couches</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-card" data-id="t12" onclick="toggleTask('t12')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">Lancement de l'impression 3D du Posage O4</div>
+                        <div class="task-desc">Imprimer en résine ou filament le posage de montage horloger O4 pour sécuriser l'assemblage cadran/aiguilles.</div>
+                        <div class="task-tags"><span class="tag-pill tag-meca">Outillage O4</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JEUDI 29 OCT -->
+            <div class="section-header" style="margin-top: 1.5rem;">
+                <div class="section-title">
+                    <span>📦 Jeudi 29 Octobre</span> — Commandes Outillages, Mousses & Consommables
+                </div>
+            </div>
+
+            <div class="tasks-list">
+                <div class="task-card" data-id="t13" onclick="toggleTask('t13')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">Commander le taraud pour les vis de poussoirs</div>
+                        <div class="task-desc">Commander le taraud micro-mécanique pour le taraudage des boutons-poussoirs latéraux.</div>
+                        <div class="task-tags"><span class="tag-pill tag-kicad">Outillage</span></div>
+                    </div>
+                </div>
+
+                <div class="task-card" data-id="t14" onclick="toggleTask('t14')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">Commander les pads thermiques et élastomères</div>
+                        <div class="task-desc">Pad thermique découpable pour l'insert TMP117 et cale élastomère de calage batterie LIR3048.</div>
+                        <div class="task-tags"><span class="tag-pill tag-meca">Thermique</span></div>
+                    </div>
+                </div>
+
+                <div class="task-card" data-id="t15" onclick="toggleTask('t15')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">Vérifier la mousse Poron du vibreur haptique</div>
+                        <div class="task-desc">S'assurer de la commande ou de la réception des bandes Poron 4.5 mm pour le moteur vibrant.</div>
+                        <div class="task-tags"><span class="tag-pill tag-meca">Haptique</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VENDREDI 30 AU DIMANCHE 01 NOV -->
+            <div class="section-header" style="margin-top: 1.5rem;">
+                <div class="section-title">
+                    <span>🚀 Vendredi 30 Octobre au Dimanche 01 Novembre</span> — Revue Finale & Déclenchement Commandes
+                </div>
+            </div>
+
+            <div class="tasks-list">
+                <div class="task-card" data-id="t16" onclick="toggleTask('t16')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">Inspection couche par couche des Gerbers (Carte Mère, Capteurs, Cadran)</div>
+                        <div class="task-desc">Vérifier pastilles, masques, sérigraphie, polarité des diodes et dégagement RF sans le stress du firmware.</div>
+                        <div class="task-tags"><span class="tag-pill tag-kicad">Gerbers</span></div>
+                    </div>
+                </div>
+
+                <div class="task-card" data-id="t17" onclick="toggleTask('t17')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">Vérification finale des stocks LCSC / JLCPCB SMT</div>
+                        <div class="task-desc">Valider que le STM32WB55, BQ24040, MAX17222, LSM6DSOX et TMP117 sont bien assignés dans le panier PCBA.</div>
+                        <div class="task-tags"><span class="tag-pill tag-kicad">BOM SMT</span></div>
+                    </div>
+                </div>
+
+                <div class="task-card" data-id="t18" onclick="toggleTask('t18')">
+                    <div class="task-checkbox-wrap">
+                        <div class="custom-checkbox">✔</div>
+                    </div>
+                    <div class="task-info">
+                        <div class="task-title">🔥 DÉCLENCHEMENT DES COMMANDES (Panier JLCPCB PCBA + SLM Inox 316L)</div>
+                        <div class="task-desc">Paiement et lancement en production des circuits imprimés assemblés et de la carrure en impression 3D métal !</div>
+                        <div class="task-tags"><span class="tag-pill tag-urgent">Jalon Majeur</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- TAB 2: INVENTAIRE -->
+        <div id="tab-inventory" class="tab-content">
+            <div class="inventory-card">
+                <table class="inv-table">
+                    <thead>
+                        <tr>
+                            <th>Composant / Sous-ensemble</th>
+                            <th>Référence Technique</th>
+                            <th>Usage dans la montre</th>
+                            <th>Statut Appro</th>
+                        </tr>
+                    </thead>
+                                        <tbody id="inventory-tbody">
+                        <tr>
+                            <td><strong>Écran micro-OLED 0.5"</strong></td>
+                            <td>Topwin QG-8848TSWYG02 (CH1115, 88x48)</td>
+                            <td>Affichage numérique 6h (x2)</td>
+                            <td><span class="status-badge status-stock">✅ Reçu (Datasheet 14p @ 0.62mm validée)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Batterie Rechargeable</strong></td>
+                            <td>LIR3048 Li-ion (3.7V - 280 mAh)</td>
+                            <td>Alimentation principale montre (x2)</td>
+                            <td><span class="status-badge status-stock">✅ Reçu (En stock)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mouvement Horloger Quartz</strong></td>
+                            <td>Miyota 2035 (Modifié 2 fils)</td>
+                            <td>Aiguilles analogiques (x2)</td>
+                            <td><span class="status-badge status-stock">⚠️ 2 en stock opérationnels (1 raté, 1 spare à racheter)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Jeux d'aiguilles</strong></td>
+                            <td>Heures & Minutes Miyota 2035</td>
+                            <td>Affichage analogique (x2)</td>
+                            <td><span class="status-badge status-stock">✅ Reçu (En stock)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Verre principal (Saphir)</strong></td>
+                            <td>Glace saphir plat supérieur</td>
+                            <td>Protection face avant (x2)</td>
+                            <td><span class="status-badge status-stock">✅ Reçu (En stock)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Joint en I (Glace saphir)</strong></td>
+                            <td>Joint Téflon/Hytrel profil en I</td>
+                            <td>Chassage étanche saphir supérieur</td>
+                            <td><span class="status-badge status-stock">✅ Reçu (En stock)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Verre bottom (Inférieur) 12 mm</strong></td>
+                            <td>Glace minérale trempée Ø12 mm</td>
+                            <td>Fenêtre capteur PPG MAX30101 (x2)</td>
+                            <td><span class="status-badge status-stock">✅ Reçu (En stock)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Boutons poussoirs (x4)</strong></td>
+                            <td>Poussoirs latéraux / Tact switches</td>
+                            <td>Boutons physiques (2 par montre)</td>
+                            <td><span class="status-badge status-stock">✅ Reçu (4 en stock)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Colle UV optique</strong></td>
+                            <td>Adhésif acrylique polymérisable UV</td>
+                            <td>Scellement étanche du verre bottom 12 mm</td>
+                            <td><span class="status-badge status-stock">✅ En Stock atelier</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Joint torique base-carrure</strong></td>
+                            <td>O-ring Nitrile/Viton de fermeture</td>
+                            <td>Étanchéité radiale fond / carrure 316L</td>
+                            <td><span class="status-badge status-ordered">🚚 En cours de livraison</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mousses Poron & Adhésifs</strong></td>
+                            <td>Poron microcellulaire + Kapton</td>
+                            <td>Amortisseur vibreur 4.5mm & calage batterie</td>
+                            <td><span class="status-badge status-todo">🔍 À vérifier dans placards (Rentrée)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Taraud & Mouvement spare</strong></td>
+                            <td>Micro-taraud vis poussoirs + 1 Miyota 2035</td>
+                            <td>Filetage boutons carrure + sécurisation montage</td>
+                            <td><span class="status-badge status-todo">🛒 À commander Jeudi 29 Oct</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Composants CMS & Bobine Qi</strong></td>
+                            <td>STM32WB55, BQ24040, TMP117, WE 760308101309</td>
+                            <td>Cartes mères V2 & Recharge sans fil</td>
+                            <td><span class="status-badge status-ordered">📋 Panier Mouser / JLCPCB SMT</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Carrures Principales Inox 316L</strong></td>
+                            <td>Impression 3D Métal SLM (JLCPCB 316L)</td>
+                            <td>Structure mécanique, lunette et cornes (x2)</td>
+                            <td><span class="status-badge status-todo">🚀 À commander Vendredi 30 Oct</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bases Inférieures (Fond de boîte)</strong></td>
+                            <td>Impression Résine Haute Précision Extérieure (SLA)</td>
+                            <td>Logement capteurs (TMP117, MAX30101), batterie & O-ring (x2)</td>
+                            <td><span class="status-badge status-todo">🖨️ Sous-traitance Résine Extérieure (Figeage Vendredi)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB 3: ROADMAP GLOBALE -->
+        <div id="tab-roadmap" class="tab-content">
+            <div class="tasks-list">
+                <div class="task-card">
+                    <div class="task-info">
+                        <div class="task-title">📅 S1 (26 Oct - 01 Nov) [Vacances Toussaint] : Figeage Smilewatch V2 & Commandes Usines</div>
+                        <div class="task-desc">Corrections KiCad V2 (DRV2605L, Miyota, DELs debug), Tracé PCB Cadran FR4 0.4mm, validation STEP SLM 316L, commandes outillage. <strong>Jalon Critique : Commande Dimanche 01 Nov !</strong></div>
+                        <div class="task-tags"><span class="tag-pill tag-urgent">Semaine En Cours</span></div>
+                    </div>
+                </div>
+                <div class="task-card">
+                    <div class="task-info">
+                        <div class="task-title">🤖 S2 (02 - 08 Nov) : CdF Gros Robot (FabLab Mar 03 Nov 13h30) & Suivi Usine Smilewatch</div>
+                        <div class="task-desc"><strong>Mardi 13h30 (FabLab CdF) :</strong> Coordination mécanique avec Alexis, lancement système de tir et rails.<br><strong>Soirée / Maison :</strong> Suivi validation DFM JLCPCB PCBA + SLM 316L.<br><strong>Sport :</strong> 🏊 Piscine Mar 18h30 & Jeu 18h30.</div>
+                        <div class="task-tags"><span class="tag-pill tag-kicad">CdF + Smilewatch S2</span></div>
+                    </div>
+                </div>
+                <div class="task-card">
+                    <div class="task-info">
+                        <div class="task-title">🤖 S3 (09 - 15 Nov) : CdF Bras 4 axes (FabLab Mar 10 Nov 13h30) & Setup CubeIDE Smilewatch</div>
+                        <div class="task-desc"><strong>Mardi 13h30 (FabLab CdF) :</strong> Montage mécanique du bras 4 axes, servos Dynamixel XL430 et support ventouse.<br><strong>Soirée / Maison :</strong> Configuration STM32CubeIDE BLE_Ota pour Smilewatch.<br><strong>Sport :</strong> 🏊 Piscine Mar 18h30 & Jeu 18h30.</div>
+                        <div class="task-tags"><span class="tag-pill tag-firmware">CdF + Smilewatch S3</span></div>
+                    </div>
+                </div>
+                <div class="task-card">
+                    <div class="task-info">
+                        <div class="task-title">⚡ S4 (16 - 22 Nov) : CdF Préhenseur Ventouse & Réception PCBA Smilewatch</div>
+                        <div class="task-desc"><strong>Mardi 13h30 (FabLab CdF) :</strong> Tests préhension ventouse et cinématique bras.<br><strong>Maison (~16 Nov) :</strong> Réception colis PCBA JLCPCB ➔ 1er flash Tag-Connect (M0+ pile RF).<br><strong>Atelier (~18 Nov) :</strong> Réception brute SLM 316L ➔ <em>Dépôt immédiat en réusinage CNC (délai 8-10j)</em>.</div>
+                        <div class="task-tags"><span class="tag-pill tag-urgent">Jalon PCBA</span></div>
+                    </div>
+                </div>
+                <div class="task-card">
+                    <div class="task-info">
+                        <div class="task-title">📶 S5 (23 - 29 Nov) : CdF Intégration Élec/Méca & Révisions Partiel Signal</div>
+                        <div class="task-desc"><strong>Mardi 13h30 (FabLab CdF) :</strong> Intégration cartes électroniques et tir de balles.<br><strong>Smilewatch :</strong> Carrure en cours de réusinage CNC. Validation flash sans fil BLE OTA sur table à la maison.<br><strong>Révisions (10h bloquées) :</strong> Préparation intensive Partiel Signal (examen lun 30 nov). <em>(WE Rennes 27-29 nov)</em>.</div>
+                        <div class="task-tags"><span class="tag-pill tag-firmware">Réusinage CNC & Révisions</span></div>
+                    </div>
+                </div>
+                <div class="task-card">
+                    <div class="task-info">
+                        <div class="task-title">⚙️ S6 (30 Nov - 06 Déc) : Examen Signal, Trajectoires CdF & Récupération Carrure 316L</div>
+                        <div class="task-desc"><strong>Lundi 30 Nov 13h30 :</strong> Examen Signal.<br><strong>Mardi 13h30 (FabLab CdF) :</strong> Programmation trajectoires bras 4 axes et essais tir.<br><strong>Smilewatch :</strong> Récupération carrure 316L réusinée CNC, montage mécanique à blanc dans posage O4.<br><strong>Révisions (10h bloquées) :</strong> Préparation Partiel Automatique (examen lun 07 déc).</div>
+                        <div class="task-tags"><span class="tag-pill tag-meca">Carrure reçue</span></div>
+                    </div>
+                </div>
+                <div class="task-card">
+                    <div class="task-info">
+                        <div class="task-title">⏱️ S7 (07 - 13 Déc) : Examen Automatique, Répétition Match CdF & Assemblage Smilewatch</div>
+                        <div class="task-desc"><strong>Lundi 07 Déc 13h30 :</strong> Examen Automatique.<br><strong>Mardi 13h30 (FabLab CdF) :</strong> Match test complet du Gros Robot chrono en main.<br><strong>Smilewatch :</strong> Assemblage final Notice V3.8, pose cadran/aiguilles, fermeture étanche et charge Qi.<br><strong>Sport :</strong> 🏊 Dernières séances Piscine Mar 08 & Jeu 10 Déc.</div>
+                        <div class="task-tags"><span class="tag-pill tag-urgent">Dernière ligne droite</span></div>
+                    </div>
+                </div>
+                <div class="task-card" style="border-color: rgba(239, 68, 68, 0.5); background: rgba(239, 68, 68, 0.08);">
+                    <div class="task-info">
+                        <div class="task-title">🎓 S8 (14 - 15 Déc) : SOUTENANCE PROJET S7 GROS ROBOT CDF (Mardi 15 Décembre à 13h30)</div>
+                        <div class="task-desc"><strong>Lundi 14 Déc (18h-20h) :</strong> Répétition générale pitch & démo match CdF.<br><strong>Mardi 15 Déc (13h30) :</strong> Soutenance devant le jury ENSEA avec l'équipe (Yanis, Alexis, etc.) !<br><em>Smilewatch V2 est alors assemblée au poignet !</em></div>
+                        <div class="task-tags"><span class="tag-pill tag-urgent">SOUTENANCE ENSEA</span></div>
+                    </div>
+                </div>
+                <div class="task-card" style="opacity: 0.85;">
+                    <div class="task-info">
+                        <div class="task-title">🛡️ Semaine de Secours Optionnelle (04 - 09 Janvier 2027)</div>
+                        <div class="task-desc">Semaine de réserve post-Noël si le réusinage CNC ou des finitions firmware sur la montre nécessitent du temps additionnel sans stress.</div>
+                        <div class="task-tags"><span class="tag-pill tag-cadran">Buffer Sécurité</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-bar">
+        <div>Projet Smilewatch — Sauvegarde automatique locale (LocalStorage).</div>
+        <div style="display: flex; gap: 0.75rem;">
+            <button class="btn" onclick="exportProgress()">📋 Copier le statut</button>
+            <button class="btn btn-cyan" onclick="resetTasks()">🔄 Réinitialiser</button>
+        </div>
+    </footer>
+
+    <div id="toast">Statut copié dans le presse-papier !</div>
+
+    <script>
+        const STORAGE_KEY = 'smilewatch_v2_tasks_state_v3';
+        
+        // Initial state
+        let taskState = {};
+
+        function loadState() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    taskState = JSON.parse(saved);
+                } else {
+                    taskState = { t1: true, t2: true, t3: true, t4: true, t5: true, t6: true, t19: true, t7: true, t8: true, t9: true, t10: false, t11: false };
+                }
+            } catch(e) {
+                console.error("Erreur chargement localStorage", e);
+                taskState = { t1: true, t2: true, t3: true, t4: true, t5: true, t6: true, t19: true, t7: true, t8: true, t9: true, t10: false, t11: false };
+            }
+            applyState();
+        }
+
+        function saveState() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(taskState));
+            } catch(e) {
+                console.error("Erreur sauvegarde localStorage", e);
+            }
+            updateStats();
+        }
+
+        function toggleTask(id) {
+            taskState[id] = !taskState[id];
+            saveState();
+            applyState();
+            showToast(taskState[id] ? "Tâche validée ! Bravo 🚀" : "Tâche remise à faire");
+        }
+
+        function applyState() {
+            const cards = document.querySelectorAll('.task-card[data-id]');
+            cards.forEach(card => {
+                const id = card.getAttribute('data-id');
+                if (taskState[id]) {
+                    card.classList.add('completed');
+                } else {
+                    card.classList.remove('completed');
+                }
+            });
+            updateStats();
+        }
+
+        function updateStats() {
+            const cards = document.querySelectorAll('.task-card[data-id]');
+            const total = cards.length;
+            let done = 0;
+            
+            cards.forEach(card => {
+                const id = card.getAttribute('data-id');
+                if (taskState[id]) done++;
+            });
+
+            const percent = total > 0 ? Math.round((done / total) * 100) : 0;
+
+            document.getElementById('count-done').innerText = done;
+            document.getElementById('count-total').innerText = total;
+            document.getElementById('count-percent').innerText = percent + '%';
+            document.getElementById('s1-percent').innerText = percent + '%';
+            document.getElementById('global-progress-bar').style.width = percent + '%';
+            document.getElementById('badge-s1').innerText = `${done}/${total}`;
+
+            // Lundi specific
+            const lundiIds = ['t1', 't2', 't3', 't4', 't5', 't6'];
+            const lundiDone = lundiIds.filter(id => taskState[id]).length;
+            const progLundi = document.getElementById('prog-lundi');
+            if (progLundi) progLundi.innerText = `${lundiDone}/${lundiIds.length}`;
+
+            // Update Next Task
+            const firstUndone = Array.from(cards).find(card => !taskState[card.getAttribute('data-id')]);
+            const nextEl = document.getElementById('next-task-name');
+            if (firstUndone) {
+                const title = firstUndone.querySelector('.task-title').innerText;
+                nextEl.innerText = title.length > 35 ? title.substring(0, 35) + '...' : title;
+            } else {
+                nextEl.innerText = "Toutes les tâches de la semaine sont terminées ! 🎉";
+            }
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            const target = document.getElementById(tabId);
+            if (target) target.classList.add('active');
+
+            const btn = Array.from(document.querySelectorAll('.tab-btn')).find(b => b.getAttribute('onclick').includes(tabId));
+            if (btn) btn.classList.add('active');
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.innerText = msg;
+            t.style.display = 'block';
+            setTimeout(() => { t.style.display = 'none'; }, 2500);
+        }
+
+        function exportProgress() {
+            const cards = document.querySelectorAll('.task-card[data-id]');
+            let text = "### État d'avancement Smilewatch V2\n\n";
+            cards.forEach(card => {
+                const id = card.getAttribute('data-id');
+                const title = card.querySelector('.task-title').innerText;
+                const status = taskState[id] ? "[x]" : "[ ]";
+                text += `${status} ${title}\n`;
+            });
+            navigator.clipboard.writeText(text).then(() => {
+                showToast("Progression copiée pour Antigravity !");
+            });
+        }
+
+        function resetTasks() {
+            if (confirm("Voulez-vous vraiment réinitialiser toutes les cases à cocher ?")) {
+                taskState = {};
+                saveState();
+                applyState();
+                showToast("Tableau réinitialisé");
+            }
+        }
+
+        // Countdown logic to Sunday Nov 1st 2026
+        function updateCountdown() {
+            const targetDate = new Date("2026-11-01T23:59:59").getTime();
+            const now = new Date().getTime();
+            const diff = targetDate - now;
+
+            if (diff > 0) {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById('countdown-days').innerText = days + ' j';
+            } else {
+                document.getElementById('countdown-days').innerText = 'Jalon Atteint';
+            }
+        }
+
+        // Init on load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadState();
+            updateCountdown();
+        });
+    </script>
+</body>
+</html>
