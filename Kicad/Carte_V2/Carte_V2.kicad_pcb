@@ -8913,7 +8913,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr smd exclude_from_bom dnp)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.153641 -0.38)
@@ -10252,7 +10252,7 @@
 				)
 			)
 		)
-		(property "Value" "10k Ohm"
+		(property "Value" "10k NTC"
 			(at 0 1.17 90)
 			(layer "F.Fab")
 			(uuid "464591f5-6eb7-4b1a-93b7-b72a346fa374")
@@ -13707,7 +13707,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr smd exclude_from_bom dnp)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.153641 -0.38)
@@ -17897,7 +17897,7 @@
 				)
 			)
 		)
-		(property "Value" "330nF"
+		(property "Value" "220nF"
 			(at 0 1.43 0)
 			(layer "F.Fab")
 			(uuid "8220db24-d588-4ce4-8920-7538c7bb08c2")
@@ -17932,7 +17932,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C76621"
+		(property "JLCPCB Part#" "C21120"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -23815,7 +23815,7 @@
 		(at 100.2 92 90)
 		(descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor")
-		(property "Reference" "TH2"
+		(property "Reference" "R27"
 			(at 0 -1.17 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -23850,7 +23850,7 @@
 				)
 			)
 		)
-		(property "Description" "Temperature dependent resistor, negative temperature coefficient"
+		(property "Description" "Fixed 10k resistor (TS-CTRL without NTC per bq51003 datasheet)"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -23862,7 +23862,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C91636"
+		(property "JLCPCB Part#" "C25744"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -26083,7 +26083,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "AP9101CAK-ATTRG1"
+		(property "Value" "AP9101CK-AZTRG1"
 			(at 0 -2.4 90)
 			(layer "B.Fab")
 			(uuid "13315fb4-359d-4196-9989-e507ce0a38e2")
@@ -26121,7 +26121,7 @@
 				(justify mirror)
 			)
 		)
-		(property "JLCPCB Part#" "C5588142"
+		(property "JLCPCB Part#" "C6465713"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -27229,7 +27229,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "+ batterie"
+		(property "Value" "- batterie"
 			(at 0 -3.1 0)
 			(layer "B.Fab")
 			(uuid "df2a6570-b678-43ab-9237-05d7cd0084ba")
@@ -27311,6 +27311,18 @@
 			(layer "B.CrtYd")
 			(uuid "325bec4a-9818-40f7-8452-f0372b44fc71")
 		)
+		(fp_text user "BAT -"
+			(at 0 -5.85 0)
+			(layer "B.SilkS")
+			(uuid "8c2f3b5a-1122-4a9b-8e4c-77aa12340001")
+			(effects
+				(font
+					(size 1.2 1.2)
+					(thickness 0.2)
+				)
+				(justify mirror)
+			)
+		)
 		(fp_text user "${REFERENCE}"
 			(at 0 2.9 0)
 			(layer "B.Fab")
@@ -27338,7 +27350,7 @@
 		(layer "B.Cu")
 		(uuid "94a5bd58-303e-4349-a46a-37d8c9b148ad")
 		(at 99.057471 66.752001 22)
-		(property "Reference" "C22"
+		(property "Reference" "BT1"
 			(at -0.099996 -2.013316 202)
 			(unlocked yes)
 			(layer "B.SilkS")
@@ -27352,7 +27364,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "+ batterie (S1921)"
 			(at 3.048957 5.154107 202)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -27472,6 +27484,18 @@
 			(layer "B.CrtYd")
 			(uuid "64be2b79-0efc-46e4-8b60-1b2adf8d4b16")
 		)
+		(fp_text user "BAT +"
+			(at -0.1 4.4 202)
+			(layer "B.SilkS")
+			(uuid "8c2f3b5a-1122-4a9b-8e4c-77aa12340002")
+			(effects
+				(font
+					(size 1.2 1.2)
+					(thickness 0.2)
+				)
+				(justify mirror)
+			)
+		)
 		(fp_text user "${REFERENCE}"
 			(at 3.048957 3.654105 202)
 			(unlocked yes)
@@ -27491,7 +27515,7 @@
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.15)
 			(net "+3V8")
-			(pinfunction "VSS_1")
+			(pinfunction "+BATT_1")
 			(pintype "input")
 			(uuid "c6de48ab-097a-4699-a55a-2a37250696ed")
 		)

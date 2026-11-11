@@ -584,8 +584,8 @@
         <!-- Global Progress Card -->
         <section class="progress-card">
             <div class="progress-details">
-                <h2>Passe Corrective V2.1 (MàJ Élec/BOM 11 Nov) &amp; Préparation Audit Argon</h2>
-                <p>Électronique, datasheets et BOM passés à 0 erreur ERC/DRC (11 Nov). Restent à boucler : sourcing ruptures JLCPCB, vérifs CAO <code>P0-MECA-6/7</code>, poussoirs étanches, exports STEP/Gerbers et projet CubeIDE.</p>
+                <h2>Passe Corrective V2.1 — Vérifs Élec/Datasheets en cours (Méca &amp; Appro ouverts)</h2>
+                <p>Schémas/PCB KiCad et modèles <code>.STEP</code> mis à jour (ERC=0, DRC règles projet=0 sur les 3 PCB) ; <code>Datasheet/V2/</code> actualisé. <strong>Pas encore de GO usine</strong> : il reste à valider les datasheets JLC (<code>AP9101CK</code> <em>Power-Down</em>, <code>C21120</code> 25V X7R, budget <code>TPS61023</code>), <strong>inverser le clips</strong> en CAO + contrôler les <code>.STEP</code> (<code>P0-MECA-6/7</code>, <code>P1-MECA-9/10</code>), et pré-commander les refs <code>stk=0</code>.</p>
                 
                 <div class="progress-bar-wrap">
                     <div class="progress-bar-fill" id="global-progress-bar"></div>
@@ -594,7 +594,7 @@
                 <div class="progress-counters">
                     <span>Terminées : <strong id="count-done">0</strong> / <strong id="count-total">0</strong></span>
                     <span>Taux d'achèvement : <strong id="count-percent">0%</strong></span>
-                    <span>Prochaine étape : <strong id="next-task-name" style="color:var(--accent-cyan)">Audit Argon, Méca OLED &amp; Sourcing</strong></span>
+                    <span>Prochaine étape : <strong id="next-task-name" style="color:var(--accent-cyan)">Contrôle Méca 3D (.STEP) &amp; Pré-commande JLCPCB</strong></span>
                 </div>
             </div>
 
@@ -626,7 +626,7 @@
             <!-- SPRINT CORRECTIF V2.1 (AUDIT 360 DU 08 NOV) -->
             <div class="section-header" style="border-color: rgba(239, 68, 68, 0.45); background: rgba(239, 68, 68, 0.08);">
                 <div class="section-title" style="color: #fca5a5;">
-                    <span>🛠️ Audit 360° (08 Nov) &amp; Passe V2.1 (MàJ 11 Nov)</span> — Élec 0 erreur ✅ | Méca, Stocks &amp; Audit Argon en cours
+                    <span>🛠️ Audit 360° &amp; Passe V2.1 (MàJ 11 Nov)</span> — Élec + Production + STEP ✅ | Reste Méca 3D &amp; Pré-commande JLC
                 </div>
                 <span class="section-progress" id="prog-v21" style="color: #f87171;">0/8</span>
             </div>
@@ -635,25 +635,25 @@
                 <!-- CHECKLIST SYNTHESE PRE-AUDIT ARGON (11 NOV 2026) -->
                 <div style="background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.35); border-radius: 12px; padding: 1.1rem 1.25rem; margin-bottom: 1rem;">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.6rem;">
-                        <span style="font-weight:700; color:#60a5fa; font-size:0.92rem;">⏸️ Point d'Étape &amp; Préparation Audit Externe Argon / Multi-IA (11 Nov 2026)</span>
-                        <span style="font-size:0.75rem; background:rgba(16, 185, 129, 0.2); color:#34d399; padding:0.25rem 0.55rem; border-radius:6px; font-family:'JetBrains Mono',monospace;">ERC=0 &amp; DRC=0 (3 PCB)</span>
+                        <span style="font-weight:700; color:#60a5fa; font-size:0.92rem;">⚠️ Bilan Passe V2.1 — Points Vérifiés &amp; Restes Avant GO Usine (11 Nov 2026)</span>
+                        <span style="font-size:0.75rem; background:rgba(16, 185, 129, 0.2); color:#34d399; padding:0.25rem 0.55rem; border-radius:6px; font-family:'JetBrains Mono',monospace;">ERC=0 &amp; DRC Projet=0 (3 PCB)</span>
                     </div>
                     <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.9rem; font-size:0.83rem;">
                         <div style="background:rgba(15,23,42,0.6); padding:0.75rem; border-radius:8px; border:1px solid rgba(255,255,255,0.06);">
-                            <div style="font-weight:600; color:#34d399; margin-bottom:0.35rem;">✅ Électronique &amp; BOM Soldées (11 Nov)</div>
+                            <div style="font-weight:600; color:#34d399; margin-bottom:0.35rem;">✅ KiCad, Livrables &amp; Datasheets Mis à Jour</div>
                             <ul style="margin:0; padding-left:1.1rem; color:var(--text-secondary); line-height:1.5;">
-                                <li><code>LIR3048</code> : <code>C22</code> sur <code>+3V8</code>, <code>TP8</code> (6&times;6 mm) sur <code>GNDPWR</code> (⚠️ pastille excentrée r=11.05 mm).</li>
-                                <li>OLED : <code>Q2.2=GND</code>, <code>Q1.2/R15=+3V8</code>, <code>R13=560kΩ</code>.</li>
-                                <li>RF : <code>R21/R24=DNP</code>, Keepout 6 couches <code>ANT1</code>, <code>Y1=8pF</code> (<code>Y1.4 NC</code>).</li>
-                                <li>Alim &amp; Capteurs : <code>TPS7A0233/18</code>, ADC <code>PC4</code>, <code>TCA9517D</code> inversé, vias <code>TMP117</code>, <code>L1=1.0µH C531284</code>, BOM JLC complétée.</li>
+                                <li><code>LIR3048</code> : <code>BT1</code> (<code>C22</code>) sur <code>+3V8</code>, <code>TP8</code> (6&times;6 mm) sur <code>GNDPWR</code> (⚠️ pastille excentrée r=11.05 mm).</li>
+                                <li>OLED &amp; RF : <code>Q2.2=GND</code>, <code>Q1.2/R15=+3V8</code>, <code>R13=560kΩ</code>, <code>R21/R24=DNP</code> (hors CPL), Keepout <code>ANT1</code>, <code>Y1=8pF</code>.</li>
+                                <li>Alim &amp; Capteurs : <code>TPS61023DRLR</code> (<code>C919459</code>) + <code>L1 1.0µH 0603</code> (<code>C882989</code>), <code>R23/R24=150k/20k</code>, <code>TCA9517DR</code> (<code>C182421</code> stk 5738), vias <code>TMP117</code>, <code>TPS7A02</code> (datasheet EN), <code>R27=10k</code>, <code>TH1="10k NTC"</code>.</li>
+                                <li>Exports : <code>Datasheet/V2/</code> (<code>tps7a02.pdf</code> EN, <code>CL10A106MA8NRNC.pdf</code>, <code>GRM1555C1H222GA01D.pdf</code>), <code>production/</code> (3 PCB) et <code>.STEP</code> ré-exportés.</li>
                             </ul>
                         </div>
                         <div style="background:rgba(15,23,42,0.6); padding:0.75rem; border-radius:8px; border:1px solid rgba(255,255,255,0.06);">
-                            <div style="font-weight:600; color:#fbbf24; margin-bottom:0.35rem;">⚠️ Reste Ouvert Avant Commande Usine</div>
+                            <div style="font-weight:600; color:#fbbf24; margin-bottom:0.35rem;">⚠️ Points Ouverts Avant GO Usine</div>
                             <ul style="margin:0; padding-left:1.1rem; color:var(--text-secondary); line-height:1.5;">
-                                <li><strong>Stocks JLCPCB à 0 :</strong> 7 refs <code>Carte_V2</code> + <code>J1</code> Capteur + 3 stocks bas.</li>
-                                <li><strong>Méca CAO :</strong> sous dalle OLED (<code>P0-MECA-7</code>), confirm. poche <code>J1</code>/Qi (<code>P0-MECA-6</code>), poussoirs <code>Bouton.SLDASM</code> (<code>P1-MECA-9</code>), radial <code>IC3/L1</code> (<code>P1-MECA-10</code>).</li>
-                                <li><strong>Livrables :</strong> ré-exports <code>.STEP</code>, <code>production/</code> (juillet périmé), Notice V3.9, CubeIDE <code>STM32WB55VGYx</code>.</li>
+                                <li><strong>Revue Datasheets JLC :</strong> <code>U4=AP9101CK-AZTRG1</code> (variant <em>Power-Down</em> actif ➔ réveil requis sur chargeur Qi au 1er montage), <code>C0G2_50V1=C21120</code> (220nF <strong>25V X7R</strong> au lieu de C0G 50V), budget <code>IC6 TPS7A0233</code> (200 mA max).</li>
+                                <li><strong>Méca CAO (sur nouveaux .STEP) :</strong> <strong>inverser le clips</strong> (Base/carrure), sous OLED (<code>P0-MECA-7</code>), poche <code>J1</code>/Qi (<code>P0-MECA-6</code>), poussoirs <code>Bouton.SLDASM</code> (<code>P1-MECA-9</code>), radial <code>TPS61023/L1</code> (<code>P1-MECA-10</code>).</li>
+                                <li><strong>Pré-commande JLCPCB (<code>Carte_V2</code>) :</strong> 7 refs à <code>stk=0</code> (<code>U2, FL1, ANT1, Y1, U4, Q3, M1</code>) + stocks bas (<code>IC1=2, IC8=11</code>) + option <strong>VIPPO</strong>. <em>Firmware reporté.</em></li>
                             </ul>
                         </div>
                     </div>
@@ -675,7 +675,7 @@
                     <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
                     <div class="task-info">
                         <div class="task-title">[P0-ELEC-1] Polarité batterie LIR3048 corrigée en KiCad (Carte_V2 B.Cu + Batterie.SLDPRT)</div>
-                        <div class="task-desc">✅ <strong>Corrigé le 11 Nov :</strong> ressort latéral <code>C22</code> relié à <code>+3V8</code>, <code>TP2</code> supprimé, <code>TP8</code> (6&times;6 mm) relié à <code>GNDPWR</code>, <code>Batterie.SLDPRT</code> calé à 4.90 mm. <em>Vigilance pour audit Argon : <code>TP8</code> est une pastille plate excentrée (<code>r=11.05 mm</code>) sans ressort central dédié.</em></div>
+                        <div class="task-desc">✅ <strong>Corrigé le 11 Nov :</strong> ressort latéral <code>BT1</code> (ex-<code>C22</code>) relié à <code>+3V8</code>, <code>TP2</code> supprimé, <code>TP8</code> (6&times;6 mm) relié à <code>GNDPWR</code>, <code>Batterie.SLDPRT</code> calé à 4.90 mm. <em>Vigilance : <code>TP8</code> est une pastille plate excentrée (<code>r=11.05 mm</code>) sans ressort central dédié.</em></div>
                         <div class="task-tags">
                             <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">Corrigé KiCad ✔</span>
                             <span class="tag-pill tag-kicad">Carte_V2 (⚠️ TP8 excentré)</span>
@@ -698,8 +698,8 @@
                 <div class="task-card completed" data-id="t23" onclick="toggleTask('t23')" style="border-left: 4px solid #10b981;">
                     <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
                     <div class="task-info">
-                        <div class="task-title">[P0-ELEC-3 &amp; THERM-14] TCA9517D inversé, Vias thermiques TMP117, L1=1.0 µH &amp; BOM Carte_Capteur_V1</div>
-                        <div class="task-desc">✅ <strong>Corrigé le 11 Nov :</strong> Side A (<code>+1V8</code> MAX30101) / Side B (<code>+3V3</code> MCU) de <code>U3</code> permutés et reroutés ; îlot ENIG <code>1.2&times;1.8 mm</code> + 2 vias + keepout <code>U2_Thermal_Iso</code> ajoutés sous <code>TMP117</code> ; <code>L1</code> validée à <strong>1.0 µH (C531284, 500 mA)</strong> ; <strong>ERC=0 &amp; DRC=0</strong>. <em>Reste <code>P1-MECA-10</code> (dégagement radial <code>IC3/L1</code> à confirmer sur <code>.STEP</code>).</em></div>
+                        <div class="task-title">[P0-ELEC-3 &amp; THERM-14] TCA9517DR inversé (en stock), Vias thermiques TMP117 &amp; Boost TPS61023DRLR</div>
+                        <div class="task-desc">✅ <strong>Corrigé le 11 Nov :</strong> Side A (<code>+1V8</code> MAX30101) / Side B (<code>+3V3</code> MCU) de <code>U3</code> permutés et reroutés (<code>C182421</code> confirmé en stock JLCPCB : <strong>5 738 pcs</strong>) ; îlot ENIG <code>1.2&times;1.8 mm</code> + 2 vias + keepout <code>U2_Thermal_Iso</code> ajoutés sous <code>TMP117</code> ; boost migré vers <strong>TPS61023DRLR (<code>C919459</code>) + L1 1.0 µH 0603 (<code>C882989</code>) + R23/R24 150k/20k</strong> ; <strong>ERC=0 &amp; DRC=0</strong>. <em>Reste <code>P1-MECA-10</code> (dégagement radial <code>IC3/L1</code> à confirmer sur le nouveau <code>.STEP</code>).</em></div>
                         <div class="task-tags">
                             <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">Résolu &amp; DRC=0 ✔</span>
                             <span class="tag-pill tag-kicad">Carte_Capteur_V1</span>
@@ -734,11 +734,11 @@
                 <div class="task-card" data-id="t26" onclick="toggleTask('t26')" style="border-left: 4px solid #f59e0b;">
                     <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
                     <div class="task-info">
-                        <div class="task-title">[P0-MECA-8 ✔ / P1-MECA-9 ⏳] O-ring 25 % &amp; clipsage validés — Poussoirs étanches Bouton.SLDASM à intégrer</div>
-                        <div class="task-desc">✅ <strong>P0-MECA-8 résolu (09 Nov) :</strong> gorge ISO 3601 (0.75&times;1.30 mm, 25 %) + clipsage découplé validés ; <code>Canal_lum</code> mis à jour (09/11).<br>🟠 <strong>P1-MECA-9 ouvert :</strong> <code>Bouton.SLDASM</code> date encore du 24/09 — intégrer les poussoirs horlogers étanches (joint + circlip interne) avant lancement SLM 316L.</div>
+                        <div class="task-title">[P0-MECA-8 / P1-MECA-9 ⏳] O-ring 25 % validé — Inverser le clips &amp; intégrer poussoirs Bouton.SLDASM</div>
+                        <div class="task-desc">✅ <strong>O-ring 25 % (09 Nov) :</strong> gorge ISO 3601 (0.75&times;1.30 mm) validée ; <code>Canal_lum</code> mis à jour (09/11).<br>🟠 <strong>Modif CAO à faire :</strong> <strong>inverser le clips</strong> (Base/carrure) pour faciliter la fabrication + intégrer les poussoirs horlogers étanches <code>Bouton.SLDASM</code> (<code>P1-MECA-9</code>) avant SLM 316L.</div>
                         <div class="task-tags">
                             <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">O-ring 25% Validé ✔</span>
-                            <span class="tag-pill tag-meca">Bouton.SLDASM Ouvert</span>
+                            <span class="tag-pill tag-meca">Inverser Clips + Bouton.SLDASM</span>
                         </div>
                     </div>
                 </div>
@@ -746,23 +746,24 @@
                 <div class="task-card completed" data-id="t27" onclick="toggleTask('t27')" style="border-left: 4px solid #10b981;">
                     <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
                     <div class="task-info">
-                        <div class="task-title">[P1-ELEC-11/12/13] Pont ADC VBAT (PC4), LDOs TPS7A02 (25 nA), BQ51003/AP9101C, BOM JLCPCB &amp; DRC = 0</div>
-                        <div class="task-desc">✅ <strong>100 % Résolu le 11 Nov :</strong> Pont <code>R25/R26 = 1 MΩ + C56 = 100 nF</code> sur <code>PC4</code>, <code>IC4/IC6 = TPS7A0218/33</code>, <code>R7 = DNP</code>, <code>R5 = 1.5 kΩ</code>, <code>C46 = 100 nF</code>, <code>R16 = 330 Ω</code>, <code>U4 = AP9101CAK-ATTRG1</code>, BOM passifs assainie, et <strong>DRC + parité = 0 erreur</strong> sur <code>Carte_V2</code>, <code>Carte_Capteur_V1</code> et <code>Cadran</code>.</div>
+                        <div class="task-title">[P1-ELEC-11/12/13] Pont ADC VBAT (PC4), LDOs TPS7A02, BQ51003/AP9101CK, BOM JLCPCB &amp; DRC = 0</div>
+                        <div class="task-desc">✅ <strong>KiCad &amp; BOM mis à jour :</strong> Pont <code>R25/R26 = 1 MΩ + C56 = 100 nF</code> sur <code>PC4</code>, <code>IC4/IC6 = TPS7A0218P/33</code> (datasheet EN <code>SBVS277C</code>), <code>R7 = DNP</code>, <code>R5 = 1.5 kΩ</code>, <code>C46 = 100 nF</code>, <code>R16 = 330 Ω</code>, <code>R17 = 2 kΩ</code>, <code>R27 = 10 kΩ</code>, <code>TH1 = "10k NTC"</code>, <strong>ERC=0, DRC Projet=0, parité=0</strong> sur les 3 PCB.<br>⚠️ <strong>À approuver sur datasheets :</strong> <code>U4 = AP9101CK-AZTRG1</code> (<em>Power-Down</em> actif ➔ réveil Qi requis) et <code>C0G2_50V1 = C21120</code> (<code>220 nF 25V X7R</code> au lieu de <code>C0G 50V</code>).</div>
                         <div class="task-tags">
                             <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">100% Résolu ✔</span>
-                            <span class="tag-pill tag-kicad">DRC &amp; ERC = 0</span>
+                            <span class="tag-pill tag-kicad">DRC Projet &amp; ERC = 0</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="task-card" data-id="t28" onclick="toggleTask('t28')" style="border-left: 4px solid #ef4444;">
+                <div class="task-card" data-id="t28" onclick="toggleTask('t28')" style="border-left: 4px solid #f59e0b;">
                     <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
                     <div class="task-info">
-                        <div class="task-title">[P2-FW-16, PROC-17 &amp; Sourcing] Audit Argon, Ré-export STEP/Gerbers, Stocks JLCPCB (stk=0) &amp; CubeIDE STM32WB55VGYx</div>
-                        <div class="task-desc">🔴 <strong>Bloquant commande :</strong> Sourcer les 7 refs <code>stk=0</code> de <code>Carte_V2</code> (<code>U2, FL1, ANT1, Y1, Q3, M1, J2</code>) + <code>J1</code> Capteur + <code>IC1/IC8/U2_TMP117/IC5</code> bas. Régénérer <code>production/</code> (05 juillet périmé), ré-exporter les <code>.STEP</code> frais, publier Notice V3.9 et créer le projet CubeIDE <strong>STM32WB55VGYx (WLCSP-100)</strong> (<code>SmileWatch1.ioc</code> du 21/04 cible encore <code>STM32WB5MMGHx</code>).</div>
+                        <div class="task-title">[P2-PROC-17 ✔ &amp; Sourcing/FW] Exports production/ &amp; STEP générés — Pré-commande JLCPCB Carte_V2 (Firmware reporté)</div>
+                        <div class="task-desc">✅ <strong>Fait (11 Nov) :</strong> Packages <code>production/</code> (Gerbers <code>.zip</code>, Drill, <code>bom.csv</code>, <code>positions.csv</code>) des 3 PCB, BOM schémas, <code>Datasheet/V2/</code> et modèles <code>3D/Carte_V2.3f.step</code> &amp; <code>3D/Carte_Capteur_V2f.step</code> régénérés.<br>🟠 <strong>Avant paiement :</strong> Pré-commander sur JLCPCB les 7 refs <code>stk=0</code> de <code>Carte_V2</code> (<code>U2, FL1, ANT1, Y1, U4, Q3, M1</code>) + sécuriser <code>IC1=2, IC8=11</code> + cocher <strong>VIPPO</strong> (6 couches). <em>Firmware <code>STM32WB55VGYx</code> reporté après fab.</em></div>
                         <div class="task-tags">
-                            <span class="tag-pill tag-urgent">Ruptures JLCPCB &amp; Exports</span>
-                            <span class="tag-pill tag-firmware">STM32WB55VGYx</span>
+                            <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">Exports &amp; STEP OK ✔</span>
+                            <span class="tag-pill tag-urgent">Pré-commande Carte_V2</span>
+                            <span class="tag-pill tag-firmware">Firmware Reporté</span>
                         </div>
                     </div>
                 </div>
@@ -880,7 +881,7 @@
                     </div>
                     <div class="task-info">
                         <div class="task-title">Audit & Contrôle de la Carte Capteurs V2 (Carte_Capteur_V2)</div>
-                        <div class="task-desc">Contrôle complet de la carte fille : MAX30101 (PPG), TMP117 (Temp), MAX17222 (Boost +5V), TCA9517D (Translateur I2C), connecteur Samtec 10 broches et nettoyage des annotations de schéma.</div>
+                        <div class="task-desc">Contrôle complet de la carte fille : MAX30101 (PPG), TMP117 (Temp), TPS61023DRLR (Boost +5V), TCA9517DR (Translateur I2C), connecteur Samtec 10 broches et nettoyage des annotations de schéma.</div>
                         <div class="task-tags">
                             <span class="tag-pill tag-kicad">Carte_Capteur</span>
                             <span class="tag-pill tag-firmware">I2C & Optique</span>
@@ -1047,7 +1048,7 @@
                     </div>
                     <div class="task-info">
                         <div class="task-title">Vérification finale des stocks LCSC / JLCPCB SMT</div>
-                        <div class="task-desc">Valider que le STM32WB55, BQ24040, MAX17222, LSM6DSOX et TMP117 sont bien assignés dans le panier PCBA.</div>
+                        <div class="task-desc">Valider que le STM32WB55, BQ24040, TPS61023, LSM6DSOX et TMP117 sont bien assignés dans le panier PCBA.</div>
                         <div class="task-tags"><span class="tag-pill tag-kicad">BOM SMT</span></div>
                     </div>
                 </div>
