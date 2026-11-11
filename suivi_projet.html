@@ -568,12 +568,13 @@
         </div>
 
         <div class="header-stats">
+            <a href="simulateur_montre.html" class="btn btn-cyan" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.4rem;">⌚ Simulateur Montre &amp; Code C</a>
             <div class="stat-chip">
-                <span class="label">Jalon Commandes S2</span>
+                <span class="label">Jalon Figeage V2.1</span>
                 <span class="val" id="countdown-days">-- j</span>
             </div>
             <div class="stat-chip">
-                <span class="label">Progression S1</span>
+                <span class="label">Progression Globale</span>
                 <span class="val" id="s1-percent">0%</span>
             </div>
         </div>
@@ -583,8 +584,8 @@
         <!-- Global Progress Card -->
         <section class="progress-card">
             <div class="progress-details">
-                <h2>Semaine 1 : Figeage & Préparation des Commandes</h2>
-                <p>Cochez chaque tâche terminée au fur et à mesure. Vos progrès sont automatiquement sauvegardés localement.</p>
+                <h2>Passe Corrective V2.1 (MàJ Élec/BOM 11 Nov) &amp; Préparation Audit Argon</h2>
+                <p>Électronique, datasheets et BOM passés à 0 erreur ERC/DRC (11 Nov). Restent à boucler : sourcing ruptures JLCPCB, vérifs CAO <code>P0-MECA-6/7</code>, poussoirs étanches, exports STEP/Gerbers et projet CubeIDE.</p>
                 
                 <div class="progress-bar-wrap">
                     <div class="progress-bar-fill" id="global-progress-bar"></div>
@@ -593,21 +594,21 @@
                 <div class="progress-counters">
                     <span>Terminées : <strong id="count-done">0</strong> / <strong id="count-total">0</strong></span>
                     <span>Taux d'achèvement : <strong id="count-percent">0%</strong></span>
-                    <span>Prochaine étape : <strong id="next-task-name" style="color:var(--accent-cyan)">Inventaire & Mesure Nappe</strong></span>
+                    <span>Prochaine étape : <strong id="next-task-name" style="color:var(--accent-cyan)">Audit Argon, Méca OLED &amp; Sourcing</strong></span>
                 </div>
             </div>
 
             <div class="countdown-box">
-                <span class="sub">🎯 Objectif Jalon</span>
-                <div class="timer" id="timer-display">Dimanche 01 Nov</div>
-                <span class="target">Envoi PCBA JLCPCB + SLM 316L</span>
+                <span class="sub">🎯 Objectif Jalon V2.1</span>
+                <div class="timer" id="timer-display">Dimanche 15 Nov</div>
+                <span class="target">Figeage V2.1 ➔ PCBA JLCPCB + SLM 316L</span>
             </div>
         </section>
 
         <!-- Navigation Tabs -->
         <nav class="nav-tabs">
             <button class="tab-btn active" onclick="switchTab('tab-s1')">
-                📅 Semaine 1 (Focus Quotidien)
+                🚨 Sprint Correctif V2.1 & Tâches
                 <span class="badge-count" id="badge-s1">0/7</span>
             </button>
             <button class="tab-btn" onclick="switchTab('tab-inventory')">
@@ -619,9 +620,154 @@
             </button>
         </nav>
 
-        <!-- TAB 1: SEMAINE 1 (JOUR PAR JOUR) -->
+        <!-- TAB 1: SEMAINE 1 & SPRINT V2.1 -->
         <div id="tab-s1" class="tab-content active">
-            
+
+            <!-- SPRINT CORRECTIF V2.1 (AUDIT 360 DU 08 NOV) -->
+            <div class="section-header" style="border-color: rgba(239, 68, 68, 0.45); background: rgba(239, 68, 68, 0.08);">
+                <div class="section-title" style="color: #fca5a5;">
+                    <span>🛠️ Audit 360° (08 Nov) &amp; Passe V2.1 (MàJ 11 Nov)</span> — Élec 0 erreur ✅ | Méca, Stocks &amp; Audit Argon en cours
+                </div>
+                <span class="section-progress" id="prog-v21" style="color: #f87171;">0/8</span>
+            </div>
+
+            <div class="tasks-list" style="margin-bottom: 1.75rem;">
+                <!-- CHECKLIST SYNTHESE PRE-AUDIT ARGON (11 NOV 2026) -->
+                <div style="background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.35); border-radius: 12px; padding: 1.1rem 1.25rem; margin-bottom: 1rem;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.6rem;">
+                        <span style="font-weight:700; color:#60a5fa; font-size:0.92rem;">⏸️ Point d'Étape &amp; Préparation Audit Externe Argon / Multi-IA (11 Nov 2026)</span>
+                        <span style="font-size:0.75rem; background:rgba(16, 185, 129, 0.2); color:#34d399; padding:0.25rem 0.55rem; border-radius:6px; font-family:'JetBrains Mono',monospace;">ERC=0 &amp; DRC=0 (3 PCB)</span>
+                    </div>
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.9rem; font-size:0.83rem;">
+                        <div style="background:rgba(15,23,42,0.6); padding:0.75rem; border-radius:8px; border:1px solid rgba(255,255,255,0.06);">
+                            <div style="font-weight:600; color:#34d399; margin-bottom:0.35rem;">✅ Électronique &amp; BOM Soldées (11 Nov)</div>
+                            <ul style="margin:0; padding-left:1.1rem; color:var(--text-secondary); line-height:1.5;">
+                                <li><code>LIR3048</code> : <code>C22</code> sur <code>+3V8</code>, <code>TP8</code> (6&times;6 mm) sur <code>GNDPWR</code> (⚠️ pastille excentrée r=11.05 mm).</li>
+                                <li>OLED : <code>Q2.2=GND</code>, <code>Q1.2/R15=+3V8</code>, <code>R13=560kΩ</code>.</li>
+                                <li>RF : <code>R21/R24=DNP</code>, Keepout 6 couches <code>ANT1</code>, <code>Y1=8pF</code> (<code>Y1.4 NC</code>).</li>
+                                <li>Alim &amp; Capteurs : <code>TPS7A0233/18</code>, ADC <code>PC4</code>, <code>TCA9517D</code> inversé, vias <code>TMP117</code>, <code>L1=1.0µH C531284</code>, BOM JLC complétée.</li>
+                            </ul>
+                        </div>
+                        <div style="background:rgba(15,23,42,0.6); padding:0.75rem; border-radius:8px; border:1px solid rgba(255,255,255,0.06);">
+                            <div style="font-weight:600; color:#fbbf24; margin-bottom:0.35rem;">⚠️ Reste Ouvert Avant Commande Usine</div>
+                            <ul style="margin:0; padding-left:1.1rem; color:var(--text-secondary); line-height:1.5;">
+                                <li><strong>Stocks JLCPCB à 0 :</strong> 7 refs <code>Carte_V2</code> + <code>J1</code> Capteur + 3 stocks bas.</li>
+                                <li><strong>Méca CAO :</strong> sous dalle OLED (<code>P0-MECA-7</code>), confirm. poche <code>J1</code>/Qi (<code>P0-MECA-6</code>), poussoirs <code>Bouton.SLDASM</code> (<code>P1-MECA-9</code>), radial <code>IC3/L1</code> (<code>P1-MECA-10</code>).</li>
+                                <li><strong>Livrables :</strong> ré-exports <code>.STEP</code>, <code>production/</code> (juillet périmé), Notice V3.9, CubeIDE <code>STM32WB55VGYx</code>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BILAN SESSION SOLIDWORKS & PROTO PLA LANCÉ -->
+                <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 12px; padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.75rem;">
+                    <div style="display:flex; align-items:center; gap: 0.9rem;">
+                        <span style="font-size: 1.8rem;">🎉</span>
+                        <div>
+                            <div style="font-weight: 700; color: #34d399; font-size: 0.95rem;">Méca Principale (09 Nov) &amp; Électronique KiCad (11 Nov) Assainies — Prêt pour Audit Comparatif Argon !</div>
+                            <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 0.2rem;">Saphir +1.35 mm, gorge O-ring ISO 3601, 0 contrainte en erreur, proto PLA lancé + Carte_V2 &amp; Carte_Capteur_V1 à 0 erreur ERC/DRC/Parité.</div>
+                        </div>
+                    </div>
+                    <span style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; padding: 0.3rem 0.6rem; border-radius: 6px; background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); white-space:nowrap;">Audit Argon ⏳</span>
+                </div>
+
+                <div class="task-card completed" data-id="t21" onclick="toggleTask('t21')" style="border-left: 4px solid #10b981;">
+                    <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
+                    <div class="task-info">
+                        <div class="task-title">[P0-ELEC-1] Polarité batterie LIR3048 corrigée en KiCad (Carte_V2 B.Cu + Batterie.SLDPRT)</div>
+                        <div class="task-desc">✅ <strong>Corrigé le 11 Nov :</strong> ressort latéral <code>C22</code> relié à <code>+3V8</code>, <code>TP2</code> supprimé, <code>TP8</code> (6&times;6 mm) relié à <code>GNDPWR</code>, <code>Batterie.SLDPRT</code> calé à 4.90 mm. <em>Vigilance pour audit Argon : <code>TP8</code> est une pastille plate excentrée (<code>r=11.05 mm</code>) sans ressort central dédié.</em></div>
+                        <div class="task-tags">
+                            <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">Corrigé KiCad ✔</span>
+                            <span class="tag-pill tag-kicad">Carte_V2 (⚠️ TP8 excentré)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-card" data-id="t22" onclick="toggleTask('t22')" style="border-left: 4px solid #ef4444;">
+                    <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
+                    <div class="task-info">
+                        <div class="task-title">[P0-ELEC-2 ✔ / P0-MECA-7 ⏳] Switch OLED Q1/Q2 (+3V8) &amp; R13=560 kΩ corrigés — Dégagement sous dalle OLED encore ouvert</div>
+                        <div class="task-desc">✅ <strong>Élec résolu :</strong> <code>Q2.2</code> à <code>GND</code>, <code>Q1.2 + R15</code> sur <code>+3V8</code>, <code>Q1.3</code> vers <code>/Ecran/VBAT</code>, <code>R13 = 560 kΩ</code> (<code>C132339</code>).<br>🔴 <strong>Méca P0-MECA-7 encore ouvert :</strong> <code>Q1</code>, <code>Q2</code> (<code>TSOT-23</code>) et <code>C6, C7, C8, C20, C41, C42, C43</code> (<code>0603</code>) sont toujours implantés sur <code>F.Cu</code> dans la zone OLED — à contrôler/déporter après ré-export <code>.STEP</code>.</div>
+                        <div class="task-tags">
+                            <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">P0-ELEC-2 Résolu ✔</span>
+                            <span class="tag-pill tag-urgent">P0-MECA-7 Ouvert</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-card completed" data-id="t23" onclick="toggleTask('t23')" style="border-left: 4px solid #10b981;">
+                    <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
+                    <div class="task-info">
+                        <div class="task-title">[P0-ELEC-3 &amp; THERM-14] TCA9517D inversé, Vias thermiques TMP117, L1=1.0 µH &amp; BOM Carte_Capteur_V1</div>
+                        <div class="task-desc">✅ <strong>Corrigé le 11 Nov :</strong> Side A (<code>+1V8</code> MAX30101) / Side B (<code>+3V3</code> MCU) de <code>U3</code> permutés et reroutés ; îlot ENIG <code>1.2&times;1.8 mm</code> + 2 vias + keepout <code>U2_Thermal_Iso</code> ajoutés sous <code>TMP117</code> ; <code>L1</code> validée à <strong>1.0 µH (C531284, 500 mA)</strong> ; <strong>ERC=0 &amp; DRC=0</strong>. <em>Reste <code>P1-MECA-10</code> (dégagement radial <code>IC3/L1</code> à confirmer sur <code>.STEP</code>).</em></div>
+                        <div class="task-tags">
+                            <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">Résolu &amp; DRC=0 ✔</span>
+                            <span class="tag-pill tag-kicad">Carte_Capteur_V1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-card completed" data-id="t24" onclick="toggleTask('t24')" style="border-left: 4px solid #10b981;">
+                    <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
+                    <div class="task-info">
+                        <div class="task-title">[P0-RF-4] Court-circuit RF supprimé (R21/R24=DNP), Keepout 6 couches ANT1 &amp; Quartz Y1 8 pF</div>
+                        <div class="task-desc">✅ <strong>Corrigé le 11 Nov :</strong> <code>R21 = DNP</code>, <code>R24 = DNP</code>, zone <code>Keep out area</code> sur les 6 couches autour de <code>ANT1</code>, et quartz <code>Y1</code> passé en <code>ABM13W-32.0000MHZ-8-B1U-T5</code> (<code>8 pF</code> + <code>C36/C50 = 12 pF C0G</code>). <em>Note mineure : <code>Y1.4</code> reste <code>NC</code> et <code>C6455449 / FL1 / ANT1</code> sont à 0 stock JLCPCB.</em></div>
+                        <div class="task-tags">
+                            <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">Corrigé KiCad ✔</span>
+                            <span class="tag-pill tag-kicad">Carte_V2 RF</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-card" data-id="t25" onclick="toggleTask('t25')" style="border-left: 4px solid #f59e0b;">
+                    <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
+                    <div class="task-info">
+                        <div class="task-title">[P0-MECA-5 ✔ / P0-MECA-6 ⏳] Portée saphir +1.35 mm validée — Poche Samtec J1 &amp; lamage Qi à confirmer</div>
+                        <div class="task-desc">✅ <strong>P0-MECA-5 résolu (09 Nov) :</strong> appui saphir rehaussé +1.35 mm (0 contrainte en erreur, proto PLA lancé).<br>🟠 <strong>P0-MECA-6 à confirmer :</strong> valider en vérification finale <code>Montre.SLDASM</code> la présence et le jeu de la poche <code>12&times;4.5&times;0.95 mm</code> sous <code>J1</code> et du lamage Qi <code>0.55 mm</code> dans <code>Base.SLDPRT</code>.</div>
+                        <div class="task-tags">
+                            <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">Saphir +1.35 mm Validé ✔</span>
+                            <span class="tag-pill tag-meca">Base Poche J1 à confirmer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-card" data-id="t26" onclick="toggleTask('t26')" style="border-left: 4px solid #f59e0b;">
+                    <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
+                    <div class="task-info">
+                        <div class="task-title">[P0-MECA-8 ✔ / P1-MECA-9 ⏳] O-ring 25 % &amp; clipsage validés — Poussoirs étanches Bouton.SLDASM à intégrer</div>
+                        <div class="task-desc">✅ <strong>P0-MECA-8 résolu (09 Nov) :</strong> gorge ISO 3601 (0.75&times;1.30 mm, 25 %) + clipsage découplé validés ; <code>Canal_lum</code> mis à jour (09/11).<br>🟠 <strong>P1-MECA-9 ouvert :</strong> <code>Bouton.SLDASM</code> date encore du 24/09 — intégrer les poussoirs horlogers étanches (joint + circlip interne) avant lancement SLM 316L.</div>
+                        <div class="task-tags">
+                            <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">O-ring 25% Validé ✔</span>
+                            <span class="tag-pill tag-meca">Bouton.SLDASM Ouvert</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-card completed" data-id="t27" onclick="toggleTask('t27')" style="border-left: 4px solid #10b981;">
+                    <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
+                    <div class="task-info">
+                        <div class="task-title">[P1-ELEC-11/12/13] Pont ADC VBAT (PC4), LDOs TPS7A02 (25 nA), BQ51003/AP9101C, BOM JLCPCB &amp; DRC = 0</div>
+                        <div class="task-desc">✅ <strong>100 % Résolu le 11 Nov :</strong> Pont <code>R25/R26 = 1 MΩ + C56 = 100 nF</code> sur <code>PC4</code>, <code>IC4/IC6 = TPS7A0218/33</code>, <code>R7 = DNP</code>, <code>R5 = 1.5 kΩ</code>, <code>C46 = 100 nF</code>, <code>R16 = 330 Ω</code>, <code>U4 = AP9101CAK-ATTRG1</code>, BOM passifs assainie, et <strong>DRC + parité = 0 erreur</strong> sur <code>Carte_V2</code>, <code>Carte_Capteur_V1</code> et <code>Cadran</code>.</div>
+                        <div class="task-tags">
+                            <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">100% Résolu ✔</span>
+                            <span class="tag-pill tag-kicad">DRC &amp; ERC = 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="task-card" data-id="t28" onclick="toggleTask('t28')" style="border-left: 4px solid #ef4444;">
+                    <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
+                    <div class="task-info">
+                        <div class="task-title">[P2-FW-16, PROC-17 &amp; Sourcing] Audit Argon, Ré-export STEP/Gerbers, Stocks JLCPCB (stk=0) &amp; CubeIDE STM32WB55VGYx</div>
+                        <div class="task-desc">🔴 <strong>Bloquant commande :</strong> Sourcer les 7 refs <code>stk=0</code> de <code>Carte_V2</code> (<code>U2, FL1, ANT1, Y1, Q3, M1, J2</code>) + <code>J1</code> Capteur + <code>IC1/IC8/U2_TMP117/IC5</code> bas. Régénérer <code>production/</code> (05 juillet périmé), ré-exporter les <code>.STEP</code> frais, publier Notice V3.9 et créer le projet CubeIDE <strong>STM32WB55VGYx (WLCSP-100)</strong> (<code>SmileWatch1.ioc</code> du 21/04 cible encore <code>STM32WB5MMGHx</code>).</div>
+                        <div class="task-tags">
+                            <span class="tag-pill tag-urgent">Ruptures JLCPCB &amp; Exports</span>
+                            <span class="tag-pill tag-firmware">STM32WB55VGYx</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- LUNDI 26 OCT -->
             <div class="section-header">
                 <div class="section-title">
@@ -728,7 +874,7 @@
                     </div>
                 </div>
 
-                <div class="task-card completed"" data-id="t20" onclick="toggleTask('t20')">
+                <div class="task-card completed" data-id="t20" onclick="toggleTask('t20')">
                     <div class="task-checkbox-wrap">
                         <div class="custom-checkbox">✔</div>
                     </div>
@@ -798,8 +944,8 @@
                         <div class="custom-checkbox">✔</div>
                     </div>
                     <div class="task-info">
-                        <div class="task-title" style="color: var(--accent-cyan); font-weight: 700;">⭐ PRIORITÉ ABSOLUE : Assemblage 3D complet & Vérification scrupuleuse des jeux (Montre.SLDASM)</div>
-                        <div class="task-desc">Vérifier scrupuleusement les cotations et empilements avec les nouvelles pièces (<code>Carte_V2.3f</code>, <code>Carte_Capteur_V2f</code>, <code>Cadran_k</code>, Miyota, OLED, Batterie LIR3048, Carrure 316L). Contrôler l'empilement axial Z (garde aiguilles/saphir &ge; 0.35 mm, logement batterie 5.1 mm avec Poron, rayon nappe OLED) et radial (jeu PCB/carrure 0.20 mm, antenne RF &ge; 1.0 mm, hauteur axe couronne/tige) pour que <strong>TOUT s'emboîte parfaitement pour commander au plus vite</strong> avant le départ en décembre !</div>
+                        <div class="task-title" style="color: var(--accent-cyan); font-weight: 700;">⭐ Validation Finale Assemblage 3D post-correctifs V2.1 (Montre.SLDASM = 0 collision critique)</div>
+                        <div class="task-desc">Relancer la détection d'interférences SolidWorks 2026 sur <code>Montre.SLDASM</code> une fois les correctifs <code>t21..t26</code> appliqués (rehausse saphir +1.35/+1.60 mm, poche Samtec 0.95 mm, portée O-ring Ø39.25/Ø40.75 à 25 %, dégagement OLED &amp; IC3, réparation des 18 contraintes en erreur) avant export STEP définitif.</div>
                         <div class="task-tags">
                             <span class="tag-pill tag-urgent">Priorité Immédiate</span>
                             <span class="tag-pill tag-meca">Assemblage 3D</span>
@@ -948,8 +1094,8 @@
                         <tr>
                             <td><strong>Mouvement Horloger Quartz</strong></td>
                             <td>Miyota 2035 (Modifié 2 fils)</td>
-                            <td>Aiguilles analogiques (x2)</td>
-                            <td><span class="status-badge status-stock">⚠️ 2 en stock opérationnels (1 raté, 1 spare à racheter)</span></td>
+                            <td>Aiguilles analogiques (x2 montres)</td>
+                            <td><span class="status-badge status-stock">✅ 2 en stock atelier + 2 neufs commandés chez Sparks (09 Nov)</span></td>
                         </tr>
                         <tr>
                             <td><strong>Jeux d'aiguilles</strong></td>
@@ -1000,22 +1146,22 @@
                             <td><span class="status-badge status-todo">🔍 À vérifier dans placards (Rentrée)</span></td>
                         </tr>
                         <tr>
-                            <td><strong>Taraud & Mouvement spare</strong></td>
-                            <td>Micro-taraud vis poussoirs + 1 Miyota 2035</td>
-                            <td>Filetage boutons carrure + sécurisation montage</td>
-                            <td><span class="status-badge status-todo">🛒 À commander Jeudi 29 Oct</span></td>
+                            <td><strong>Taraud & 2 Mouvements Miyota</strong></td>
+                            <td>Micro-tarauds + 2× Miyota 2035 (SparkFun / Sparks)</td>
+                            <td>Filetage poussoirs carrure & motorisation analogique garantie</td>
+                            <td><span class="status-badge status-ordered">🚚 Commandé (09 Nov) — Expédition Sparks en cours</span></td>
                         </tr>
                         <tr>
                             <td><strong>Composants CMS & Bobine Qi</strong></td>
                             <td>STM32WB55, BQ24040, TMP117, WE 760308101309</td>
                             <td>Cartes mères V2 & Recharge sans fil</td>
-                            <td><span class="status-badge status-ordered">📋 Panier Mouser / JLCPCB SMT</span></td>
+                            <td><span class="status-badge status-todo">🔴 BOM V2.1 OK — 8 refs stk 0 (U2, FL1, ANT1, Y1, Q3, M1, J1/J2) à sourcer</span></td>
                         </tr>
                         <tr>
                             <td><strong>Carrures Principales Inox 316L</strong></td>
-                            <td>Impression 3D Métal SLM (JLCPCB 316L)</td>
+                            <td>Impression 3D Métal SLM 316L (JLC3DP) + Finition alésage maison</td>
                             <td>Structure mécanique, lunette et cornes (x2)</td>
-                            <td><span class="status-badge status-todo">🚀 À commander Vendredi 30 Oct</span></td>
+                            <td><span class="status-badge status-todo">🚀 Prêt à commander (Délai usine ~3 sem)</span></td>
                         </tr>
                         <tr>
                             <td><strong>Bases Inférieures (Fond de boîte)</strong></td>
@@ -1040,16 +1186,16 @@
                 </div>
                 <div class="task-card">
                     <div class="task-info">
-                        <div class="task-title">🤖 S2 (02 - 08 Nov) : CdF Gros Robot (FabLab Mar 03 Nov 13h30) & Suivi Usine Smilewatch</div>
-                        <div class="task-desc"><strong>Mardi 13h30 (FabLab CdF) :</strong> Coordination mécanique avec Alexis, lancement système de tir et rails.<br><strong>Soirée / Maison :</strong> Suivi validation DFM JLCPCB PCBA + SLM 316L.<br><strong>Sport :</strong> 🏊 Piscine Mar 18h30 & Jeu 18h30.</div>
-                        <div class="task-tags"><span class="tag-pill tag-kicad">CdF + Smilewatch S2</span></div>
+                        <div class="task-title">🤖 S2 (02 - 08 Nov) : CdF Gros Robot &amp; Audit d'Ingénierie Global 360° Smilewatch (08 Nov)</div>
+                        <div class="task-desc"><strong>Mardi 13h30 (FabLab CdF) :</strong> Coordination mécanique avec Alexis, lancement système de tir et rails.<br><strong>Week-end (06-08 Nov) :</strong> Refonte emboîtement Base/Carrure et Audit Global 360° KiCad + SolidWorks (détection des 8 bloquants P0 avant commande).</div>
+                        <div class="task-tags"><span class="tag-pill tag-kicad">Audit 360° Terminé</span></div>
                     </div>
                 </div>
-                <div class="task-card">
+                <div class="task-card" style="border-color: rgba(0, 229, 255, 0.45); background: rgba(0, 229, 255, 0.06);">
                     <div class="task-info">
-                        <div class="task-title">🤖 S3 (09 - 15 Nov) : CdF Bras 4 axes (FabLab Mar 10 Nov 13h30) & Setup CubeIDE Smilewatch</div>
-                        <div class="task-desc"><strong>Mardi 13h30 (FabLab CdF) :</strong> Montage mécanique du bras 4 axes, servos Dynamixel XL430 et support ventouse.<br><strong>Soirée / Maison :</strong> Configuration STM32CubeIDE BLE_Ota pour Smilewatch.<br><strong>Sport :</strong> 🏊 Piscine Mar 18h30 & Jeu 18h30.</div>
-                        <div class="task-tags"><span class="tag-pill tag-firmware">CdF + Smilewatch S3</span></div>
+                        <div class="task-title">🚨 S3 (09 - 15 Nov) : CdF Bras 4 axes, Sprint Correctif V2.1 &amp; Envoi Commandes JLCPCB / SLM</div>
+                        <div class="task-desc"><strong>Lundi 09 Nov (08h30 - 10h30, Agenda Google) :</strong> Reprise SolidWorks du montage d'assemblage &amp; correction de la chaîne de cotes aiguilles Miyota 2035.<br><strong>Mardi 13h30 (FabLab CdF) :</strong> Montage mécanique du bras 4 axes, servos Dynamixel XL430 et support ventouse.<br><strong>Soirées / WE (Smilewatch) :</strong> Résolution des tâches <code>t21..t28</code> (KiCad V2.1 + SolidWorks V2.1), création du projet CubeIDE <code>STM32WB55VGYx</code> et <strong>déclenchement des commandes PCBA + SLM 316L d'ici Dimanche 15 Nov</strong>.</div>
+                        <div class="task-tags"><span class="tag-pill tag-urgent">Semaine En Cours — Figeage V2.1</span></div>
                     </div>
                 </div>
                 <div class="task-card">
@@ -1109,22 +1255,29 @@
     <div id="toast">Statut copié dans le presse-papier !</div>
 
     <script>
-        const STORAGE_KEY = 'smilewatch_v2_tasks_state_v3';
+        const STORAGE_KEY = 'smilewatch_v2_tasks_state_v4';
         
-        // Initial state
+        // Initial state (Updated 11 Nov 2026)
         let taskState = {};
+
+        const DEFAULT_STATE = {
+            t1: true, t2: true, t3: true, t4: true, t5: true, t6: true, t19: true, t20: true,
+            t7: true, t8: true, t9: true, t13: true,
+            t21: true, t22: false, t23: true, t24: true, t25: false, t26: false, t27: true, t28: false,
+            t10: false, t11: false, t17: false
+        };
 
         function loadState() {
             try {
                 const saved = localStorage.getItem(STORAGE_KEY);
                 if (saved) {
-                    taskState = JSON.parse(saved);
+                    taskState = Object.assign({}, DEFAULT_STATE, JSON.parse(saved));
                 } else {
-                    taskState = { t1: true, t2: true, t3: true, t4: true, t5: true, t6: true, t19: true, t7: true, t8: true, t9: true, t10: false, t11: false };
+                    taskState = Object.assign({}, DEFAULT_STATE);
                 }
             } catch(e) {
                 console.error("Erreur chargement localStorage", e);
-                taskState = { t1: true, t2: true, t3: true, t4: true, t5: true, t6: true, t19: true, t7: true, t8: true, t9: true, t10: false, t11: false };
+                taskState = Object.assign({}, DEFAULT_STATE);
             }
             applyState();
         }
@@ -1177,8 +1330,14 @@
             document.getElementById('global-progress-bar').style.width = percent + '%';
             document.getElementById('badge-s1').innerText = `${done}/${total}`;
 
+            // Sprint V2.1 specific
+            const v21Ids = ['t21', 't22', 't23', 't24', 't25', 't26', 't27', 't28'];
+            const v21Done = v21Ids.filter(id => taskState[id]).length;
+            const progV21 = document.getElementById('prog-v21');
+            if (progV21) progV21.innerText = `${v21Done}/${v21Ids.length}`;
+
             // Lundi specific
-            const lundiIds = ['t1', 't2', 't3', 't4', 't5', 't6'];
+            const lundiIds = ['t1', 't2', 't3', 't4', 't5', 't6', 't19', 't20'];
             const lundiDone = lundiIds.filter(id => taskState[id]).length;
             const progLundi = document.getElementById('prog-lundi');
             if (progLundi) progLundi.innerText = `${lundiDone}/${lundiIds.length}`;
@@ -1235,9 +1394,9 @@
             }
         }
 
-        // Countdown logic to Sunday Nov 1st 2026
+        // Countdown logic to Sunday Nov 15th 2026 (V2.1 Freeze)
         function updateCountdown() {
-            const targetDate = new Date("2026-11-01T23:59:59").getTime();
+            const targetDate = new Date("2026-11-15T23:59:59").getTime();
             const now = new Date().getTime();
             const diff = targetDate - now;
 

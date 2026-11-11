@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "ABM13W320000MHZ8B1UT5")(type "KiCad")(uri "${KIPRJMOD}/../Composant/LIB_ABM13W-32.0000MHZ-8-B1U-T5/ABM13W-32.0000MHZ-8-B1U-T5/KiCad")(options "")(descr "Abracon 32 MHz 8 pF <=100 Ohm 1210 crystal (C6455449)"))
+)

@@ -215,6 +215,203 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "ABM13W-32.0000MHZ-8-B1U-T5:ABM13W-32.0000MHZ-8-B1U-T5"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "Y"
+				(at 34.29 7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Value" "ABM13W-32.0000MHZ-8-B1U-T5"
+				(at 34.29 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "ABM13W320000MHZ8B1UT5:ABM13W320000MHZ8B1UT5"
+				(at 34.29 -94.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Datasheet" "https://www.abracon.com/Resonators/ABM13W.pdf"
+				(at 34.29 -194.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Description" "Crystal 32.0000MHz +/-10ppm 8pF 100 Ohm Fundamental -20 C 70 C Surface Mount 4-SMD No Lead (1.20mm x 1.00mm x 0.33mm)"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Height" "0.33"
+				(at 34.29 -394.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Manufacturer_Name" "Abracon"
+				(at 34.29 -694.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Manufacturer_Part_Number" "ABM13W-32.0000MHZ-8-B1U-T5"
+				(at 34.29 -794.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "JLCPCB Part#" "C6455449"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "ABM13W-32.0000MHZ-8-B1U-T5_1_1"
+				(rectangle
+					(start 5.08 2.54)
+					(end 33.02 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 0)
+					(length 5.08)
+					(name "IN/OUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 38.1 -2.54 180)
+					(length 5.08)
+					(name "GND_&_LID"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 38.1 0 180)
+					(length 5.08)
+					(name "OUT/IN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin no_connect line
+					(at 0 0 0)
+					(length 5.08)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector:Conn_ARM_SWD_TagConnect_TC2030"
 			(exclude_from_sim no)
 			(in_bom no)
@@ -1014,216 +1211,6 @@
 						)
 					)
 					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "ECS-320-10-48B-CKY-TR:ECS-320-10-48B-CKY-TR"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "Y"
-				(at 34.29 7.62 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Value" "ECS-320-10-48B-CKY-TR"
-				(at 34.29 5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Footprint" "ECS3201048BCKYTR"
-				(at 34.29 -94.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Datasheet" ""
-				(at 34.29 -194.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Description" "Crystals CRYSTAL 32.000MHZ ECX-1048B +/-10ppm +/-10ppm 10pF 150 Ohm Fundamental -30 C 85 C Surface Mount 4-SMD, No Lead W 1.20mm x 1.00mm) (0.33mm)"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Height" "0.33"
-				(at 34.29 -394.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Mouser Part Number" "520-S3201048BCKYTR"
-				(at 34.29 -494.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/ECS/ECS-320-10-48B-CKY-TR?qs=zW32dvEIR3umcnJFx9fznA%3D%3D"
-				(at 34.29 -594.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Manufacturer_Name" "ECS"
-				(at 34.29 -694.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Manufacturer_Part_Number" "ECS-320-10-48B-CKY-TR"
-				(at 34.29 -794.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(symbol "ECS-320-10-48B-CKY-TR_1_1"
-				(rectangle
-					(start 5.08 2.54)
-					(end 33.02 -5.08)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 0)
-					(length 5.08)
-					(name "IN/OUT"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 38.1 -2.54 180)
-					(length 5.08)
-					(name "GND_&_LID"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 38.1 0 180)
-					(length 5.08)
-					(name "OUT/IN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin no_connect line
-					(at 0 0 0)
-					(length 5.08)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4327,6 +4314,145 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "power:+3V8"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "+3V8"
+				(at 0 3.556 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+3V8\""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "+3V8_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+3V8_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:GND"
 			(power global)
 			(pin_numbers
@@ -4703,6 +4829,12 @@
 		(uuid "971d98c5-5306-43d5-a99e-3fef8521c2b3")
 	)
 	(junction
+		(at 189.23 139.7)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a02a9dee-2035-41e0-9884-1b3436976679")
+	)
+	(junction
 		(at 138.43 172.72)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4725,6 +4857,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c0060758-6cc2-43f7-b42c-bb7b08121137")
+	)
+	(junction
+		(at 189.23 133.35)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c47deb13-bbd0-4cd2-99bb-094536c3b2d9")
 	)
 	(junction
 		(at 85.09 57.15)
@@ -4833,6 +4971,10 @@
 		(uuid "14d6b43d-a578-44ea-abc3-5623a65f700b")
 	)
 	(no_connect
+		(at 166.37 130.81)
+		(uuid "15e34e4e-77b4-408a-90ec-1b88b7042848")
+	)
+	(no_connect
 		(at 166.37 113.03)
 		(uuid "23bf22da-6a6f-4471-8219-1e8b37e7af92")
 	)
@@ -4913,10 +5055,6 @@
 		(uuid "692b5168-0d76-45f5-a7a2-af47ea9a0869")
 	)
 	(no_connect
-		(at 166.37 130.81)
-		(uuid "70680e48-6398-4838-907e-e2f678d49243")
-	)
-	(no_connect
 		(at 166.37 125.73)
 		(uuid "7cf85013-2836-4c5d-a502-38cd57d09507")
 	)
@@ -4941,6 +5079,10 @@
 		(uuid "9cb75061-4c46-4e7b-86f0-26ed3e1a2adb")
 	)
 	(no_connect
+		(at 166.37 110.49)
+		(uuid "a043ceb1-8567-426c-9cf0-47efa494b692")
+	)
+	(no_connect
 		(at 110.49 77.47)
 		(uuid "a70da6d4-9828-43c6-ab14-09ccf1f881bd")
 	)
@@ -4951,10 +5093,6 @@
 	(no_connect
 		(at 166.37 52.07)
 		(uuid "b903cf60-b616-4695-8d04-eebdc418d01d")
-	)
-	(no_connect
-		(at 166.37 82.55)
-		(uuid "bdefc8f6-7267-4178-88f1-26b3285c6929")
 	)
 	(no_connect
 		(at 110.49 80.01)
@@ -4991,10 +5129,6 @@
 	(no_connect
 		(at 110.49 115.57)
 		(uuid "ed15696e-56bc-4eba-9ff8-5d4d8ce25da5")
-	)
-	(no_connect
-		(at 166.37 110.49)
-		(uuid "f6f27480-ae5e-4f94-8df5-e0ee2dc00320")
 	)
 	(no_connect
 		(at 110.49 97.79)
@@ -5260,16 +5394,6 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 133.35) (xy 175.26 133.35)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2c76d8e5-4821-487e-9abc-b3e555e7dff1")
-	)
-	(wire
-		(pts
 			(xy 33.02 26.67) (xy 33.02 27.94)
 		)
 		(stroke
@@ -5520,6 +5644,16 @@
 	)
 	(wire
 		(pts
+			(xy 189.23 139.7) (xy 201.93 139.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "48f6eac2-201f-44e2-bfef-6ea1db8feca6")
+	)
+	(wire
+		(pts
 			(xy 266.7 85.09) (xy 266.7 86.36)
 		)
 		(stroke
@@ -5557,6 +5691,16 @@
 			(type default)
 		)
 		(uuid "50f9bb5d-f660-4fb6-a3c0-357755193c5a")
+	)
+	(wire
+		(pts
+			(xy 189.23 133.35) (xy 201.93 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5183db07-b5d3-4861-a3b8-2638b0bbf51a")
 	)
 	(wire
 		(pts
@@ -5627,6 +5771,16 @@
 			(type default)
 		)
 		(uuid "57723773-c99f-43fd-8c96-12415caf501c")
+	)
+	(wire
+		(pts
+			(xy 168.91 78.74) (xy 166.37 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5934fb83-695a-47ba-88ef-a57f95ae6e94")
 	)
 	(wire
 		(pts
@@ -5707,6 +5861,16 @@
 			(type default)
 		)
 		(uuid "6d03e675-3b3e-4bcb-99fc-07a7e3dd334b")
+	)
+	(wire
+		(pts
+			(xy 166.37 133.35) (xy 189.23 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6d424a16-9948-495e-ba26-8b2b42e7a2c3")
 	)
 	(wire
 		(pts
@@ -6170,6 +6334,16 @@
 	)
 	(wire
 		(pts
+			(xy 189.23 138.43) (xy 189.23 139.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9c6bf89f-3984-43a6-b47b-aeef4dff5b53")
+	)
+	(wire
+		(pts
 			(xy 102.87 49.53) (xy 110.49 49.53)
 		)
 		(stroke
@@ -6187,6 +6361,16 @@
 			(type default)
 		)
 		(uuid "9d9a38a7-85a9-4048-ba8a-e75a82f37dca")
+	)
+	(wire
+		(pts
+			(xy 166.37 82.55) (xy 175.26 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9f491fd9-aec7-41bf-9bf8-303c57b8a680")
 	)
 	(wire
 		(pts
@@ -6247,6 +6431,16 @@
 			(type default)
 		)
 		(uuid "abbb7a81-6bde-49bd-acc7-0d1af57226fa")
+	)
+	(wire
+		(pts
+			(xy 189.23 123.19) (xy 189.23 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "abc94427-c714-4709-950d-6c9e720a1cce")
 	)
 	(wire
 		(pts
@@ -6530,6 +6724,16 @@
 	)
 	(wire
 		(pts
+			(xy 201.93 133.35) (xy 201.93 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cb63bd22-24be-4593-9e09-b92ccdb0073f")
+	)
+	(wire
+		(pts
 			(xy 54.61 20.32) (xy 54.61 21.59)
 		)
 		(stroke
@@ -6650,6 +6854,16 @@
 	)
 	(wire
 		(pts
+			(xy 189.23 130.81) (xy 189.23 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e25fd0a9-6052-48f6-b8c8-f0e299693266")
+	)
+	(wire
+		(pts
 			(xy 91.44 182.88) (xy 91.44 186.69)
 		)
 		(stroke
@@ -6677,6 +6891,16 @@
 			(type default)
 		)
 		(uuid "e3c85458-873b-4244-bd98-4a803f6483ca")
+	)
+	(wire
+		(pts
+			(xy 189.23 139.7) (xy 189.23 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e57c0fae-9dc5-4de4-a380-2207a47899c5")
 	)
 	(wire
 		(pts
@@ -6777,6 +7001,16 @@
 			(type default)
 		)
 		(uuid "fc2b5279-07b2-4222-b764-1030d097f315")
+	)
+	(wire
+		(pts
+			(xy 166.37 78.74) (xy 166.37 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fcef5d21-2a93-444c-a103-df85d0fb2e46")
 	)
 	(wire
 		(pts
@@ -6908,16 +7142,6 @@
 		)
 		(uuid "61241025-a6ba-4ab3-90e4-f150741f78ec")
 	)
-	(label "BTN1_IN"
-		(at 175.26 133.35 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "6abbc5c1-821d-4f65-83b8-3633f1801a3d")
-	)
 	(label "VBAT"
 		(at 128.27 21.59 270)
 		(effects
@@ -7007,6 +7231,16 @@
 			(justify right bottom)
 		)
 		(uuid "a423fc69-33b8-46cd-a12b-880954d6f619")
+	)
+	(label "BTN1_IN"
+		(at 175.26 82.55 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "aef9296c-1e8c-4676-b0da-6f56c741ef1b")
 	)
 	(label "VREF"
 		(at 102.87 44.45 0)
@@ -7200,7 +7434,7 @@
 	)
 	(hierarchical_label "EN_5V_HR"
 		(shape input)
-		(at 166.37 80.01 0)
+		(at 168.91 78.74 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7396,6 +7630,83 @@
 			(project "Carte_V2"
 				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
 					(reference "C53")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 189.23 140.97 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0b5552e4-f2a0-4edb-8713-16865e7a207b")
+		(property "Reference" "#PWR070"
+			(at 189.23 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 189.23 146.05 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 189.23 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 189.23 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 189.23 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "24ea0848-73ae-417e-91bc-5da4d92c6f4b")
+		)
+		(instances
+			(project "Carte_V2"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
+					(reference "#PWR070")
 					(unit 1)
 				)
 			)
@@ -7738,6 +8049,99 @@
 			(project "Carte_V2"
 				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
 					(reference "#PWR083")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 201.93 137.16 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "16563a5d-7b82-4b3f-bc4e-82d004a75ce8")
+		(property "Reference" "C56"
+			(at 204.47 135.8962 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 204.47 138.4362 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 201.93 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 201.93 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 201.93 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "JLCPCB Part#" "C1525"
+			(at 201.93 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "752c014a-4d12-4ec3-8524-2c1a4405052d")
+		)
+		(pin "1"
+			(uuid "a64dc4c8-ebec-4cfb-8432-efda8eb6f956")
+		)
+		(instances
+			(project "Carte_V2"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
+					(reference "C56")
 					(unit 1)
 				)
 			)
@@ -8461,7 +8865,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C5184071"
+		(property "JLCPCB Part#" "C25744"
 			(at 266.7 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -9639,7 +10043,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C5184071"
+		(property "JLCPCB Part#" "C25744"
 			(at 274.32 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -10107,7 +10511,7 @@
 				)
 			)
 		)
-		(property "Value" "5p6F"
+		(property "Value" "12pF"
 			(at 57.1436 129.54 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10150,7 +10554,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C1674"
+		(property "JLCPCB Part#" "C1547"
 			(at 57.15 133.35 90)
 			(hide yes)
 			(show_name no)
@@ -10653,7 +11057,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C149892"
+		(property "JLCPCB Part#" "C25900"
 			(at 191.77 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -10746,7 +11150,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C5184071"
+		(property "JLCPCB Part#" "C25744"
 			(at 93.98 78.74 0)
 			(hide yes)
 			(show_name no)
@@ -10773,7 +11177,7 @@
 		)
 	)
 	(symbol
-		(lib_id "ECS-320-10-48B-CKY-TR:ECS-320-10-48B-CKY-TR")
+		(lib_id "ABM13W-32.0000MHZ-8-B1U-T5:ABM13W-32.0000MHZ-8-B1U-T5")
 		(at 35.56 104.14 0)
 		(unit 1)
 		(body_style 1)
@@ -10794,7 +11198,7 @@
 				)
 			)
 		)
-		(property "Value" "ECS-320-10-48B-CKY-TR"
+		(property "Value" "ABM13W-32.0000MHZ-8-B1U-T5"
 			(at 54.61 99.06 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10804,7 +11208,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ECS3201048BCKYTR:ECS3201048BCKYTR"
+		(property "Footprint" "ABM13W320000MHZ8B1UT5:ABM13W320000MHZ8B1UT5"
 			(at 69.85 199.06 0)
 			(hide yes)
 			(show_name no)
@@ -10816,7 +11220,7 @@
 				(justify left top)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.abracon.com/Resonators/ABM13W.pdf"
 			(at 69.85 299.06 0)
 			(hide yes)
 			(show_name no)
@@ -10828,7 +11232,7 @@
 				(justify left top)
 			)
 		)
-		(property "Description" "Crystals CRYSTAL 32.000MHZ ECX-1048B +/-10ppm +/-10ppm 10pF 150 Ohm Fundamental -30 C 85 C Surface Mount 4-SMD, No Lead W 1.20mm x 1.00mm) (0.33mm)"
+		(property "Description" "Crystal 32.0000MHz +/-10ppm 8pF 100 Ohm Fundamental -20 C 70 C Surface Mount 4-SMD No Lead (1.20mm x 1.00mm x 0.33mm)"
 			(at 35.56 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -10851,31 +11255,7 @@
 				(justify left top)
 			)
 		)
-		(property "Mouser Part Number" "520-S3201048BCKYTR"
-			(at 69.85 599.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/ECS/ECS-320-10-48B-CKY-TR?qs=zW32dvEIR3umcnJFx9fznA%3D%3D"
-			(at 69.85 699.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Manufacturer_Name" "ECS"
+		(property "Manufacturer_Name" "Abracon"
 			(at 69.85 799.06 0)
 			(hide yes)
 			(show_name no)
@@ -10887,7 +11267,7 @@
 				(justify left top)
 			)
 		)
-		(property "Manufacturer_Part_Number" "ECS-320-10-48B-CKY-TR"
+		(property "Manufacturer_Part_Number" "ABM13W-32.0000MHZ-8-B1U-T5"
 			(at 69.85 899.06 0)
 			(hide yes)
 			(show_name no)
@@ -10899,7 +11279,7 @@
 				(justify left top)
 			)
 		)
-		(property "JLCPCB Part#" "C2613104"
+		(property "JLCPCB Part#" "C6455449"
 			(at 35.56 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -11247,7 +11627,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C149892"
+		(property "JLCPCB Part#" "C25900"
 			(at 212.09 99.06 0)
 			(hide yes)
 			(show_name no)
@@ -11433,7 +11813,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C5184071"
+		(property "JLCPCB Part#" "C25744"
 			(at 180.34 86.36 0)
 			(hide yes)
 			(show_name no)
@@ -11958,6 +12338,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3V8")
+		(at 189.23 123.19 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a2f2da3b-8735-4378-bb31-28a9c061d75c")
+		(property "Reference" "#PWR060"
+			(at 189.23 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V8"
+			(at 189.23 118.11 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 189.23 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 189.23 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V8\""
+			(at 189.23 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f6d64fbe-6b5d-448a-843d-cfd89e3793cd")
+		)
+		(instances
+			(project "Carte_V2"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
+					(reference "#PWR060")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3V3")
 		(at 180.34 82.55 0)
 		(unit 1)
@@ -12281,6 +12739,99 @@
 			(project "Carte_V2"
 				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
 					(reference "C26")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 189.23 135.89 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ba3f3e89-a0ca-46ee-901f-83debe1c1169")
+		(property "Reference" "R26"
+			(at 191.77 134.6199 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1M Ohm"
+			(at 191.77 137.1599 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 189.23 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 189.23 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 189.23 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "JLCPCB Part#" "C26083"
+			(at 189.23 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "fdd11970-e267-4969-b398-3714b5bec810")
+		)
+		(pin "1"
+			(uuid "33910b35-62bc-42b3-a256-de139a7e98a9")
+		)
+		(instances
+			(project "Carte_V2"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
+					(reference "R26")
 					(unit 1)
 				)
 			)
@@ -13346,7 +13897,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C1524"
+		(property "JLCPCB Part#" "C15195"
 			(at 215.9 43.18 0)
 			(hide yes)
 			(show_name no)
@@ -13622,6 +14173,99 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Small")
+		(at 189.23 128.27 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f0cdc81d-0d36-4ae2-809d-5b253b71c5c0")
+		(property "Reference" "R25"
+			(at 191.77 126.9999 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1M Ohm"
+			(at 191.77 129.5399 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 189.23 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 189.23 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 189.23 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "JLCPCB Part#" "C26083"
+			(at 189.23 128.27 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "edebd538-3eb6-4ecf-a7e8-28d701b58578")
+		)
+		(pin "1"
+			(uuid "ead54e2c-ca3e-4aec-b785-15859d894e78")
+		)
+		(instances
+			(project "Carte_V2"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
+					(reference "R25")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 91.44 186.69 0)
 		(unit 1)
@@ -13799,7 +14443,7 @@
 				)
 			)
 		)
-		(property "Value" "5p6F"
+		(property "Value" "12pF"
 			(at 57.1436 116.84 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13842,7 +14486,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C1674"
+		(property "JLCPCB Part#" "C1547"
 			(at 57.15 120.65 90)
 			(hide yes)
 			(show_name no)

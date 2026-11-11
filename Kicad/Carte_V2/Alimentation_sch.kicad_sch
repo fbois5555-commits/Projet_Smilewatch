@@ -3577,10 +3577,22 @@
 		(uuid "4d05e8e4-1058-4f7d-8edb-a460dbc50c47")
 	)
 	(junction
+		(at 171.45 53.34)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4ee41557-2c1a-4385-a7c8-813a6de78c64")
+	)
+	(junction
 		(at 127 60.96)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "50cce3f1-5641-4afd-ab4c-97ae09aabd84")
+	)
+	(junction
+		(at 232.41 27.94)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "59d9f94b-5942-426b-be9e-54003c3ced11")
 	)
 	(junction
 		(at 232.41 36.83)
@@ -3605,12 +3617,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6df32d0d-45af-4517-b8bf-ca22e6e78860")
-	)
-	(junction
-		(at 232.41 27.94)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "707bb8b2-c760-4c11-be5b-43fff1d7d417")
 	)
 	(junction
 		(at 232.41 33.02)
@@ -3721,7 +3727,7 @@
 		(uuid "c513dabe-015c-40e8-b203-06db1dfc5f97")
 	)
 	(junction
-		(at 24.13 115.57)
+		(at 24.13 118.11)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c695167f-11c6-42a4-b046-2fe71de5eedf")
@@ -4106,6 +4112,26 @@
 	)
 	(wire
 		(pts
+			(xy 232.41 21.59) (xy 232.41 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "29e6a1e3-e0b8-45e8-af7a-8c551901f27e")
+	)
+	(wire
+		(pts
+			(xy 24.13 113.03) (xy 24.13 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2c03fe15-f094-48e5-886b-021a7b413bed")
+	)
+	(wire
+		(pts
 			(xy 120.65 57.15) (xy 120.65 60.96)
 		)
 		(stroke
@@ -4113,16 +4139,6 @@
 			(type default)
 		)
 		(uuid "2ce77168-f563-4e30-8665-d7daf9d23958")
-	)
-	(wire
-		(pts
-			(xy 232.41 27.94) (xy 232.41 33.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2d151e4d-9261-4ebb-aee9-9ff1321e361c")
 	)
 	(wire
 		(pts
@@ -4296,16 +4312,6 @@
 	)
 	(wire
 		(pts
-			(xy 232.41 27.94) (xy 232.41 26.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4b1e0935-210d-4bc2-8016-c62d66ac42b2")
-	)
-	(wire
-		(pts
 			(xy 198.12 120.65) (xy 217.17 120.65)
 		)
 		(stroke
@@ -4353,16 +4359,6 @@
 			(type default)
 		)
 		(uuid "55417a05-97b8-4b2e-bcbe-89a911efe1c0")
-	)
-	(wire
-		(pts
-			(xy 24.13 113.03) (xy 24.13 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "566f9732-f52e-4a63-985a-bce0d8ef3e58")
 	)
 	(wire
 		(pts
@@ -4583,6 +4579,16 @@
 			(type default)
 		)
 		(uuid "7b791fbf-7c9a-4509-bb7a-190cf1ef9cb4")
+	)
+	(wire
+		(pts
+			(xy 171.45 48.26) (xy 171.45 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7cdf9396-91e0-48d8-b8c4-9138b80bf797")
 	)
 	(wire
 		(pts
@@ -5083,6 +5089,16 @@
 			(type default)
 		)
 		(uuid "c4640c18-e5ed-433b-819b-ea731bbb2526")
+	)
+	(wire
+		(pts
+			(xy 171.45 53.34) (xy 171.45 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c501da0d-981e-475d-8093-e87566b77b4f")
 	)
 	(wire
 		(pts
@@ -5596,16 +5612,6 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 59.69) (xy 171.45 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fd2bb1e6-8437-48ee-b171-0ea8a6cde10a")
-	)
-	(wire
-		(pts
 			(xy 271.78 29.21) (xy 271.78 31.75)
 		)
 		(stroke
@@ -5623,16 +5629,6 @@
 			(type default)
 		)
 		(uuid "fe8db28e-b008-4ea4-bcb4-2f34310a8e02")
-	)
-	(wire
-		(pts
-			(xy 24.13 115.57) (xy 24.13 121.92)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "feac3f77-ec32-4f05-b0a8-6fef85cb0673")
 	)
 	(wire
 		(pts
@@ -5943,7 +5939,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C5184071"
+		(property "JLCPCB Part#" "C25744"
 			(at 251.46 26.67 0)
 			(hide yes)
 			(show_name no)
@@ -6041,95 +6037,6 @@
 			(project "Carte_V2"
 				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f511e4ac-6fe9-4198-b162-5d283554f9eb"
 					(reference "#PWR015")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 232.41 27.94 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "0c74636c-4a5a-427f-a8b8-abf5a1be8ec0")
-		(property "Reference" "TP13"
-			(at 236.22 24.384 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "+ batterie"
-			(at 233.426 25.908 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 232.41 33.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 232.41 33.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "test point"
-			(at 232.41 27.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "JLCPCB Part#" ""
-			(at 232.41 27.94 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "3269a051-0b33-4e58-9f2c-41b364c41a4a")
-		)
-		(instances
-			(project "Carte_V2"
-				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f511e4ac-6fe9-4198-b162-5d283554f9eb"
-					(reference "TP13")
 					(unit 1)
 				)
 			)
@@ -6457,95 +6364,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 232.41 27.94 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "18ddfff4-7585-42ff-b367-2ae7f0c6a70a")
-		(property "Reference" "TP2"
-			(at 236.22 24.384 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "+ batterie"
-			(at 233.426 25.908 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 232.41 33.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 232.41 33.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "test point"
-			(at 232.41 27.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "JLCPCB Part#" ""
-			(at 232.41 27.94 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c3c6061c-3c59-44fb-9565-cec5e98a4091")
-		)
-		(instances
-			(project "Carte_V2"
-				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f511e4ac-6fe9-4198-b162-5d283554f9eb"
-					(reference "TP2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Small")
 		(at 128.27 26.67 0)
 		(unit 1)
@@ -6612,7 +6430,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C70225"
+		(property "JLCPCB Part#" "C96446"
 			(at 128.27 26.67 0)
 			(hide yes)
 			(show_name no)
@@ -6781,7 +6599,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C14790"
+		(property "JLCPCB Part#" "C76621"
 			(at 38.1 39.37 90)
 			(hide yes)
 			(show_name no)
@@ -6880,95 +6698,6 @@
 			(project "Carte_V2"
 				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f511e4ac-6fe9-4198-b162-5d283554f9eb"
 					(reference "#PWR075")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 232.41 27.94 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "1e97d79f-f4f1-45bb-9907-a5846c073c13")
-		(property "Reference" "TP10"
-			(at 236.22 24.384 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "+ batterie"
-			(at 233.426 25.908 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 232.41 33.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 232.41 33.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "test point"
-			(at 232.41 27.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "JLCPCB Part#" ""
-			(at 232.41 27.94 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "80e189d0-028b-4976-8678-27a188e288c6")
-		)
-		(instances
-			(project "Carte_V2"
-				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f511e4ac-6fe9-4198-b162-5d283554f9eb"
-					(reference "TP10")
 					(unit 1)
 				)
 			)
@@ -7915,7 +7644,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C1524"
+		(property "JLCPCB Part#" "C15195"
 			(at 72.39 35.56 0)
 			(hide yes)
 			(show_name no)
@@ -7936,6 +7665,95 @@
 			(project "Carte_V2"
 				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f511e4ac-6fe9-4198-b162-5d283554f9eb"
 					(reference "C10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 24.13 118.11 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "42c9fa8c-34d4-4e79-8f67-94d6f4d5f701")
+		(property "Reference" "TP8"
+			(at 27.94 114.554 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "+ batterie"
+			(at 25.146 116.078 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D4.0mm"
+			(at 24.13 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 24.13 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 24.13 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "JLCPCB Part#" ""
+			(at 24.13 118.11 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3525725c-4b5e-4c07-8d39-710b655f2bd0")
+		)
+		(instances
+			(project "Carte_V2"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f511e4ac-6fe9-4198-b162-5d283554f9eb"
+					(reference "TP8")
 					(unit 1)
 				)
 			)
@@ -8084,7 +7902,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C881146"
+		(property "JLCPCB Part#" "C4109"
 			(at 180.34 48.26 90)
 			(hide yes)
 			(show_name no)
@@ -9077,184 +8895,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 232.41 27.94 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "727df892-5727-4b11-8801-5d4f213c5160")
-		(property "Reference" "TP12"
-			(at 236.22 24.384 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "+ batterie"
-			(at 233.426 25.908 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 232.41 33.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 232.41 33.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "test point"
-			(at 232.41 27.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "JLCPCB Part#" ""
-			(at 232.41 27.94 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "f0d7163a-9302-468f-9df3-4cdecb6c78b4")
-		)
-		(instances
-			(project "Carte_V2"
-				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f511e4ac-6fe9-4198-b162-5d283554f9eb"
-					(reference "TP12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 232.41 27.94 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "74a59ba6-4fef-4f52-a65b-b74a3d9e4d16")
-		(property "Reference" "TP8"
-			(at 236.22 24.384 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "+ batterie"
-			(at 233.426 25.908 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 232.41 33.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 232.41 33.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "test point"
-			(at 232.41 27.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "JLCPCB Part#" ""
-			(at 232.41 27.94 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "f65b3ba3-d018-4cbe-bdb9-66fbe6b6445a")
-		)
-		(instances
-			(project "Carte_V2"
-				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f511e4ac-6fe9-4198-b162-5d283554f9eb"
-					(reference "TP8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Small")
 		(at 66.04 63.5 180)
 		(unit 1)
@@ -9321,7 +8961,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C70225"
+		(property "JLCPCB Part#" "C96446"
 			(at 66.04 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -9688,184 +9328,6 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 232.41 27.94 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "86bafe38-7621-4cfb-8417-2feeab529f66")
-		(property "Reference" "TP9"
-			(at 236.22 24.384 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "+ batterie"
-			(at 233.426 25.908 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 232.41 33.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 232.41 33.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "test point"
-			(at 232.41 27.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "JLCPCB Part#" ""
-			(at 232.41 27.94 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "2b3d6b08-527f-4267-9bb1-8ecfc224fb16")
-		)
-		(instances
-			(project "Carte_V2"
-				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f511e4ac-6fe9-4198-b162-5d283554f9eb"
-					(reference "TP9")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 232.41 27.94 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "8942dca1-74bb-49e5-9eec-d7e4777704cb")
-		(property "Reference" "TP11"
-			(at 236.22 24.384 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "+ batterie"
-			(at 233.426 25.908 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 232.41 33.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 232.41 33.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "test point"
-			(at 232.41 27.94 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "JLCPCB Part#" ""
-			(at 232.41 27.94 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "f32b5dc6-64e4-41a9-9631-30a6f341985d")
-		)
-		(instances
-			(project "Carte_V2"
-				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f511e4ac-6fe9-4198-b162-5d283554f9eb"
-					(reference "TP11")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
 		(at 26.67 44.45 90)
 		(unit 1)
 		(body_style 1)
@@ -10019,7 +9481,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C881146"
+		(property "JLCPCB Part#" "C4109"
 			(at 41.91 165.1 0)
 			(hide yes)
 			(show_name no)
@@ -10145,7 +9607,7 @@
 				)
 			)
 		)
-		(property "Value" "AP2127K-1.8TRG1"
+		(property "Value" "TPS7A0218PDBVR"
 			(at 234.95 120.65 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10167,7 +9629,7 @@
 				(justify left top)
 			)
 		)
-		(property "Datasheet" "https://www.diodes.com//assets/Datasheets/AP2127.pdf"
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps7a02.pdf"
 			(at 248.92 320.65 0)
 			(hide yes)
 			(show_name no)
@@ -10179,7 +9641,7 @@
 				(justify left top)
 			)
 		)
-		(property "Description" "Linear Voltage Regulator IC Positive Fixed 1 Output 300mA SOT-23-5"
+		(property "Description" "TI TPS7A0218PDBVR, Nanopower LDO Regulator 25nA Iq, 1.8V 200mA Active Discharge, SOT-23-5"
 			(at 217.17 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -10202,7 +9664,7 @@
 				(justify left top)
 			)
 		)
-		(property "Mouser Part Number" "621-AP2127K-1.8TRG1"
+		(property "Mouser Part Number" ""
 			(at 248.92 620.65 0)
 			(hide yes)
 			(show_name no)
@@ -10214,7 +9676,7 @@
 				(justify left top)
 			)
 		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/AP2127K-1.8TRG1?qs=x6A8l6qLYDDmU4WXw4%252BBlA%3D%3D"
+		(property "Mouser Price/Stock" ""
 			(at 248.92 720.65 0)
 			(hide yes)
 			(show_name no)
@@ -10226,7 +9688,7 @@
 				(justify left top)
 			)
 		)
-		(property "Manufacturer_Name" "Diodes Incorporated"
+		(property "Manufacturer_Name" "Texas Instruments"
 			(at 248.92 820.65 0)
 			(hide yes)
 			(show_name no)
@@ -10238,7 +9700,7 @@
 				(justify left top)
 			)
 		)
-		(property "Manufacturer_Part_Number" "AP2127K-1.8TRG1"
+		(property "Manufacturer_Part_Number" "TPS7A0218PDBVR"
 			(at 248.92 920.65 0)
 			(hide yes)
 			(show_name no)
@@ -10250,7 +9712,7 @@
 				(justify left top)
 			)
 		)
-		(property "JLCPCB Part#" "C151375"
+		(property "JLCPCB Part#" "C3748843"
 			(at 217.17 125.73 0)
 			(hide yes)
 			(show_name no)
@@ -10400,7 +9862,7 @@
 				)
 			)
 		)
-		(property "Value" "AP2127K-3.3TRG1"
+		(property "Value" "TPS7A0233DBVR"
 			(at 231.14 74.93 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10422,7 +9884,7 @@
 				(justify left top)
 			)
 		)
-		(property "Datasheet" "https://www.diodes.com//assets/Datasheets/AP2127.pdf"
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps7a02.pdf"
 			(at 246.38 274.93 0)
 			(hide yes)
 			(show_name no)
@@ -10434,7 +9896,7 @@
 				(justify left top)
 			)
 		)
-		(property "Description" "DiodesZetex AP2127K-3.3TRG1, LDO Regulator, 3.3 V, +/-2% 5-Pin, SOT-23"
+		(property "Description" "TI TPS7A0233DBVR, Nanopower LDO Regulator 25nA Iq, 3.3V 200mA, SOT-23-5"
 			(at 212.09 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -10457,7 +9919,7 @@
 				(justify left top)
 			)
 		)
-		(property "Mouser Part Number" "621-AP2127K-3.3TRG1"
+		(property "Mouser Part Number" ""
 			(at 246.38 574.93 0)
 			(hide yes)
 			(show_name no)
@@ -10469,7 +9931,7 @@
 				(justify left top)
 			)
 		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/AP2127K-3.3TRG1?qs=x6A8l6qLYDCeAxisWuFs5g%3D%3D"
+		(property "Mouser Price/Stock" ""
 			(at 246.38 674.93 0)
 			(hide yes)
 			(show_name no)
@@ -10481,7 +9943,7 @@
 				(justify left top)
 			)
 		)
-		(property "Manufacturer_Name" "Diodes Incorporated"
+		(property "Manufacturer_Name" "Texas Instruments"
 			(at 246.38 774.93 0)
 			(hide yes)
 			(show_name no)
@@ -10493,7 +9955,7 @@
 				(justify left top)
 			)
 		)
-		(property "Manufacturer_Part_Number" "AP2127K-3.3TRG1"
+		(property "Manufacturer_Part_Number" "TPS7A0233DBVR"
 			(at 246.38 874.93 0)
 			(hide yes)
 			(show_name no)
@@ -10505,7 +9967,7 @@
 				(justify left top)
 			)
 		)
-		(property "JLCPCB Part#" "C156285"
+		(property "JLCPCB Part#" "C5142805"
 			(at 212.09 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -10641,7 +10103,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "A définir"
+		(property "Value" "DNP"
 			(at 34.29 64.7699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11336,7 +10798,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C1524"
+		(property "JLCPCB Part#" "C15195"
 			(at 55.88 48.26 0)
 			(hide yes)
 			(show_name no)
@@ -11385,7 +10847,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "220 Ohm"
+		(property "Value" "330 Ohm"
 			(at 64.77 148.5899 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11429,7 +10891,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C25091"
+		(property "JLCPCB Part#" "C25104"
 			(at 62.23 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -11678,7 +11140,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C49326312"
+		(property "JLCPCB Part#" "C2987940"
 			(at 69.85 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -11706,7 +11168,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V8")
-		(at 232.41 26.67 0)
+		(at 232.41 21.59 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11717,7 +11179,7 @@
 		(fields_autoplaced yes)
 		(uuid "b74031fd-59b2-4618-a2e9-433f27dc541e")
 		(property "Reference" "#PWR014"
-			(at 232.41 30.48 0)
+			(at 232.41 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11728,7 +11190,7 @@
 			)
 		)
 		(property "Value" "+3V8"
-			(at 232.41 21.59 0)
+			(at 232.41 16.51 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11738,7 +11200,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 232.41 26.67 0)
+			(at 232.41 21.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11749,7 +11211,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 232.41 26.67 0)
+			(at 232.41 21.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11760,7 +11222,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V8\""
-			(at 232.41 26.67 0)
+			(at 232.41 21.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11777,6 +11239,96 @@
 			(project "Carte_V2"
 				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f511e4ac-6fe9-4198-b162-5d283554f9eb"
 					(reference "#PWR014")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "BQ24040DSQR:S1921")
+		(at 234.95 25.4 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b83d128f-0814-4534-84ea-dff91558ef35")
+		(property "Reference" "C22"
+			(at 241.3 26.6699 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" ""
+			(at 241.3 29.2099 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "BQ24040DSQR:S1921"
+			(at 234.95 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 234.95 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 234.95 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "JLCPCB Part#" ""
+			(at 234.95 25.4 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "59f577a2-9741-4c84-92b8-64d01ab91020")
+		)
+		(instances
+			(project "Carte_V2"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f511e4ac-6fe9-4198-b162-5d283554f9eb"
+					(reference "C22")
 					(unit 1)
 				)
 			)
@@ -12027,6 +11579,85 @@
 		)
 	)
 	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 171.45 53.34 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c54ed6e4-16ab-407f-bc02-755e35956159")
+		(property "Reference" "#FLG04"
+			(at 173.355 53.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 175.26 53.3399 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 171.45 53.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 171.45 53.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 171.45 53.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "61015298-2df4-4b43-8a16-5149c4b4f396")
+		)
+		(instances
+			(project "Carte_V2"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f511e4ac-6fe9-4198-b162-5d283554f9eb"
+					(reference "#FLG04")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Small")
 		(at 121.92 53.34 270)
 		(unit 1)
@@ -12048,7 +11679,7 @@
 				)
 			)
 		)
-		(property "Value" "2k Ohm"
+		(property "Value" "1.5k Ohm"
 			(at 121.92 50.8 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12091,7 +11722,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C881146"
+		(property "JLCPCB Part#" "C25867"
 			(at 121.92 53.34 90)
 			(hide yes)
 			(show_name no)
@@ -12623,7 +12254,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AP9101CK"
+		(property "Value" "AP9101CAK-ATTRG1"
 			(at 64.3733 153.67 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12724,7 +12355,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10uF"
+		(property "Value" "100nF"
 			(at 35.56 161.2962 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12768,7 +12399,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C70225"
+		(property "JLCPCB Part#" "C14663"
 			(at 33.02 160.02 0)
 			(hide yes)
 			(show_name no)
@@ -12873,96 +12504,6 @@
 		)
 	)
 	(symbol
-		(lib_id "BQ24040DSQR:S1921")
-		(at 26.67 113.03 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e78af32b-d795-4fc4-9923-5de9562f4fc4")
-		(property "Reference" "C22"
-			(at 33.02 114.2999 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" ""
-			(at 33.02 116.8399 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "BQ24040DSQR:S1921"
-			(at 26.67 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 26.67 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 26.67 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "JLCPCB Part#" ""
-			(at 26.67 113.03 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b36884cb-edf6-4251-bf4c-5a7827a51b6c")
-		)
-		(instances
-			(project "Carte_V2"
-				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f511e4ac-6fe9-4198-b162-5d283554f9eb"
-					(reference "C22")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Small")
 		(at 55.88 63.5 180)
 		(unit 1)
@@ -13029,7 +12570,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C70225"
+		(property "JLCPCB Part#" "C96446"
 			(at 55.88 63.5 0)
 			(hide yes)
 			(show_name no)
@@ -13122,7 +12663,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C5184071"
+		(property "JLCPCB Part#" "C25744"
 			(at 271.78 26.67 0)
 			(hide yes)
 			(show_name no)
@@ -13215,7 +12756,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C881394"
+		(property "JLCPCB Part#" "C25765"
 			(at 151.13 29.21 0)
 			(hide yes)
 			(show_name no)

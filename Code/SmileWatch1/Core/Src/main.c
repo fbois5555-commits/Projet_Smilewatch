@@ -2,7 +2,7 @@
 /**
   ******************************************************************************
   * @file           : main.c
-  * @brief          : Main program body
+  * @brief          : Main program body — SmileWatch V2 (STM32WB55)
   ******************************************************************************
   * @attention
   *
@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "smilewatch_ui.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -94,13 +94,14 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-
+  SmileWatch_Init(&hi2c1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    SmileWatch_LoopTask(HAL_GetTick());
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -240,7 +241,43 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /* USER CODE BEGIN MX_GPIO_Init_2 */
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
 
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+  /* Safe initial output states (Miyota LOW-LOW Lenz brake, OLED & Boost OFF) */
+  HAL_GPIO_WritePin(GPIOA, MIYOTA_HP_Pin | DRV_EN_Pin | TCA_EN_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, MIYOTA_HM_Pin | OLED_RES_Pin | HR_5V_EN_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOD, OLED_PWR_EN_Pin, GPIO_PIN_RESET);
+
+  /* Outputs on GPIOA: PA7 (Miyota H+), PA1 (DRV_EN), PA4 (TCA_EN) */
+  GPIO_InitStruct.Pin   = MIYOTA_HP_Pin | DRV_EN_Pin | TCA_EN_Pin;
+  GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull  = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /* Outputs on GPIOB: PB5 (Miyota H-), PB4 (OLED RES), PB0 (+5V_HR Boost EN) */
+  GPIO_InitStruct.Pin   = MIYOTA_HM_Pin | OLED_RES_Pin | HR_5V_EN_Pin;
+  GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull  = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* Output on GPIOD: PD7 (OLED Power Switch GPIO_EC) */
+  GPIO_InitStruct.Pin   = OLED_PWR_EN_Pin;
+  GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull  = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+  /* Push-button inputs on GPIOC: PC5 (2h Top S2) & PC4 (4h Bottom S1) */
+  GPIO_InitStruct.Pin   = BTN_TOP_2H_Pin | BTN_BOT_4H_Pin;
+  GPIO_InitStruct.Mode  = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull  = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
   /* USER CODE END MX_GPIO_Init_2 */
 }
 

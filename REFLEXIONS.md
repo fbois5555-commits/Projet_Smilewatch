@@ -17,13 +17,13 @@
   - **Décision d'intégrité logicielle** : Maintien des noms originaux `C39` et `ConnectorMicromatch-14` pour éviter toute désynchronisation du schéma hiérarchique KiCad 10.
 
 ### Alimentation & Gestion d'énergie
-- [ ] **Bruit d'alimentation sur le MAX30101** : Le capteur optique PPG utilise le rail +5V généré par le boost nanoPower MAX17222. Vérifier que l'ondulation résiduelle (ripple) du boost ne vient pas bruiter les mesures PPG (envisager un filtrage LC ou RC supplémentaire si nécessaire).
-- [ ] **Consommation en veille (Quiescent Current)** : Vérifier que le convertisseur boost et les LDOs AP2127 peuvent être éteints via une broche `EN` (Enable) contrôlée par le STM32WB lorsque les capteurs et l'écran ne sont pas sollicités.
-- [ ] **Mesure de tension batterie LIR3048** : Vérifier la présence d'un pont diviseur commutable (via un MOSFET type FDN338P) pour mesurer la tension de batterie sur un ADC du STM32WB sans fuite de courant permanente.
-- [ ] **Sécurité & Isolation Batterie LIR3048** :
-  - Sur une pile bouton, le corps extérieur (tranche et fond) est généralement au pôle **POSITIF (+)**.
-  - S'assurer d'une zone d'isolation stricte (masque de soudure + disque Kapton) sous la batterie sur le PCB pour éviter tout court-circuit franc entre le boîtier de la batterie et des vias/pistes sous-jacentes.
-  - Valider la compression axiale via mousse Poron pour éviter tout décollement lors des chocs.
+- [x] **Bruit d'alimentation & Inductance Boost sur le MAX30101 (`11 Nov 2026`)** : Sur `Carte_Capteur_V1`, le boost `MAX17222ELT+T` est équipé d'une inductance **`L1 = 1.0 µH` (`TDK MLP1005M1R0DT0S1`, `500 mA`, `0402`, JLC `C531284`)** validée dans la plage datasheet (`0.47–2.2 µH`). Ondulation calculée sur `+5V` : ~`10 mVpp` (HF, `23 mVpp` pire cas) et ~`50–125 mVpp` en PFM ULPM face à la PSRR LED du `MAX30101` (`≤ 10 LSB` à `100 mVpp`, avec découplage `10 µF + 100 nF`).
+- [x] **Consommation en veille (Quiescent Current — `11 Nov 2026`)** : Les LDOs `IC6`/`IC4` ont été basculés en BOM vers **`TPS7A0233DBVR` / `TPS7A0218PDBVR`** ($I_Q = 25\text{ nA}$), et le boost `MAX17222` ainsi que `U3` (`TCA9517D`) disposent de commandes `EN` dédiées (`/EN_5V_HR`, `/EN_TCA`).
+- [x] **Mesure de tension batterie LIR3048 (`11 Nov 2026`)** : Pont diviseur `R25/R26 = 1 MΩ` (`C26083`) + filtrage `C56 = 100 nF` implanté sur `+3V8` vers **`PC4`** (`U2.G4`, fuite permanente ~`1.9 µA`).
+- [x] **Sécurité & Polarité Batterie LIR3048 (`11 Nov 2026`)** :
+  - Sur la `LIR3048` EEMB (p. 3), la coupelle cylindrique externe Ø30 mm est **`⊕` POSITIF** et le capot central étagé est **`⊖` NÉGATIF**.
+  - Câblage corrigé sur `Carte_V2` (`B.Cu`) : ressort latéral `C22` (`S1921`) sur **`+3V8`**, pastille `TP8` (`6×6 mm`) sur **`GNDPWR`** (`TP2` supprimé). *Point d'attention audit : `TP8` est une pastille plate excentrée ($r = 11.05\text{ mm}$, emprise $R \approx 8.05\text{–}14.05\text{ mm}$) sans ressort central ($R \le 8.5\text{ mm}$).*
+  - Hauteur `Batterie.SLDPRT` recalée à `4.90 mm` (`09/11`) avec calage Poron.
 
 ### Haute Fréquence, RF & Carrure métallique
 - [x] **Arbitrage Carrure Métallique : Carrure Inox 316L Flottante (Abandon de la mise à la masse)** :
@@ -54,12 +54,15 @@
   - **Sécurité** : La protection contre la saturation de la bobine est entièrement assurée par le firmware (timer matériel coupant l'impulsion motrice à 10–31.25 ms max et passage des GPIOs en haute impédance ou freinage dynamique LOW-LOW).
 - [ ] **Protections ESD** : Diodes TVS sur les lignes GPIO des boutons poussoirs tactiles exposés à la manipulation.
 
-### 🏁 Statut Carte Mère Carte_V2 : Figeage & Prête pour Revue par les Pairs (Peer Review)
-- **Routage 6 couches complet** : Stackup JLCPCB JLC06161H-3313 (Top, In1.Cu, In2.Cu, In3.Cu, In4.Cu, Bottom).
-- **Règles d'isolation DRC** : Isolation de contour fixée et respectée à **$\ge 0{,}20	ext{ mm}$** (règle standard d'usinage mécanique JLCPCB).
-- **Intégrité RF** : Ligne microruban 50 Ω calculée et validée entre le filtre MLPF-WB-02D3 et l'antenne céramique 2450AT.
-- **Dossier figé** : Aucune modification structurelle supplémentaire sur `Carte_V2` avant la relecture croisée par les pairs.
-- [ ] **Résistances de tirage I2C (Pull-ups)** : Vérifier la valeur résultante des pull-ups sur le bus partagé (OLED, TMP117, MAX30101, LSM6DSOX, VEML6030, DRV2605L).
+### 🏁 Statut Carte Mère `Carte_V2` & Carte Capteurs `Carte_Capteur_V1` (Mise à jour 11 Novembre 2026)
+- **Routage 6 couches complet (`Carte_V2`)** : Stackup JLCPCB JLC06161H-3313 (Top, In1.Cu, In2.Cu, In3.Cu, In4.Cu, Bottom).
+- **Contrôles KiCad 10 propres (`11 Nov 2026`)** :
+  - `Carte_V2` : **ERC = 0 erreur (`63` warnings)** ; **DRC + parité schématique = 0 violation, 0 non connecté, 0 parité**.
+  - `Carte_Capteur_V1` : **ERC = 0 erreur (`10` warnings)** ; **DRC + parité schématique = 0 violation, 0 non connecté, 0 parité**.
+  - `Cadran` : **DRC + parité = 0 erreur**, 0 non connecté (`55` warnings `silk_edge_clearance` liés aux index en bordure).
+- **Correctifs RF & BOM passifs appliqués (`11 Nov 2026`)** : `R21 = DNP`, `R24 = DNP`, `Keep out area` `ANT1` sur les 6 couches, quartz `Y1` passé en `8 pF` (`ABM13W-32.0000MHZ-8-B1U-T5`, `C36/C50 = 12 pF C0G`), et tous les `JLCPCB Part#` passifs assainis (*compromis noté sur `C0G2_50V1` : X7R 50V `C76621` en `0603` faute de C0G 330 nF disponible dans ce boîtier*).
+- **Prochaine étape** : Pause documentation terminée — revue indépendante complète par **Argon** et autres IA pour comparaison avant verrouillage mécanique (`P0-MECA-6/7`, `P1-MECA-9/10`), sourcing des ruptures JLCPCB et export Gerbers/STEP.
+- [ ] **Résistances de tirage I2C (Pull-ups)** : Vérifier la valeur résultante des pull-ups sur le bus partagé après permutation `U3` (`OLED`, `TMP117`, `MAX30101`, `LSM6DSOX`, `VEML6030`, `DRV2605L`).
 
 ---
 
@@ -198,6 +201,8 @@
 | **4. Intensif / Sport** | Cardio optique continu (100%), BLE rapide, écran consulté très fréquemment. | ~8.5 mA | **~30 heures** |
 
 > **Le levier numéro 1 de l'autonomie** : L'échantillonnage du capteur cardiaque `MAX30101`. À 15 mA en pic, faire une mesure toutes les 15 minutes au lieu du continu fait passer l'autonomie de 30 heures à **15 jours**.
+>
+> ✅ **Mise à jour (11 Nov 2026 — LDO `TPS7A02`)** : Remplacement *pin-to-pin* appliqué dans les schémas & PCB `Carte_V2` (`IC6 = TPS7A0233DBVR` / `C5142805` stk `12,659`, `IC4 = TPS7A0218PDBVR` / `C3748843` stk `3,217`, $I_Q = 25\text{ nA}$), restaurant le potentiel d'autonomie *Survie Horlogère* (~670 j ; noter la fuite permanente résiduelle ~`1.9 µA` du pont `R25/R26 = 2×1 MΩ` sur `PC4`).
 
 ---
 
@@ -359,6 +364,7 @@ Secours (04-09 Jan)  [Optionnelle]        : Buffer de réserve post-Noël si fin
   - Préparation de l'outillage horloger (brucelles d'horloger, loupe, cabrons).
 
 #### 📅 Semaine 3 (09 - 15 Novembre) : Banc de Test & Firmware Minimal
+* **Lundi 09 Nov (08h30 - 10h30, Agenda Google)** : Reprise SolidWorks du montage d'assemblage suite à la détection de l'erreur de montage sur l'empilement des aiguilles Miyota 2035 et ajustement de la chaîne de cotes axiale avant validation finale.
 * **Séance Projet FabLab (Mardi 10 Nov 13h30 - 17h30)** :
   - Montage du banc de test électrique de table (alimentation régulée 3.7V, multimètre de précision).
   - Configuration du projet STM32CubeIDE sur la base de l'exemple officiel ST `BLE_Ota`.
@@ -406,45 +412,40 @@ Secours (04-09 Jan)  [Optionnelle]        : Buffer de réserve post-Noël si fin
 
 ---
 
-## 🔍 10. Audit Détaillé des Pinouts KiCad vs Datasheets (Octobre 2026)
+## 🔍 10. Audit Détaillé des Pinouts KiCad vs Datasheets (Révisé le 08 Nov — MàJ Correctifs le 11 Nov 2026)
 
-### 🚨 ANOMALIE CRITIQUE DÉTECTÉE & À CORRIGER :
-* **`IC8` (Driver Haptique TI DRV2605L - Fichier `Moteur.kicad_sch`)** :
-  * **Problème constaté** : La broche **A2 (`REG`)** est connectée au rail d'alimentation global **`+1V8`**.
-  * **Ce que dit la datasheet officielle Texas Instruments (SLOS854D)** :  
-    > *"REG: 1.8-V regulator output. Connect a 1-µF capacitor between REG and GND. This pin is not meant to supply power to external circuits, **nor should an external power supply be connected to it**."*
-  * **Risque matériel** : Court-circuiter le régulateur interne du DRV2605L avec le LDO externe AP2127 crée un conflit entre deux sources d'alimentation, générant un courant de fuite continu, un échauffement et un dysfonctionnement de la logique haptique interne.
-  * **Action corrective immédiate sous KiCad** : Supprimer le symbole `+1V8` sur la broche A2. Laisser la broche A2 reliée **uniquement à un condensateur de 1 µF vers GND**.
+### ✅ ANOMALIE OCTOBRE CORRIGÉE SUR PCB :
+* **`IC8` (Driver Haptique TI DRV2605L - Fichier `Moteur.kicad_sch` / `Carte_V2.kicad_pcb`)** :
+  * **Statut vérifié le 08 Nov 2026** : **CORRIGÉ ✅**. Sur `Carte_V2.kicad_pcb`, la bille **A2 (`REG`)** est désormais bien isolée sur `Net-(IC8-REG)` et reliée uniquement au condensateur `C34 = 1 µF` vers `GND`.
 
 ---
 
-### ✅ VÉRIFICATIONS COMPLÈTES CONFORMES (100% VALIDÉES) :
+### 🔍 VÉRIFICATIONS PINOUTS (MISES À JOUR SUITE À L'AUDIT 360° DU 08 NOV 2026) :
 
 1. **Microcontrôleur STM32WB55VGYx (Boîtier WLCSP-100)** :
-   * **Ligne RF** : Broche K4 (`RF1`) connectée à la broche A3 (`IN`) du filtre ST `MLPF-WB-02D3`. Broche A1 (`OUT`) reliée à la broche 1 de l'antenne `2450AT07A0100`. Bumps A2, B1, B2, B3 à GND. **Parfait**.
+   * **Ligne RF (✅ CORRIGÉ LE 11 NOV)** : Broche K4 (`RF1`) -> `MLPF-WB-02D3` (`FL1`) -> `ANT1` (`2450AT07A0100`). **`R21` et `R24` passés en `DNP`**, et zone **`Keep out area`** sans cuivre/pistes/vias/composants créée sur les **6 couches** (`F.Cu..B.Cu`, `5.0 × 5.05 mm`) autour de `ANT1`. *(Attention appro : `FL1 C5270481` et `ANT1 C17531353` à stock `0` chez JLCPCB).*
    * **Connecteur SWD Tag-Connect TC2030 (J1)** : 1=VCC (+3V3), 2=SWDIO (PA13), 3=NRST, 4=SWCLK (PA14), 5=GND, 6=SWO (PB3). **Brochage rigoureusement identique au standard Tag-Connect**.
-   * **Oscillateurs** : Quartz 32 MHz `ECS-320` sur OSC_IN (J1) / OSC_OUT (J2). Quartz 32.768 kHz `ECS-.327` sur PC14 (D10) / PC15 (D9). **Conforme**.
+   * **Oscillateurs (✅ CORRIGÉ POUR 8 pF — ⚠️ `Y1.4` NC)** : Quartz 32.768 kHz `ECS-.327` sur PC14/PC15 OK. Quartz HSE 32 MHz `Y1` remplacé par **`ABM13W-32.0000MHZ-8-B1U-T5`** ($C_L = 8\text{ pF}$, `C6455449`, stock JLCPCB `0`) avec `C36 = C50 = 12 pF C0G` (`C1547`). *Point mineur : `Y1.4` reste non connecté (`NC`) au lieu d'être relié à `GND`.*
    * **Bus I2C1** : PB8 (`SCL`) et PB9 (`SDA`). **Conforme aux fonctions alternatives STM32WB**.
-   * **VDDUSB à GND** : Conforme aux recommandations ST pour désactiver le contrôleur USB physique et économiser le courant.
+   * **VDDUSB & Mesure VBAT (✅ CORRIGÉ LE 11 NOV)** : `VDDUSB` à `GND` conforme ST ; pont diviseur **`R25/R26 = 1 MΩ` (`C26083`) + `C56 = 100 nF`** implanté de `+3V8` vers **`PC4`** (`U2.G4`) pour télémétrie batterie `BAS`.
 
 2. **Capteurs & Module Déporté (`Carte_Capteur_V2`)** :
    * **LSM6DSOX (IMU 6 axes)** : CS à +3V3 (active le mode I2C). SDO/SA0 à GND (adresse I2C = 0x6A). INT1 et INT2 reliés au MCU. **Parfait**.
-   * **VEML6030 (Luminosité)** : ADD à GND (adresse I2C = 0x10). INT vers MCU (PA12). **Parfait**.
-   * **TMP117 (Température clinique)** : ADD0 à GND (adresse I2C = 0x48). ALERT vers MCU (PA9). **Parfait**.
-   * **MAX30101 (Cardio/SpO2)** : VLED+ sur rail +5V dédié, VDD sur +1V8, bus I2C isolé via le TCA9517. **Parfait**.
-   * **MAX17222 (Boost nanoPower 5V)** : Broche RSEL/SEL reliée directement à GND. Selon la datasheet Maxim/ADI, RSEL = 0 $\Omega$ sélectionne **exactement 5.0V** en sortie sans aucune résistance externe. **Excellent choix de compacité**.
-   * **TCA9517 (Répéteur I2C)** : VCCA = 3.3V, VCCB = 3.3V, EN contrôlé par MCU (PA4). **Parfait**.
+   * **VEML6030 (Luminosité)** : ADD à GND (adresse I2C = 0x10). INT vers MCU (PA12). **Parfait** *(`Canal_lum.SLDPRT` retouché le `09/11`, à confirmer en vérification d'interférences `Montre.SLDASM`)*.
+   * **TMP117 (Température clinique — ✅ CORRIGÉ LE 11 NOV)** : ADD0 à GND (0x48), ALERT vers MCU. **`Pad 7` isolé relié par 2 vias thermiques à une pastille ENIG dédiée (`1.2×1.8 mm` sur `B.Cu`) + zone keepout `U2_Thermal_Iso` sur `In1.Cu/In2.Cu`**.
+   * **MAX30101 (Cardio/SpO2)** : VLED+ sur rail +5V dédié, VDD sur +1V8 (`C2859066`, stk `67`).
+   * **MAX17222 (Boost nanoPower 5V — ✅ L1 CORRIGÉ LE 11 NOV / ⚠️ MÉCA OUVERT)** : RSEL/SEL à GND (`5.0 V`). Inductance **`L1` passée à `1.0 µH` (`TDK MLP1005M1R0DT0S1`, `C531284`, `500 mA`, `0402`)** validée par datasheet. *Reste à confirmer en 3D : dégagement radial de `IC3/L1` face à la jupe Ø38 mm (`P1-MECA-10`).*
+   * **TCA9517D (Répéteur I2C — ✅ CORRIGÉ LE 11 NOV)** : Permutation complète effectuée sur schéma et PCB `Carte_Capteur_V1` (`#FLG03` supprimé, re-routage propre à **0 erreur DRC**) : **Side A (`VCCA = +1V8`, `SDAA/SCLA`)** côté `MAX30101` et **Side B (`VCCB = +3V3`, `SDAB/SCLB`)** côté `STM32WB55`.
 
-3. **Alimentation & Charge Qi (`Alimentation_sch.kicad_sch`)** :
-   * **Récepteur Qi BQ51003** : Réseau de condensateurs résonants complet (470nF série, 2.2nF parallèle, 22nF clamp, 10nF comm). EN1 et EN2 à GND (activation sortie). AD à GND (mode sans fil prioritaire). Sortie OUT 5V vers le chargeur. **Parfait**.
-   * **Chargeur BQ24040** :
-     * $R_{ISET} = 4.53\text{ k}\Omega \implies I_{CHG} = 540 / 4530 \approx 119\text{ mA}$ (~0.43C pour la batterie 280 mAh, idéal pour la longévité de la cellule).
-     * $R_{PRETERM} = 2.0\text{ k}\Omega \implies I_{TERM} \approx 12\text{ mA}$.
-     * Broche `~CHG` connectée à PB2 du MCU pour surveiller l'état de charge. **Parfait**.
-   * **Protection AP9101CK & Double MOSFET DMN2028UFU** : VDD au pôle positif, VSS au pôle négatif (GNDPWR), grilles DO et CO pilotant les deux canaux N. **Parfait**.
+3. **Alimentation, Écran OLED & Charge Qi (`Alimentation_sch.kicad_sch` / `Ecran.kicad_sch`)** :
+   * **Batterie `LIR3048` (✅ KICAD CORRIGÉ LE 11 NOV — ⚠️ POINT DE VIGILANCE)** : Sur `Carte_V2` (`B.Cu`), `C22` (`S1921`, latéral, $r=14.95\text{ mm}$) est désormais relié à **`+3V8`** (`⊕`), `TP2` est supprimé et **`TP8`** (`B.Cu`, `6×6 mm`) est relié à **`GNDPWR`** (`⊖`). *Vigilance pour audit Argon : `TP8` est une pastille plate excentrée ($r=11.05\text{ mm}$, emprise $R\approx 8.05\text{–}14.05\text{ mm}$) et non un contact ressort centré ($R\le 8.5\text{ mm}$) ; vérifier l'alignement avec le joint de sertissage du capot `⊖`.*
+   * **Étage Écran OLED `Q1`/`Q2` (✅ ÉLEC CORRIGÉ LE 11 NOV — 🔴 MÉCA `P0-MECA-7` OUVERT)** : `Q2.2` (`FDN335N`) relié à `GND`, `Q1.2` (`FDN338P`) + `R15.1` reliés à `+3V8`, `Q1.3` Drain vers `/Ecran/VBAT`, et `R13 = 560 kΩ` (`C132339`). *Collision mécanique `P0-MECA-7` encore ouverte : `Q1`, `Q2` (`TSOT-23`) et `C6/C7/C8/C20/C41/C42/C43` (`0603`) sont toujours implantés sur `F.Cu` sous la dalle OLED.*
+   * **Récepteur Qi BQ51003 (✅ CORRIGÉ LE 11 NOV)** : `R7 = DNP` et **`R5 = 1.5 kΩ`** (`C25867`, $I_{\max} \approx 155\text{ mA}$ > `119.2 mA` du `BQ24040`).
+   * **Chargeur BQ24040** : $R_{ISET} = 4.53\text{ k}\Omega \implies I_{CHG} \approx 119.2\text{ mA}$, $R_{PRETERM} = 2.0\text{ k}\Omega \implies I_{TERM} \approx 12\text{ mA}$, `~CHG` sur MCU. **Parfait**.
+   * **Protection AP9101CK & Double MOSFET DMN2028UFU (✅ CORRIGÉ LE 11 NOV)** : **`C46 = 100 nF`** (`C14663`), **`R16 = 330 Ω`** (`C25104`), et **`U4 = AP9101CAK-ATTRG1`** (`C5588142`, stk `162`) ; *(à noter : `Q3 = DMN2028UFU-7` `C3291404` à stock `0` JLCPCB)*.
 
 ## 📦 11. Bilan d'Approvisionnement & Inventaire Réel (Objectif : 2 Montres SmileWatch)
-*Mis à jour le 26 Octobre 2026 suite au retour d'inventaire.*
+*Mis à jour le 11 Novembre 2026 (vérification temps réel des stocks JLCPCB SMT & commandes Sparks).*
 
 ### Synthèse de Disponibilité pour 2 Exemplaires
 
@@ -452,7 +453,7 @@ Secours (04-09 Jan)  [Optionnelle]        : Buffer de réserve post-Noël si fin
 | :--- | :--- | :--- | :--- |
 | **Écran micro-OLED 0.5"** | Topwin `QG-8848TSWYG02` (Contrôleur CH1115, 88×48) | ✅ **Reçu (x2)** | Datasheet V2 analysée : 14 broches au pas de 0.62 mm. Soudure directe confirmée. |
 | **Batterie Rechargeable** | LIR3048 Li-ion (3.7V - 280 mAh) | ✅ **Reçu (x2)** | Stock OK. Prête pour l'intégration mécanique. |
-| **Mouvement Quartz** | Miyota 2035 (2 fils de bobine à souder) | ⚠️ **2 OK en stock** (3 achetés au départ, 1 raté lors des tests) | **Recommander 1 Miyota 2035** en spare de sécurité en même temps que le taraud. |
+| **Mouvement Quartz** | Miyota 2035 (2 fils de bobine à souder) | ✅ **2 en stock atelier + 2 neufs commandés (Sparks, 09 Nov)** | Expédition Sparks en cours. |
 | **Aiguilles Horlogères** | Aiguilles Heures & Minutes pour Miyota 2035 | ✅ **Reçu (x2 sets)** | Stock OK. Pose au Bergeon 6767 lors de la phase 1. |
 | **Verre Principal Supérieur** | Glace Saphir plat haute résistance | ✅ **Reçu** | Stock OK pour le chassage avec posage O4. |
 | **Joint en I supérieur** | Joint Téflon / Hytrel profil en I | ✅ **Reçu** | Stock OK pour l'étanchéité du verre supérieur. |
@@ -461,79 +462,64 @@ Secours (04-09 Jan)  [Optionnelle]        : Buffer de réserve post-Noël si fin
 | **Colle UV Optique** | Adhésif acrylique polymérisable UV | ✅ **En Stock Atelier** | Prête pour le scellement étanche du verre minéral 12 mm. |
 | **Joint Torique Fond-Carrure** | O-ring Nitrile/Viton étanchéité radiale | 🚚 **En transit** | Commande en cours d'acheminement. |
 | **Mousses Poron & Adhésifs** | Poron microcellulaire (vibreur 4.5mm, calage batterie) | 🔍 **À vérifier** | À fouiller dans les placards à la rentrée (si manquant, commander Jeudi 29 Oct). |
-| **Micro-taraud Poussoirs** | Taraud micro-mécanique pour vis de poussoirs | 🛒 **À commander** | À commander Jeudi 29 Oct avec le mouvement Miyota spare. |
-| **Composants Électroniques CMS** | STM32WB55, BQ24040, TMP117, Bobine Qi WE 760308101309 | 📋 **Panier Mouser / SMT** | Vérifier la commande groupée / intégration SMT JLCPCB. |
-| **Carrures 316L & Bases Résine** | Impression 3D métal SLM (carrure) + Résine (base + cale O4) | 🚀 **À lancer** | Figeage CAO / Envoi en fabrication le 30 Octobre. |
+| **Micro-taraud Poussoirs** | Taraud micro-mécanique pour vis de poussoirs | 🚚 **Commandé (Sparks, 09 Nov)** | Commandé avec les 2 Miyota de rechange. |
+| **Composants Électroniques CMS** | `Carte_V2` & `Carte_Capteur_V1` (BOM JLCPCB assainie le 11 Nov) | 🔴 **Ruptures JLCPCB SMT détectées (11 Nov)** | **`Carte_V2` à stk 0** : `U2` (`C1850399`), `FL1` (`C5270481`), `ANT1` (`C17531353`), `Y1` (`C6455449`), `Q3` (`C3291404`), `M1` (`C20107647`), `J2` (`C6342651`). **Stocks bas** : `IC1` (`2`), `IC8` (`11`), `TH1/TH2` (`68`). **`Carte_Capteur`**: `J1` (`0`), `U2` (`36`), `IC5` (`67`), `IC3` (`140`). Passifs & `U3`/`L1` OK. Sourcing LCSC/Mouser/substitutions requis avant PCBA. |
+| **Carrures 316L & Bases Résine** | SLM 316L (`carrure`) + Résine SLA (`Base` + cale O4) | 🧪 **Proto PLA lancé (09 Nov)** | Finaliser `P0-MECA-6/7`, `P1-MECA-9/10` + audit Argon avant envoi SLM/SLA. |
 
 ---
 
 
 ---
 
-## 🩺 12. Audit & Contrôle de la Carte Capteurs (Carte_Capteur_V2)
+## 🩺 12. Audit & Contrôle de la Carte Capteurs (`Carte_Capteur_V1` / V2) — MàJ 11 Nov 2026
 
-La carte mère `Carte_V2` étant figée pour revue par les pairs, la priorité passe au **contrôle rigoureux et à la mise à niveau de la carte fille capteurs** (`Carte_Capteur_V2`), située dans `Kicad/Carte_V2/Carte_Capteur_V2/`.
+La carte fille capteurs (`Kicad/Carte_V2/Carte_Capteur_V2/Carte_Capteur_V1.kicad_pcb`) a subi sa passe corrective **V2.1** et son contrôle complet face aux datasheets et stocks JLCPCB le **11 Novembre 2026** (**ERC = 0 erreur / 10 warnings ; DRC + parité schématique = 0 violation, 0 non connecté**).
 
-### 🎯 Objectifs de la Carte Capteurs
-Logée dans la base inférieure de la montre, au contact direct du poignet à travers le fond de boîte, cette carte regroupe :
-1. **Mesure optique PPG / SpO2** : Capteur Maxim Integrated `MAX30101EFD+T` (LEDs Rouge, IR, Verte + photodétecteur).
-2. **Alimentation optique nanoPower Boost +5V** : Convertisseur élévateur `MAX17222ELT+T` (inductance 2.2 µH) alimentant la chaîne LED du MAX30101.
-3. **Thermomètre médical haute précision** : Capteur Texas Instruments `TMP117xxDRV` (résolution 0.0078°C, précision ±0.1°C pour mesure cutanée).
-4. **Interface & Buffer I2C** : Translateur de niveau et buffer de bus bidirectionnel `TCA9517D`.
-5. **Connecteur d'interconnexion** : Connecteur mezzanine Samtec `TW-05-02-G-D-157-075` (2×5 broches au pas de 2.0 mm) assurant l'alimentation et la liaison numérique avec la carte mère.
+### 🎯 Architecture Validée
+1. **Mesure optique PPG / SpO2** : `MAX30101EFD+T` (`IC5`, `C2859066`, stk `67`).
+2. **Boost optique +5V** : `MAX17222ELT+T` (`IC3`, `C1121854`, stk `140`) avec inductance **`L1 = 1.0 µH` (`TDK MLP1005M1R0DT0S1`, `500 mA`, `0402`, `C531284`, stk `8,719`)**.
+3. **Thermomètre cutané ±0.1 °C** : `TMP117AIDRVR` (`U2`, `C699536`, stk `36`) sur îlot thermique `B.Cu` isolé.
+4. **Translateur & Buffer I2C** : `TCA9517DR` (`U3`, `C182421`, stk `5,738`).
+5. **Connecteur inter-PCB** : Samtec `TW-05-02-G-D-157-075` (`J1`, `C6342651`, stk `0` JLC — à sourcer à part).
+
+### 📋 État de la Checklist Technique (11 Novembre 2026)
+- [ ] **Homogénéisation des références non indexées (mineur, sans blocage DRC)** : Des symboles fantômes/non indexés (`C`, `IC`, `J`, `L`, `R`, `U`) subsistent dans `Carte_Capteur_V1.kicad_sch` (parité PCB néanmoins à `0` erreur). À nettoyer cosmétiquement avant archivage final.
+- [x] **Valeurs des composants passifs & BOM JLCPCB (`11 Nov 2026`)** : Découplage `10 µF` Basic (`C96446`) + `100 nF` (`C1525`) + `4.7 µF` (`C19666`), `R8 = 5 kΩ` (`C477765`), `R10 = 4.7 kΩ` (`C25900`), et **`L1 = 1.0 µH` (`C531284`, 500 mA)** validée dans la plage `0.47–2.2 µH` du `MAX17222`.
+- [x] **Intégrité I2C & Permutation `U3` (`TCA9517D`) (`11 Nov 2026`)** : **CORRIGÉ & REROUTÉ**. Side A sans offset (`VCCA = +1V8`, `SDAA/SCLA`) connecté au `MAX30101` ($V_{OLA} \approx 0.10\text{ V} < V_{IL(\max)} = 0.54\text{ V}$) ; Side B (`VCCB = +3V3`, `SDAB/SCLB`) connecté vers `J1` / `STM32WB55`. `#FLG03` en doublon supprimé.
+- [x] **Commande Boost `EN` & Ondulation `+5V` (`11 Nov 2026`)** : `/EN_5V_HR` et `/EN_TCA` câblés sur `J1` ; calcul de ripple avec `L1 = 1.0 µH` : `~10 mVpp` (HF, `23 mVpp` pire cas) et `~50–125 mVpp` en PFM ULPM face à la PSRR LED du `MAX30101` (`≤ 10 LSB` à `100 mVpp`).
+- [x] **Thermique `U2` (`TMP117`) (`11 Nov 2026`)** : `Pad 7` flottant relié par **2 vias thermiques isolés** à une pastille ENIG dédiée (`1.2×1.8 mm` sur `B.Cu/B.Mask`) + zone keepout `U2_Thermal_Iso` (`In1.Cu/In2.Cu`) confirmée.
+- [x] **ERC & DRC Carte Capteurs (`11 Nov 2026`)** : `ERC = 0 erreur` (`10` warnings), `DRC --schematic-parity = 0 violation, 0 non connecté, 0 parité`.
+- [ ] **Dégagement radial `IC3/L1` (`P1-MECA-10`) & Stock `J1`** : Vérifier en 3D sur `.STEP` frais que `IC3` (`pos=(122.62, 98.97)`) et `L1` (`pos=(121.50, 97.20)`) passent sans collision dans la jupe carrure, et sourcer `J1` (`C6342651` stk `0`).
 
 ---
 
-### 📋 Checklist d'Audit Technique & Points d'Attention
+## 🚨 13. Audit d'Ingénierie Global 360° (08 Nov) & Suivi Passe V2.1 (MàJ 11 Nov 2026 — Pré-Audit Argon)
 
-#### 1. Schéma Électrique & Nettoyage des Annotations
-- [ ] **Homogénéisation des références (Nettoyage critique)** : 
-  - Présence dans `Carte_Capteur_V1.kicad_sch` de plusieurs symboles génériques non indexés (`C`, `IC`, `J`, `L`, `R`, `U`) en doublon avec des symboles annotés (`C1`, `IC3`, `J1`, `L1`, `R10`, `U3`).
-  - **Action** : Ré-annoter proprement le schéma et synchroniser avec le PCB sans écraser les empreintes déjà routées.
-- [ ] **Valeurs des composants passifs** :
-  - Découplage MAX30101 : 10 µF tantale/céramique X5R faible ESR + 100 nF au plus près de `VDD` (+1.8V) et `VLED` (+5V).
-  - Découplage Boost MAX17222 : 10 µF en entrée (`IN`) et 10 µF en sortie (`OUT`), inductance blindée 2.2 µH à faible résistance série ($R_{DC}$).
+### 📋 Bilan Prêt pour Audit Externe (Argon & Comparaison Multi-IA — 11 Novembre 2026)
 
-#### 2. Intégrité du Bus I2C & Translateur TCA9517D
-- [ ] **Conflit d'offset statique bas niveau ($V_{OL}$)** :
-  - Le `TCA9517D` intègre un buffer avec un décalage de niveau sur sa face B : la tension de sortie basse y est régulée à $pprox 0{,}5	ext{V}$ (pour éviter le verrouillage mutuel en boucle).
-  - **Règle absolue** : La face B du TCA9517 **ne doit jamais être connectée à un autre buffer à offset**. Vérifier que le STM32WB ou les capteurs acceptent bien ce seuil $V_{IL} > 0{,}5	ext{V}$.
-  - Vérifier les résistances de tirage (*pull-ups*) sur `SDA_A`/`SCL_A` (côté 1.8V/3.3V) et `SDA_B`/`SCL_B` (côté 3.3V/5V) : 4.7 kΩ recommandés.
+| Bloc / ID | Statut au 11 Nov 2026 | Détail exact vérifié sur fichiers |
+| :--- | :---: | :--- |
+| **`[P0-ELEC-1]` Polarité `LIR3048`** | 🟡 **KiCad corrigé (vigilance `TP8`)** | `C22` latéral sur `+3V8`, `TP8` (`6×6 mm`) sur `GNDPWR`, `TP2` supprimé, `Batterie.SLDPRT` à `4.90 mm`. *Note Argon : `TP8` est une pastille plate excentrée ($r=11.05\text{ mm}$) sans ressort central.* |
+| **`[P0-ELEC-2]` Switch OLED `Q1/Q2` + `R13`** | 🟢 **RÉSOLU** | `Q2.2` à `GND`, `Q1.2` + `R15` sur `+3V8`, `Q1.3` sur `/Ecran/VBAT`, `R13 = 560 kΩ` (`C132339`). |
+| **`[P0-ELEC-3]` `TCA9517D` (`U3`) inversé** | 🟢 **RÉSOLU** | Permutation Side A (`+1V8` MAX30101) / Side B (`+3V3` MCU) + re-routage `Carte_Capteur_V1` + DRC `0`. |
+| **`[P0-RF-4]` Chaîne RF + Keepout + `Y1`** | 🟢 **CORRIGÉ (`⚠️ Y1.4 NC`)** | `R21/R24 = DNP`, Keepout `ANT1` sur 6 couches (`5.0×5.05 mm`), `Y1 = ABM13W 8 pF` (`C6455449`) + `C36/C50 = 12 pF C0G`. (`Y1.4` laissé `NC`). |
+| **`[P0-MECA-5]` Hauteur aiguillage saphir** | 🟢 **RÉSOLU (09/11)** | Portée saphir relevée `+1.350 mm` (`Z=1003.313`, `+0.338 mm` minutes, `+0.138 mm` trotteuse), `0` contrainte en erreur, proto PLA lancé. |
+| **`[P0-MECA-6]` Poche `J1` & lamage Qi (`Base`)** | 🟠 **À CONFIRMER EN 3D** | `Base.SLDPRT` édité le `09/11`, poche `12×4.5×0.95 mm` et lamage `0.55 mm` à re-contrôler sous `Montre.SLDASM` sur `.STEP` frais. |
+| **`[P0-MECA-7]` Composants `F.Cu` sous OLED** | 🔴 **OUVERT** | `Q1`, `Q2` (`TSOT-23`) et `C6/C7/C8/C20/C41/C42/C43` (`0603`) sont encore implantés sur `F.Cu` sous la zone dalle OLED (`dx=-4.75..+3.38, dy=+7.9..+15.7 mm`) ; contrôle/déport requis après ré-export `.STEP`. |
+| **`[P0-MECA-8]` Gorge O-ring & clipsage** | 🟢 **RÉSOLU (09/11)** | Gorge ISO 3601 (`0.75×1.30 mm`, 25 %) + clipsage découplé (`0.3×0.2 mm`) + `Batterie.SLDPRT` `4.90 mm`. |
+| **`[P1-MECA-9]` Poussoirs étanches** | 🟠 **OUVERT** | `Bouton.SLDASM` toujours daté du `24/09` ; poussoirs horlogers étanches (joint + circlip interne) à intégrer. |
+| **`[P1-MECA-10]` `IC3/L1` & `Canal_lum`** | 🟠 **PARTIEL / À CONFIRMER** | `Canal_lum.SLDPRT` mis à jour le `09/11 06:41` ; dégagement radial de `IC3/L1` (`122.62, 98.97`) et bilan d'interférences `Montre.SLDASM` à re-valider sur `.STEP` frais. |
+| **`[P1-ELEC-11/12/13]` Alim, `VBAT`, `L1` & BOM** | 🟢 **RÉSOLU** | Pont `2×1 MΩ + 100 nF` sur `PC4` (`U2.G4`), `IC4/IC6 = TPS7A0218/33`, `R5 = 1.5 kΩ`, `R7 = DNP`, `C46 = 100 nF`, `R16 = 330 Ω`, `U4 = AP9101CAK-ATTRG1`, `L1 = 1.0 µH` (`C531284`), passifs JLCPCB complétés (`C0G2_50V1` en X7R `C76621`). |
+| **`[P2-THERM-14]` Vias `TMP117`** | 🟢 **RÉSOLU** | `Pad 7` isolé + 2 vias + plage `B.Cu` `1.2×1.8 mm` ENIG + keepout `U2_Thermal_Iso`. |
+| **`[P2-DRC-15]` DRC / ERC KiCad 10** | 🟢 **RÉSOLU** | `Carte_V2` : **0 err DRC/ERC** ; `Carte_Capteur_V1` : **0 err DRC/ERC** ; `Cadran` : **0 err DRC** (`55` warnings bord). |
+| **Stocks JLCPCB SMT (`11 Nov 2026`)** | 🔴 **BLOQUANT COMMANDE** | `Carte_V2` : 7 refs à `stk=0` (`U2`, `FL1`, `ANT1`, `Y1`, `Q3`, `M1`, `J2`) + `IC1` (`2`), `IC8` (`11`), `TH1/TH2` (`68`). `Carte_Capteur` : `J1` (`0`), `U2` (`36`), `IC5` (`67`). |
+| **`[P2-FW-16]` & `[P2-PROC-17]` Firmware & Livrables** | 🟡 **OUVERT** | `SmileWatch1.ioc` (`21/04`) cible encore `STM32WB5MMGHx` ; `production/` (`05/07`), `.STEP`, Notice V3.9 et Panier Mouser à régénérer après audit. |
 
-#### 3. Chaîne d'Alimentation & Commande du Boost MAX17222
-- [ ] **Broche `EN` (Enable)** : Vérifier que le convertisseur boost +5V peut être coupé à 100% via une broche de commande `EN` (pilotée par le STM32WB) pour garantir la consommation nanoampère en veille lorsque le cardio n'est pas actif.
-- [ ] **Filtrage de l'ondulation (Ripple)** : L'ondulation du boost ne doit pas parasiter les mesures optiques du MAX30101 (vérifier la présence d'un filtre RC ou ferrite sur le rail `+5V`).
+---
 
-#### 4. Thermique & Contact Cutané (TMP117)
-- [ ] **Dissipation & Précision** :
-  - Le pad thermique central du TMP117 doit être relié par des vias thermiques à une pastille de cuivre exposée (dorée ENIG) face inférieure pour capter la température du poignet.
-  - S'assurer que le TMP117 est physiquement éloigné du convertisseur boost MAX17222 et des pistes d'alimentation de puissance pour ne pas fausser la mesure par auto-échauffement.
+## 📅 Point d'Étape & Prochaines Actions — 11 Novembre 2026
 
-#### 5. Connecteur Inter-PCB `J1` & Intégration Mécanique
-- [x] **Brochage croisé (Pinout Mapping) — 100% VALIDÉ** : Vérification broche par broche entre `Carte_V2` (J2) et `Carte_Capteur_V1` (J1) (Samtec `TW-05-02-G-D-157-075` à -125° en face arrière B.Cu) :
-  - Broche 1 : `I2C1_SDA`
-  - Broche 2 : `I2C1_SCL`
-  - Broche 3 : `/EN_TCA`
-  - Broche 4 : `NC`
-  - Broche 5 : `/HR_INT`
-  - Broche 6 : `/EN_5V_HR`
-  - Broche 7 : `+1V8` (sécurisé avec pastille Ø1.15 mm pour dégagement $\ge 0.20	ext{ mm}$ du bord)
-  - Broche 8 : `/TEMP_ALERT`
-  - Broche 9 : `GND`
-  - Broche 10 : `+3V3`
-- [x] **Encombrement 3D & Berceau Batterie LIR3048** :
-  - Rayon intérieur de découpe du PCB : $R = 15.30	ext{ mm}$ (dégagement de 0.30 mm autour du corps métallique Ø 30 mm de la cellule LIR3048).
-  - Sécurisation absolue contre le court-circuit `VBAT` (4.2V corps de pile) $\leftrightarrow$ `+1V8` (broche 7).
-
-#### 6. Règles PCB & DRC Carte Capteurs — 100% SUCCÈS (27 Octobre 2026)
-- [x] **Contraintes de fabrication JLCPCB** :
-  - Vias : Ø 0.35 mm / perçage 0.20 mm (annulaire 0.075 mm $\ge 0.05	ext{ mm}$ JLCPCB standard).
-  - Isolement cuivre-contour : $\ge 0.20	ext{ mm}$ CNC milling.
-  - Finition : **ENIG (Electroless Nickel Immersion Gold)** indispensable pour contact cutané et dorure des pastilles.
-- [x] **Résolution intégrale du DRC (`kicad-cli pcb drc`)** :
-  - **Erreurs : 0** (109 initialement).
-  - **Éléments non connectés : 0** (3 initialement).
-  - Câblage d'alimentation et découplage C23 / TMP117 corrigé en parallèle (+3V3 et GND).
-  - Alimentation V_LED+ Pad 10 du MAX30101 reliée au Pad 9 (+5V).
-  - Isolement piste /LX sur le boost MAX17222 et piste +3V3 sur In2.Cu validés.
-  - Carte fille capteurs validée et prête pour le dossier de fabrication !
+1. **Audit Indépendant Multi-IA (En cours)** : Soumettre le dépôt mis à jour à **Argon** et à d'autres IA pour audit comparatif (en particulier sur le placement `TP8` batterie, l'interface sous dalle OLED `P0-MECA-7`, l'impédance/RF `Y1.4`, les stocks `C76621`/actifs et la validation 3D finale).
+2. **Clôture Mécanique & Ré-export `.STEP`** : Statuer sur `P0-MECA-7` (sous OLED), `P0-MECA-6` (poche `J1` + lamage Qi), `P1-MECA-9` (`Bouton.SLDASM`), `P1-MECA-10` (`IC3/L1`) puis relancer la détection d'interférences `Montre.SLDASM` = `0`.
+3. **Sourcing & Dossier Usine** : Sécuriser les `8` références à stock `0` / critiques (`Mouser/LCSC/substitutions`), régénérer `production/` (Gerbers/BOM/CPL des 3 PCB), actualiser `Notice_montage` V3.9 et lancer les commandes JLCPCB PCBA + JLC3DP SLM 316L / SLA.
+4. **Firmware** : Créer le projet STM32CubeIDE sur **`STM32WB55VGYx` (WLCSP-100)** (`HSE 32 MHz`, `LSE`, `STM32_WPAN`, driver Miyota, I2C OLED/capteurs).

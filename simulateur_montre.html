@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmileWatch V2 — Simulateur Horloger, OLED 88×48 & Studio C STM32</title>
+    <style>
+        :root {
+            --bg-dark: #090d16;
+            --bg-card: #111827;
+            --bg-panel: #1e293b;
+            --border-subtle: rgba(255, 255, 255, 0.09);
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --accent-cyan: #ffffff;
+            --accent-gold: #eab308;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-purple: #a855f7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: radial-gradient(circle at 15% 15%, #162032 0%, var(--bg-dark) 70%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 0.9rem 1.75rem;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .brand { display: flex; align-items: center; gap: 0.85rem; }
+        .brand-logo {
+            width: 40px; height: 40px; border-radius: 10px;
+            background: linear-gradient(135deg, rgba(0,229,255,0.2), rgba(234,179,8,0.2));
+            border: 1px solid rgba(0,229,255,0.4);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem;
+        }
+        .brand h1 { font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 0.6rem; }
+        .tag-badge {
+            font-size: 0.7rem; padding: 0.18rem 0.55rem; border-radius: 999px;
+            background: rgba(0, 229, 255, 0.15); color: var(--accent-cyan);
+            border: 1px solid rgba(0, 229, 255, 0.35); font-weight: 600;
+        }
+        .brand p { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.15rem; }
+
+        .header-telemetry {
+            display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;
+        }
+        .kpi-pill {
+            background: rgba(30, 41, 59, 0.75);
+            border: 1px solid var(--border-subtle);
+            padding: 0.4rem 0.8rem; border-radius: 8px;
+            font-size: 0.76rem; display: flex; align-items: center; gap: 0.45rem;
+        }
+        .kpi-pill strong { color: var(--accent-cyan); font-family: 'JetBrains Mono', Consolas, monospace; }
+
+        /* Main Workspace Grid */
+        .workspace {
+            display: grid;
+            grid-template-columns: 450px 1fr;
+            gap: 1.25rem;
+            padding: 1.25rem 1.5rem;
+            flex: 1;
+            max-width: 1680px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 1120px) {
+            .workspace { grid-template-columns: 1fr; }
+        }
+
+        .card {
+            background: rgba(17, 24, 39, 0.85);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 1.1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+        }
+
+        .card-header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 0.65rem;
+        }
+        .card-title { font-size: 0.92rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; }
+
+        /* Watch Visual Container */
+        .watch-stage {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.4rem 0;
+            user-select: none;
+        }
+
+        .watch-svg-wrap {
+            position: relative;
+            width: 340px;
+            height: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.06s ease;
+        }
+
+        .watch-svg-wrap.vibrating {
+            animation: vibrateWatch 0.08s infinite;
+        }
+
+        @keyframes vibrateWatch {
+            0% { transform: translate(-2px, 1px) rotate(-0.5deg); }
+            25% { transform: translate(2px, -1px) rotate(0.5deg); }
+            50% { transform: translate(-2px, -1px) rotate(-0.4deg); }
+            75% { transform: translate(2px, 1px) rotate(0.4deg); }
+            100% { transform: translate(0, 0) rotate(0); }
+        }
+
+        /* Embedded OLED Canvas positioned at 6 o'clock on the dial */
+        #watch-oled-canvas {
+            position: absolute;
+            width: 88px;
+            height: 48px;
+            left: 113px;
+            top: 222px;
+            border-radius: 14px;
+            background: #020509;
+            box-shadow: inset 0 0 6px rgba(56, 189, 248, 0.35);
+            image-rendering: pixelated;
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        /* Interactive Physical Pushers Overlay */
+        .pusher-hotspot {
+            position: absolute;
+            right: 8px;
+            width: 54px;
+            height: 44px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: #f8fafc;
+            background: rgba(0, 229, 255, 0.12);
+            border: 1px dashed rgba(0, 229, 255, 0.45);
+            transition: all 0.12s;
+            z-index: 10;
+        }
+        .pusher-hotspot:hover {
+            background: rgba(0, 229, 255, 0.25);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 12px rgba(0, 229, 255, 0.4);
+        }
+        .pusher-hotspot:active, .pusher-hotspot.pressed {
+            transform: translateX(-5px) scale(0.96);
+            background: rgba(16, 185, 129, 0.35);
+            border-color: var(--accent-green);
+        }
+        #pusher-2h { top: 82px; }
+        #pusher-4h { top: 226px; }
+
+        /* Quick Button Controls Bar */
+        .btn-controls-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.45rem;
+            width: 100%;
+        }
+
+        .btn {
+            background: rgba(30, 41, 59, 0.9);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            padding: 0.48rem 0.7rem;
+            border-radius: 8px;
+            font-size: 0.76rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            transition: all 0.15s;
+        }
+        .btn:hover {
+            background: rgba(51, 65, 85, 0.95);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+        .btn:active { transform: scale(0.98); }
+        .btn-cyan {
+            background: rgba(0, 229, 255, 0.14);
+            border-color: rgba(0, 229, 255, 0.4);
+            color: var(--accent-cyan);
+        }
+        .btn-gold {
+            background: rgba(234, 179, 8, 0.15);
+            border-color: rgba(234, 179, 8, 0.45);
+            color: #fde047;
+        }
+        .btn-green {
+            background: rgba(16, 185, 129, 0.16);
+            border-color: rgba(16, 185, 129, 0.45);
+            color: #34d399;
+        }
+
+        /* Zoomed 88x48 Loupe */
+        .loupe-wrap {
+            background: #050811;
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            border-radius: 10px;
+            padding: 0.65rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        #zoom-oled-canvas {
+            width: 352px; /* 88 * 4 */
+            height: 192px; /* 48 * 4 */
+            background: #020409;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            cursor: crosshair;
+            image-rendering: pixelated;
+        }
+        .loupe-meta {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', Consolas, monospace;
+        }
+
+        /* Screen Pills */
+        .screen-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+        }
+        .screen-pill {
+            flex: 1 1 30%;
+            padding: 0.38rem 0.5rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 6px;
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+        .screen-pill.active {
+            background: rgba(0, 229, 255, 0.18);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        /* Right Studio Tabs */
+        .studio-tabs {
+            display: flex;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 0.65rem;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            background: rgba(30, 41, 59, 0.65);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            padding: 0.52rem 0.95rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .tab-btn.active {
+            background: rgba(0, 229, 255, 0.16);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+        .tab-pane { display: none; flex-direction: column; gap: 1rem; flex: 1; }
+        .tab-pane.active { display: flex; }
+
+        /* Controls & Sliders Grid */
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 0.75rem;
+        }
+        .control-box {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .control-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.76rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        .control-label span.val {
+            color: var(--accent-cyan);
+            font-family: 'JetBrains Mono', Consolas, monospace;
+        }
+        input[type="range"] {
+            width: 100%;
+            accent-color: var(--accent-cyan);
+            cursor: pointer;
+        }
+
+        /* Oscilloscope & Pinout */
+        #scope-canvas {
+            width: 100%;
+            height: 185px;
+            background: #040812;
+            border: 1px solid rgba(0, 229, 255, 0.25);
+            border-radius: 8px;
+        }
+
+        .i2c-log {
+            background: #050811;
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 0.6rem 0.8rem;
+            font-family: 'JetBrains Mono', Consolas, monospace;
+            font-size: 0.73rem;
+            color: #94a3b8;
+            max-height: 115px;
+            overflow-y: auto;
+            line-height: 1.45;
+        }
+
+        /* Live C Code Editor */
+        .code-editor-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            flex: 1;
+        }
+        #c-code-textarea {
+            width: 100%;
+            min-height: 330px;
+            flex: 1;
+            background: #060a12;
+            color: #e2e8f0;
+            border: 1px solid rgba(0, 229, 255, 0.35);
+            border-radius: 10px;
+            padding: 0.9rem;
+            font-family: 'JetBrains Mono', Consolas, monospace;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            resize: vertical;
+            tab-size: 4;
+        }
+        .api-help {
+            background: rgba(30, 41, 59, 0.55);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 0.65rem 0.85rem;
+            font-size: 0.74rem;
+            color: var(--text-secondary);
+            line-height: 1.45;
+        }
+        .api-help code {
+            color: var(--accent-cyan);
+            font-family: 'JetBrains Mono', Consolas, monospace;
+            background: rgba(0,0,0,0.35);
+            padding: 0.1rem 0.3rem;
+            border-radius: 4px;
+        }
+
+        /* Bitmap Editor Grid */
+        .bitmap-studio {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.25rem;
+            align-items: start;
+        }
+        #icon-draw-canvas {
+            background: #040812;
+            border: 1px solid var(--accent-cyan);
+            border-radius: 6px;
+            cursor: pointer;
+            image-rendering: pixelated;
+        }
+
+        #toast {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: #0f172a;
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+            padding: 0.75rem 1.2rem;
+            border-radius: 10px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="brand">
+        <div class="brand-logo">⌚</div>
+        <div>
+            <h1>SmileWatch V2 — Simulateur & Studio C STM32 <span class="tag-badge">STM32WB55 • CH1115 88×48 • Miyota 2035</span></h1>
+            <p>Synchronisé avec <code>Code/SmileWatch1/Core/Src/smilewatch_ui.c</code> • Boutons 2h (<code>PC5</code>) &amp; 4h (<code>PC4</code>) • Bobine Lavet (<code>PA7/PB5</code>)</p>
+        </div>
+    </div>
+    <div class="header-telemetry">
+        <div class="kpi-pill">Écran actif : <strong id="hdr-screen">HOME</strong></div>
+        <div class="kpi-pill">Aiguilles Miyota : <strong id="hdr-miyota">10:10:30</strong></div>
+        <div class="kpi-pill">Conso estimée : <strong id="hdr-current">12.2 mA</strong></div>
+        <a href="suivi_projet.html" class="btn btn-cyan" style="text-decoration:none;">📊 Ouvrir Cockpit Suivi</a>
+    </div>
+</header>
+
+<div class="workspace">
+    <!-- LEFT COLUMN: INTERACTIVE WATCH & 88x48 PIXEL LOUPE -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">⌚ Montre Interactive (Carrure 316L • Cadran Noir/Or ENIG • OLED 6h)</div>
+            <label style="font-size:0.74rem; color:var(--text-secondary); display:flex; align-items:center; gap:0.35rem; cursor:pointer;">
+                <input type="checkbox" id="chk-ghost-hands" onchange="renderWatchFace()"> Aiguilles transparentes
+            </label>
+        </div>
+
+        <div class="watch-stage">
+            <div class="watch-svg-wrap" id="watch-container">
+                <!-- Interactive Physical Pushers at 2h (S2/PC5) and 4h (S1/PC4) -->
+                <div class="pusher-hotspot" id="pusher-2h"
+                     onmousedown="onPusherDown('2h')" onmouseup="onPusherUp('2h')" onmouseleave="onPusherCancel('2h')"
+                     ontouchstart="onPusherDown('2h'); event.preventDefault();" ontouchend="onPusherUp('2h'); event.preventDefault();"
+                     title="Bouton Haut 2h (S2 / PC5) — Clic court : Écran suivant | Appui long : Accueil / Veille">
+                    2h (PC5)
+                </div>
+                <div class="pusher-hotspot" id="pusher-4h"
+                     onmousedown="onPusherDown('4h')" onmouseup="onPusherUp('4h')" onmouseleave="onPusherCancel('4h')"
+                     ontouchstart="onPusherDown('4h'); event.preventDefault();" ontouchend="onPusherUp('4h'); event.preventDefault();"
+                     title="Bouton Bas 4h (S1 / PC4) — Clic court : Action / Mesure | Appui long : Reset / +1 min">
+                    4h (PC4)
+                </div>
+
+                <!-- Realistic Watch SVG (Case 316L + FR4 Black/Gold Dial + Miyota Hands) -->
+                <svg id="watch-svg" width="324" height="360" viewBox="0 0 324 360">
+                    <defs>
+                        <!-- 316L Gunmetal / Dark Slate Case Gradient from CAD Photo -->
+                        <linearGradient id="caseSteel" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#5a6577"/>
+                            <stop offset="30%" stop-color="#3d4653"/>
+                            <stop offset="70%" stop-color="#4a5565"/>
+                            <stop offset="100%" stop-color="#2a313c"/>
+                        </linearGradient>
+                        <radialGradient id="cadranSlate" cx="50%" cy="48%" r="56%">
+                            <stop offset="0%" stop-color="#444b56"/>
+                            <stop offset="75%" stop-color="#333842"/>
+                            <stop offset="100%" stop-color="#262a32"/>
+                        </radialGradient>
+                        <linearGradient id="btnSteel" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#64748b"/>
+                            <stop offset="40%" stop-color="#475569"/>
+                            <stop offset="100%" stop-color="#334155"/>
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Top & Bottom Straight Lugs from CAD photo -->
+                    <!-- Top Lugs (22mm strap gap) -->
+                    <path d="M84,18 L99,18 L101,84 L80,94 Z" fill="url(#caseSteel)" stroke="#222831" stroke-width="0.8"/>
+                    <path d="M240,18 L225,18 L223,84 L244,94 Z" fill="url(#caseSteel)" stroke="#222831" stroke-width="0.8"/>
+                    <!-- Bottom Lugs -->
+                    <path d="M84,342 L99,342 L101,276 L80,266 Z" fill="url(#caseSteel)" stroke="#222831" stroke-width="0.8"/>
+                    <path d="M240,342 L225,342 L223,276 L244,266 Z" fill="url(#caseSteel)" stroke="#222831" stroke-width="0.8"/>
+
+                    <!-- Real 316L Metallic Pushers at 2h (-29°) and 4h (+27°) matching CAD -->
+                    <g id="svg-btn-2h" transform="translate(269, 116) rotate(-28)">
+                        <!-- Tube -->
+                        <rect x="-4" y="-7.5" width="10" height="15" rx="1.5" fill="#334155" stroke="#1e293b"/>
+                        <!-- Cap -->
+                        <rect x="5" y="-9" width="15" height="18" rx="2.5" fill="url(#btnSteel)" stroke="#1e293b" stroke-width="0.8"/>
+                    </g>
+                    <g id="svg-btn-4h" transform="translate(269, 244) rotate(27)">
+                        <!-- Tube -->
+                        <rect x="-4" y="-7.5" width="10" height="15" rx="1.5" fill="#334155" stroke="#1e293b"/>
+                        <!-- Cap -->
+                        <rect x="5" y="-9" width="15" height="18" rx="2.5" fill="url(#btnSteel)" stroke="#1e293b" stroke-width="0.8"/>
+                    </g>
+
+                    <!-- Outer Case Bezel (SLM 316L) -->
+                    <circle cx="157" cy="180" r="132" fill="url(#caseSteel)" stroke="#1e293b" stroke-width="1.8"/>
+                    <!-- Bezel inner step -->
+                    <circle cx="157" cy="180" r="124" fill="#2d3440" stroke="#1a202c" stroke-width="1"/>
+
+                    <!-- Dial Face (Dark Slate Gray #353a43 matching CAD photo) -->
+                    <circle cx="157" cy="180" r="121" fill="url(#cadranSlate)" stroke="#1e232a" stroke-width="1.5"/>
+
+                    <!-- Minute Track & Hour Indices matching CAD photo (Blue-Gray #4a7c9f) -->
+                    <g id="dial-indices"></g>
+
+                    <!-- VEML6030 Ambient Light Sensor Port at 1h30 (from CAD photo) -->
+                    <circle cx="217" cy="122" r="9.5" fill="#232832" stroke="#526173" stroke-width="1"/>
+                    <circle cx="217" cy="122" r="7" fill="#151b24" stroke="#3b82f6" stroke-width="0.7" opacity="0.65"/>
+                    <rect x="214.5" y="119.5" width="5" height="5" rx="1" fill="#1e293b" stroke="#60a5fa" stroke-width="0.5"/>
+
+                    <!-- Stadium / Capsule Cutout for OLED Screen at 6 o'clock (Exact from CAD photo) -->
+                    <!-- Width = 104px, Height = 56px, rx = 24px (stadium shape) -->
+                    <rect x="105" y="218" width="104" height="56" rx="24" fill="#11161f" stroke="#486f8a" stroke-width="2"/>
+                    <rect x="107" y="220" width="100" height="52" rx="22" fill="#020509" stroke="#1f2937" stroke-width="0.8"/>
+
+                    <!-- Miyota 2035 Hands (Modern Minimalist Android / Horological styling) -->
+                    <g id="miyota-hands-group">
+                        <!-- Hour Hand: Matte slate body with luminescent cyan center -->
+                        <g id="svg-hour-hand" transform="rotate(305, 157, 180)">
+                            <rect x="154" y="116" width="6" height="74" rx="2.5" fill="#cbd5e1" stroke="#1e293b" stroke-width="0.8"/>
+                            <rect x="155.5" y="120" width="3" height="42" rx="1.5" fill="#38bdf8"/>
+                        </g>
+                        <!-- Minute Hand: Longer, slim, cyan luminescent accent -->
+                        <g id="svg-min-hand" transform="rotate(60, 157, 180)">
+                            <rect x="154.5" y="80" width="5" height="110" rx="2" fill="#e2e8f0" stroke="#1e293b" stroke-width="0.8"/>
+                            <rect x="156" y="84" width="2" height="66" rx="1" fill="#38bdf8"/>
+                        </g>
+                        <!-- Center Canon & Cap -->
+                        <circle cx="157" cy="180" r="5" fill="#475569" stroke="#0f172a" stroke-width="1"/>
+                        <circle cx="157" cy="180" r="2.2" fill="#0284c7"/>
+                    </g>
+                </svg>
+
+                <!-- Actual 88x48 1-bit Framebuffer Canvas embedded in the 6h dial window -->
+                <canvas id="watch-oled-canvas" width="88" height="48"></canvas>
+            </div>
+
+            <!-- Push-Button Quick Actions -->
+            <div class="btn-controls-grid">
+                <button class="btn btn-cyan" onclick="triggerButtonEvent('2H_SHORT')">🔘 Clic Court 2h (Écran suivant)</button>
+                <button class="btn btn-green" onclick="triggerButtonEvent('4H_SHORT')">🔘 Clic Court 4h (Action / Mesure)</button>
+                <button class="btn" onclick="triggerButtonEvent('2H_LONG')">⏱️ Appui Long 2h (Accueil / Veille)</button>
+                <button class="btn" onclick="triggerButtonEvent('4H_LONG')">⏱️ Appui Long 4h (Reset / +1 min)</button>
+                <button class="btn btn-gold" style="grid-column: span 2;" onclick="triggerButtonEvent('BOTH_LONG')">
+                    ⌚ Maintenir 2h + 4h Simultanés (Calibrer Aiguilles à 12:00 &amp; Rattrapage Auto CTS)
+                </button>
+            </div>
+        </div>
+
+        <!-- ZOOMED 88x48 PIXEL-PERFECT LOUPE -->
+        <div class="loupe-wrap">
+            <div style="width:100%; display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:0.76rem; font-weight:700; color:var(--accent-cyan);">🔍 Loupe Pixel-Perfect CH1115 (88 × 48 px — 6 pages × 88 octets)</span>
+                <label style="font-size:0.72rem; color:var(--text-secondary); cursor:pointer;">
+                    <input type="checkbox" id="chk-pixel-grid" checked onchange="flushOLED()"> Grille &amp; Pages RAM
+                </label>
+            </div>
+            <canvas id="zoom-oled-canvas" width="352" height="192"></canvas>
+            <div class="loupe-meta">
+                <span id="loupe-coords">Curseur : X=-- Y=-- | Page=-- Bit=--</span>
+                <span id="loupe-power">GPIO_EC (PD7) : ON (3.8V)</span>
+            </div>
+        </div>
+
+        <!-- Direct Screen Switcher Pills -->
+        <div class="screen-pills" id="screen-pills-bar">
+            <div class="screen-pill active" onclick="selectScreen(0)">1. Accueil</div>
+            <div class="screen-pill" onclick="selectScreen(1)">2. Cardio</div>
+            <div class="screen-pill" onclick="selectScreen(2)">3. Activité</div>
+            <div class="screen-pill" onclick="selectScreen(3)">4. Messages</div>
+        </div>
+    </div>
+
+    <!-- RIGHT COLUMNVELOPMENT STUDIO, SENSORS, SCOPE & LIVE C EDITOR -->
+    <div class="card">
+        <div class="studio-tabs">
+            <button class="tab-btn active" onclick="switchStudioTab('tab-hw', this)">🎛️ Capteurs, Événements BLE &amp; Oscilloscope</button>
+            <button class="tab-btn" onclick="switchStudioTab('tab-code', this)">💻 Éditeur Code C Live (<code>smilewatch_ui.c</code>)</button>
+            <button class="tab-btn" onclick="switchStudioTab('tab-bitmap', this)">🎨 Éditeur d'Icônes 1-Bit (<code>uint8_t[]</code>)</button>
+        </div>
+
+        <!-- TAB 1: SENSORS, BLE EVENTS & HARDWARE OSCILLOSCOPE -->
+        <div id="tab-hw" class="tab-pane active">
+            <!-- Quick Event Injectors -->
+            <div>
+                <div style="font-size:0.8rem; font-weight:700; margin-bottom:0.45rem; color:var(--text-secondary);">⚡ Injecteur d'Événements Temps Réel (Test avant flashage)</div>
+                <div style="display:flex; flex-wrap:wrap; gap:0.45rem;">
+                    <button class="btn btn-cyan" onclick="simIncomingCall()">📞 Simuler Appel iOS/Android</button>
+                    <button class="btn btn-cyan" onclick="simIncomingSMS()">💬 Simuler SMS ("RDV FabLab 13h30")</button>
+                    <button class="btn btn-green" onclick="simWristTilt()">👋 Geste Poignet (LSM6DSOX INT1)</button>
+                    <button class="btn btn-gold" onclick="toggleQiCharger()">🔋 Poser / Retirer Socle Qi (BQ51003)</button>
+                    <button class="btn" onclick="desyncMiyotaHands()">🔄 Désynchroniser Aiguilles (-25 pas)</button>
+                    <button class="btn" style="border-color:rgba(239,68,68,0.5); color:#fca5a5;" onclick="toggleSurvivalMode()">🪫 Simuler Batterie &lt; 5% (Mode Survie)</button>
+                </div>
+            </div>
+
+            <!-- Sensor Sliders -->
+            <div class="controls-grid">
+                <div class="control-box">
+                    <div class="control-label"><span>❤️ Cardio MAX30101 (BPM)</span><span class="val" id="val-bpm">72 BPM</span></div>
+                    <input type="range" min="45" max="195" value="72" oninput="updateSensor('bpm', this.value)">
+                    <div class="control-label" style="margin-top:0.25rem;"><span>🩸 Oxymétrie SpO2 (%)</span><span class="val" id="val-spo2">98 %</span></div>
+                    <input type="range" min="88" max="100" value="98" oninput="updateSensor('spo2', this.value)">
+                </div>
+
+                <div class="control-box">
+                    <div class="control-label"><span>🌡️ Température TMP117 (±0.1°C)</span><span class="val" id="val-temp">36.6 °C</span></div>
+                    <input type="range" min="350" max="400" value="366" oninput="updateSensor('temp', this.value)">
+                    <div class="control-label" style="margin-top:0.25rem;"><span>👟 Podomètre LSM6DSOX</span><span class="val" id="val-steps">6420 pas</span></div>
+                    <input type="range" min="0" max="15000" step="50" value="6420" oninput="updateSensor('steps', this.value)">
+                </div>
+
+                <div class="control-box">
+                    <div class="control-label"><span>🔋 Batterie LIR3048 (280 mAh)</span><span class="val" id="val-bat">84 % (4.02 V)</span></div>
+                    <input type="range" min="1" max="100" value="84" id="slider-bat" oninput="updateSensor('bat', this.value)">
+                    <div class="control-label" style="margin-top:0.25rem;"><span>☀️ Luminosité VEML6030</span><span class="val" id="val-lux">250 lux</span></div>
+                    <input type="range" min="5" max="1000" value="250" oninput="updateSensor('lux', this.value)">
+                </div>
+            </div>
+
+            <!-- Real-Time GPIO & Miyota Coil Oscilloscope -->
+            <div style="display:flex; flex-direction:column; gap:0.4rem;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span style="font-size:0.8rem; font-weight:700; color:var(--text-secondary);">📈 Oscilloscope Logique STM32WB55 (Bobine Miyota <code>PA7/PB5</code>, Boutons <code>PC5/PC4</code>, Vibreur <code>PA1</code>)</span>
+                    <span style="font-size:0.72rem; color:var(--accent-gold); font-family:monospace;" id="miyota-coil-status">Bobine : FREIN LENZ (PA7=0, PB5=0)</span>
+                </div>
+                <canvas id="scope-canvas" width="820" height="185"></canvas>
+            </div>
+
+            <!-- Live I2C1 & Hardware Events Bus Monitor -->
+            <div style="display:flex; flex-direction:column; gap:0.35rem;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span style="font-size:0.78rem; font-weight:700; color:var(--text-secondary);">🖧 Moniteur Bus <code>I2C1</code> (<code>PB8/PB9</code>) &amp; Interruptions GPIO</span>
+                    <button class="btn" style="padding:0.2rem 0.5rem; font-size:0.7rem;" onclick="document.getElementById('i2c-log').innerHTML=''">Effacer</button>
+                </div>
+                <div class="i2c-log" id="i2c-log"></div>
+            </div>
+        </div>
+
+        <!-- TAB 2: LIVE C CODE EDITOR (SMILEWATCH_UI.C) -->
+        <div id="tab-code" class="tab-pane">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
+                <div style="display:flex; align-items:center; gap:0.5rem;">
+                    <span style="font-size:0.82rem; font-weight:700;">Fonction C à éditer en direct :</span>
+                    <select id="select-c-func" class="btn" style="background:#0f172a; color:#f8fafc;" onchange="loadSelectedCFunction()">
+                        <option value="0">Render_ScreenHome() — Écran 1 (Accueil Minimaliste)</option>
+                        <option value="1">Render_ScreenHeart() — Écran 2 (Cardio &amp; Pouls)</option>
+                        <option value="2">Render_ScreenActivity() — Écran 3 (Activité &amp; Pas)</option>
+                        <option value="3">Render_ScreenNotif() — Écran 4 (Notification Smartphone)</option>
+                    </select>
+                </div>
+                <div style="display:flex; gap:0.45rem;">
+                    <button class="btn btn-green" onclick="applyLiveCCode()">▶️ Exécuter sur la Montre</button>
+                    <button class="btn btn-cyan" onclick="copyFullCFile()">📋 Copier <code>smilewatch_ui.c</code> complet</button>
+                    <button class="btn btn-gold" onclick="downloadFullCFile()">💾 Télécharger <code>smilewatch_ui.c</code></button>
+                </div>
+            </div>
+
+            <div class="api-help">
+                <strong>API C <code>oled_ch1115.h</code> utilisable directement dans l'éditeur ci-dessous (exécutée en temps réel sur l'écran 88×48) :</strong><br>
+                <code>OLED_Clear();</code> •
+                <code>SmileWatch_DrawStatusBar("TITRE");</code> •
+                <code>OLED_DrawStr(x, y, "TEXTE", taille_1_ou_2, 1);</code> •
+                <code>OLED_DrawIcon(x, y, OLED_ICON_HEART, 1);</code> •
+                <code>OLED_DrawRect(x, y, w, h, 1);</code> •
+                <code>OLED_FillRect(x, y, w, h, 1);</code> •
+                <code>OLED_DrawLine(x0, y0, x1, y1, 1);</code> •
+                <code>OLED_DrawPixel(x, y, 1);</code><br>
+                Variables d'état C disponibles dans <code>s_state</code> : <code>s_state.hours</code>, <code>s_state.minutes</code>, <code>s_state.seconds</code>, <code>s_state.battery_pct</code>, <code>s_state.heart_bpm</code>, <code>s_state.spo2_pct</code>, <code>s_state.temp_deci_c</code>, <code>s_state.steps_count</code>, <code>s_state.notif_title</code>, <code>s_state.notif_body</code>.
+            </div>
+
+            <div class="code-editor-wrap">
+                <textarea id="c-code-textarea" spellcheck="false" oninput="onCodeEditorInput()"></textarea>
+                <div id="c-compile-status" style="font-size:0.75rem; color:var(--accent-green); font-family:monospace;">
+                    ✅ Syntaxe C valide — Synchronisé en temps réel avec l'afficheur 88×48.
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: 1-BIT ICON & BITMAP GENERATOR -->
+        <div id="tab-bitmap" class="tab-pane">
+            <div style="font-size:0.82rem; color:var(--text-secondary);">
+                Dessinez vos propres icônes <code>8 × 8</code> ou <code>16 × 16</code> pixels en cliquant sur la grille, prévisualisez-les immédiatement sur l'OLED de la montre, et copiez le tableau C <code>const uint8_t[]</code> dans <code>oled_ch1115.c</code>.
+            </div>
+            <div class="bitmap-studio">
+                <div style="display:flex; flex-direction:column; gap:0.5rem; align-items:center;">
+                    <canvas id="icon-draw-canvas" width="224" height="224"></canvas>
+                    <div style="display:flex; gap:0.4rem;">
+                        <button class="btn" onclick="clearIconGrid()">Effacer</button>
+                        <button class="btn" onclick="invertIconGrid()">Inverser</button>
+                        <button class="btn btn-cyan" onclick="previewIconOnWatch()">👁️ Tester sur la Montre</button>
+                    </div>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:0.6rem;">
+                    <div style="font-size:0.78rem; font-weight:700;">Code C généré (Format <code>OLED_DrawBitmap(x, y, bmp, 16, 16, 1)</code>) :</div>
+                    <textarea id="icon-c-output" readonly style="width:100%; height:165px; background:#060a12; color:var(--accent-cyan); border:1px solid var(--border-subtle); border-radius:8px; padding:0.75rem; font-family:monospace; font-size:0.78rem;"></textarea>
+                    <button class="btn btn-green" onclick="copyIconCode()">📋 Copier le tableau C</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="toast">Copié !</div>
+
+<script>
+/* ============================================================================
+ * 1. EXACT 1-BIT CH1115 (88x48) FRAMEBUFFER & 5x7 ASCII FONT ENGINE
+ *    Bit-for-bit identical to Code/SmileWatch1/Core/Src/oled_ch1115.c
+ * ==========================================================================*/
+const OLED_WIDTH  = 88;
+const OLED_HEIGHT = 48;
+const OLED_PAGES  = 6;
+const s_vram = Array.from({ length: OLED_PAGES }, () => new Uint8Array(OLED_WIDTH));
+
+const OLED_ICON_HEART  = 0;
+const OLED_ICON_THERMO = 1;
+const OLED_ICON_SHOE   = 2;
+const OLED_ICON_BELL   = 3;
+const OLED_ICON_BLE    = 4;
+const OLED_ICON_BOLT   = 5;
+const OLED_ICON_WATCH  = 6;
+
+const k_icons_8x8 = [
+    [ 0x00, 0x66, 0xFF, 0xFF, 0xFF, 0x7E, 0x3C, 0x18 ], // HEART
+    [ 0x18, 0x24, 0x24, 0x24, 0x24, 0x7E, 0x7E, 0x3C ], // THERMO
+    [ 0x00, 0x30, 0x78, 0x7C, 0xFE, 0xFF, 0xFF, 0x00 ], // SHOE
+    [ 0x18, 0x3C, 0x3C, 0x3C, 0x7E, 0xFF, 0x18, 0x00 ], // BELL
+    [ 0x18, 0x54, 0x38, 0x10, 0x38, 0x54, 0x18, 0x00 ], // BLE
+    [ 0x0C, 0x18, 0x30, 0x7E, 0x18, 0x30, 0x60, 0x00 ], // BOLT
+    [ 0x3C, 0x42, 0x99, 0xA1, 0xA1, 0x99, 0x42, 0x3C ]  // WATCH
+];
+
+const k_font5x7 = [
+    [0x00,0x00,0x00,0x00,0x00],[0x00,0x00,0x5F,0x00,0x00],[0x00,0x07,0x00,0x07,0x00],[0x14,0x7F,0x14,0x7F,0x14],
+    [0x24,0x2A,0x7F,0x2A,0x12],[0x23,0x13,0x08,0x64,0x62],[0x36,0x49,0x55,0x22,0x50],[0x00,0x05,0x03,0x00,0x00],
+    [0x00,0x1C,0x22,0x41,0x00],[0x00,0x41,0x22,0x1C,0x00],[0x14,0x08,0x3E,0x08,0x14],[0x08,0x08,0x3E,0x08,0x08],
+    [0x00,0x50,0x30,0x00,0x00],[0x08,0x08,0x08,0x08,0x08],[0x00,0x60,0x60,0x00,0x00],[0x20,0x10,0x08,0x04,0x02],
+    [0x3E,0x51,0x49,0x45,0x3E],[0x00,0x42,0x7F,0x40,0x00],[0x42,0x61,0x51,0x49,0x46],[0x21,0x41,0x45,0x4B,0x31],
+    [0x18,0x14,0x12,0x7F,0x10],[0x27,0x45,0x45,0x45,0x39],[0x3C,0x4A,0x49,0x49,0x30],[0x01,0x71,0x09,0x05,0x03],
+    [0x36,0x49,0x49,0x49,0x36],[0x06,0x49,0x49,0x29,0x1E],[0x00,0x36,0x36,0x00,0x00],[0x00,0x56,0x36,0x00,0x00],
+    [0x08,0x14,0x22,0x41,0x00],[0x14,0x14,0x14,0x14,0x14],[0x00,0x41,0x22,0x14,0x08],[0x02,0x01,0x51,0x09,0x06],
+    [0x32,0x49,0x79,0x41,0x3E],[0x7E,0x11,0x11,0x11,0x7E],[0x7F,0x49,0x49,0x49,0x36],[0x3E,0x41,0x41,0x41,0x22],
+    [0x7F,0x41,0x41,0x22,0x1C],[0x7F,0x49,0x49,0x49,0x41],[0x7F,0x09,0x09,0x09,0x01],[0x3E,0x41,0x49,0x49,0x7A],
+    [0x7F,0x08,0x08,0x08,0x7F],[0x00,0x41,0x7F,0x41,0x00],[0x20,0x40,0x41,0x3F,0x01],[0x7F,0x08,0x14,0x22,0x41],
+    [0x7F,0x40,0x40,0x40,0x40],[0x7F,0x02,0x0C,0x02,0x7F],[0x7F,0x04,0x08,0x10,0x7F],[0x3E,0x41,0x41,0x41,0x3E],
+    [0x7F,0x09,0x09,0x09,0x06],[0x3E,0x41,0x51,0x21,0x5E],[0x7F,0x09,0x19,0x29,0x46],[0x46,0x49,0x49,0x49,0x31],
+    [0x01,0x01,0x7F,0x01,0x01],[0x3F,0x40,0x40,0x40,0x3F],[0x1F,0x20,0x40,0x20,0x1F],[0x3F,0x40,0x38,0x40,0x3F],
+    [0x63,0x14,0x08,0x14,0x63],[0x07,0x08,0x70,0x08,0x07],[0x61,0x51,0x49,0x45,0x43]
+];
+
+const k_ppg_wave = [4, 4, 5, 3, 2, 8, 15, 16, 11, 6, 4, 6, 8, 7, 5, 4, 4, 4, 4, 4, 4, 4];
+
+
+/* Circle & Rounded Rect Primitives for Garmin UI */
+function OLED_DrawCircle(x0, y0, r, color = 1) {
+    x0 = Math.trunc(x0); y0 = Math.trunc(y0); r = Math.trunc(r);
+    let f = 1 - r, ddF_x = 1, ddF_y = -2 * r, x = 0, y = r;
+    OLED_DrawPixel(x0, y0 + r, color);
+    OLED_DrawPixel(x0, y0 - r, color);
+    OLED_DrawPixel(x0 + r, y0, color);
+    OLED_DrawPixel(x0 - r, y0, color);
+    while (x < y) {
+        if (f >= 0) { y--; ddF_y += 2; f += ddF_y; }
+        x++; ddF_x += 2; f += ddF_x;
+        OLED_DrawPixel(x0 + x, y0 + y, color);
+        OLED_DrawPixel(x0 - x, y0 + y, color);
+        OLED_DrawPixel(x0 + x, y0 - y, color);
+        OLED_DrawPixel(x0 - x, y0 - y, color);
+        OLED_DrawPixel(x0 + y, y0 + x, color);
+        OLED_DrawPixel(x0 - y, y0 + x, color);
+        OLED_DrawPixel(x0 + y, y0 - x, color);
+        OLED_DrawPixel(x0 - y, y0 - x, color);
+    }
+}
+
+function OLED_FillCircle(x0, y0, r, color = 1) {
+    x0 = Math.trunc(x0); y0 = Math.trunc(y0); r = Math.trunc(r);
+    for (let y = -r; y <= r; y++) {
+        for (let x = -r; x <= r; x++) {
+            if (x * x + y * y <= r * r) {
+                OLED_DrawPixel(x0 + x, y0 + y, color);
+            }
+        }
+    }
+}
+
+function OLED_DrawRoundRect(x, y, w, h, r, color = 1) {
+    x = Math.trunc(x); y = Math.trunc(y); w = Math.trunc(w); h = Math.trunc(h); r = Math.trunc(r);
+    OLED_DrawLine(x + r, y, x + w - r - 1, y, color);
+    OLED_DrawLine(x + r, y + h - 1, x + w - r - 1, y + h - 1, color);
+    OLED_DrawLine(x, y + r, x, y + h - r - 1, color);
+    OLED_DrawLine(x + w - 1, y + r, x + w - 1, y + h - r - 1, color);
+    // Draw 4 corners
+    for (let i = 0; i <= r; i++) {
+        let dy = Math.round(Math.sqrt(r * r - i * i));
+        OLED_DrawPixel(x + r - i, y + r - dy, color);
+        OLED_DrawPixel(x + w - 1 - r + i, y + r - dy, color);
+        OLED_DrawPixel(x + r - i, y + h - 1 - r + dy, color);
+        OLED_DrawPixel(x + w - 1 - r + i, y + h - 1 - r + dy, color);
+    }
+}
+
+/* High-Definition Garmin Health 1-Bit Icons */
+var k_garmin_heart_10x9 = [
+    0x38, 0x00, 0x7C, 0x00, 0xFE, 0x00, 0xFF, 0x00, 0xFF, 0x00, 0x7E, 0x00, 0x3C, 0x00, 0x18, 0x00, 0x00, 0x00
+];
+var k_garmin_bodybat_12x10 = [
+    0x3F, 0xC0, 0x20, 0x40, 0x23, 0x40, 0x27, 0x40, 0x2E, 0x40, 0x3C, 0x40, 0x28, 0x40, 0x20, 0x40, 0x3F, 0xC0, 0x0C, 0x00
+];
+var k_garmin_thermo_8x12 = [
+    0x38, 0x44, 0x44, 0x54, 0x54, 0x54, 0x7C, 0xFE, 0xFE, 0xEE, 0x44, 0x38
+];
+var k_garmin_shoe_12x9 = [
+    0x03, 0x00, 0x07, 0x80, 0x0F, 0xC0, 0x1F, 0xE0, 0x3F, 0xF0, 0x7F, 0xF0, 0xFF, 0xF0, 0x7F, 0xE0, 0x00, 0x00
+];
+var k_garmin_bubble_11x9 = [
+    0x3F, 0x80, 0x7F, 0xC0, 0xE9, 0xE0, 0xE0, 0xE0, 0xE9, 0xE0, 0x7F, 0xC0, 0x3F, 0x80, 0x07, 0x00, 0x02, 0x00
+];
+
+function OLED_Clear() {
+    for (let p = 0; p < OLED_PAGES; p++) s_vram[p].fill(0);
+}
+
+function OLED_DrawPixel(x, y, color = 1) {
+    x = Math.trunc(x); y = Math.trunc(y);
+    if (x < 0 || x >= OLED_WIDTH || y < 0 || y >= OLED_HEIGHT) return;
+    const page = y >> 3;
+    const bit  = 1 << (y & 7);
+    if (color) s_vram[page][x] |= bit;
+    else       s_vram[page][x] &= ~bit;
+}
+
+function OLED_DrawLine(x0, y0, x1, y1, color = 1) {
+    x0 = Math.trunc(x0); y0 = Math.trunc(y0); x1 = Math.trunc(x1); y1 = Math.trunc(y1);
+    const dx = Math.abs(x1 - x0), sx = x0 < x1 ? 1 : -1;
+    const dy = -Math.abs(y1 - y0), sy = y0 < y1 ? 1 : -1;
+    let err = dx + dy;
+    while (true) {
+        OLED_DrawPixel(x0, y0, color);
+        if (x0 === x1 && y0 === y1) break;
+        const e2 = 2 * err;
+        if (e2 >= dy) { err += dy; x0 += sx; }
+        if (e2 <= dx) { err += dx; y0 += sy; }
+    }
+}
+
+function OLED_DrawRect(x, y, w, h, color = 1) {
+    if (w <= 0 || h <= 0) return;
+    OLED_DrawLine(x, y, x + w - 1, y, color);
+    OLED_DrawLine(x, y + h - 1, x + w - 1, y + h - 1, color);
+    OLED_DrawLine(x, y, x, y + h - 1, color);
+    OLED_DrawLine(x + w - 1, y, x + w - 1, y + h - 1, color);
+}
+
+function OLED_FillRect(x, y, w, h, color = 1) {
+    for (let j = y; j < y + h; j++) {
+        for (let i = x; i < x + w; i++) OLED_DrawPixel(i, j, color);
+    }
+}
+
+function OLED_DrawBitmap(x, y, bmp, w, h, color = 1) {
+    const byteWidth = Math.ceil(w / 8);
+    for (let j = 0; j < h; j++) {
+        for (let i = 0; i < w; i++) {
+            const b = bmp[j * byteWidth + (i >> 3)];
+            if (b & (0x80 >> (i & 7))) OLED_DrawPixel(x + i, y + j, color);
+        }
+    }
+}
+
+function OLED_DrawIcon(x, y, icon_id, color = 1) {
+    if (icon_id >= 0 && icon_id < k_icons_8x8.length) {
+        OLED_DrawBitmap(x, y, k_icons_8x8[icon_id], 8, 8, color);
+    }
+}
+
+function OLED_DrawChar(x, y, ch, scale = 1, color = 1) {
+    scale = Math.max(1, Math.trunc(scale));
+    let code = String(ch).toUpperCase().charCodeAt(0);
+    if (code < 0x20 || code > 0x5A) code = 0x3F;
+    const glyph = k_font5x7[code - 0x20];
+    for (let col = 0; col < 5; col++) {
+        const line = glyph[col];
+        for (let row = 0; row < 7; row++) {
+            if (line & (1 << row)) {
+                if (scale === 1) OLED_DrawPixel(x + col, y + row, color);
+                else OLED_FillRect(x + col * scale, y + row * scale, scale, scale, color);
+            }
+        }
+    }
+}
+
+function OLED_DrawStr(x, y, str, scale = 1, color = 1) {
+    str = String(str ?? "");
+    let curX = x;
+    for (let i = 0; i < str.length; i++) {
+        OLED_DrawChar(curX, y, str[i], scale, color);
+        curX += 6 * scale;
+    }
+}
+
+/* ============================================================================
+ * 2. SMILEWATCH SYSTEM STATE & MIYOTA 2035 STEPPING ENGINE
+ * ==========================================================================*/
+
+/* Garmin 24h Daily History Buffers (44 points for 88 px screen width) */
+const k_hr_24h_history = [
+    54, 52, 51, 50, 49, 48, 50, 52, 56, 62, 74, 82, 88, 95, 86, 78,
+    72, 70, 75, 84, 92, 118, 126, 110, 96, 85, 80, 76, 74, 78, 85, 92,
+    88, 82, 76, 72, 68, 65, 62, 58, 56, 55, 54, 52
+];
+const k_bodybat_history = [
+    95, 92, 88, 85, 82, 78, 75, 71, 68, 64, 60, 55, 52, 48, 45, 42,
+    46, 50, 48, 44, 40, 36, 32, 28, 25, 22, 20, 18, 16, 20, 24, 28,
+    35, 42, 50, 60, 70, 78, 84, 88, 92, 94, 95, 96
+];
+
+const s_state = {
+    body_battery: 78,
+    stress_score: 24,
+    hr_min: 48,
+    hr_max: 126,
+
+    hours: 10, minutes: 10, seconds: 30,
+    day: 8, month: 11, weekday_str: "DIM",
+    battery_pct: 84, battery_mv: 4020,
+    qi_charging: false, ble_connected: true, survival_mode: false,
+    heart_bpm: 72, spo2_pct: 98, hr_measuring: true,
+    temp_deci_c: 366, steps_count: 6420, steps_goal: 10000, ambient_lux: 250,
+    notif_unread: 1,
+    notif_title: "SMS - ALEXIS",
+    notif_body: "RDV FABLAB MARDI 13H30 OK",
+    current_screen: 0,
+    display_awake: true,
+    ppg_phase: 0
+};
+
+const s_miyota = {
+    next_polarity: 0,
+    pulse_active: false,
+    pulse_polarity: 0, // +1 (PA7=1,PB5=0), -1 (PA7=0,PB5=1), 0 (Lenz Brake)
+    pulse_until_ms: 0,
+    analog_pos_sec: (10 * 3600 + 10 * 60 + 30),
+    target_pos_sec: (10 * 3600 + 10 * 60 + 30),
+    last_step_ms: 0
+};
+
+let g_btn2h_pressed = false;
+let g_btn4h_pressed = false;
+let g_btn_down_time = { '2h': 0, '4h': 0 };
+let g_haptic_active_until = 0;
+
+function SmileWatch_DrawStatusBar(tag) {
+    OLED_DrawStr(0, 0, tag, 1, 1);
+    if (s_state.ble_connected) OLED_DrawIcon(52, 0, OLED_ICON_BLE, 1);
+    if (s_state.qi_charging)   OLED_DrawIcon(62, 0, OLED_ICON_BOLT, 1);
+    OLED_DrawRect(72, 1, 14, 6, 1);
+    OLED_FillRect(86, 2, 2, 4, 1);
+    const fill_w = Math.trunc((s_state.battery_pct * 10) / 100);
+    if (fill_w > 0) OLED_FillRect(74, 3, fill_w, 2, 1);
+    OLED_DrawLine(0, 9, 87, 9, 1);
+}
+
+/* Editable C Screen Sources (stored as C code and transpiled live) */
+const k_default_c_screens = [
+`static void Render_ScreenHome(void)
+{
+    /* 1. ACCUEIL MINIMALISTE & ÉPURÉ (STYLE HYBRIDE CHIC) */
+    char buf[24];
+
+    /* Date centrée en haut */
+    (void)snprintf(buf, sizeof(buf), "%s %02u", s_state.weekday_str, s_state.day);
+    OLED_DrawStr(24, 4, buf, 1, 1);
+
+    /* Ligne fine de séparation */
+    OLED_DrawLine(10, 16, 77, 16, 1);
+
+    /* Statut central : Pas du jour en chiffres nets */
+    (void)snprintf(buf, sizeof(buf), "%lu", (unsigned long)s_state.steps_count);
+    OLED_DrawStr(20, 20, buf, 2, 1);
+    OLED_DrawStr(64, 26, "PAS", 1, 1);
+
+    /* Ligne fine de progression pas (y=36) */
+    OLED_DrawRoundRect(10, 35, 68, 4, 2, 1);
+    uint32_t pct = (s_state.steps_goal > 0) ? ((s_state.steps_count * 100) / s_state.steps_goal) : 0;
+    if (pct > 100) pct = 100;
+    if (pct > 0) {
+        OLED_FillRoundRect(11, 36, (pct * 66) / 100, 2, 1, 1);
+    }
+
+    /* Bas : Batterie discrète à gauche, BLE à droite */
+    (void)snprintf(buf, sizeof(buf), "%u%%", s_state.battery_pct);
+    OLED_DrawStr(10, 41, buf, 1, 1);
+    OLED_DrawRect(28, 41, 8, 5, 1);
+    OLED_FillRect(36, 42, 1, 3, 1);
+    OLED_FillRect(29, 42, (s_state.battery_pct * 6) / 100, 3, 1);
+
+    if (s_state.ble_connected) {
+        OLED_DrawIcon(72, 40, OLED_ICON_BLE, 1);
+    }
+}`,
+`static void Render_ScreenHeart(void)
+{
+    /* 2. CARDIO & FRÉQUENCE CARDIAQUE ÉPURÉE */
+    char buf[24];
+
+    /* Titre discret */
+    OLED_DrawStr(28, 2, "CARDIO", 1, 1);
+    OLED_DrawLine(8, 11, 79, 11, 1);
+
+    /* Cœur 1-bit élégant et battant */
+    OLED_DrawBitmap(8, 17, k_garmin_heart_10x9, 10, 9, 1);
+
+    /* Grand chiffre BPM */
+    (void)snprintf(buf, sizeof(buf), "%u", s_state.heart_bpm);
+    OLED_DrawStr(26, 15, buf, 2, 1);
+    OLED_DrawStr(60, 22, "BPM", 1, 1);
+
+    /* Onde cardiaque continue très fine au bas */
+    int16_t prev_y = 38;
+    for (int16_t x = 0; x < 88; x++) {
+        uint8_t idx = (uint8_t)((x + s_state.ppg_phase) % 22);
+        int16_t y = 43 - (k_ppg_wave[idx] * 8) / 16;
+        if (x > 0) OLED_DrawLine(x - 1, prev_y, x, y, 1);
+        prev_y = y;
+    }
+}`,
+`static void Render_ScreenActivity(void)
+{
+    /* 3. ACTIVITÉ & OBJECTIF DU JOUR */
+    char buf[24];
+
+    /* En-tête */
+    OLED_DrawBitmap(8, 2, k_garmin_shoe_12x9, 12, 9, 1);
+    OLED_DrawStr(24, 2, "ACTIVITÉ", 1, 1);
+    OLED_DrawLine(6, 12, 81, 12, 1);
+
+    /* Grand chiffre des pas */
+    (void)snprintf(buf, sizeof(buf), "%lu", (unsigned long)s_state.steps_count);
+    OLED_DrawStr(10, 16, buf, 2, 1);
+
+    /* Objectif % */
+    uint32_t pct = (s_state.steps_goal > 0) ? ((s_state.steps_count * 100) / s_state.steps_goal) : 0;
+    if (pct > 100) pct = 100;
+    (void)snprintf(buf, sizeof(buf), "%u%%", pct);
+    OLED_DrawStr(64, 21, buf, 1, 1);
+
+    /* Barre de progression arrondie */
+    OLED_DrawRoundRect(6, 31, 76, 5, 2, 1);
+    if (pct > 0) {
+        OLED_FillRoundRect(7, 32, (pct * 74) / 100, 3, 1, 1);
+    }
+
+    /* Distance & Calories */
+    uint32_t dist_hm = (s_state.steps_count * 7) / 1000;
+    uint32_t kcal    = (s_state.steps_count * 4) / 100;
+    (void)snprintf(buf, sizeof(buf), "%lu.%ukm  %lukcal", dist_hm / 10, dist_hm % 10, kcal);
+    OLED_DrawStr(10, 39, buf, 1, 1);
+}`,
+`static void Render_ScreenNotif(void)
+{
+    /* 4. NOTIFICATION SMARTPHONE ÉPURÉE */
+    OLED_DrawBitmap(8, 2, k_garmin_bubble_11x9, 11, 9, 1);
+    OLED_DrawStr(24, 2, "MESSAGE", 1, 1);
+    OLED_DrawLine(6, 12, 81, 12, 1);
+
+    if (s_state.notif_unread == 0) {
+        OLED_DrawStr(16, 20, "AUCUN", 2, 1);
+        OLED_DrawStr(12, 36, "MESSAGE", 1, 1);
+    } else {
+        /* Carte de notification discrète */
+        OLED_DrawStr(8, 16, s_state.notif_title, 1, 1);
+        OLED_DrawLine(8, 25, 79, 25, 1);
+
+        char l1[14];
+        char l2[14];
+        strncpy(l1, s_state.notif_body, 13); l1[13] = '\0';
+        OLED_DrawStr(8, 28, l1, 1, 1);
+        if (strlen(s_state.notif_body) > 13) {
+            strncpy(l2, &s_state.notif_body[13], 13); l2[13] = '\0';
+            OLED_DrawStr(8, 38, l2, 1, 1);
+        }
+    }
+}`
+];
+
+const g_c_screens = [...k_default_c_screens];
+
+/* Robust C-to-JS transpiler running within script scope */
+function executeCScreenCode(cSource) {
+    if (!cSource) return;
+    let js = cSource
+        .replace(/static\s+void\s+\w+\s*\(\s*void\s*\)\s*\{/, '')
+        .replace(/\}\s*$/, '')
+        .replace(/char\s+buf\s*\[\s*\d+\s*\]\s*;/g, 'let buf = "";')
+        .replace(/\(void\)\s*snprintf/g, 'snprintf')
+        .replace(/snprintf\s*\(\s*buf\s*,\s*sizeof\s*\(\s*buf\s*\)\s*,\s*/g, 'buf = c_sprintf(')
+        .replace(/\b(?:uint8_t|uint16_t|uint32_t|int16_t|int32_t|int)\b/g, 'let')
+        .replace(/\(unsigned\s+long\)/g, '')
+        .replace(/\(unsigned\s+int\)/g, '')
+        .replace(/\(int16_t\)/g, '')
+        .replace(/\(uint8_t\)/g, '')
+        .replace(/\bstrlen\s*\(\s*([^\)]+)\s*\)/g, '($1).length')
+        .replace(/\babs\s*\(/g, 'Math.abs(');
+
+    const c_sprintf = (fmt, ...args) => {
+        let i = 0;
+        return fmt.replace(/%0?(\d*)?(?:lu|u|d|s|%)/g, (m, width) => {
+            if (m === '%%') return '%';
+            const val = args[i++];
+            if (m.endsWith('s')) return String(val ?? '');
+            const num = Math.trunc(Number(val ?? 0));
+            return width ? String(num).padStart(Number(width), '0') : String(num);
+        });
+    };
+
+    try {
+        eval(js);
+    } catch (err) {
+        console.error("Erreur code C:", err, js);
+        OLED_DrawStr(2, 12, "ERR CODE C:", 1, 1);
+        OLED_DrawStr(2, 24, String(err.message).substring(0, 14), 1, 1);
+    }
+}
+
+function renderCurrentScreen() {
+    OLED_Clear();
+    if (s_state.display_awake && !s_state.survival_mode) {
+        try {
+            executeCScreenCode(g_c_screens[s_state.current_screen]);
+        } catch (err) {
+            OLED_DrawStr(2, 10, "ERREUR CODE C:", 1, 1);
+            OLED_DrawStr(2, 22, String(err.message).substring(0, 14), 1, 1);
+        }
+    }
+    flushOLED();
+}
+
+function flushOLED() {
+    const watchCanvas = document.getElementById('watch-oled-canvas');
+    const zoomCanvas  = document.getElementById('zoom-oled-canvas');
+    const wCtx = watchCanvas.getContext('2d');
+    const zCtx = zoomCanvas.getContext('2d');
+
+    wCtx.fillStyle = '#020408';
+    wCtx.fillRect(0, 0, OLED_WIDTH, OLED_HEIGHT);
+
+    zCtx.fillStyle = '#020409';
+    zCtx.fillRect(0, 0, zoomCanvas.width, zoomCanvas.height);
+
+    // Brightness modulation from VEML6030 ambient lux
+    const alpha = s_state.display_awake && !s_state.survival_mode
+        ? Math.min(1.0, 0.55 + (s_state.ambient_lux / 1000) * 0.45)
+        : 0.0;
+
+    const pxColor = `rgba(255, 255, 255, ${alpha.toFixed(2)})`;
+    wCtx.fillStyle = pxColor;
+    zCtx.fillStyle = pxColor;
+
+    for (let y = 0; y < OLED_HEIGHT; y++) {
+        const page = y >> 3;
+        const bit  = 1 << (y & 7);
+        for (let x = 0; x < OLED_WIDTH; x++) {
+            if (s_vram[page][x] & bit) {
+                wCtx.fillRect(x, y, 1, 1);
+                zCtx.fillRect(x * 4, y * 4, 3.4, 3.4);
+            }
+        }
+    }
+
+    // Optional hardware page/pixel grid on zoom loupe
+    if (document.getElementById('chk-pixel-grid').checked) {
+        zCtx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+        zCtx.lineWidth = 1;
+        for (let p = 1; p < OLED_PAGES; p++) {
+            zCtx.beginPath();
+            zCtx.moveTo(0, p * 32);
+            zCtx.lineTo(352, p * 32);
+            zCtx.stroke();
+        }
+    }
+
+    document.getElementById('loupe-power').innerText =
+        (s_state.display_awake && !s_state.survival_mode)
+        ? 'GPIO_EC (PD7) : ON (+3V8 -> 7.5V CH1115)'
+        : 'GPIO_EC (PD7) : OFF (Veille 0 µA)';
+}
+
+/* ============================================================================
+ * 3. BUTTON EVENTS, HAPTIC & WATCH HANDS RENDERING
+ * ==========================================================================*/
+const SCREEN_NAMES = ['ACCUEIL', 'CARDIO', 'ACTIVITÉ', 'MESSAGES'];
+
+function triggerHaptic(ms) {
+    g_haptic_active_until = performance.now() + ms;
+    document.getElementById('watch-container').classList.add('vibrating');
+    logI2C(`I2C1 [0x5A DRV2605L] -> GO Waveform (PA1 EN=1, ${ms} ms)`);
+}
+
+function triggerButtonEvent(type) {
+    const now = performance.now();
+
+    if (!s_state.display_awake && !s_state.survival_mode) {
+        s_state.display_awake = true;
+        triggerHaptic(35);
+        logI2C(`GPIO [PD7 GPIO_EC=1, PB4 RES=1] -> CH1115 Wakeup Init (0x3C)`);
+        renderCurrentScreen();
+        return;
+    }
+
+    if (type === '2H_SHORT') {
+        s_state.current_screen = (s_state.current_screen + 1) % 4;
+        triggerHaptic(25);
+        logI2C(`EXTI [PC5 S2 2h] Clic court -> Écran ${SCREEN_NAMES[s_state.current_screen]}`);
+    } else if (type === '2H_LONG') {
+        if (s_state.current_screen !== 0) {
+            s_state.current_screen = 0;
+            logI2C(`EXTI [PC5 S2 2h] Appui long -> Retour HOME`);
+        } else {
+            s_state.display_awake = false;
+            logI2C(`GPIO [PD7 GPIO_EC=0] -> Extinction OLED CH1115 (Stop 2)`);
+        }
+        triggerHaptic(60);
+    } else if (type === '4H_SHORT') {
+        triggerHaptic(30);
+        if (s_state.current_screen === 1) {
+            s_state.hr_measuring = !s_state.hr_measuring;
+            logI2C(`GPIO [PB0 EN_5V_HR=${s_state.hr_measuring ? 1 : 0}] -> MAX30101 (0x57) ${s_state.hr_measuring ? 'START' : 'STOP'}`);
+        } else if (s_state.current_screen === 3) {
+            s_state.notif_unread = 0;
+            logI2C(`ANCS -> Notification acquittée par l'utilisateur`);
+        } else if (s_state.current_screen === 5) {
+            stepMiyotaOnce(now);
+            s_miyota.target_pos_sec = s_miyota.analog_pos_sec;
+            logI2C(`MIYOTA [PA7/PB5] -> Pas manuel +1s`);
+        } else {
+            logI2C(`I2C1 [0x48 TMP117 / 0x6A LSM6DSOX] -> Rafraîchissement forcé`);
+        }
+    } else if (type === '4H_LONG') {
+        triggerHaptic(80);
+        if (s_state.current_screen === 2) {
+            s_state.steps_count = 0;
+            logI2C(`I2C1 [0x6A LSM6DSOX] -> Remise à zéro compteur de pas`);
+        } else if (s_state.current_screen === 5) {
+            s_miyota.target_pos_sec = (s_miyota.target_pos_sec + 60) % 43200;
+            logI2C(`MIYOTA [PA7/PB5] -> Avance rapide +60 pas (+1 min)`);
+        }
+    } else if (type === 'BOTH_LONG') {
+        triggerHaptic(150);
+        s_miyota.analog_pos_sec = 0; // 12:00:00 reference // 12:00:00 reference
+        s_miyota.target_pos_sec = ((s_state.hours % 12) * 3600) + (s_state.minutes * 60) + s_state.seconds;
+        logI2C(`CALIB [2h+4h] -> Zéro 12:00 validé ! Rattrapage auto 22 Hz vers ${String(s_state.hours).padStart(2,'0')}:${String(s_state.minutes).padStart(2,'0')}`);
+    }
+
+    updateScreenPills();
+    renderCurrentScreen();
+}
+
+function onPusherDown(which) {
+    g_btn_down_time[which] = performance.now();
+    if (which === '2h') { g_btn2h_pressed = true; document.getElementById('pusher-2h').classList.add('pressed'); }
+    if (which === '4h') { g_btn4h_pressed = true; document.getElementById('pusher-4h').classList.add('pressed'); }
+}
+
+function onPusherUp(which) {
+    const start = g_btn_down_time[which];
+    if (!start) return;
+    const held = performance.now() - start;
+    g_btn_down_time[which] = 0;
+    if (which === '2h') { g_btn2h_pressed = false; document.getElementById('pusher-2h').classList.remove('pressed'); }
+    if (which === '4h') { g_btn4h_pressed = false; document.getElementById('pusher-4h').classList.remove('pressed'); }
+    triggerButtonEvent(held >= 550 ? `${which.toUpperCase()}_LONG` : `${which.toUpperCase()}_SHORT`);
+}
+
+function onPusherCancel(which) {
+    g_btn_down_time[which] = 0;
+    if (which === '2h') { g_btn2h_pressed = false; document.getElementById('pusher-2h').classList.remove('pressed'); }
+    if (which === '4h') { g_btn4h_pressed = false; document.getElementById('pusher-4h').classList.remove('pressed'); }
+}
+
+function selectScreen(idx) {
+    s_state.current_screen = idx;
+    s_state.display_awake = true;
+    updateScreenPills();
+    loadSelectedCFunction(idx);
+    renderCurrentScreen();
+}
+
+function updateScreenPills() {
+    document.getElementById('hdr-screen').innerText = SCREEN_NAMES[s_state.current_screen];
+    const pills = document.querySelectorAll('.screen-pill');
+    pills.forEach((p, i) => p.classList.toggle('active', i === s_state.current_screen));
+}
+
+function stepMiyotaOnce(now) {
+    s_miyota.pulse_active = true;
+    s_miyota.pulse_polarity = (s_miyota.next_polarity === 0) ? 1 : -1;
+    s_miyota.next_polarity = 1 - s_miyota.next_polarity;
+    s_miyota.pulse_until_ms = now + 28; // visual scope width
+    s_miyota.last_step_ms = now;
+    s_miyota.analog_pos_sec = (s_miyota.analog_pos_sec + 1) % 43200;
+    renderWatchFace();
+}
+
+function renderWatchFace() {
+    const sec = s_miyota.analog_pos_sec;
+    const minAngle  = ((sec % 3600) / 3600) * 360;
+    const hourAngle = ((sec % 43200) / 43200) * 360;
+
+    document.getElementById('svg-hour-hand').setAttribute('transform', `rotate(${hourAngle.toFixed(1)}, 157, 180)`);
+    document.getElementById('svg-min-hand').setAttribute('transform', `rotate(${minAngle.toFixed(1)}, 157, 180)`);
+
+    const ghost = document.getElementById('chk-ghost-hands').checked;
+    document.getElementById('miyota-hands-group').setAttribute('opacity', ghost ? '0.28' : '1.0');
+
+    let ah = Math.trunc(sec / 3600) % 12; if (ah === 0) ah = 12;
+    const am = Math.trunc((sec % 3600) / 60);
+    const as = sec % 60;
+    document.getElementById('hdr-miyota').innerText =
+        `${String(ah).padStart(2,'0')}:${String(am).padStart(2,'0')}:${String(as).padStart(2,'0')}`;
+}
+
+/* ============================================================================
+ * 4. SENSORS, BLE EVENTS & LOGIC OSCILLOSCOPE
+ * ==========================================================================*/
+function updateSensor(kind, val) {
+    val = Number(val);
+    if (kind === 'bpm') {
+        s_state.heart_bpm = val;
+        document.getElementById('val-bpm').innerText = `${val} BPM`;
+    } else if (kind === 'spo2') {
+        s_state.spo2_pct = val;
+        document.getElementById('val-spo2').innerText = `${val} %`;
+    } else if (kind === 'temp') {
+        s_state.temp_deci_c = val;
+        document.getElementById('val-temp').innerText = `${(val/10).toFixed(1)} °C`;
+    } else if (kind === 'steps') {
+        s_state.steps_count = val;
+        document.getElementById('val-steps').innerText = `${val} pas`;
+    } else if (kind === 'bat') {
+        s_state.battery_pct = val;
+        s_state.battery_mv = Math.round(3000 + (val / 100) * 1200);
+        s_state.survival_mode = (val < 5);
+        document.getElementById('val-bat').innerText = `${val} % (${(s_state.battery_mv/1000).toFixed(2)} V)`;
+    } else if (kind === 'lux') {
+        s_state.ambient_lux = val;
+        document.getElementById('val-lux').innerText = `${val} lux`;
+    }
+    renderCurrentScreen();
+}
+
+function simIncomingCall() {
+    s_state.notif_title = "APPEL ENTRANT";
+    s_state.notif_body  = "YANIS GRAVE   +33 6 12 34 56";
+    s_state.notif_unread = 1;
+    s_state.current_screen = 3;
+    s_state.display_awake = true;
+    triggerHaptic(220);
+    updateScreenPills();
+    renderCurrentScreen();
+    logI2C(`BLE ANCS -> Notification d'appel entrant reçue`);
+}
+
+function simIncomingSMS() {
+    s_state.notif_title = "SMS - ALEXIS";
+    s_state.notif_body  = "RDV FABLAB MARDI 13H30 OK";
+    s_state.notif_unread = 1;
+    s_state.current_screen = 3;
+    s_state.display_awake = true;
+    triggerHaptic(140);
+    updateScreenPills();
+    renderCurrentScreen();
+    logI2C(`BLE ANCS -> Notification SMS reçue`);
+}
+
+function simWristTilt() {
+    s_state.display_awake = true;
+    triggerHaptic(20);
+    renderCurrentScreen();
+    logI2C(`EXTI [PA10 INTSA] -> Geste lever de poignet détecté par MLC LSM6DSOX`);
+}
+
+function toggleQiCharger() {
+    s_state.qi_charging = !s_state.qi_charging;
+    logI2C(`GPIO [PB2 ~CHG=${s_state.qi_charging ? 0 : 1}] -> Charge sans fil Qi BQ51003 ${s_state.qi_charging ? 'ACTIVE (119 mA)' : 'COUPÉE'}`);
+    renderCurrentScreen();
+}
+
+function desyncMiyotaHands() {
+    s_miyota.analog_pos_sec = (s_miyota.analog_pos_sec - 25 + 43200) % 43200;
+    renderWatchFace();
+    logI2C(`MIYOTA -> Décalage simulé (-25 pas) : rattrapage automatique 22 Hz engagé`);
+}
+
+function toggleSurvivalMode() {
+    if (!s_state.survival_mode) {
+        document.getElementById('slider-bat').value = 3;
+        updateSensor('bat', 3);
+        logI2C(`SURVIE [< 5%] -> Coupure OLED + BLE + Capteurs (Aiguilles Miyota seules : 15.5 µA)`);
+    } else {
+        document.getElementById('slider-bat').value = 84;
+        updateSensor('bat', 84);
+        s_state.display_awake = true;
+        renderCurrentScreen();
+        logI2C(`BATTERIE [84%] -> Sortie du mode survie, réveil complet`);
+    }
+}
+
+function logI2C(msg) {
+    const box = document.getElementById('i2c-log');
+    const now = new Date();
+    const ts = `${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}.${String(now.getMilliseconds()).padStart(3,'0')}`;
+    const line = document.createElement('div');
+    line.textContent = `[${ts}] ${msg}`;
+    box.prepend(line);
+    while (box.children.length > 30) box.removeChild(box.lastChild);
+}
+
+/* Scope History Buffer */
+const SCOPE_LEN = 200;
+const scopeHist = {
+    hp: new Int8Array(SCOPE_LEN),
+    hm: new Int8Array(SCOPE_LEN),
+    btn2: new Int8Array(SCOPE_LEN),
+    btn4: new Int8Array(SCOPE_LEN),
+    hap: new Int8Array(SCOPE_LEN)
+};
+
+function updateOscilloscope(now) {
+    // Shift history
+    for (const k of Object.keys(scopeHist)) {
+        scopeHist[k].copyWithin(0, 1);
+    }
+    const hp = (s_miyota.pulse_active && s_miyota.pulse_polarity === 1) ? 1 : 0;
+    const hm = (s_miyota.pulse_active && s_miyota.pulse_polarity === -1) ? 1 : 0;
+    scopeHist.hp[SCOPE_LEN - 1]   = hp;
+    scopeHist.hm[SCOPE_LEN - 1]   = hm;
+    scopeHist.btn2[SCOPE_LEN - 1] = g_btn2h_pressed ? 1 : 0;
+    scopeHist.btn4[SCOPE_LEN - 1] = g_btn4h_pressed ? 1 : 0;
+    scopeHist.hap[SCOPE_LEN - 1]  = (now < g_haptic_active_until) ? 1 : 0;
+
+    document.getElementById('miyota-coil-status').innerText =
+        hp ? 'Bobine : IMPULSION +3.3V (PA7=1, PB5=0)' :
+        hm ? 'Bobine : IMPULSION -3.3V (PA7=0, PB5=1)' :
+             'Bobine : FREIN ÉLECTRODYNAMIQUE LENZ (PA7=0, PB5=0)';
+
+    const c = document.getElementById('scope-canvas');
+    const ctx = c.getContext('2d');
+    ctx.fillStyle = '#040812';
+    ctx.fillRect(0, 0, c.width, c.height);
+
+    const channels = [
+        { key: 'hp',   label: 'PA7 (Miyota H+)', color: '#fde047', yBase: 32 },
+        { key: 'hm',   label: 'PB5 (Miyota H-)', color: '#fb923c', yBase: 68 },
+        { key: 'btn2', label: 'PC5 (BTN 2h S2)', color: '#00e5ff', yBase: 104 },
+        { key: 'btn4', label: 'PC4 (BTN 4h S1)', color: '#34d399', yBase: 140 },
+        { key: 'hap',  label: 'PA1 (DRV2605L)',  color: '#c084fc', yBase: 174 }
+    ];
+
+    channels.forEach(ch => {
+        ctx.fillStyle = ch.color;
+        ctx.font = '11px Consolas, monospace';
+        ctx.fillText(ch.label, 8, ch.yBase - 4);
+
+        ctx.strokeStyle = ch.color;
+        ctx.lineWidth = 1.6;
+        ctx.beginPath();
+        const xStart = 130;
+        const stepX = (c.width - xStart - 10) / SCOPE_LEN;
+        for (let i = 0; i < SCOPE_LEN; i++) {
+            const x = xStart + i * stepX;
+            const y = ch.yBase - scopeHist[ch.key][i] * 18;
+            if (i === 0) ctx.moveTo(x, y);
+            else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+    });
+
+    // Estimate instantaneous current consumption
+    let uA = 15.5; // Stop 2 + RTC + Miyota average
+    if (s_state.display_awake && !s_state.survival_mode) uA += 9500;
+    if (s_state.hr_measuring && s_state.current_screen === 1 && s_state.display_awake) uA += 12500;
+    if (now < g_haptic_active_until) uA += 65000;
+    document.getElementById('hdr-current').innerText =
+        uA >= 1000 ? `${(uA / 1000).toFixed(1)} mA` : `${uA.toFixed(1)} µA`;
+}
+
+/* ============================================================================
+ * 5. LIVE C CODE STUDIO & FULL SMILEWATCH_UI.C EXPORT
+ * ==========================================================================*/
+function loadSelectedCFunction(forceIdx) {
+    const sel = document.getElementById('select-c-func');
+    if (forceIdx !== undefined) sel.value = String(forceIdx);
+    const idx = Number(sel.value);
+    document.getElementById('c-code-textarea').value = g_c_screens[idx];
+}
+
+function onCodeEditorInput() {
+    const idx = Number(document.getElementById('select-c-func').value);
+    const code = document.getElementById('c-code-textarea').value;
+    const status = document.getElementById('c-compile-status');
+    try {
+        g_c_screens[idx] = code;
+        s_state.current_screen = idx;
+        updateScreenPills();
+        renderCurrentScreen();
+        status.style.color = 'var(--accent-green)';
+        status.innerText = '✅ Code C compilé et exécuté en temps réel sur la montre !';
+    } catch (e) {
+        status.style.color = 'var(--accent-red)';
+        status.innerText = '❌ Erreur : ' + e.message;
+    }
+}
+
+function applyLiveCCode() {
+    onCodeEditorInput();
+    showToast("Code C appliqué sur l'écran 88×48 !");
+}
+
+function buildFullCFileContent() {
+    return `/**
+  ******************************************************************************
+  * @file           : smilewatch_ui.c
+  * @brief          : Généré depuis le Studio Simulateur SmileWatch V2
+  ******************************************************************************
+  */
+#include "smilewatch_ui.h"
+#include <stdio.h>
+#include <string.h>
+
+${g_c_screens.join('\n\n')}
+`;
+}
+
+function copyFullCFile() {
+    navigator.clipboard.writeText(buildFullCFileContent()).then(() => {
+        showToast("Code C complet copié pour STM32CubeIDE !");
+    });
+}
+
+function downloadFullCFile() {
+    const blob = new Blob([buildFullCFileContent()], { type: 'text/plain;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'smilewatch_ui_custom.c';
+    a.click();
+    showToast("Fichier smilewatch_ui_custom.c téléchargé !");
+}
+
+/* ============================================================================
+ * 6. 16x16 1-BIT BITMAP ICON EDITOR
+ * ==========================================================================*/
+const iconGrid = Array.from({ length: 16 }, () => new Uint8Array(16));
+
+function renderIconEditor() {
+    const c = document.getElementById('icon-draw-canvas');
+    const ctx = c.getContext('2d');
+    const cell = 14;
+    ctx.fillStyle = '#040812';
+    ctx.fillRect(0, 0, c.width, c.height);
+
+    const bytes = [];
+    for (let y = 0; y < 16; y++) {
+        let b0 = 0, b1 = 0;
+        for (let x = 0; x < 16; x++) {
+            if (iconGrid[y][x]) {
+                ctx.fillStyle = '#00e5ff';
+                ctx.fillRect(x * cell + 1, y * cell + 1, cell - 2, cell - 2);
+                if (x < 8) b0 |= (0x80 >> x);
+                else       b1 |= (0x80 >> (x - 8));
+            }
+            ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+            ctx.strokeRect(x * cell, y * cell, cell, cell);
+        }
+        bytes.push(`0x${b0.toString(16).toUpperCase().padStart(2,'0')}`,
+                   `0x${b1.toString(16).toUpperCase().padStart(2,'0')}`);
+    }
+
+    document.getElementById('icon-c-output').value =
+        `static const uint8_t k_custom_icon_16x16[32] = {\n    ` +
+        bytes.slice(0, 8).join(', ') + `,\n    ` +
+        bytes.slice(8, 16).join(', ') + `,\n    ` +
+        bytes.slice(16, 24).join(', ') + `,\n    ` +
+        bytes.slice(24, 32).join(', ') + `\n};`;
+}
+
+function clearIconGrid() {
+    for (let y = 0; y < 16; y++) iconGrid[y].fill(0);
+    renderIconEditor();
+}
+
+function invertIconGrid() {
+    for (let y = 0; y < 16; y++) {
+        for (let x = 0; x < 16; x++) iconGrid[y][x] ^= 1;
+    }
+    renderIconEditor();
+}
+
+function previewIconOnWatch() {
+    const bmp = new Uint8Array(32);
+    for (let y = 0; y < 16; y++) {
+        for (let x = 0; x < 16; x++) {
+            if (iconGrid[y][x]) bmp[y * 2 + (x >> 3)] |= (0x80 >> (x & 7));
+        }
+    }
+    OLED_DrawBitmap(68, 14, bmp, 16, 16, 1);
+    flushOLED();
+    showToast("Icône affichée sur l'OLED (x=68, y=14) !");
+}
+
+function copyIconCode() {
+    navigator.clipboard.writeText(document.getElementById('icon-c-output').value).then(() => {
+        showToast("Tableau C copié !");
+    });
+}
+
+/* ============================================================================
+ * 7. INITIALIZATION, DIAL SVG GENERATION & MAIN 20 FPS LOOP
+ * ==========================================================================*/
+function initDialIndices() {
+    const g = document.getElementById('dial-indices');
+    let html = '';
+    // Exact colors from SolidWorks photo: #4e7a9b outline, #35536b fill
+    for (let i = 0; i < 60; i++) {
+        const ang = i * 6;
+        const isHour = (i % 5 === 0);
+        // Cutout at 6h covers indices from 26 to 34 minutes
+        if (i >= 26 && i <= 34) {
+            // Index 6h is a shorter baton just below the stadium window
+            if (i === 30) {
+                html += `<rect x="154" y="278" width="6" height="16" rx="1.5" fill="#344f66" stroke="#4f7f9f" stroke-width="1.2"/>`;
+            }
+            continue;
+        }
+
+        if (isHour) {
+            // Bold hour batons matching CAD photo
+            const w = (i === 0) ? 6.5 : 5.5;
+            const h = (i === 0) ? 22 : 19;
+            html += `<rect x="${157 - w/2}" y="67" width="${w}" height="${h}" rx="1.5" fill="#344f66" stroke="#4f7f9f" stroke-width="1.2" transform="rotate(${ang}, 157, 180)"/>`;
+        } else {
+            // Fine minute tick lines
+            html += `<line x1="157" y1="68" x2="157" y2="76" stroke="#3d6482" stroke-width="1.2" stroke-linecap="round" transform="rotate(${ang}, 157, 180)"/>`;
+        }
+    }
+    g.innerHTML = html;
+}
+
+function switchStudioTab(tabId, btn) {
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.studio-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    btn.classList.add('active');
+}
+
+function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.innerText = msg;
+    t.style.display = 'block';
+    setTimeout(() => { t.style.display = 'none'; }, 2200);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    initDialIndices();
+    loadSelectedCFunction(0);
+    renderWatchFace();
+    renderCurrentScreen();
+
+    // Seed smiley icon in 16x16 bitmap editor
+    const smilePts = [[5,5],[10,5],[5,6],[10,6],[4,10],[5,11],[6,12],[7,12],[8,12],[9,12],[10,11],[11,10]];
+    smilePts.forEach(([x,y]) => { iconGrid[y][x] = 1; });
+    renderIconEditor();
+
+    // Zoom canvas pixel coordinate inspector
+    const zc = document.getElementById('zoom-oled-canvas');
+    zc.addEventListener('mousemove', e => {
+        const r = zc.getBoundingClientRect();
+        const x = Math.min(87, Math.max(0, Math.floor((e.clientX - r.left) / (r.width / 88))));
+        const y = Math.min(47, Math.max(0, Math.floor((e.clientY - r.top) / (r.height / 48))));
+        const page = y >> 3;
+        const bit  = y & 7;
+        document.getElementById('loupe-coords').innerText =
+            `Curseur : X=${x} Y=${y} | Page=${page} Bit=${bit} (VRAM[${page}][${x}]=0x${s_vram[page][x].toString(16).toUpperCase().padStart(2,'0')})`;
+    });
+
+    // Icon editor click handler
+    const ic = document.getElementById('icon-draw-canvas');
+    ic.addEventListener('mousedown', e => {
+        const r = ic.getBoundingClientRect();
+        const x = Math.min(15, Math.max(0, Math.floor((e.clientX - r.left) / 14)));
+        const y = Math.min(15, Math.max(0, Math.floor((e.clientY - r.top) / 14)));
+        iconGrid[y][x] ^= 1;
+        renderIconEditor();
+    });
+
+    // Keyboard shortcuts (Up = 2h, Down = 4h)
+    window.addEventListener('keydown', e => {
+        if (document.activeElement.tagName === 'TEXTAREA') return;
+        if (e.key === 'ArrowUp')   { e.preventDefault(); triggerButtonEvent('2H_SHORT'); }
+        if (e.key === 'ArrowDown') { e.preventDefault(); triggerButtonEvent('4H_SHORT'); }
+    });
+
+    logI2C(`BOOT [STM32WB55VGYx] -> Init I2C1 (PB8/PB9), CH1115 (0x3C), Miyota (PA7/PB5)`);
+
+    // 1 Hz RTC Clock & 20 Hz UI/Miyota/Scope Loop
+    let lastSecTick = performance.now();
+    setInterval(() => {
+        const now = performance.now();
+
+        if (now >= g_haptic_active_until) {
+            document.getElementById('watch-container').classList.remove('vibrating');
+        }
+
+        if (s_miyota.pulse_active && now >= s_miyota.pulse_until_ms) {
+            s_miyota.pulse_active = false;
+            s_miyota.pulse_polarity = 0; // Lenz Brake
+        }
+
+        // Fast-forward catch-up (22 Hz) if hands lag behind RTC target
+        if (!s_miyota.pulse_active && s_miyota.analog_pos_sec !== s_miyota.target_pos_sec) {
+            if (now - s_miyota.last_step_ms >= 45) {
+                stepMiyotaOnce(now);
+            }
+        }
+
+        // 1 Hz RTC tick
+        if (now - lastSecTick >= 1000) {
+            lastSecTick += 1000;
+            s_state.seconds++;
+            if (s_state.seconds >= 60) {
+                s_state.seconds = 0;
+                s_state.minutes++;
+                if (s_state.minutes >= 60) {
+                    s_state.minutes = 0;
+                    s_state.hours = (s_state.hours + 1) % 24;
+                }
+            }
+            s_miyota.target_pos_sec = ((s_state.hours % 12) * 3600) + (s_state.minutes * 60) + s_state.seconds;
+            if (!s_miyota.pulse_active && s_miyota.analog_pos_sec === (s_miyota.target_pos_sec + 43199) % 43200) {
+                stepMiyotaOnce(now);
+            }
+        }
+
+        s_state.ppg_phase = (s_state.ppg_phase + 1) % 22;
+        renderCurrentScreen();
+        updateOscilloscope(now);
+    }, 60);
+});
+</script>
+</body>
+</html>

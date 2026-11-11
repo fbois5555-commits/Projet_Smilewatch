@@ -29,7 +29,7 @@ La **SmileWatch** est une montre hybride conçue pour répondre à un cahier des
 | **Interface & Haptique**| I/O & Retours | Contrôleur haptique évolué **TI DRV2605L** + vibreur CMS **HD-EMB1204-SM** ; 2 boutons poussoirs tactiles latéraux étanches **Alps Alpine SKSLLAE010**. |
 | **Batterie & Autonomie**| Alimentation | Pile bouton rechargeable Li-Ion **LIR3048 (280 mAh, 3.7 V)** maintenue par contact latéral CMS Harwin (S1921-46R) et calage en mousse Poron. |
 | **Recharge** | Sans fil | Récepteur sans fil Qi **TI BQ51003** + bobine de réception Würth Elektronik (**760308101309**) + chargeur linéaire Li-Ion **TI BQ24040**. |
-| **Conversion d'énergie**| PMIC & Régulation | Convertisseur élévateur nanoPower **MAX17222** (+5V pour LEDs capteurs/OLED), LDOs ultra-faible bruit AP2127 (+3.3V, +1.8V), protection batterie AP9101C. |
+| **Conversion d'énergie**| PMIC & Régulation | Convertisseur élévateur nanoPower **MAX17222** (+5V pour LEDs capteurs, inductance **1.0 µH** `MLP1005M1R0DT0S1`), LDOs +3.3V / +1.8V **TPS7A0233DBVR / TPS7A0218PDBVR** (25 nA), protection batterie **AP9101CAK-ATTRG1**. |
 | **Débogage & Flash** | Connectique | Empreinte **Tag-Connect TC2030-IDC-NL** (SWD 6 broches sans embase physique). |
 
 ---
@@ -54,7 +54,7 @@ L'assemblage physique de la montre repose sur une **architecture recto-verso mod
 ### 1. Module Supérieur (Face avant)
 * **Outillage impératif** : Utilisation d'une **cale 3D d'assemblage (posage O4)** insérée par le bas de la carrure pour encaisser l'effort axial lors du chassage de la glace saphir et préserver le mouvement Miyota.
 * **Mouvement horloger** : Positionnement du Miyota 2035 au centre, coiffé par le PCB supérieur (chevauchement de 0.8 mm). Soudure des micro-fils de la bobine du Miyota directement sur les pastilles de 1 mm du PCB supérieur.
-* **Masse & Écran** : Goutte d'époxy conductrice à l'argent sur le chant métallisé du PCB vers la carrure 316L (GND). Soudure de la nappe 14 broches de l'OLED CH1115, repliement et collage sur le cadran via adhésif optique.
+* **Carrure flottante & Écran** : Architecture à carrure 316L électriquement flottante (suppression de l'époxy conductrice à l'argent initialement prévue en V3.8, le plan de masse interne 6 couches assurant le contrepoids RF). Soudure directe à plat de la nappe 14 broches (pas 0.62 mm) de l'OLED CH1115, repliement et collage sous le cadran avec fenêtre acrylique.
 * **Aiguilles & Chassage Saphir** : Pose des aiguilles des heures et minutes à midi pile, pose du joint Téflon/Hytrel et chassage en force de la glace saphir à la presse d'établi. Retrait de la cale 3D par le bas.
 
 ### 2. Module Inférieur (Face arrière & Capteurs)
@@ -105,19 +105,23 @@ Projet_Smilewatch/
 
 ## 🎯 Statut Actuel & Feuille de Route
 
-- [x] **Architecture système & Sélection des composants** : Définition complète (STM32WB55, LIR3048 280mAh, Qi BQ51003, capteurs cliniques).
-- [x] **CAO Mécanique 3D (SolidWorks)** : Modélisation carrure, posage, verres, étanchéité et cinématique d'assemblage.
-- [x] **Notice de montage modulaire** : Rédaction du manuel d'intégration mécanique (V3.8).
-- [ ] **Phase en cours : Relecture critique & Figeage de la conception** :
-  - Relecture approfondie des schémas et du routage PCB V2 (plans de masse RF 2.4 GHz, impédances, dégagements thermiques).
-  - Validation finale des cotes d'usinage post-impression 3D métallique sur la carrure.
-  - Conception et routage du **PCB Cadran** (finitions de surface, masques de soudure décoratifs, index).
+- [x] **Architecture système & Sélection des composants** : Définition complète (STM32WB55 WLCSP-100, LIR3048 280 mAh, Qi BQ51003, capteurs cliniques).
+- [x] **CAO Mécanique 3D (SolidWorks 2026) & PCB Cadran FR4** : Modélisation carrure, base, verres, posage O4 et conception du cadran horloger FR4 0.4 mm (dorure ENIG sur masque noir mat).
+- [x] **Notice de montage modulaire** : Rédaction du manuel d'intégration mécanique (V3.8, mise à jour V3.9 prévue).
+- [x] **Audit d'Ingénierie Global 360° (08 Novembre 2026)** : Inspection intégrale sans approximation des 3 PCB KiCad 10, des datasheets constructeurs et des 50 interférences SolidWorks de `Montre.SLDASM` (détails et correctifs consignés dans `REFLEXIONS.md` §13 et `suivi_projet.html`).
+- [x] **Passe Corrective Électronique, Datasheets & BOM V2.1 (09–11 Novembre 2026)** :
+  - **`Carte_V2`** : Polarité batterie `LIR3048` corrigée (`C22` latéral sur `+3V8`, `TP8` `6×6 mm` sur `GNDPWR`, `TP2` supprimé — *point d'attention : contact central plat excentré à $r=11.05\text{ mm}$ sans ressort*) ; switch OLED `Q1`/`Q2` câblé (`Q2.2` à `GND`, `Q1.2`+`R15` sur `+3V8`, `R13 = 560 kΩ`) ; RF corrigée (`R21`/`R24 = DNP`, Keepout 6 couches `ANT1`, quartz `Y1 = ABM13W 8 pF` + `12 pF C0G`) ; pont ADC `VBAT` (`2×1 MΩ + 100 nF` sur `PC4`), LDOs `TPS7A0233/18`, `R5 = 1.5 kΩ`, `R7 = DNP`, `C46 = 100 nF`, `R16 = 330 Ω`, `U4 = AP9101CAK-ATTRG1`, assainissement complet des `JLCPCB Part#` passifs. **ERC = 0 erreur (63 warnings), DRC + parité = 0 violation.**
+  - **`Carte_Capteur_V1` & `Cadran`** : Side A (`+1V8` MAX30101) / Side B (`+3V3` MCU) du `TCA9517D` (`U3`) inversés et reroutés ; îlot thermique `B.Cu` + 2 vias + keepout `U2_Thermal_Iso` ajoutés sous `TMP117` (`U2`) ; `L1` boost `MAX17222` validé à **1.0 µH (`C531284`, 500 mA)** et BOM JLCPCB complétée. **ERC = 0 erreur (`10` warnings), DRC + parité = 0 violation** (`Cadran` : DRC **0 erreur**, 55 warnings sérigraphie bord).
+- [ ] **Phase en cours : Verrouillage Mécanique Final, Sourcing Stocks & Revue Multi-IA (Argon)** :
+  - **Audit croisé externe** : Dossier préparé pour revue indépendante complète (Argon + comparaison multi-IA).
+  - **Mécanique CAO (`Montre.SLDASM`)** : Portée saphir (`+1.35 mm`), gorge O-ring ISO 3601 (25 %), clipsage découplé, `Batterie.SLDPRT` (`4.90 mm`) et `Canal_lum.SLDPRT` déjà validés (`09/11`, proto PLA lancé). **Reste à finaliser/vérifier après ré-export `.STEP`** : collision `F.Cu` sous la dalle OLED (`Q1`, `Q2`, `7×0603` `[P0-MECA-7]`), poche sous `J1` + lamage Qi dans `Base.SLDPRT` `[P0-MECA-6]`, poussoirs étanches `Bouton.SLDASM` `[P1-MECA-9]` et dégagement radial `IC3/L1` `[P1-MECA-10]`.
+  - **Sourcing JLCPCB SMT (bloquant commande)** : 7 références `Carte_V2` à stock `0` (`U2 STM32WB55VGY6TR`, `FL1`, `ANT1`, `Y1`, `Q3`, `M1`, `J2`) + 3 critiques (`IC1` stk `2`, `IC8` stk `11`, `TH1/TH2` stk `68`) et `J1` stk `0` / `U2` stk `36` / `IC5` stk `67` sur `Carte_Capteur_V1` à pré-approvisionner (LCSC/Mouser/substitutions).
+  - **Livrables usine `[P2-PROC-17]`** : Ré-exporter les `.STEP` (`Carte_V2`, `Carte_Capteur_V1`, `carrure`), régénérer `Kicad/Carte_V2/production/` (encore daté du `05/07/2026`), actualiser la Notice V3.9 et le panier composants.
 - [ ] **Fabrication des prototypes matériels** :
-  - Commande de la carrure en fabrication additive métallique (SLM/DMLS Inox 316L) et usinage des portées de joints.
-  - Fabrication et assemblage PCB (PCBA JLCPCB pour carte mère, carte capteurs et cadran).
-- [ ] **Développement Firmware (STM32WB55)** :
-  - Configuration de la pile BLE double-cœur (Cortex-M0+ : stack radio STM32WB WPAN ; Cortex-M4 : logique métier).
+  - Commande de la carrure en fabrication additive métallique (SLM/DMLS Inox 316L) + reprise CNC et fabrication de la Base.
+  - Fabrication et assemblage PCB (PCBA JLCPCB pour carte mère 6 couches, carte capteurs et cadran).
+- [ ] **Développement Firmware (`STM32WB55VGYx` WLCSP-100)** :
+  - Création du nouveau projet STM32CubeIDE sur cible `STM32WB55VGYx` (remplaçant le squelette V1 `STM32WB5MMGHx`) avec `HSE 32 MHz`, `LSE` et pile BLE double-cœur (`STM32_WPAN` + OTA).
   - Implémentation des profils BLE standards (CTS, ANCS, HRS, HTS, BAS, DIS).
-  - Pilote pas-à-pas pour l'avance motorisée des aiguilles du mouvement Miyota.
-  - Driver I2C DMA pour l'affichage CH1115 (OLED 88×48) et les capteurs.
-  - Gestion ultra-basse consommation (mode STOP 2 avec réveil sur interruption MLC du LSM6DSOX).
+  - Pilote pas-à-pas bipolaire amorti (impulsion calibrée + freinage électrodynamique `LOW-LOW`) pour le mouvement Miyota 2035.
+  - Driver I2C DMA pour l'affichage CH1115 (OLED 88×48) et les capteurs, et gestion veille ultra-basse consommation (`STOP 2` + réveil MLC `LSM6DSOX`).
