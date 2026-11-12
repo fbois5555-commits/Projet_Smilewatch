@@ -1847,7 +1847,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "DMN2028UFU-7:DMN2028UFU-7"
+		(symbol "DMN2028UFU-13:DMN2028UFU-13"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1864,7 +1864,7 @@
 					(justify left top)
 				)
 			)
-			(property "Value" "DMN2028UFU-7"
+			(property "Value" "DMN2028UFU-13"
 				(at 24.13 5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1922,7 +1922,7 @@
 					(justify left top)
 				)
 			)
-			(property "Mouser Part Number" "621-DMN2028UFU-7"
+			(property "Mouser Part Number" "621-DMN2028UFU-13"
 				(at 24.13 -494.92 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1934,7 +1934,7 @@
 					(justify left top)
 				)
 			)
-			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/DMN2028UFU-7?qs=MNIFWdyJgboGsRP6KB2Mmw%3D%3D"
+			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/DMN2028UFU-13?qs=MNIFWdyJgboGsRP6KB2Mmw%3D%3D"
 				(at 24.13 -594.92 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1958,7 +1958,7 @@
 					(justify left top)
 				)
 			)
-			(property "Manufacturer_Part_Number" "DMN2028UFU-7"
+			(property "Manufacturer_Part_Number" "DMN2028UFU-13"
 				(at 24.13 -794.92 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -1970,7 +1970,7 @@
 					(justify left top)
 				)
 			)
-			(symbol "DMN2028UFU-7_1_1"
+			(symbol "DMN2028UFU-13_1_1"
 				(rectangle
 					(start 5.08 2.54)
 					(end 22.86 -7.62)
@@ -7046,7 +7046,7 @@
 		)
 	)
 	(symbol
-		(lib_id "DMN2028UFU-7:DMN2028UFU-7")
+		(lib_id "DMN2028UFU-13:DMN2028UFU-13")
 		(at 124.46 161.29 0)
 		(unit 1)
 		(body_style 1)
@@ -7067,7 +7067,7 @@
 				)
 			)
 		)
-		(property "Value" "DMN2028UFU-7"
+		(property "Value" "DMN2028UFU-13"
 			(at 138.43 156.21 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7077,7 +7077,7 @@
 				)
 			)
 		)
-		(property "Footprint" "DMN2028UFU-7:DMN2028UFU7"
+		(property "Footprint" "DMN2028UFU-13:DMN2028UFU7"
 			(at 148.59 256.21 0)
 			(hide yes)
 			(show_name no)
@@ -7124,7 +7124,7 @@
 				(justify left top)
 			)
 		)
-		(property "Mouser Part Number" "621-DMN2028UFU-7"
+		(property "Mouser Part Number" "621-DMN2028UFU-13"
 			(at 148.59 656.21 0)
 			(hide yes)
 			(show_name no)
@@ -7136,7 +7136,7 @@
 				(justify left top)
 			)
 		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/DMN2028UFU-7?qs=MNIFWdyJgboGsRP6KB2Mmw%3D%3D"
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/DMN2028UFU-13?qs=MNIFWdyJgboGsRP6KB2Mmw%3D%3D"
 			(at 148.59 756.21 0)
 			(hide yes)
 			(show_name no)
@@ -7160,7 +7160,7 @@
 				(justify left top)
 			)
 		)
-		(property "Manufacturer_Part_Number" "DMN2028UFU-7"
+		(property "Manufacturer_Part_Number" "DMN2028UFU-13"
 			(at 148.59 956.21 0)
 			(hide yes)
 			(show_name no)
@@ -7172,7 +7172,7 @@
 				(justify left top)
 			)
 		)
-		(property "JLCPCB Part#" "C3291404"
+		(property "JLCPCB Part#" "C17388236"
 			(at 124.46 161.29 0)
 			(hide yes)
 			(show_name no)

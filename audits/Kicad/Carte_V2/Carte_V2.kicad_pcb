@@ -19792,11 +19792,11 @@
 			)
 		)
 	)
-	(footprint "DMN2028UFU-7:DMN2028UFU7"
+	(footprint "DMN2028UFU-13:DMN2028UFU7"
 		(layer "F.Cu")
 		(uuid "cf0b2dd8-30a0-41fc-b700-dedee1bc30bc")
 		(at 122.825 79.7)
-		(descr "DMN2028UFU-7-2")
+		(descr "DMN2028UFU-13-2")
 		(tags "MOSFET (N-Channel)")
 		(property "Reference" "Q3"
 			(at 0 0 0)
@@ -19810,7 +19810,7 @@
 				)
 			)
 		)
-		(property "Value" "DMN2028UFU-7"
+		(property "Value" "DMN2028UFU-13"
 			(at 0 0 0)
 			(layer "F.SilkS")
 			(hide yes)
@@ -19859,7 +19859,7 @@
 				)
 			)
 		)
-		(property "Mouser Part Number" "621-DMN2028UFU-7"
+		(property "Mouser Part Number" "621-DMN2028UFU-13"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -19872,7 +19872,7 @@
 				)
 			)
 		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/DMN2028UFU-7?qs=MNIFWdyJgboGsRP6KB2Mmw%3D%3D"
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/DMN2028UFU-13?qs=MNIFWdyJgboGsRP6KB2Mmw%3D%3D"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -19898,7 +19898,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "DMN2028UFU-7"
+		(property "Manufacturer_Part_Number" "DMN2028UFU-13"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -19911,7 +19911,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C3291404"
+		(property "JLCPCB Part#" "C17388236"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -20154,7 +20154,7 @@
 			(uuid "cbadaeca-c802-4ec9-b978-241cb6842772")
 		)
 		(embedded_fonts no)
-		(model "DMN2028UFU-7.stp"
+		(model "DMN2028UFU-13.stp"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -20165,7 +20165,7 @@
 				(xyz 0 0 0)
 			)
 		)
-		(model "C:/Users/fbois/Documents/Perso/Projet_Smilewatch/Kicad/Composant/LIB_DMN2028UFU-7/DMN2028UFU-7/3D/DMN2028UFU-7.stp"
+		(model "C:/Users/fbois/Documents/Perso/Projet_Smilewatch/Kicad/Composant/LIB_DMN2028UFU-13/DMN2028UFU-13/3D/DMN2028UFU-13.stp"
 			(offset
 				(xyz 0 0 0)
 			)

@@ -25,7 +25,7 @@
 "M1","1","HD-EMB1204-SM","","","","HD-EMB1204-SM:HDEMB1204SM","https://api.puiaudio.com/filename/HD-EMB1204-SM.pdf","C20107647"
 "Q1","1","FDN338P","","","","Package_TO_SOT_SMD:TSOT-23","https://www.onsemi.com/pub/Collateral/FDN338P-D.pdf","C2890130"
 "Q2","1","FDN335N","","","","Package_TO_SOT_SMD:TSOT-23","https://www.onsemi.com/pub/Collateral/FDN335N-D.PDF","C845588"
-"Q3","1","DMN2028UFU-7","","","","DMN2028UFU-7:DMN2028UFU7","https://www.diodes.com/assets/Datasheets/DMN2028UFU.pdf","C3291404"
+"Q3","1","DMN2028UFU-13","","","","DMN2028UFU-13:DMN2028UFU7","https://www.diodes.com/assets/Datasheets/DMN2028UFU.pdf","C17388236"
 "R1","1","4k53 Ohm","","","","Resistor_SMD:R_0402_1005Metric","","C3015988"
 "R2,R17","2","2k Ohm","","","","Resistor_SMD:R_0402_1005Metric","","C4109"
 "R3,R4,R9,R11,R12,R18,R23,R27","8","10k Ohm","","","","Resistor_SMD:R_0402_1005Metric","","C25744"
