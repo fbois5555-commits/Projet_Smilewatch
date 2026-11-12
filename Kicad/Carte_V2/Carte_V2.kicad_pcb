@@ -26083,7 +26083,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "AP9101CK-AZTRG1"
+		(property "Value" "AP9101CAK-ATTRG1"
 			(at 0 -2.4 90)
 			(layer "B.Fab")
 			(uuid "13315fb4-359d-4196-9989-e507ce0a38e2")
@@ -26121,7 +26121,7 @@
 				(justify mirror)
 			)
 		)
-		(property "JLCPCB Part#" "C6465713"
+		(property "JLCPCB Part#" "C5588142"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")

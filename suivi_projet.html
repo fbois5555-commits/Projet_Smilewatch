@@ -585,7 +585,7 @@
         <section class="progress-card">
             <div class="progress-details">
                 <h2>Passe Corrective V2.1 — Vérifs Élec/Datasheets en cours (Méca &amp; Appro ouverts)</h2>
-                <p>Schémas/PCB KiCad et modèles <code>.STEP</code> mis à jour (ERC=0, DRC règles projet=0 sur les 3 PCB) ; <code>Datasheet/V2/</code> actualisé. <strong>Pas encore de GO usine</strong> : il reste à valider les datasheets JLC (<code>AP9101CK</code> <em>Power-Down</em>, <code>C21120</code> 25V X7R, budget <code>TPS61023</code>), <strong>inverser le clips</strong> en CAO + contrôler les <code>.STEP</code> (<code>P0-MECA-6/7</code>, <code>P1-MECA-9/10</code>), et pré-commander les refs <code>stk=0</code>.</p>
+                <p>Schémas/PCB KiCad et modèles <code>.STEP</code> mis à jour (ERC=0, DRC règles projet=0 sur les 3 PCB) ; <code>Datasheet/V2/</code> actualisé. <strong>Pas encore de GO usine</strong> : il reste à valider les datasheets JLC (<code>C21120</code> 25V X7R, budget <code>TPS61023</code>), <strong>inverser le clips</strong> en CAO + contrôler les <code>.STEP</code> (<code>P0-MECA-6/7</code>, <code>P1-MECA-9/10</code>), et pré-commander les <code>6</code> refs <code>stk=0</code> de <code>Carte_V2</code> (<code>U4 AP9101CAK-ATTRG1</code> revenu en stock).</p>
                 
                 <div class="progress-bar-wrap">
                     <div class="progress-bar-fill" id="global-progress-bar"></div>
@@ -651,9 +651,9 @@
                         <div style="background:rgba(15,23,42,0.6); padding:0.75rem; border-radius:8px; border:1px solid rgba(255,255,255,0.06);">
                             <div style="font-weight:600; color:#fbbf24; margin-bottom:0.35rem;">⚠️ Points Ouverts Avant GO Usine</div>
                             <ul style="margin:0; padding-left:1.1rem; color:var(--text-secondary); line-height:1.5;">
-                                <li><strong>Revue Datasheets JLC :</strong> <code>U4=AP9101CK-AZTRG1</code> (variant <em>Power-Down</em> actif ➔ réveil requis sur chargeur Qi au 1er montage), <code>C0G2_50V1=C21120</code> (220nF <strong>25V X7R</strong> au lieu de C0G 50V), budget <code>IC6 TPS7A0233</code> (200 mA max).</li>
+                                <li><strong>Revue Datasheets JLC :</strong> <code>U4=AP9101CAK-ATTRG1</code> (<code>C5588142</code>, <em>Auto-Wake-Up</em>, stk 162 ✅), <code>C0G2_50V1=C21120</code> (220nF <strong>25V X7R</strong> au lieu de C0G 50V), budget <code>IC6 TPS7A0233</code> (200 mA max).</li>
                                 <li><strong>Méca CAO (sur nouveaux .STEP) :</strong> <strong>inverser le clips</strong> (Base/carrure), sous OLED (<code>P0-MECA-7</code>), poche <code>J1</code>/Qi (<code>P0-MECA-6</code>), poussoirs <code>Bouton.SLDASM</code> (<code>P1-MECA-9</code>), radial <code>TPS61023/L1</code> (<code>P1-MECA-10</code>).</li>
-                                <li><strong>Pré-commande JLCPCB (<code>Carte_V2</code>) :</strong> 7 refs à <code>stk=0</code> (<code>U2, FL1, ANT1, Y1, U4, Q3, M1</code>) + stocks bas (<code>IC1=2, IC8=11</code>) + option <strong>VIPPO</strong>. <em>Firmware reporté.</em></li>
+                                <li><strong>Pré-commande JLCPCB (<code>Carte_V2</code>) :</strong> 6 refs à <code>stk=0</code> (<code>U2, FL1, ANT1, Y1, Q3, M1</code>) + stocks très bas (<code>IC1=2, IC8=4</code>) + option <strong>VIPPO</strong>. <em>Firmware reporté.</em></li>
                             </ul>
                         </div>
                     </div>
@@ -747,7 +747,7 @@
                     <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
                     <div class="task-info">
                         <div class="task-title">[P1-ELEC-11/12/13] Pont ADC VBAT (PC4), LDOs TPS7A02, BQ51003/AP9101CK, BOM JLCPCB &amp; DRC = 0</div>
-                        <div class="task-desc">✅ <strong>KiCad &amp; BOM mis à jour :</strong> Pont <code>R25/R26 = 1 MΩ + C56 = 100 nF</code> sur <code>PC4</code>, <code>IC4/IC6 = TPS7A0218P/33</code> (datasheet EN <code>SBVS277C</code>), <code>R7 = DNP</code>, <code>R5 = 1.5 kΩ</code>, <code>C46 = 100 nF</code>, <code>R16 = 330 Ω</code>, <code>R17 = 2 kΩ</code>, <code>R27 = 10 kΩ</code>, <code>TH1 = "10k NTC"</code>, <strong>ERC=0, DRC Projet=0, parité=0</strong> sur les 3 PCB.<br>⚠️ <strong>À approuver sur datasheets :</strong> <code>U4 = AP9101CK-AZTRG1</code> (<em>Power-Down</em> actif ➔ réveil Qi requis) et <code>C0G2_50V1 = C21120</code> (<code>220 nF 25V X7R</code> au lieu de <code>C0G 50V</code>).</div>
+                        <div class="task-desc">✅ <strong>KiCad &amp; BOM mis à jour :</strong> Pont <code>R25/R26 = 1 MΩ + C56 = 100 nF</code> sur <code>PC4</code>, <code>IC4/IC6 = TPS7A0218P/33</code> (datasheet EN <code>SBVS277C</code>), <code>R7 = DNP</code>, <code>R5 = 1.5 kΩ</code>, <code>C46 = 100 nF</code>, <code>R16 = 330 Ω</code>, <code>R17 = 2 kΩ</code>, <code>R27 = 10 kΩ</code>, <code>TH1 = "10k NTC"</code>, <code>U4 = AP9101CAK-ATTRG1</code> (<code>C5588142</code>, <em>Auto-Wake-Up</em>, stk 162), <strong>ERC=0, DRC Projet=0, parité=0</strong> sur les 3 PCB.<br>⚠️ <strong>À approuver sur datasheets :</strong> <code>C0G2_50V1 = C21120</code> (<code>220 nF 25V X7R</code> au lieu de <code>C0G 50V</code>) et budget <code>TPS7A0233</code> / <code>TPS61023</code>.</div>
                         <div class="task-tags">
                             <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">100% Résolu ✔</span>
                             <span class="tag-pill tag-kicad">DRC Projet &amp; ERC = 0</span>
@@ -759,7 +759,7 @@
                     <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
                     <div class="task-info">
                         <div class="task-title">[P2-PROC-17 ✔ &amp; Sourcing/FW] Exports production/ &amp; STEP générés — Pré-commande JLCPCB Carte_V2 (Firmware reporté)</div>
-                        <div class="task-desc">✅ <strong>Fait (11 Nov) :</strong> Packages <code>production/</code> (Gerbers <code>.zip</code>, Drill, <code>bom.csv</code>, <code>positions.csv</code>) des 3 PCB, BOM schémas, <code>Datasheet/V2/</code> et modèles <code>3D/Carte_V2.3f.step</code> &amp; <code>3D/Carte_Capteur_V2f.step</code> régénérés.<br>🟠 <strong>Avant paiement :</strong> Pré-commander sur JLCPCB les 7 refs <code>stk=0</code> de <code>Carte_V2</code> (<code>U2, FL1, ANT1, Y1, U4, Q3, M1</code>) + sécuriser <code>IC1=2, IC8=11</code> + cocher <strong>VIPPO</strong> (6 couches). <em>Firmware <code>STM32WB55VGYx</code> reporté après fab.</em></div>
+                        <div class="task-desc">✅ <strong>Fait (11-12 Nov) :</strong> Packages <code>production/</code> (Gerbers <code>.zip</code>, Drill, <code>bom.csv</code>, <code>positions.csv</code>) des 3 PCB, BOM schémas, <code>Datasheet/V2/</code> et modèles <code>3D/Carte_V2.3f.step</code> &amp; <code>3D/Carte_Capteur_V2f.step</code> régénérés (avec <code>U4 = AP9101CAK-ATTRG1</code> / <code>C5588142</code> en stock).<br>🟠 <strong>Avant paiement :</strong> Pré-commander sur JLCPCB les 6 refs <code>stk=0</code> de <code>Carte_V2</code> (<code>U2, FL1, ANT1, Y1, Q3, M1</code>) + sécuriser <code>IC1=2, IC8=4</code> + cocher <strong>VIPPO</strong> (6 couches). <em>Firmware <code>STM32WB55VGYx</code> reporté après fab.</em></div>
                         <div class="task-tags">
                             <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">Exports &amp; STEP OK ✔</span>
                             <span class="tag-pill tag-urgent">Pré-commande Carte_V2</span>

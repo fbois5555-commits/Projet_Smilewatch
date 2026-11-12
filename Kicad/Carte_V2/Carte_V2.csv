@@ -41,6 +41,6 @@
 "S1,S2","2","SKSLLAE010","","","","SKSLLAE010:SKSLLAE010","https://tech.alpsalpine.com/prod/e/html/tact/surfacemount/sksl/sksllae010.html","C139802"
 "TH1","1","10k NTC","","","","Resistor_SMD:R_0402_1005Metric","","C91636"
 "U2","1","STM32WB55VGYx","","","","Package_CSP:ST_WLCSP-100_4.4x4.38mm_Layout10x10_P0.4mm_Offcenter","https://www.st.com/resource/en/datasheet/stm32wb55vg.pdf","C1850399"
-"U4","1","AP9101CK-AZTRG1","","","","Package_TO_SOT_SMD:SOT-23-5","https://www.diodes.com/assets/Datasheets/AP9101C.pdf","C6465713"
+"U4","1","AP9101CAK-ATTRG1","","","","Package_TO_SOT_SMD:SOT-23-5","https://www.diodes.com/assets/Datasheets/AP9101C.pdf","C5588142"
 "Y1","1","ABM13W-32.0000MHZ-8-B1U-T5","","","","ABM13W320000MHZ8B1UT5:ABM13W320000MHZ8B1UT5","https://www.abracon.com/Resonators/ABM13W.pdf","C6455449"
 "Y2","1","ECS-.327-7-1210-TR","","","","ECS32771210TR:ECS32791210TR","https://www.ecsxtal.com/store/pdf/ECX-1210.pdf","C2450077"
