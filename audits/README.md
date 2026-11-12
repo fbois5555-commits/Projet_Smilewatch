@@ -29,7 +29,7 @@ La **SmileWatch** est une montre hybride conçue pour répondre à un cahier des
 | **Interface & Haptique**| I/O & Retours | Contrôleur haptique évolué **TI DRV2605L** + vibreur CMS **HD-EMB1204-SM** ; 2 boutons poussoirs tactiles latéraux étanches **Alps Alpine SKSLLAE010**. |
 | **Batterie & Autonomie**| Alimentation | Pile bouton rechargeable Li-Ion **LIR3048 (280 mAh, 3.7 V)** maintenue par contact latéral CMS Harwin (S1921-46R) et calage en mousse Poron. |
 | **Recharge** | Sans fil | Récepteur sans fil Qi **TI BQ51003** + bobine de réception Würth Elektronik (**760308101309**) + chargeur linéaire Li-Ion **TI BQ24040**. |
-| **Conversion d'énergie**| PMIC & Régulation | Convertisseur élévateur nanoPower **MAX17222** (+5V pour LEDs capteurs, inductance **1.0 µH** `MLP1005M1R0DT0S1`), LDOs +3.3V / +1.8V **TPS7A0233DBVR / TPS7A0218PDBVR** (25 nA), protection batterie **AP9101CAK-ATTRG1**. |
+| **Conversion d'énergie**| PMIC & Régulation | Convertisseur élévateur **TPS61023DRLR** (+5.0V pour LEDs capteurs, `R23/R24 = 150k/20k`, inductance **1.0 µH** `DFE18SBN1R0ME0L` `0603`), LDOs +3.3V / +1.8V **TPS7A0233DBVR / TPS7A0218PDBVR** (25 nA), protection batterie **AP9101CAK-ATTRG1** (`C5588142`). |
 | **Débogage & Flash** | Connectique | Empreinte **Tag-Connect TC2030-IDC-NL** (SWD 6 broches sans embase physique). |
 
 ---

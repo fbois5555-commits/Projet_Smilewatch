@@ -868,252 +868,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "MAX17222ELT+T:MAX17222ELT+T"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "IC"
-				(at 21.59 7.62 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Value" "MAX17222ELT+T"
-				(at 21.59 5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Footprint" "MAX17222ELTT"
-				(at 21.59 -94.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Datasheet" "https://www.analog.com/MAX17222/datasheet"
-				(at 21.59 -194.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Description" "Boost Switching Regulator IC Positive Adjustable 1.8V 1 Output 500mA (Switch) 6-WDFN"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Height" "0.8"
-				(at 21.59 -394.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Mouser Part Number" "700-MAX17222ELT+T"
-				(at 21.59 -494.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Analog-Devices-Maxim-Integrated/MAX17222ELT%2bT?qs=u4fy%2FsgLU9PcvsZj65z6yw%3D%3D"
-				(at 21.59 -594.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Manufacturer_Name" "Analog Devices"
-				(at 21.59 -694.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Manufacturer_Part_Number" "MAX17222ELT+T"
-				(at 21.59 -794.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(symbol "MAX17222ELT+T_1_1"
-				(rectangle
-					(start 5.08 2.54)
-					(end 20.32 -7.62)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at 0 0 0)
-					(length 5.08)
-					(name "OUT"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 0)
-					(length 5.08)
-					(name "LX"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -5.08 0)
-					(length 5.08)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 -5.08 180)
-					(length 5.08)
-					(name "SEL"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 -2.54 180)
-					(length 5.08)
-					(name "IN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 25.4 0 180)
-					(length 5.08)
-					(name "EN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "MAX30101EFD+T:MAX30101EFD+T"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1815,6 +1569,191 @@
 					(at -10.16 5.08 0)
 					(length 2.54)
 					(name "SDA"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "SmileWatch:TPS61023DRLR"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "IC"
+				(at 12.7 4.318 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TPS61023DRLR"
+				(at 12.7 6.35 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-563"
+				(at 12.7 -10.16 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps61023.pdf"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "3-A Boost Converter with 0.5-V Ultra-Low Input Voltage, SOT-563"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "TPS61023DRLR_1_1"
+				(rectangle
+					(start 5.08 2.54)
+					(end 20.32 -7.62)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin input line
+					(at 25.4 -5.08 180)
+					(length 5.08)
+					(name "FB"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 25.4 0 180)
+					(length 5.08)
+					(name "EN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 25.4 -2.54 180)
+					(length 5.08)
+					(name "VIN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -5.08 0)
+					(length 5.08)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 0)
+					(length 5.08)
+					(name "SW"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "VOUT"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2823,6 +2762,12 @@
 		(uuid "4fe33272-0c1b-46d1-acaf-40429d078cd6")
 	)
 	(junction
+		(at 101.6 46.99)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "50ee5a4f-d2fd-4f0b-a8f6-e7254d42014d")
+	)
+	(junction
 		(at 110.49 152.4)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2835,7 +2780,7 @@
 		(uuid "60d17042-dc2f-4d0d-98b2-092e3496dcd7")
 	)
 	(junction
-		(at 111.76 34.29)
+		(at 114.3 34.29)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "61273778-71f0-4078-b7ad-5ad174822c36")
@@ -2895,12 +2840,6 @@
 		(uuid "d68c4ea8-bab2-4aa0-b127-ad6a15f49d50")
 	)
 	(junction
-		(at 83.82 40.64)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e58354d6-adb2-4303-918b-f2500929641b")
-	)
-	(junction
 		(at 63.5 31.75)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2939,6 +2878,16 @@
 	(no_connect
 		(at 91.44 128.27)
 		(uuid "cf283671-d91b-483f-80c3-21f23cc260a0")
+	)
+	(wire
+		(pts
+			(xy 101.6 44.45) (xy 101.6 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "03749deb-daee-4f43-acac-292afa521006")
 	)
 	(wire
 		(pts
@@ -3002,7 +2951,7 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 40.64) (xy 111.76 43.18)
+			(xy 114.3 40.64) (xy 114.3 43.18)
 		)
 		(stroke
 			(width 0)
@@ -3019,6 +2968,16 @@
 			(type default)
 		)
 		(uuid "1d36d2e8-82e6-4207-97cb-6c19bc8db99d")
+	)
+	(wire
+		(pts
+			(xy 107.95 34.29) (xy 114.3 34.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1f203d9a-fa6a-45b6-966e-6ed01f333ddd")
 	)
 	(wire
 		(pts
@@ -3112,6 +3071,16 @@
 	)
 	(wire
 		(pts
+			(xy 101.6 53.34) (xy 101.6 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "431c7d99-dcca-4a39-8850-43c7f5d2f661")
+	)
+	(wire
+		(pts
 			(xy 105.41 173.99) (xy 140.97 173.99)
 		)
 		(stroke
@@ -3172,16 +3141,6 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 40.64) (xy 83.82 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "58cddbed-0965-4998-9c16-b86633b7d8ff")
-	)
-	(wire
-		(pts
 			(xy 140.97 173.99) (xy 156.21 173.99)
 		)
 		(stroke
@@ -3189,6 +3148,16 @@
 			(type default)
 		)
 		(uuid "5b276834-fd1f-4962-be6f-45b4d28af7ae")
+	)
+	(wire
+		(pts
+			(xy 101.6 38.1) (xy 101.6 39.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d2716d1-ac2a-4d9c-be64-f2d0ef7d1a65")
 	)
 	(wire
 		(pts
@@ -3202,7 +3171,7 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 43.18) (xy 83.82 40.64)
+			(xy 68.58 36.83) (xy 68.58 41.91)
 		)
 		(stroke
 			(width 0)
@@ -3239,6 +3208,16 @@
 			(type default)
 		)
 		(uuid "6cada7d3-47e3-4556-b713-c02e4acea7cd")
+	)
+	(wire
+		(pts
+			(xy 96.52 36.83) (xy 99.06 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6d682436-03f5-48a6-b5fb-936953ad19fb")
 	)
 	(wire
 		(pts
@@ -3332,6 +3311,16 @@
 	)
 	(wire
 		(pts
+			(xy 99.06 36.83) (xy 99.06 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7d41028e-0fb9-4e76-b5e3-891da93a3e1c")
+	)
+	(wire
+		(pts
 			(xy 90.17 151.13) (xy 90.17 152.4)
 		)
 		(stroke
@@ -3359,16 +3348,6 @@
 			(type default)
 		)
 		(uuid "8256a107-58bb-43e5-982d-d11ba52bd4f6")
-	)
-	(wire
-		(pts
-			(xy 99.06 40.64) (xy 99.06 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8442eebe-1419-44b7-9c17-2b081158947f")
 	)
 	(wire
 		(pts
@@ -3409,16 +3388,6 @@
 			(type default)
 		)
 		(uuid "8c7ab6fd-412e-4d26-adab-c41e71633a94")
-	)
-	(wire
-		(pts
-			(xy 83.82 40.64) (xy 99.06 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "90513047-3685-4f0d-a57b-87e34a66b722")
 	)
 	(wire
 		(pts
@@ -3522,26 +3491,6 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 36.83) (xy 68.58 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b0f151fb-7bdf-4b79-bf2a-9c733791ad8f")
-	)
-	(wire
-		(pts
-			(xy 99.06 36.83) (xy 96.52 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b1376397-ad8e-4804-b47c-a27d3ab29f8d")
-	)
-	(wire
-		(pts
 			(xy 80.01 74.93) (xy 87.63 74.93)
 		)
 		(stroke
@@ -3589,6 +3538,16 @@
 			(type default)
 		)
 		(uuid "c8fd51a7-efa9-4c65-9af7-656480c43cca")
+	)
+	(wire
+		(pts
+			(xy 99.06 46.99) (xy 101.6 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cab754a3-5227-47b2-bdb4-7795f2804ec2")
 	)
 	(wire
 		(pts
@@ -3712,16 +3671,6 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 34.29) (xy 111.76 34.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f013db3b-e8ee-407b-8998-32707b2d4d45")
-	)
-	(wire
-		(pts
 			(xy 134.62 104.14) (xy 134.62 105.41)
 		)
 		(stroke
@@ -3752,7 +3701,7 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 34.29) (xy 111.76 35.56)
+			(xy 114.3 34.29) (xy 114.3 35.56)
 		)
 		(stroke
 			(width 0)
@@ -3772,7 +3721,7 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 31.75) (xy 111.76 34.29)
+			(xy 114.3 31.75) (xy 114.3 34.29)
 		)
 		(stroke
 			(width 0)
@@ -4378,7 +4327,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 111.76 38.1 0)
+		(at 114.3 38.1 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4389,7 +4338,7 @@
 		(fields_autoplaced yes)
 		(uuid "13f9cbf6-deda-458b-9d58-294d0b2e56a6")
 		(property "Reference" "C18"
-			(at 114.3 36.8362 0)
+			(at 116.84 36.8362 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4400,7 +4349,7 @@
 			)
 		)
 		(property "Value" "10uF"
-			(at 114.3 39.3762 0)
+			(at 116.84 39.3762 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4411,7 +4360,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 111.76 38.1 0)
+			(at 114.3 38.1 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4422,7 +4371,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 111.76 38.1 0)
+			(at 114.3 38.1 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4433,7 +4382,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 111.76 38.1 0)
+			(at 114.3 38.1 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4444,7 +4393,7 @@
 			)
 		)
 		(property "JLCPCB Part#" "C96446"
-			(at 111.76 38.1 0)
+			(at 114.3 38.1 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4791,6 +4740,83 @@
 			(project "Carte_Capteur_V1"
 				(path "/997a9499-826b-4c4b-958b-836fac28207c"
 					(reference "#PWR036")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 101.6 38.1 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "39939de9-20bc-4f29-9729-b51e0abff198")
+		(property "Reference" "#PWR063"
+			(at 101.6 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 104.394 37.846 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 101.6 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 101.6 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 101.6 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3e910306-7e18-41de-b541-d5ee112120c5")
+		)
+		(instances
+			(project "Carte_Capteur_V1"
+				(path "/997a9499-826b-4c4b-958b-836fac28207c"
+					(reference "#PWR063")
 					(unit 1)
 				)
 			)
@@ -5173,7 +5199,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_0402_1005Metric"
+		(property "Footprint" "Inductor_SMD:L_0603_1608Metric"
 			(at 87.63 21.59 0)
 			(hide yes)
 			(show_name no)
@@ -5206,7 +5232,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C531284"
+		(property "JLCPCB Part#" "C882989"
 			(at 87.63 21.59 0)
 			(hide yes)
 			(show_name no)
@@ -5928,6 +5954,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 101.6 53.34 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "696f5a81-73c4-4a8f-aca9-688166df999a")
+		(property "Reference" "#PWR064"
+			(at 101.6 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 101.6 58.42 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 101.6 53.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 101.6 53.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 101.6 53.34 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "59435836-0c8d-47fb-8c70-eaf71d40ff39")
+		)
+		(instances
+			(project "Carte_Capteur_V1"
+				(path "/997a9499-826b-4c4b-958b-836fac28207c"
+					(reference "#PWR064")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Logic_LevelTranslator:TCA9517D")
 		(at 92.71 171.45 0)
 		(mirror y)
@@ -6040,6 +6144,99 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Small")
+		(at 101.6 49.53 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7c32a965-b241-4aad-90ef-6746d04d7d7b")
+		(property "Reference" "R24"
+			(at 104.14 48.26 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "20k"
+			(at 104.14 50.8 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 101.6 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 101.6 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 101.6 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "JLCPCB Part#" "C25765"
+			(at 101.6 49.53 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "0b565930-2962-4cad-bfef-bdcdd55d1f77")
+		)
+		(pin "1"
+			(uuid "bbcf2208-00f1-4f07-8968-b83de5c30c85")
+		)
+		(instances
+			(project "Carte_Capteur_V1"
+				(path "/997a9499-826b-4c4b-958b-836fac28207c"
+					(reference "R24")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 52.07 66.04 0)
 		(unit 1)
@@ -6119,7 +6316,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 111.76 31.75 0)
+		(at 114.3 31.75 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6130,7 +6327,7 @@
 		(fields_autoplaced yes)
 		(uuid "943620ae-0e59-4bd6-b195-0f88513a7340")
 		(property "Reference" "#PWR06"
-			(at 111.76 35.56 0)
+			(at 114.3 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6141,7 +6338,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 111.76 26.67 0)
+			(at 114.3 26.67 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6151,7 +6348,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 111.76 31.75 0)
+			(at 114.3 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6162,7 +6359,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 111.76 31.75 0)
+			(at 114.3 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6173,7 +6370,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 111.76 31.75 0)
+			(at 114.3 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6761,6 +6958,99 @@
 			(project "Carte_Capteur_V1"
 				(path "/997a9499-826b-4c4b-958b-836fac28207c"
 					(reference "#PWR09")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 101.6 41.91 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ada45f11-e6c1-4cf9-932c-e45a03c8117e")
+		(property "Reference" "R23"
+			(at 104.14 40.64 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "150k"
+			(at 104.14 43.18 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 101.6 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 101.6 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 101.6 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "JLCPCB Part#" "C25755"
+			(at 101.6 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "1de87aaf-341d-48f3-9027-ca0bf60880ec")
+		)
+		(pin "1"
+			(uuid "a5c11173-45ea-448a-9913-04992df62e79")
+		)
+		(instances
+			(project "Carte_Capteur_V1"
+				(path "/997a9499-826b-4c4b-958b-836fac28207c"
+					(reference "R23")
 					(unit 1)
 				)
 			)
@@ -7359,7 +7649,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 111.76 43.18 0)
+		(at 114.3 43.18 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7370,7 +7660,7 @@
 		(fields_autoplaced yes)
 		(uuid "d3ab46de-3779-4d80-9851-f7bd0a0a0d73")
 		(property "Reference" "#PWR023"
-			(at 111.76 49.53 0)
+			(at 114.3 49.53 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7381,7 +7671,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 111.76 48.26 0)
+			(at 114.3 48.26 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7391,7 +7681,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 111.76 43.18 0)
+			(at 114.3 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7402,7 +7692,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 111.76 43.18 0)
+			(at 114.3 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7413,7 +7703,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 111.76 43.18 0)
+			(at 114.3 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7607,7 +7897,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 83.82 43.18 0)
+		(at 68.58 41.91 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7618,7 +7908,7 @@
 		(fields_autoplaced yes)
 		(uuid "dc1e56d0-25fe-4676-a343-79c77c839b28")
 		(property "Reference" "#PWR025"
-			(at 83.82 49.53 0)
+			(at 68.58 48.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7629,7 +7919,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 83.82 48.26 0)
+			(at 68.58 46.99 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7639,7 +7929,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 83.82 43.18 0)
+			(at 68.58 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7650,7 +7940,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 83.82 43.18 0)
+			(at 68.58 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7661,7 +7951,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 83.82 43.18 0)
+			(at 68.58 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7762,7 +8052,7 @@
 		)
 	)
 	(symbol
-		(lib_id "MAX17222ELT+T:MAX17222ELT+T")
+		(lib_id "SmileWatch:TPS61023DRLR")
 		(at 71.12 31.75 0)
 		(unit 1)
 		(body_style 1)
@@ -7783,7 +8073,7 @@
 				)
 			)
 		)
-		(property "Value" "MAX17222ELT+T"
+		(property "Value" "TPS61023DRLR"
 			(at 83.82 26.67 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7793,8 +8083,8 @@
 				)
 			)
 		)
-		(property "Footprint" "MAX17222ELT+T:MAX17222ELTT"
-			(at 92.71 126.67 0)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-563"
+			(at 83.82 41.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7802,22 +8092,9 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left top)
 			)
 		)
-		(property "Datasheet" "https://www.analog.com/MAX17222/datasheet"
-			(at 92.71 226.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Description" "Boost Switching Regulator IC Positive Adjustable 1.8V 1 Output 500mA (Switch) 6-WDFN"
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tps61023.pdf"
 			(at 71.12 31.75 0)
 			(hide yes)
 			(show_name no)
@@ -7828,68 +8105,8 @@
 				)
 			)
 		)
-		(property "Height" "0.8"
-			(at 92.71 426.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Mouser Part Number" "700-MAX17222ELT+T"
-			(at 92.71 526.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Analog-Devices-Maxim-Integrated/MAX17222ELT%2bT?qs=u4fy%2FsgLU9PcvsZj65z6yw%3D%3D"
-			(at 92.71 626.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Manufacturer_Name" "Analog Devices"
-			(at 92.71 726.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Manufacturer_Part_Number" "MAX17222ELT+T"
-			(at 92.71 826.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "JLCPCB Part#" "C1121854"
-			(at 92.71 126.67 0)
+		(property "Description" "3-A Boost Converter with 0.5-V Ultra-Low Input Voltage, SOT-563"
+			(at 71.12 31.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7899,23 +8116,34 @@
 				)
 			)
 		)
-		(pin "5"
-			(uuid "c1bb92ec-6e3a-4caa-aab8-d8b507ae8c0d")
+		(property "JLCPCB Part#" "C919459"
+			(at 71.12 31.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
 		)
 		(pin "1"
-			(uuid "c459dfc5-ccf7-4234-a7e7-df6b55cc06ab")
-		)
-		(pin "4"
-			(uuid "7f594057-07d9-40a9-a3ed-2d5b4f8dfbab")
-		)
-		(pin "6"
-			(uuid "4c6b917d-1cdd-4f13-bfc9-93cd1d4851eb")
-		)
-		(pin "3"
-			(uuid "a0b33586-808b-4d89-b6a3-31ce830a1b43")
+			(uuid "63a27fcd-2bc0-4ffc-968f-7b2c89237c1e")
 		)
 		(pin "2"
-			(uuid "3541d99a-7e2c-4a1e-90e4-e2c9c07316fa")
+			(uuid "3f419a15-94cf-4e42-bcca-5020e426be34")
+		)
+		(pin "3"
+			(uuid "65fe960e-454f-4c54-8dfe-68d52e580ae3")
+		)
+		(pin "4"
+			(uuid "3dc25e58-0d09-47cb-829f-f33458ab6b33")
+		)
+		(pin "5"
+			(uuid "3dbc1d34-f0f1-4ea0-8e3f-5d09914322fe")
+		)
+		(pin "6"
+			(uuid "a76f3c76-6c4e-4155-b0bf-9008550bd44a")
 		)
 		(instances
 			(project "Carte_Capteur_V1"
