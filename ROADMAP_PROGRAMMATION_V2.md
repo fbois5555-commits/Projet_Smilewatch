@@ -6,7 +6,21 @@
 
 ---
 
-## 🌊 1. Test d'Étanchéité Sans Risque (Protocole "Montre Vide")
+## 🌊 1. Stratégie & Test d'Étanchéité Final (Atelier Horloger Parisien — Zéro Risque)
+
+> **Décision validée (13 Nov 2026) :** Aucun test destructif à blanc sur les composants uniques (seulement 2 verres minéraux et 2 jeux de capteurs). Assemblage direct et soigné des 2 montres complètes, puis passage en atelier horloger pour contrôle à sec.
+
+### Protocole Final de Qualification :
+1. **Assemblage complet des 2 montres :**
+   - Glace saphir chassée sur joint Hytrel/Téflon + poussoirs montés avec leurs micro-joints.
+   - Verre minéral 12 mm polymérisé sous lampe UV (cordon continu contrôlé à la loupe horlogère).
+   - Joint torique graissé (silicone horloger) et fond clipsé à la presse douce.
+2. **Contrôle à Sec en Boutique / Atelier Horloger à Paris :**
+   - **Appareil cible :** Testeur d'étanchéité par déformation à l'air sec (*Witschi Proofmaster* ou équivalent).
+   - **Principe :** Zéro goutte d'eau. La cloche mesure la micro-déformation sous pression d'air (3 à 5 bars).
+   - **Résultat :** 
+     - ✅ **Si Validé (3 à 5 ATM) :** Montre certifiée étanche pour la douche, la pluie et la piscine (mode natation activable en toute sécurité). Ticket de test officiel imprimé à annexer au rapport de projet.
+     - ⚠️ **Si Fuite détectée :** Zéro composant endommagé (seul de l'air est entré). La montre sera conservée comme prototype d'intérieur/sport terrestre (marche, course, muscu, sommeil) avec consigne formelle d'exclusion de la piscine.
 
 Pour tester l'étanchéité réelle du boîtier **sans jamais risquer de noyer l'électronique**, voici le protocole horloger standardisé :
 

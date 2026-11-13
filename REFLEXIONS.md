@@ -517,6 +517,7 @@ La carte fille capteurs (`Kicad/Carte_V2/Carte_Capteur_V2/Carte_Capteur_V1.kicad
 
 ## 📅 Point d'Étape & Prochaines Actions — 12 Novembre 2026 (GO USINE & Optimisation Calendrier)
 
+- [ ] **Test d'étanchéité final (Atelier horloger à Paris)** : Passage des 2 montres montées sur testeur à sec Witschi (mesure sans eau de la déformation sous air comprimé 3-5 bars) pour qualifier l'étanchéité sans danger avant tout usage aquatique (ticket de mesure à intégrer au rapport).
 1. **Approvisionnement Électronique (En cours JLCPCB)** :
    - ✅ **Pré-commande Parts validée (12 Nov)** : `U2` (STM32WB55), `FL1` (Filtre RF), `ANT1` (Antenne Johanson), `Y1` (Quartz 32 MHz), `Q3` (`DMN2028UFU-13` `C17388236`), `M1` (Vibreur).
    - ⏳ **Attente transit / In Stock** : Délai fournisseur estimé ~4 à 7 jours ouvrés.
