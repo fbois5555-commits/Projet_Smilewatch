@@ -38,7 +38,7 @@
     - L'atténuation supplémentaire liée à la proximité de la paroi d'acier flottante est de ~3 à 5 dB : la portée effective passe de ~10-15 m en champ libre à **~4 à 6 mètres**.
     - **Conclusion** : 4 à 6 m est largement suffisant pour une montre connectée (le smartphone étant au poignet, dans la poche ou sur le bureau à 1-2 m).
   - **Règle de routage impérative** : Conserver un dégagement maximal (au moins 1.0 à 1.5 mm de vide ou résine) entre l'antenne céramique et la paroi intérieure en acier pour limiter le désaccordage capacitif.
-- [ ] **Ligne 50 Ohms** : Valider l'adaptation d'impédance entre le filtre intégré MLPF-WB-02D3 et l'antenne en fonction du stackup PCB JLCPCB.
+- [x] **Ligne 50 Ohms (`14 Nov 2026`)** : Calculée sur le calculateur JLCPCB pour le stackup de base **`JLC06081H-7628`** (6 couches, `0,8 mm`, coplanaire `L1`/`F.Cu` référencée sur `L2`/`In1.Cu`) : largeur **`0,206 mm`**, espacement **`0,10 mm`**. Routée sur `F.Cu` (`U2.K4 → FL1 → Pi-network R21/R22/R24 → ANT1.4`, `ANT1` en `Pin 4 = FEED` / `Pin 1–3 = GND`) avec `In1.Cu` continu et vias de couture `GND`.
 
 ### Débogage & Signaux
 - [x] **DELs (LEDs) de débogage hardware : ABANDONNÉ / NON RETENU (Arbitrage encombrement)** :
@@ -54,14 +54,16 @@
   - **Sécurité** : La protection contre la saturation de la bobine est entièrement assurée par le firmware (timer matériel coupant l'impulsion motrice à 10–31.25 ms max et passage des GPIOs en haute impédance ou freinage dynamique LOW-LOW).
 - [ ] **Protections ESD** : Diodes TVS sur les lignes GPIO des boutons poussoirs tactiles exposés à la manipulation.
 
-### 🏁 Statut Carte Mère `Carte_V2` & Carte Capteurs `Carte_Capteur_V1` (Mise à jour 11 Novembre 2026)
-- **Routage 6 couches complet (`Carte_V2`)** : Stackup JLCPCB JLC06161H-3313 (Top, In1.Cu, In2.Cu, In3.Cu, In4.Cu, Bottom).
-- **Contrôles KiCad 10 propres (`11 Nov 2026`)** :
-  - `Carte_V2` : **ERC = 0 erreur (`63` warnings)** ; **DRC + parité schématique = 0 violation, 0 non connecté, 0 parité**.
+### 🏁 Statut Carte Mère `Carte_V2` & Carte Capteurs `Carte_Capteur_V1` (Mise à jour 14 Novembre 2026)
+- **Routage 6 couches complet (`Carte_V2`)** : Stackup JLCPCB **`JLC06081H-7628`** (`0,8 mm`, `F.Cu`, `In1.Cu`, `In2.Cu`, `In3.Cu`, `In4.Cu`, `B.Cu`).
+- **Mise à jour Empreintes, 3D & RF (`14 Nov 2026`)** :
+  - Chemins 3D `.step` corrigés dans `Smilewatch_V2_JLC.pretty` et `Carte_V2.kicad_pcb` (`ANT1`, `FL1`, `Y1`, `Q3`, `IC2`) + création de `LD-SM-430.step` (`4,0 × 11,0 × 3,6 mm`) pour `M1`.
+  - Keep-out `4,0 × 6,0 mm` 6 couches intégrée à `ANT1` (`0` via dans la zone, un coin à `0,35 mm` hors `Edge.Cuts`, `BT1` hors zone active), ligne `50 Ω` coplanaire (`0,206 mm` / jeu `0,10 mm`) routée avec `In1.Cu` continu sous toute la chaîne RF.
+- **Contrôles KiCad 10 précédents (`11 Nov 2026`)** :
+  - `Carte_V2` : **ERC = 0 erreur (`63` warnings)** ; **DRC + parité schématique = 0 violation, 0 non connecté, 0 parité**. *(À re-confirmer dans KiCad 10 après le routage final du 14/11.)*
   - `Carte_Capteur_V1` : **ERC = 0 erreur (`10` warnings)** ; **DRC + parité schématique = 0 violation, 0 non connecté, 0 parité**.
   - `Cadran` : **DRC + parité = 0 erreur**, 0 non connecté (`55` warnings `silk_edge_clearance` liés aux index en bordure).
-- **Correctifs RF & BOM passifs appliqués (`11 Nov 2026`)** : `R21 = DNP`, `R24 = DNP`, `Keep out area` `ANT1` sur les 6 couches, quartz `Y1` passé en `8 pF` (`ABM13W-32.0000MHZ-8-B1U-T5`, `C36/C50 = 12 pF C0G`), et tous les `JLCPCB Part#` passifs assainis (*compromis noté sur `C0G2_50V1` : X7R 50V `C76621` en `0603` faute de C0G 330 nF disponible dans ce boîtier*).
-- **Prochaine étape** : Pause documentation terminée — revue indépendante complète par **Argon** et autres IA pour comparaison avant verrouillage mécanique (`P0-MECA-6/7`, `P1-MECA-9/10`), sourcing des ruptures JLCPCB et export Gerbers/STEP.
+- **Prochaine étape** : Export `.step` de `Carte_V2` pour vérification mécanique de la carrure (+`0,5 mm` éventuel), contrôle final ERC/DRC sous KiCad 10, puis régénération des Gerbers / Drill / BOM / CPL JLCPCB et pré-commande des composants en rupture.
 - [ ] **Résistances de tirage I2C (Pull-ups)** : Vérifier la valeur résultante des pull-ups sur le bus partagé après permutation `U3` (`OLED`, `TMP117`, `MAX30101`, `LSM6DSOX`, `VEML6030`, `DRV2605L`).
 
 ---
