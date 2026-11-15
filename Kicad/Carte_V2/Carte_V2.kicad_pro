@@ -554,7 +554,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../../3D/Carte_V2.3f.step",
+      "step": "../../3D/Carte_V2.4f.step",
       "svg": "",
       "vrml": ""
     },
@@ -740,7 +740,7 @@
         "uuid": "e4efabaa-8f8a-45c1-9ca2-024a812f83b7"
       }
     ],
-    "used_designators": "#PWR56,#PWR59-61,#PWR70,TP8,C22,C56,#FLG4-5,#FLG9,R25-26",
+    "used_designators": "#PWR56,#PWR59-61,#PWR70,#PWR72,TP8,C22,C56,#FLG4-5,#FLG9,R25-26,R28",
     "variants": []
   },
   "sheets": [

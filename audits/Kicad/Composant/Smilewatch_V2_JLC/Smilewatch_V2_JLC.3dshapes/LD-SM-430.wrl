@@ -1,0 +1,39 @@
+#VRML V2.0 utf8
+# LD-SM-430 SMT Vibrator Motor (4.0 x 11.0 x 3.6 mm envelope, per datasheet rev.01 p.4 & p.12)
+# Units: KiCad VRML (1 unit = 2.54 mm), Y_vrml = -Y_kicad
+
+Transform {
+  translation 0.0 -0.350394 0.708661
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.72 0.74 0.77
+          specularColor 0.4 0.4 0.4
+          shininess 0.4
+        }
+      }
+      geometry Box {
+        size 1.574803 2.755906 1.417323
+      }
+    }
+  ]
+}
+
+Transform {
+  translation 0.0 -2.515748 0.708661
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0.35 0.36 0.40
+          specularColor 0.5 0.5 0.5
+          shininess 0.5
+        }
+      }
+      geometry Box {
+        size 1.417323 1.574803 1.417323
+      }
+    }
+  ]
+}

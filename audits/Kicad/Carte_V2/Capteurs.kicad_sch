@@ -1224,6 +1224,12 @@
 		(uuid "89ab8fd5-3c6b-41e5-8178-e94b581a7c4e")
 	)
 	(junction
+		(at 193.04 109.22)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8ba5fa7f-b41b-4af8-bf80-9ee51a324251")
+	)
+	(junction
 		(at 195.58 101.6)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1262,6 +1268,16 @@
 			(type default)
 		)
 		(uuid "0a318cb2-ba64-4edf-9eb7-5f5849e23391")
+	)
+	(wire
+		(pts
+			(xy 193.04 109.22) (xy 195.58 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "139c83a0-3c03-4d32-b584-c99430edaa1b")
 	)
 	(wire
 		(pts
@@ -1345,6 +1361,16 @@
 	)
 	(wire
 		(pts
+			(xy 191.77 109.22) (xy 193.04 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "40905bd9-89b6-4e8f-9c6a-4b2a65781e38")
+	)
+	(wire
+		(pts
 			(xy 262.89 40.64) (xy 262.89 43.18)
 		)
 		(stroke
@@ -1422,6 +1448,16 @@
 			(type default)
 		)
 		(uuid "82817042-c354-46d2-8184-c77d27210223")
+	)
+	(wire
+		(pts
+			(xy 193.04 118.11) (xy 193.04 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8acdb05f-089e-45f4-abae-2b19391958a2")
 	)
 	(wire
 		(pts
@@ -1575,6 +1611,16 @@
 	)
 	(wire
 		(pts
+			(xy 193.04 109.22) (xy 193.04 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dfde66af-fdc1-47fd-960d-cf3475ea9fb3")
+	)
+	(wire
+		(pts
 			(xy 182.88 102.87) (xy 182.88 101.6)
 		)
 		(stroke
@@ -1701,7 +1747,7 @@
 	)
 	(hierarchical_label "INTPA"
 		(shape input)
-		(at 195.58 109.22 180)
+		(at 191.77 109.22 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3413,6 +3459,84 @@
 	)
 	(symbol
 		(lib_id "power:GND")
+		(at 193.04 120.65 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9291acde-f688-492f-a6bc-18f278e552ba")
+		(property "Reference" "#PWR072"
+			(at 193.04 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 193.04 125.73 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 193.04 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 193.04 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5c2fc673-28d4-4121-be1b-3aadab0b993e")
+		)
+		(instances
+			(project "Carte_V2"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/3752ffc6-cb5b-455d-84da-35df72ee3e67"
+					(reference "#PWR072")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
 		(at 259.08 118.11 0)
 		(unit 1)
 		(body_style 1)
@@ -3484,6 +3608,99 @@
 			(project "Carte_V2"
 				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/3752ffc6-cb5b-455d-84da-35df72ee3e67"
 					(reference "#PWR048")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 193.04 115.57 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b3e640c3-c7db-4851-8198-ec1ae44df067")
+		(property "Reference" "R28"
+			(at 190.5 114.2999 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4k7 Ohm"
+			(at 190.5 116.8399 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 193.04 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 193.04 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "JLCPCB Part#" "C25900"
+			(at 193.04 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "cafc0a24-9c69-4b68-89f1-2c2472ed7955")
+		)
+		(pin "1"
+			(uuid "b6694f6d-91fa-49ad-9434-1112af302d5e")
+		)
+		(instances
+			(project "Carte_V2"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/3752ffc6-cb5b-455d-84da-35df72ee3e67"
+					(reference "R28")
 					(unit 1)
 				)
 			)

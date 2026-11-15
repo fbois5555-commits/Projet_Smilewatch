@@ -2645,6 +2645,524 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Smilewatch_V2_JLC:FS8205A_C2830320"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "Q"
+				(at 0 7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "FS8205A_C2830320"
+				(at 0 -7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Smilewatch_V2_JLC:SOT-23-6_L2.9-W1.6-P0.95-LS2.8-BR"
+				(at 0 -10.16 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/C2830320.pdf"
+				(at 0 -12.7 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "TECH PUBLIC(台舟)"
+				(at 0 -15.24 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "FS8205A"
+				(at 0 -17.78 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC Part" "C2830320"
+				(at 0 -20.32 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "MOSFETs"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "FS8205A_C2830320_0_1"
+				(rectangle
+					(start -10.16 5.08)
+					(end 10.16 -5.08)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(circle
+					(center -8.89 3.81)
+					(radius 0.38)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin unspecified line
+					(at -12.7 2.54 0)
+					(length 2.54)
+					(name "S1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at -12.7 0 0)
+					(length 2.54)
+					(name "D1/D2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at -12.7 -2.54 0)
+					(length 2.54)
+					(name "S2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 12.7 -2.54 180)
+					(length 2.54)
+					(name "G2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 12.7 0 180)
+					(length 2.54)
+					(name "D1/D2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 12.7 2.54 180)
+					(length 2.54)
+					(name "G1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Smilewatch_V2_JLC:TPM20V6NLS3"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "Q"
+				(at 0 10.16 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TPM20V6NLS3"
+				(at 0 -10.16 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Smilewatch_V2_JLC:SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR"
+				(at 0 -12.7 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/C5182059.pdf"
+				(at 0 -15.24 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "TECH PUBLIC(台舟)"
+				(at 0 -17.78 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "TPM20V6NLS3"
+				(at 0 -20.32 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC Part" "C5182059"
+				(at 0 -22.86 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "MOSFETs"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "TPM20V6NLS3_0_1"
+				(polyline
+					(pts
+						(xy -1.78 2.29) (xy -1.78 -2.29)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 2.29) (xy -1.27 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 1.78) (xy 1.27 1.78) (xy 1.27 2.54) (xy 3.81 2.54) (xy 3.81 0.51)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 0) (xy 0.25 -0.51) (xy 0.25 0.51) (xy -1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 0) (xy 1.27 0) (xy 1.27 -2.54) (xy 3.81 -2.54) (xy 3.81 -0.76)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -0.51) (xy -1.27 0.51)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -2.29) (xy -1.27 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -1.78) (xy -1.27 -1.78)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.96 0.57) (xy 4.59 0.57)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.81 0.51) (xy 3.05 -0.76) (xy 4.57 -0.76) (xy 3.81 0.51)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin unspecified line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "G"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 1.27 -5.08 90)
+					(length 2.54)
+					(name "S"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 1.27 5.08 270)
+					(length 2.54)
+					(name "D"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:+1V8"
 			(power global)
 			(pin_numbers
@@ -3809,16 +4327,20 @@
 		(uuid "4012cf9b-ea0a-474a-ba35-daa32b7fe0b8")
 	)
 	(no_connect
+		(at 152.4 163.83)
+		(uuid "7c0d1266-c02e-4c4f-b2a1-d16eb74ec97d")
+	)
+	(no_connect
 		(at 115.57 50.8)
 		(uuid "88a9c7f1-89c8-4d58-9ce4-c74d2ff578b1")
 	)
 	(no_connect
-		(at 152.4 163.83)
-		(uuid "8d5d2845-a676-4c70-8c42-77209cd02c96")
-	)
-	(no_connect
 		(at 115.57 48.26)
 		(uuid "b4e7a70d-463b-46a3-bfa2-153b0fefb1e6")
+	)
+	(no_connect
+		(at 127 163.83)
+		(uuid "b9318641-16cc-4e0a-a997-7287d038c6e8")
 	)
 	(wire
 		(pts
@@ -4302,6 +4824,16 @@
 	)
 	(wire
 		(pts
+			(xy 125.73 161.29) (xy 125.73 163.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4a17ce7c-ccc3-4540-9c53-156b004d1c88")
+	)
+	(wire
+		(pts
 			(xy 127 45.72) (xy 127 49.53)
 		)
 		(stroke
@@ -4319,6 +4851,16 @@
 			(type default)
 		)
 		(uuid "50082f78-0872-45fa-ba96-fd4a14b1d643")
+	)
+	(wire
+		(pts
+			(xy 152.4 166.37) (xy 153.67 166.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "502bcb65-1d7b-4635-a87a-b18505d3b567")
 	)
 	(wire
 		(pts
@@ -4462,7 +5004,17 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 157.48) (xy 124.46 157.48)
+			(xy 127 161.29) (xy 125.73 161.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6a711b0a-1342-4689-8a8b-7cfc8e77bc15")
+	)
+	(wire
+		(pts
+			(xy 106.68 157.48) (xy 152.4 157.48)
 		)
 		(stroke
 			(width 0)
@@ -4599,6 +5151,16 @@
 			(type default)
 		)
 		(uuid "818c7a74-ad75-49d1-8f19-0b3347fc35e7")
+	)
+	(wire
+		(pts
+			(xy 153.67 166.37) (xy 153.67 161.29)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "81dd5eee-8ad0-424e-a5e0-82744d65284c")
 	)
 	(wire
 		(pts
@@ -4892,7 +5454,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 166.37) (xy 124.46 166.37)
+			(xy 121.92 166.37) (xy 127 166.37)
 		)
 		(stroke
 			(width 0)
@@ -4929,16 +5491,6 @@
 			(type default)
 		)
 		(uuid "ad94b675-2b62-4004-92fc-5f129447b1bf")
-	)
-	(wire
-		(pts
-			(xy 124.46 157.48) (xy 124.46 161.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b03da628-7c87-44f6-ba88-a79f203822b4")
 	)
 	(wire
 		(pts
@@ -5029,6 +5581,16 @@
 			(type default)
 		)
 		(uuid "bb71a832-400a-4636-bd46-a3e79914efc9")
+	)
+	(wire
+		(pts
+			(xy 152.4 161.29) (xy 152.4 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bc193e5f-cbf9-4d04-8540-674929545977")
 	)
 	(wire
 		(pts
@@ -5222,7 +5784,7 @@
 	)
 	(wire
 		(pts
-			(xy 72.39 163.83) (xy 124.46 163.83)
+			(xy 72.39 163.83) (xy 125.73 163.83)
 		)
 		(stroke
 			(width 0)
@@ -5482,7 +6044,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 161.29) (xy 152.4 161.29)
+			(xy 166.37 161.29) (xy 153.67 161.29)
 		)
 		(stroke
 			(width 0)
@@ -7046,168 +7608,6 @@
 		)
 	)
 	(symbol
-		(lib_id "DMN2028UFU-13:DMN2028UFU-13")
-		(at 124.46 161.29 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2a3a960e-2980-46d1-bc30-3bd645f654fa")
-		(property "Reference" "Q3"
-			(at 138.43 153.67 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "DMN2028UFU-13"
-			(at 138.43 156.21 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "DMN2028UFU-13:DMN2028UFU7"
-			(at 148.59 256.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/DMN2028UFU.pdf"
-			(at 148.59 356.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Description" "MOSFET N-Ch Enh Mode FET 20Vdss 10Vgss 40A"
-			(at 124.46 161.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Height" "0.65"
-			(at 148.59 556.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Mouser Part Number" "621-DMN2028UFU-13"
-			(at 148.59 656.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Diodes-Incorporated/DMN2028UFU-13?qs=MNIFWdyJgboGsRP6KB2Mmw%3D%3D"
-			(at 148.59 756.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Manufacturer_Name" "Diodes Incorporated"
-			(at 148.59 856.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Manufacturer_Part_Number" "DMN2028UFU-13"
-			(at 148.59 956.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "JLCPCB Part#" "C17388236"
-			(at 124.46 161.29 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "4"
-			(uuid "7017714d-2100-4190-a22b-2ca117d02886")
-		)
-		(pin "3"
-			(uuid "39db268a-7adc-4599-bc0c-8d5af1a31359")
-		)
-		(pin "5"
-			(uuid "b0d0bf4d-7372-4fa3-bf65-15cb3e83e1bd")
-		)
-		(pin "7"
-			(uuid "de23f4ef-3503-4284-b42c-24314ee4d31d")
-		)
-		(pin "1"
-			(uuid "e7363bf1-261d-4aec-889b-a3b0ac163511")
-		)
-		(instances
-			(project "Carte_V2"
-				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f511e4ac-6fe9-4198-b162-5d283554f9eb"
-					(reference "Q3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_Small")
 		(at 127 55.88 0)
 		(unit 1)
@@ -8391,7 +8791,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SON:WSON-10-1EP_2.5x2.5mm_P0.5mm_EP1.2x2mm_ThermalVias"
+		(property "Footprint" "Smilewatch_V2_JLC:WSON-10_L2.0-W2.0-P0.40-BL-EP"
 			(at 223.52 131.75 0)
 			(hide yes)
 			(show_name no)
@@ -9243,6 +9643,109 @@
 			(project "Carte_V2"
 				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f511e4ac-6fe9-4198-b162-5d283554f9eb"
 					(reference "C14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Smilewatch_V2_JLC:FS8205A_C2830320")
+		(at 139.7 163.83 0)
+		(mirror y)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7d64d239-d084-4336-9b1f-3ba496cb065d")
+		(property "Reference" "Q3"
+			(at 139.7 154.94 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "FS8205A"
+			(at 139.7 171.45 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Smilewatch_V2_JLC:SOT-23-6_L2.9-W1.6-P0.95-LS2.8-BR"
+			(at 139.7 163.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2830320.pdf"
+			(at 139.7 163.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 139.7 163.83 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2830320"
+			(at 139.7 163.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5f8654ed-412c-4a8c-ab68-c2470d76be27")
+		)
+		(pin "2"
+			(uuid "d8676724-20e3-4584-ba39-2da3727355f0")
+		)
+		(pin "3"
+			(uuid "42d018a7-e4a5-4e1c-94d6-925a8809b0f0")
+		)
+		(pin "4"
+			(uuid "3ad2eec1-6734-4ee4-890d-0fcf5a0fcf06")
+		)
+		(pin "5"
+			(uuid "1cb9d523-df43-48a9-9086-d312b0fb365c")
+		)
+		(pin "6"
+			(uuid "532c6e6e-ae75-4fc2-a0e7-f89b8becb546")
+		)
+		(instances
+			(project "Carte_V2"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f511e4ac-6fe9-4198-b162-5d283554f9eb"
+					(reference "Q3")
 					(unit 1)
 				)
 			)

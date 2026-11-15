@@ -5,413 +5,6 @@
 	(uuid "e1d17b0f-c783-4ed6-8411-5b039557e7d7")
 	(paper "A4")
 	(lib_symbols
-		(symbol "2450AT07A0100001T:2450AT07A0100001T"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "ANT"
-				(at 29.21 7.62 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Value" "2450AT07A0100001T"
-				(at 29.21 5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Footprint" "2450AT07A0100001T"
-				(at 29.21 -94.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Datasheet" "https://www.johansontechnology.com/docs/4417/Antenna-2450AT07A0100001T.pdf"
-				(at 29.21 -194.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Description" "RF ANT 2.4GHZ CHIP SOLDER SMD 2.44 GHz RF Chip Antenna HEIGHT-0.37"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Height" "0.37"
-				(at 29.21 -394.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Mouser Part Number" "609-2450AT07A0100001"
-				(at 29.21 -494.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Johanson-Technology/2450AT07A0100001T?qs=jRuttqqUwMTp3VGKP6FABg%3D%3D"
-				(at 29.21 -594.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Manufacturer_Name" "JOHANSON TECHNOLOGY"
-				(at 29.21 -694.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Manufacturer_Part_Number" "2450AT07A0100001T"
-				(at 29.21 -794.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(symbol "2450AT07A0100001T_1_1"
-				(rectangle
-					(start 5.08 2.54)
-					(end 27.94 -5.08)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at 33.02 -2.54 180)
-					(length 5.08)
-					(name "FEED_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 33.02 0 180)
-					(length 5.08)
-					(name "GND_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 0 0)
-					(length 5.08)
-					(name "GND_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 0)
-					(length 5.08)
-					(name "FEED_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "ABM13W-32.0000MHZ-8-B1U-T5:ABM13W-32.0000MHZ-8-B1U-T5"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "Y"
-				(at 34.29 7.62 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Value" "ABM13W-32.0000MHZ-8-B1U-T5"
-				(at 34.29 5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Footprint" "ABM13W320000MHZ8B1UT5:ABM13W320000MHZ8B1UT5"
-				(at 34.29 -94.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Datasheet" "https://www.abracon.com/Resonators/ABM13W.pdf"
-				(at 34.29 -194.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Description" "Crystal 32.0000MHz +/-10ppm 8pF 100 Ohm Fundamental -20 C 70 C Surface Mount 4-SMD No Lead (1.20mm x 1.00mm x 0.33mm)"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Height" "0.33"
-				(at 34.29 -394.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Manufacturer_Name" "Abracon"
-				(at 34.29 -694.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Manufacturer_Part_Number" "ABM13W-32.0000MHZ-8-B1U-T5"
-				(at 34.29 -794.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "JLCPCB Part#" "C6455449"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "ABM13W-32.0000MHZ-8-B1U-T5_1_1"
-				(rectangle
-					(start 5.08 2.54)
-					(end 33.02 -5.08)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 0)
-					(length 5.08)
-					(name "IN/OUT"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 38.1 -2.54 180)
-					(length 5.08)
-					(name "GND_&_LID"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 38.1 0 180)
-					(length 5.08)
-					(name "OUT/IN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin no_connect line
-					(at 0 0 0)
-					(length 5.08)
-					(name "NC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Connector:Conn_ARM_SWD_TagConnect_TC2030"
 			(exclude_from_sim no)
 			(in_bom no)
@@ -3719,252 +3312,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "MLPF-WB-02D3:MLPF-WB-02D3"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "FL"
-				(at 24.13 7.62 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Value" "MLPF-WB-02D3"
-				(at 24.13 5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Footprint" "CSPG_2025"
-				(at 24.13 -94.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Datasheet" "https://www.st.com/resource/en/datasheet/mlpf-wb-02d3.pdf"
-				(at 24.13 -194.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Description" "2.4 GHz low pass filter matched to STM32WB5x and STM32WB1x in WLCSP and UFBGA packages"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Height" ""
-				(at 24.13 -394.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Mouser Part Number" "511-MLPF-WB-02D3"
-				(at 24.13 -494.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/STMicroelectronics/MLPF-WB-02D3?qs=T%252BzbugeAwjhlflKeEN03Bg%3D%3D"
-				(at 24.13 -594.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Manufacturer_Name" "STMicroelectronics"
-				(at 24.13 -694.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Manufacturer_Part_Number" "MLPF-WB-02D3"
-				(at 24.13 -794.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(symbol "MLPF-WB-02D3_1_1"
-				(rectangle
-					(start 5.08 2.54)
-					(end 22.86 -7.62)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at 0 0 0)
-					(length 5.08)
-					(name "OUT"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 0)
-					(length 5.08)
-					(name "GND4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -5.08 0)
-					(length 5.08)
-					(name "IN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 27.94 0 180)
-					(length 5.08)
-					(name "GND3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 27.94 -2.54 180)
-					(length 5.08)
-					(name "GND2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 27.94 -5.08 180)
-					(length 5.08)
-					(name "GND1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "SKSLLAE010:SKSLLAE010"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -4165,6 +3512,731 @@
 						)
 					)
 					(number "MP2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Smilewatch_V2_JLC:2450AT18D0100002E"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "L"
+				(at 0 6.35 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "2450AT18D0100002E"
+				(at 0 -6.35 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Smilewatch_V2_JLC:ANT-SMD_4P-L3.2-W1.6"
+				(at 0 -8.89 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/C17410360.pdf"
+				(at 0 -11.43 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "JOHANSON(约翰逊)"
+				(at 0 -13.97 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "2450AT18D0100002E"
+				(at 0 -16.51 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC Part" "C17410360"
+				(at 0 -19.05 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "2450AT18D0100002E_0_1"
+				(rectangle
+					(start -7.62 3.81)
+					(end 7.62 -3.81)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(circle
+					(center -6.35 2.54)
+					(radius 0.38)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin unspecified line
+					(at -10.16 1.27 0)
+					(length 2.54)
+					(name "FEED"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at -10.16 -1.27 0)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 10.16 -1.27 180)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 10.16 1.27 180)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Smilewatch_V2_JLC:MLPF-WB55-02E3"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "FL"
+				(at 0 7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MLPF-WB55-02E3"
+				(at 0 -7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Smilewatch_V2_JLC:FILTER-SMD_6P-L1.6-W1.0-P0.50-BL"
+				(at 0 -10.16 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://www.lcsc.com/datasheet/C1855732.pdf"
+				(at 0 -12.7 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "ST(意法半导体)"
+				(at 0 -15.24 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "MLPF-WB55-02E3"
+				(at 0 -17.78 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC Part" "C1855732"
+				(at 0 -20.32 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "RF Filters"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "MLPF-WB55-02E3_0_1"
+				(rectangle
+					(start -8.89 5.08)
+					(end 8.89 -5.08)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(circle
+					(center -7.62 3.81)
+					(radius 0.38)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin unspecified line
+					(at -11.43 2.54 0)
+					(length 2.54)
+					(name "OUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at -11.43 0 0)
+					(length 2.54)
+					(name "GND4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at -11.43 -2.54 0)
+					(length 2.54)
+					(name "IN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 11.43 -2.54 180)
+					(length 2.54)
+					(name "GND1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 11.43 0 180)
+					(length 2.54)
+					(name "GND2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 11.43 2.54 180)
+					(length 2.54)
+					(name "GND3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Smilewatch_V2_JLC:X1C032000B81H-HU"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "X"
+				(at 0 7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "X1C032000B81H-HU"
+				(at 0 -7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Smilewatch_V2_JLC:OSC-SMD_4P-L1.6-W1.2-BL"
+				(at 0 -10.16 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "https://lcsc.com/product-detail/New-Arrivals_Harmony-Elec-X1C032000B81H-HU_C254218.html"
+				(at 0 -12.7 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Manufacturer" "HELE(台湾加高)"
+				(at 0 -15.24 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "MPN" "X1C032000B81H-HU"
+				(at 0 -17.78 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "LCSC Part" "C254218"
+				(at 0 -20.32 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "Crystals"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "X1C032000B81H-HU_0_1"
+				(rectangle
+					(start -5.08 5.08)
+					(end 5.08 -5.08)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.08 -2.54) (xy -2.54 -2.54) (xy -2.54 0) (xy -1.52 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -1.02) (xy -1.27 1.02)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -1.78) (xy -1.27 1.78)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.76 -1.78) (xy -0.76 1.78) (xy 0.76 1.78) (xy 0.76 -1.78)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.76 1.78) (xy 0.76 -1.78) (xy -0.76 -1.78) (xy -0.76 1.78) (xy 0.76 1.78)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.76 -1.78) (xy -0.76 -1.78)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -1.02) (xy 1.27 1.02)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -1.78) (xy 1.27 1.78)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 2.54 2.54) (xy 2.54 0) (xy 1.52 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin unspecified line
+					(at -7.62 -2.54 0)
+					(length 2.54)
+					(name "OSC1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 7.62 -2.54 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 7.62 2.54 180)
+					(length 2.54)
+					(name "OSC2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at -7.62 2.54 0)
+					(length 2.54)
+					(name "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4799,6 +4871,18 @@
 		(uuid "831b51d1-1f9b-4425-81b2-68a3ece9d036")
 	)
 	(junction
+		(at 43.18 167.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "88999c12-6038-4482-8c77-118a7c4598cb")
+	)
+	(junction
+		(at 39.37 104.14)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8a2ead88-8e13-40d7-8515-023e985fb24d")
+	)
+	(junction
 		(at 33.02 20.32)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4811,16 +4895,16 @@
 		(uuid "8eea2455-01b2-4f63-977f-86514a8f58c3")
 	)
 	(junction
-		(at 49.53 170.18)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8f57e5c0-5dbe-48f8-b31a-161bcb6f4923")
-	)
-	(junction
 		(at 135.89 172.72)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "91a2871f-4e77-4a45-82fe-4d9b4f7e74ab")
+	)
+	(junction
+		(at 64.77 99.06)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "931e8945-b494-4c2a-be8a-9df7455af40d")
 	)
 	(junction
 		(at 77.47 20.32)
@@ -4895,12 +4979,6 @@
 		(uuid "d0c463bb-8506-427b-b2e5-fa98e28c77f4")
 	)
 	(junction
-		(at 48.26 170.18)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d3e3962a-4713-4298-8790-9aeeab56d09e")
-	)
-	(junction
 		(at 130.81 185.42)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4947,6 +5025,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f98e892a-73be-4006-8b8d-d8d7ced255b7")
+	)
+	(junction
+		(at 49.53 173.99)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fadd832d-eae4-48f7-89aa-978b09f39886")
 	)
 	(junction
 		(at 138.43 22.86)
@@ -5204,7 +5288,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 185.42) (xy 99.06 185.42)
+			(xy 93.98 185.42) (xy 104.14 185.42)
 		)
 		(stroke
 			(width 0)
@@ -5241,6 +5325,16 @@
 			(type default)
 		)
 		(uuid "0cda7ec5-327c-4d96-9429-4d1d1611a2a4")
+	)
+	(wire
+		(pts
+			(xy 41.91 167.64) (xy 43.18 167.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "12a18265-a8c2-4db3-9a3d-f9b08bfd29fc")
 	)
 	(wire
 		(pts
@@ -5294,6 +5388,16 @@
 	)
 	(wire
 		(pts
+			(xy 43.18 167.64) (xy 48.26 167.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1d643359-8c8e-459a-85eb-1f8e6ad81584")
+	)
+	(wire
+		(pts
 			(xy 259.08 107.95) (xy 274.32 107.95)
 		)
 		(stroke
@@ -5311,6 +5415,16 @@
 			(type default)
 		)
 		(uuid "20e4a9d2-3c89-418e-8d0f-70a984d09a88")
+	)
+	(wire
+		(pts
+			(xy 64.77 99.06) (xy 67.31 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "219b652f-670b-4acf-b47b-bc998af83110")
 	)
 	(wire
 		(pts
@@ -5351,6 +5465,16 @@
 			(type default)
 		)
 		(uuid "245b76c2-6043-45bf-8847-0e91c849097b")
+	)
+	(wire
+		(pts
+			(xy 33.02 100.33) (xy 33.02 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "25cafde2-90a6-4aec-bce9-9961aea48f9a")
 	)
 	(wire
 		(pts
@@ -5454,13 +5578,23 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 170.18) (xy 49.53 175.26)
+			(xy 49.53 170.18) (xy 49.53 173.99)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "32559ae9-020a-4652-bb1f-5663e184795c")
+	)
+	(wire
+		(pts
+			(xy 19.05 167.64) (xy 21.59 167.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32b9f2a6-38f4-4a94-86ea-74089908ec44")
 	)
 	(wire
 		(pts
@@ -5514,7 +5648,17 @@
 	)
 	(wire
 		(pts
-			(xy 25.4 106.68) (xy 35.56 106.68)
+			(xy 39.37 104.14) (xy 48.26 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3b0da410-64bd-4660-9a67-e487ff1ed423")
+	)
+	(wire
+		(pts
+			(xy 38.1 104.14) (xy 39.37 104.14)
 		)
 		(stroke
 			(width 0)
@@ -5534,7 +5678,7 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 104.14) (xy 77.47 104.14)
+			(xy 63.5 99.06) (xy 64.77 99.06)
 		)
 		(stroke
 			(width 0)
@@ -5584,16 +5728,6 @@
 	)
 	(wire
 		(pts
-			(xy 15.24 173.99) (xy 15.24 170.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "435a9958-7dd4-40e7-a7a2-2a565b98cda7")
-	)
-	(wire
-		(pts
 			(xy 140.97 172.72) (xy 140.97 171.45)
 		)
 		(stroke
@@ -5601,16 +5735,6 @@
 			(type default)
 		)
 		(uuid "43fcd38f-185b-42ed-9aa1-fdcade6d986f")
-	)
-	(wire
-		(pts
-			(xy 15.24 173.99) (xy 48.26 173.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "451d89d2-c212-42fe-9530-9d7681410916")
 	)
 	(wire
 		(pts
@@ -5661,6 +5785,16 @@
 			(type default)
 		)
 		(uuid "493b82de-76a3-4798-bc59-a80f722ba785")
+	)
+	(wire
+		(pts
+			(xy 43.18 170.18) (xy 41.91 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4b122fef-6695-4ba7-847f-91c26d08e88a")
 	)
 	(wire
 		(pts
@@ -5744,16 +5878,6 @@
 	)
 	(wire
 		(pts
-			(xy 48.26 173.99) (xy 48.26 170.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "550e0233-130e-4f42-8f99-1c9ff10e9751")
-	)
-	(wire
-		(pts
 			(xy 64.77 132.08) (xy 64.77 133.35)
 		)
 		(stroke
@@ -5764,7 +5888,7 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 106.68) (xy 77.47 106.68)
+			(xy 63.5 104.14) (xy 67.31 104.14)
 		)
 		(stroke
 			(width 0)
@@ -5824,6 +5948,16 @@
 	)
 	(wire
 		(pts
+			(xy 43.18 167.64) (xy 43.18 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "60f02ea1-2996-42b3-828b-7ca4cd7da710")
+	)
+	(wire
+		(pts
 			(xy 266.7 81.28) (xy 266.7 85.09)
 		)
 		(stroke
@@ -5871,6 +6005,16 @@
 			(type default)
 		)
 		(uuid "6d424a16-9948-495e-ba26-8b2b42e7a2c3")
+	)
+	(wire
+		(pts
+			(xy 49.53 173.99) (xy 49.53 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6efdbbc5-12cf-464c-8c00-0fcda80ef6b1")
 	)
 	(wire
 		(pts
@@ -6174,7 +6318,7 @@
 	)
 	(wire
 		(pts
-			(xy 15.24 167.64) (xy 15.24 154.94)
+			(xy 19.05 167.64) (xy 19.05 154.94)
 		)
 		(stroke
 			(width 0)
@@ -6184,7 +6328,7 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 180.34) (xy 72.39 180.34)
+			(xy 104.14 180.34) (xy 72.39 180.34)
 		)
 		(stroke
 			(width 0)
@@ -6254,7 +6398,7 @@
 	)
 	(wire
 		(pts
-			(xy 15.24 154.94) (xy 44.45 154.94)
+			(xy 19.05 154.94) (xy 44.45 154.94)
 		)
 		(stroke
 			(width 0)
@@ -6271,6 +6415,16 @@
 			(type default)
 		)
 		(uuid "92e66f87-c4ae-4c12-b884-ab64a307b8fb")
+	)
+	(wire
+		(pts
+			(xy 33.02 99.06) (xy 48.26 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "937a4be7-048a-4d54-bbc3-fc229185b45a")
 	)
 	(wire
 		(pts
@@ -6391,6 +6545,16 @@
 			(type default)
 		)
 		(uuid "9f99acea-2281-49d6-bc0c-a449d9aa6666")
+	)
+	(wire
+		(pts
+			(xy 21.59 173.99) (xy 49.53 173.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a2fdca85-bf94-4aa7-9010-6f952e12ba5b")
 	)
 	(wire
 		(pts
@@ -6541,16 +6705,6 @@
 			(type default)
 		)
 		(uuid "b6e1e7de-0e16-4b77-9089-9c7f88d5dcc3")
-	)
-	(wire
-		(pts
-			(xy 48.26 170.18) (xy 49.53 170.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b7b74611-16fd-4092-8952-ec486fb7aab6")
 	)
 	(wire
 		(pts
@@ -6904,6 +7058,16 @@
 	)
 	(wire
 		(pts
+			(xy 21.59 170.18) (xy 21.59 173.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e6e99f61-0cbf-451c-8d5b-2dbdfd89f096")
+	)
+	(wire
+		(pts
 			(xy 135.89 175.26) (xy 135.89 172.72)
 		)
 		(stroke
@@ -6924,7 +7088,7 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 182.88) (xy 99.06 182.88)
+			(xy 91.44 182.88) (xy 104.14 182.88)
 		)
 		(stroke
 			(width 0)
@@ -7014,7 +7178,7 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 106.68) (xy 77.47 110.49)
+			(xy 67.31 104.14) (xy 67.31 107.95)
 		)
 		(stroke
 			(width 0)
@@ -7053,7 +7217,7 @@
 		(uuid "1423f9f6-648a-41db-9347-c2b87aba1332")
 	)
 	(label "OSC_IN"
-		(at 77.47 104.14 0)
+		(at 67.31 99.06 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7293,7 +7457,7 @@
 		(uuid "dfd4e3b4-4733-4596-95b4-d37b9e50d176")
 	)
 	(label "OSC_OUT"
-		(at 25.4 106.68 0)
+		(at 38.1 104.14 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7971,6 +8135,102 @@
 			(project "Carte_V2"
 				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
 					(reference "C18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Smilewatch_V2_JLC:2450AT18D0100002E")
+		(at 31.75 168.91 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "107882c1-b0f1-4792-a143-02b457728a0b")
+		(property "Reference" "ANT1"
+			(at 31.75 160.02 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "2450AT18D0100002E"
+			(at 31.75 162.56 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Smilewatch_V2_JLC:ANT-SMD_4P-L3.2-W1.6"
+			(at 31.75 168.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "${KIPRJMOD}/../../Datasheet/V2/2450AT18D0100.pdf"
+			(at 31.75 168.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 31.75 168.91 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C17410360"
+			(at 31.75 168.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "200f4108-18ba-4049-acff-6ac5287643d4")
+		)
+		(pin "2"
+			(uuid "2b37c08f-d9c5-492f-a504-5e1ce3e0a1be")
+		)
+		(pin "4"
+			(uuid "a063ff43-321b-4084-8c39-a0542395e462")
+		)
+		(pin "3"
+			(uuid "394ebc79-4c4d-4c07-919a-9b5c6f8422d8")
+		)
+		(instances
+			(project "Carte_V2"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
+					(reference "ANT1")
 					(unit 1)
 				)
 			)
@@ -8886,6 +9146,84 @@
 			(project "Carte_V2"
 				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
 					(reference "R11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 64.77 99.06 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "223412e1-84b5-47ca-91d2-eb6005281266")
+		(property "Reference" "#FLG05"
+			(at 64.77 97.155 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 64.77 93.98 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 64.77 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 64.77 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 64.77 99.06 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b0606688-6ac8-4a5e-82d1-ed3ad763156c")
+		)
+		(instances
+			(project "Carte_V2"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
+					(reference "#FLG05")
 					(unit 1)
 				)
 			)
@@ -10319,6 +10657,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 33.02 100.33 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "52363a5a-e19b-4145-bb90-6420a42daf24")
+		(property "Reference" "#PWR061"
+			(at 33.02 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 33.02 105.41 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 33.02 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 33.02 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 33.02 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f68ac1b4-767e-44d3-b0e2-8b1c5f364202")
+		)
+		(instances
+			(project "Carte_V2"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
+					(reference "#PWR061")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 77.47 24.13 0)
 		(unit 1)
@@ -10670,171 +11086,6 @@
 		)
 	)
 	(symbol
-		(lib_id "MLPF-WB-02D3:MLPF-WB-02D3")
-		(at 99.06 180.34 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "68d0478d-c421-42ee-8b06-39a15bac2140")
-		(property "Reference" "FL1"
-			(at 113.03 172.72 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "MLPF-WB-02D3"
-			(at 113.03 175.26 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "MLPF-WB-02D3:CSPG_2025"
-			(at 123.19 275.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Datasheet" "https://www.st.com/resource/en/datasheet/mlpf-wb-02d3.pdf"
-			(at 123.19 375.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Description" "2.4 GHz low pass filter matched to STM32WB5x and STM32WB1x in WLCSP and UFBGA packages"
-			(at 99.06 180.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Height" ""
-			(at 123.19 575.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Mouser Part Number" "511-MLPF-WB-02D3"
-			(at 123.19 675.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/STMicroelectronics/MLPF-WB-02D3?qs=T%252BzbugeAwjhlflKeEN03Bg%3D%3D"
-			(at 123.19 775.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Manufacturer_Name" "STMicroelectronics"
-			(at 123.19 875.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Manufacturer_Part_Number" "MLPF-WB-02D3"
-			(at 123.19 975.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "JLCPCB Part#" "C5270481"
-			(at 99.06 180.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "B1"
-			(uuid "f096c229-6caf-4e57-8064-51b1c0839f2e")
-		)
-		(pin "A2"
-			(uuid "594c7164-1a11-480c-b0c0-6d2ded544d5d")
-		)
-		(pin "A3"
-			(uuid "9363cd15-0215-45c3-a837-4bbc7ad03c2f")
-		)
-		(pin "B2"
-			(uuid "428e388e-f352-4e44-b008-15edb147891c")
-		)
-		(pin "B3"
-			(uuid "25ba9814-a2ad-4d0a-a957-a2a39079423c")
-		)
-		(pin "A1"
-			(uuid "2b9d27a9-64a7-48bb-8db6-bffad8acf54f")
-		)
-		(instances
-			(project "Carte_V2"
-				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
-					(reference "FL1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 274.32 114.3 0)
 		(unit 1)
@@ -11177,141 +11428,6 @@
 		)
 	)
 	(symbol
-		(lib_id "ABM13W-32.0000MHZ-8-B1U-T5:ABM13W-32.0000MHZ-8-B1U-T5")
-		(at 35.56 104.14 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7e5f05d4-5a93-47e6-9e08-4a7b1ac9ded4")
-		(property "Reference" "Y1"
-			(at 54.61 96.52 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ABM13W-32.0000MHZ-8-B1U-T5"
-			(at 54.61 99.06 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "ABM13W320000MHZ8B1UT5:ABM13W320000MHZ8B1UT5"
-			(at 69.85 199.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Datasheet" "https://www.abracon.com/Resonators/ABM13W.pdf"
-			(at 69.85 299.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Description" "Crystal 32.0000MHz +/-10ppm 8pF 100 Ohm Fundamental -20 C 70 C Surface Mount 4-SMD No Lead (1.20mm x 1.00mm x 0.33mm)"
-			(at 35.56 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Height" "0.33"
-			(at 69.85 499.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Manufacturer_Name" "Abracon"
-			(at 69.85 799.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Manufacturer_Part_Number" "ABM13W-32.0000MHZ-8-B1U-T5"
-			(at 69.85 899.06 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "JLCPCB Part#" "C6455449"
-			(at 35.56 104.14 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "4"
-			(uuid "cc88c53b-bc61-4fa5-99c9-fc20a0d8428a")
-		)
-		(pin "3"
-			(uuid "b4077a95-7556-45e9-a3cc-47260cf6c656")
-		)
-		(pin "1"
-			(uuid "ca338524-97fc-414f-95d5-61c437bd0f16")
-		)
-		(pin "2"
-			(uuid "49875101-dd1a-4648-917e-8562f0b71c0f")
-		)
-		(instances
-			(project "Carte_V2"
-				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
-					(reference "Y1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 130.81 191.77 0)
 		(unit 1)
@@ -11555,6 +11671,101 @@
 			(project "Carte_V2"
 				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
 					(reference "#PWR025")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Smilewatch_V2_JLC:X1C032000B81H-HU")
+		(at 55.88 101.6 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "86dfb84d-1be8-44e7-b16c-677f6f710665")
+		(property "Reference" "Y1"
+			(at 55.88 95.25 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "X1C032000B81H-HU"
+			(at 55.626 109.22 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Smilewatch_V2_JLC:OSC-SMD_4P-L1.6-W1.2-BL"
+			(at 55.88 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "${KIPRJMOD}/../../Datasheet/V2/X1C032000B81H-HU.pdf"
+			(at 55.88 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 55.88 101.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C254218"
+			(at 55.88 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "4"
+			(uuid "9f3f4d67-4357-4237-9d14-21f36ba03618")
+		)
+		(pin "1"
+			(uuid "ae1d72b9-9f69-4c69-80cf-a687a05a9ed1")
+		)
+		(pin "3"
+			(uuid "3930fdb2-ea5d-4be7-bb09-eb04c06a60e2")
+		)
+		(pin "2"
+			(uuid "8dfb4c85-f00f-497e-9383-f9db0f5128a5")
+		)
+		(instances
+			(project "Carte_V2"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
+					(reference "Y1")
 					(unit 1)
 				)
 			)
@@ -11840,6 +12051,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 39.37 104.14 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "904da9f1-537b-4c92-8076-9c1c1ab34510")
+		(property "Reference" "#FLG09"
+			(at 39.37 106.045 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 39.37 108.7284 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 39.37 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 39.37 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 39.37 104.14 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a0159497-fe48-40c5-8194-f3c9d1b28d84")
+		)
+		(instances
+			(project "Carte_V2"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
+					(reference "#FLG09")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 54.61 24.13 0)
 		(unit 1)
@@ -11873,7 +12162,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
 			(at 54.61 24.13 0)
 			(hide yes)
 			(show_name no)
@@ -11906,7 +12195,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C1525"
+		(property "JLCPCB Part#" "C284966"
 			(at 54.61 24.13 0)
 			(hide yes)
 			(show_name no)
@@ -12090,7 +12379,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 77.47 110.49 0)
+		(at 67.31 107.95 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -12101,7 +12390,7 @@
 		(fields_autoplaced yes)
 		(uuid "9e8c8017-f907-4ddc-aeb2-3ded3e8939df")
 		(property "Reference" "#PWR034"
-			(at 77.47 116.84 0)
+			(at 67.31 114.3 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12112,7 +12401,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 77.47 115.57 0)
+			(at 67.31 113.03 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -12122,7 +12411,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 77.47 110.49 0)
+			(at 67.31 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12133,7 +12422,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 77.47 110.49 0)
+			(at 67.31 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12144,7 +12433,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 77.47 110.49 0)
+			(at 67.31 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -12487,6 +12776,107 @@
 			(project "Carte_V2"
 				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
 					(reference "#PWR091")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Smilewatch_V2_JLC:MLPF-WB55-02E3")
+		(at 115.57 182.88 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "af3603f4-388e-4928-8539-887249fd1024")
+		(property "Reference" "FL1"
+			(at 115.824 176.53 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "MLPF-WB55-02E3"
+			(at 115.316 189.992 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Smilewatch_V2_JLC:FILTER-SMD_6P-L1.6-W1.0-P0.50-BL"
+			(at 115.57 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "${KIPRJMOD}/../../Datasheet/V2/mlpf-wb55-02e3.pdf"
+			(at 115.57 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 115.57 182.88 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C1855732"
+			(at 115.57 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "bfaaa976-7b54-4b42-8fa2-67dae6d40824")
+		)
+		(pin "2"
+			(uuid "688d789e-382b-4f1e-b5cf-f57eadee8ee7")
+		)
+		(pin "3"
+			(uuid "cff71322-aeb5-4299-bc13-70b7332eeb83")
+		)
+		(pin "6"
+			(uuid "2d99d846-b8b8-4bfa-81fc-b1f528ed98c0")
+		)
+		(pin "5"
+			(uuid "4342bd28-75f3-4355-9941-476cae82766c")
+		)
+		(pin "4"
+			(uuid "b22341ea-8ff7-4752-b9fa-c6ddac6098cf")
+		)
+		(instances
+			(project "Carte_V2"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
+					(reference "FL1")
 					(unit 1)
 				)
 			)
@@ -13666,165 +14056,6 @@
 			(project "Carte_V2"
 				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
 					(reference "#PWR050")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "2450AT07A0100001T:2450AT07A0100001T")
-		(at 15.24 167.64 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e07a803a-7777-4731-81f5-dc0ffbc30405")
-		(property "Reference" "ANT1"
-			(at 31.75 160.02 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "2450AT07A0100001T"
-			(at 31.75 162.56 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "2450AT07A0100001T:2450AT07A0100001T"
-			(at 44.45 262.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Datasheet" "https://www.johansontechnology.com/docs/4417/Antenna-2450AT07A0100001T.pdf"
-			(at 44.45 362.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Description" "RF ANT 2.4GHZ CHIP SOLDER SMD 2.44 GHz RF Chip Antenna HEIGHT-0.37"
-			(at 15.24 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Height" "0.37"
-			(at 44.45 562.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Mouser Part Number" "609-2450AT07A0100001"
-			(at 44.45 662.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Johanson-Technology/2450AT07A0100001T?qs=jRuttqqUwMTp3VGKP6FABg%3D%3D"
-			(at 44.45 762.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Manufacturer_Name" "JOHANSON TECHNOLOGY"
-			(at 44.45 862.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Manufacturer_Part_Number" "2450AT07A0100001T"
-			(at 44.45 962.56 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "JLCPCB Part#" "C17531353"
-			(at 15.24 167.64 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "410d56f9-c397-4fb3-b00e-cfcc8aaa3a9d")
-		)
-		(pin "4"
-			(uuid "b11a0200-1792-4ed6-926e-f5c1a070d672")
-		)
-		(pin "3"
-			(uuid "19a13a11-c670-498c-a853-a949a254d058")
-		)
-		(pin "2"
-			(uuid "78246c6a-f3ad-4156-b84a-52e5076f6be6")
-		)
-		(instances
-			(project "Carte_V2"
-				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/f8ffc91d-02db-40ce-81ee-06fb41b9d4ee"
-					(reference "ANT1")
 					(unit 1)
 				)
 			)

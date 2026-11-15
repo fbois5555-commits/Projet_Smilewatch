@@ -585,8 +585,8 @@
         <!-- Global Progress Card -->
         <section class="progress-card">
             <div class="progress-details">
-                <h2>Passe Corrective V2.1 — GO USINE Validé | Pré-commande Parts JLC Lancée (Méca &amp; PCBA en cours)</h2>
-                <p>Schémas/PCB KiCad et modèles <code>.STEP</code> mis à jour (ERC=0, DRC règles projet=0 sur les 3 PCB) ; <code>Datasheet/V2/</code> actualisé. <strong>Pas encore de GO usine</strong> : il reste à valider les datasheets JLC (<code>C21120</code> 25V X7R, budget <code>TPS61023</code>), <strong>inverser le clips</strong> en CAO + contrôler les <code>.STEP</code> (<code>P0-MECA-6/7</code>, <code>P1-MECA-9/10</code>), et pré-commander les <code>6</code> refs <code>stk=0</code> de <code>Carte_V2</code> (<code>U4 AP9101CAK-ATTRG1</code> revenu en stock).</p>
+                <h2>Passe Corrective V2.1 — PCBA Prêt à Commander dès Réception U2 (MàJ 15 Nov)</h2>
+                <p><strong>15 Nov 2026 :</strong> <code>C47</code> (<code>0201</code>), <code>R28</code> (pull-down <code>INTPA</code>), <code>Cadran.zip</code> (<code>39&times;39 mm</code> validé JLCPCB), stackup <code>JLC06081H-2116</code> (~100 &euro; économisés) avec piste RF <code>0,135 mm</code> et <code>bom.csv</code> réaligné sur KiCad (<code>IC1</code>, <code>IC8</code>, <code>FL1</code>, <code>TH1</code> sécurisés en <code>My Parts</code>, seul <code>U2</code> en attente). Reste : corriger les rotations 3D JLCPCB (<code>IC8</code>, <code>IC6</code>, <code>IC4</code>, <code>U4</code>, <code>IC1</code>, vérifier <code>ANT1</code>), soudures manuelles hors-PCBA (<code>C39</code>, <code>J2</code>, <code>BT1/TP8</code>, <code>TP1/TP3</code>, <code>TP6/TP7</code>) et vérif finale carrure.</p>
                 
                 <div class="progress-bar-wrap">
                     <div class="progress-bar-fill" id="global-progress-bar"></div>
@@ -595,7 +595,7 @@
                 <div class="progress-counters">
                     <span>Terminées : <strong id="count-done">0</strong> / <strong id="count-total">0</strong></span>
                     <span>Taux d'achèvement : <strong id="count-percent">0%</strong></span>
-                    <span>Prochaine étape : <strong id="next-task-name" style="color:var(--accent-cyan)">Appro Parts JLC en cours (~4-7j) | Lancement Impression Résine Base &amp; Carrure</strong></span>
+                    <span>Prochaine étape : <strong id="next-task-name" style="color:var(--accent-cyan)">Rotations 3D JLCPCB + Attente U2 (My Parts) | Vérif lèvres carrure</strong></span>
                 </div>
             </div>
 
@@ -627,34 +627,34 @@
             <!-- SPRINT CORRECTIF V2.1 (AUDIT 360 DU 08 NOV) -->
             <div class="section-header" style="border-color: rgba(239, 68, 68, 0.45); background: rgba(239, 68, 68, 0.08);">
                 <div class="section-title" style="color: #fca5a5;">
-                    <span>🛠️ Audit 360° &amp; Passe V2.1 (MàJ 14 Nov)</span> — Élec + Production + Roadmap Firmware ✅ | Remplacement Parts JLC &amp; Méca 3D en cours
+                    <span>🛠️ Audit 360° &amp; Passe V2.1 (MàJ 15 Nov)</span> — Élec + BOM + Gerbers `2116` ✅ | Rotations 3D &amp; Réception `U2` en attente
                 </div>
                 <span class="section-progress" id="prog-v21" style="color: #f87171;">0/8</span>
             </div>
 
             <div class="tasks-list" style="margin-bottom: 1.75rem;">
-                <!-- CHECKLIST SYNTHESE PRE-AUDIT ARGON (11-13 NOV 2026) -->
+                <!-- CHECKLIST SYNTHESE PRE-AUDIT ARGON (11-15 NOV 2026) -->
                 <div style="background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.35); border-radius: 12px; padding: 1.1rem 1.25rem; margin-bottom: 1rem;">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.6rem;">
-                        <span style="font-weight:700; color:#60a5fa; font-size:0.92rem;">⚠️ Bilan Passe V2.1 — Points Vérifiés &amp; Restes Avant GO Usine (MàJ 14 Nov 2026)</span>
-                        <span style="font-size:0.75rem; background:rgba(16, 185, 129, 0.2); color:#34d399; padding:0.25rem 0.55rem; border-radius:6px; font-family:'JetBrains Mono',monospace;">ERC=0 &amp; DRC Projet=0 (3 PCB)</span>
+                        <span style="font-weight:700; color:#60a5fa; font-size:0.92rem;">⚠️ Bilan Passe V2.1 — Points Vérifiés &amp; Restes Avant GO Usine (MàJ 15 Nov 2026)</span>
+                        <span style="font-size:0.75rem; background:rgba(16, 185, 129, 0.2); color:#34d399; padding:0.25rem 0.55rem; border-radius:6px; font-family:'JetBrains Mono',monospace;">ERC=0 &amp; DRC Parité=0 (3 PCB)</span>
                     </div>
                     <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.9rem; font-size:0.83rem;">
                         <div style="background:rgba(15,23,42,0.6); padding:0.75rem; border-radius:8px; border:1px solid rgba(255,255,255,0.06);">
                             <div style="font-weight:600; color:#34d399; margin-bottom:0.35rem;">✅ KiCad, Livrables &amp; Roadmap Firmware</div>
                             <ul style="margin:0; padding-left:1.1rem; color:var(--text-secondary); line-height:1.5;">
-                                <li><code>LIR3048</code> : <code>BT1</code> (<code>C22</code>) sur <code>+3V8</code>, <code>TP8</code> (6&times;6 mm) sur <code>GNDPWR</code> (⚠️ pastille excentrée r=11.05 mm).</li>
-                                <li>OLED &amp; RF : <code>Q2.2=GND</code>, <code>Q1.2/R15=+3V8</code>, <code>R13=560kΩ</code>, <code>R21/R24=DNP</code>, Keepout <code>ANT1</code> (`4,0×6,0 mm` 6 couches, <code>Pin 4=FEED</code>), ligne <code>50 Ω</code> <code>JLC06081H-7628</code> (<code>0,206 mm</code> / jeu <code>0,10 mm</code>, <code>In1.Cu</code> continu), <code>M1</code> <code>LD-SM-430.step</code> &amp; modèles 3D <code>Smilewatch_V2_JLC</code> à jour.</li>
-                                <li>Alim &amp; Capteurs : <code>TPS61023DRLR</code> (rotation 293.2° SMT calée), <code>TCA9517DR</code> (stk 5738), vias <code>TMP117</code>, <code>TPS7A02</code>, <code>J1</code> Samtec en soudure manuelle.</li>
-                                <li>Roadmap &amp; Étanchéité : <strong>ROADMAP_PROGRAMMATION_V2.md</strong> rédigée (5 phases complètes) + protocole qualification étanchéité à sec (Witschi 3-5 bars) chez horloger parisien.</li>
+                                <li><code>LIR3048</code> &amp; correctifs 15 Nov : <code>BT1</code> (<code>+3V8</code>), <code>TP8</code> (<code>GNDPWR</code>), <code>C47</code> en <code>0201</code> (<code>C284966</code>), <code>R28</code> (<code>4k7</code> <code>C25900</code>) pull-down sur <code>INTPA</code>, <code>Ecran</code> conforme datasheet p. 10.</li>
+                                <li>OLED &amp; RF : <code>Q2.2=GND</code>, <code>Q1.2/R15=+3V8</code>, <code>R13=560kΩ</code>, <code>R21/R24=DNP</code>, Keepout <code>ANT1</code> (<code>4,0&times;6,0 mm</code> 6 couches, <code>Pin 4=FEED</code>), ligne <code>50 Ω</code> <strong><code>JLC06081H-2116</code></strong> ajustée à <strong><code>0,135 mm</code></strong> / jeu <code>0,10 mm</code> (<code>In1.Cu</code> continu), <code>M1</code> <code>LD-SM-430.step</code> &amp; <code>Cadran.zip</code> (<code>39&times;39 mm</code>) validés JLCPCB.</li>
+                                <li>Alim &amp; Capteurs : <code>TPS61023DRLR</code> (293.2°), <code>TCA9517DR</code> (stk 5738), vias <code>TMP117</code>, <code>TPS7A02</code>, <code>J1</code> Samtec en soudure manuelle.</li>
+                                <li>Hors-PCBA à souder manuellement : <code>C39</code> (OLED), <code>J2</code> (carte capteurs), <code>BT1/TP8</code> (batterie), <code>TP1/TP3</code> (Qi), <code>TP6/TP7</code> (Miyota).</li>
                             </ul>
                         </div>
                         <div style="background:rgba(15,23,42,0.6); padding:0.75rem; border-radius:8px; border:1px solid rgba(255,255,255,0.06);">
                             <div style="font-weight:600; color:#fbbf24; margin-bottom:0.35rem;">⚠️ Points Ouverts Avant GO Usine</div>
                             <ul style="margin:0; padding-left:1.1rem; color:var(--text-secondary); line-height:1.5;">
-                                <li><strong>Commande École JLCPCB (Transmise 13 Nov 13h34) :</strong> Fichiers et instructions envoyés à Laurent Fiack pour commande groupée ENSEA : <strong>Carte Capteurs V1</strong> (4 couches 0.8 mm noir ENIG, PCBA 2 faces &times;2 ex, Samtec J1 soudé main) et <strong>Cadran</strong> (2 couches 0.4 mm noir LeadFree HASL nu &times;5 ex).</li>
-                                <li><strong>Pré-commande JLCPCB Parts (14 Nov) :</strong> Lot <code>COB202611141622757</code> <strong>arrivé en stock privé JLCPCB ✅</strong> (<code>DRV2605LYZFT</code> <code>C2150692</code> &times;3, <code>BQ51003YFPT</code> <code>C2650142</code> &times;2, <code>MLPF-WB55-02E3</code> <code>C1855732</code> &times;3) ; <code>U2 STM32WB55VGYx</code> en cours (20 Nov). Anciennes refs annulées &amp; remboursées (<code>Q3</code> $8.79, <code>Y1</code> $8.86, <code>ANT1</code> $9.76, <code>MLPF-WB-02D3</code> $9.03, <code>M1 HD-EMB1204-SM</code> $12.74). Schémas, empreintes &amp; routage <code>Carte_V2</code> <strong>finalisés le 14 Nov ✅</strong> (<code>2450AT18D0100</code>, <code>X1C032000B81H-HU</code>, <code>FS8205A</code>, <code>LD-SM-430</code>, <code>MLPF-WB55-02E3</code>) — reste vérif ERC/DRC KiCad 10, export <code>.STEP</code> CAO &amp; Gerbers/BOM/CPL.</li>
-                                <li><strong>Méca CAO (sur nouveaux .STEP) :</strong> <strong>inverser le clips</strong> (Base/carrure), sous OLED (<code>P0-MECA-7</code>), poche <code>J1</code>/Qi (<code>P0-MECA-6</code>), poussoirs <code>Bouton.SLDASM</code> (<code>P1-MECA-9</code>), radial <code>TPS61023/L1</code> (<code>P1-MECA-10</code>).</li>
+                                <li><strong>Rotations 3D JLCPCB (<code>positions.csv</code>) :</strong> corriger <code>IC8</code> (<code>0&rarr;270°</code>), <code>IC6</code> (<code>90&rarr;0°</code>), <code>IC4</code> (<code>90&rarr;0°</code>), <code>U4</code> (<code>90&rarr;0°</code>), <code>IC1</code> (A1 bas-gauche), vérifier <code>ANT1</code> (<code>FEED</code> haut-droite) + activer <code>Depanel = Yes</code>.</li>
+                                <li><strong>Stocks JLCPCB (15 Nov) :</strong> <code>bom.csv</code> réaligné sur KiCad (<code>46</code> lignes / <code>99</code> comp.) ; <code>IC1</code>, <code>IC8</code>, <code>FL1</code>, <code>TH1</code> sécurisés en <code>My Parts ✅</code> ; <code>ANT1</code> (646), <code>Y1</code> (380), <code>M1</code> (2382), <code>Q3</code> (170k) en stock public ; <strong>seul <code>U2 STM32WB55VGYx</code> (<code>C1850399</code>) reste en attente</strong> (~20 Nov).</li>
+                                <li><strong>Méca CAO (<code>carrure.SLDPRT</code>) :</strong> paroi principale <code>1,45&ndash;1,48 mm</code> OK, vérifier les 2 lèvres fines (<code>0,50 / 0,64 mm</code>) + inverser clips (Base/carrure), sous OLED (<code>P0-MECA-7</code>), poche <code>J1</code>/Qi (<code>P0-MECA-6</code>), poussoirs <code>Bouton.SLDASM</code> (<code>P1-MECA-9</code>), radial <code>TPS61023/L1</code> (<code>P1-MECA-10</code>).</li>
                                 <li><strong>Revue Datasheets JLC :</strong> <code>C0G2_50V1=C21120</code> (220nF 25V X7R au lieu de C0G 50V), budget <code>IC6 TPS7A0233</code> (200 mA max).</li>
                             </ul>
                         </div>
@@ -713,7 +713,7 @@
                     <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
                     <div class="task-info">
                         <div class="task-title">[P0-RF-4] Court-circuit RF supprimé (R21/R24=DNP), Keepout 6 couches ANT1 &amp; Quartz Y1 8 pF</div>
-                        <div class="task-desc">✅ <strong>Corrigé (11 &amp; 14 Nov) :</strong> <code>R21 = DNP</code>, <code>R24 = DNP</code>, <code>ANT1</code> (<code>2450AT18D0100</code>, <code>Pin 4 = FEED</code>) avec zone keep-out <code>4,0×6,0 mm</code> intégrée sur les 6 couches, <code>FL1 = MLPF-WB55-02E3</code>, quartz <code>Y1 = X1C032000B81H-HU</code>, et ligne <code>50 Ω</code> coplanaire <code>JLC06081H-7628</code> (<code>0,206 mm</code> / jeu <code>0,10 mm</code>, <code>In1.Cu</code> continu) routée sur <code>F.Cu</code>.</div>
+                        <div class="task-desc">✅ <strong>Corrigé (11, 14 &amp; 15 Nov) :</strong> <code>R21 = DNP</code>, <code>R24 = DNP</code>, <code>ANT1</code> (<code>2450AT18D0100002E</code>, <code>Pin 4 = FEED</code>) avec zone keep-out <code>4,0&times;6,0 mm</code> intégrée sur les 6 couches, <code>FL1 = MLPF-WB55-02E3</code>, quartz <code>Y1 = X1C032000B81H-HU</code>, et ligne <code>50 Ω</code> coplanaire passée au stackup <strong><code>JLC06081H-2116</code></strong> à <strong><code>0,135 mm</code></strong> / jeu <code>0,10 mm</code> (<code>In1.Cu</code> continu) sur <code>F.Cu</code>.</div>
                         <div class="task-tags">
                             <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">Corrigé KiCad ✔</span>
                             <span class="tag-pill tag-kicad">Carte_V2 RF</span>
@@ -761,7 +761,7 @@
                     <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
                     <div class="task-info">
                         <div class="task-title">[P2-PROC-17 ✔ &amp; Sourcing/FW] Exports production/ &amp; STEP validés — Pré-commande Parts JLC &amp; Roadmap Firmware V2.1 (13 Nov)</div>
-                        <div class="task-desc">✅ <strong>Fait (11-14 Nov) :</strong> Packages <code>production/</code> validés (rotation IC3 TPS61023 à 293.2°, J1 Samtec en soudure manuelle), modèles STEP régénérés, <strong>Roadmap Firmware V2.1 rédigée</strong> (5 phases dans <code>ROADMAP_PROGRAMMATION_V2.md</code>), protocole d'étanchéité à sec validé, et <strong>packages Carte Capteurs V1 PCBA + Cadran V1 transmis le 13 Nov à Laurent Fiack</strong> pour commande groupée école.<br>🟠 <strong>En cours (14 Nov) :</strong> Lot Parts JLCPCB <code>COB202611141622757</code> <strong>arrivé en entrepôt ✅</strong> (<code>DRV2605LYZFT</code>, <code>BQ51003YFPT</code>, <code>MLPF-WB55-02E3</code>) ; <code>U2 STM32WB55</code> en cours (20 Nov) ; <code>M1 HD-EMB1204-SM</code> ($12.74) et <code>MLPF-WB-02D3</code> ($9.03) confirmés annulés/remboursés. Migration schémas &amp; routage PCB <code>Carte_V2</code> en cours avec les équivalents en stock (<code>2450AT18D0100</code>, <code>X1C032000B81H-HU</code>, <code>TPM20V6NLS3-2</code>, <code>FS8205A</code>, <code>LD-SM-430</code>).</div>
+                        <div class="task-desc">✅ <strong>Fait (11-15 Nov) :</strong> <code>C47</code> (<code>0201</code>), <code>R28</code> (<code>4k7</code> pull-down <code>INTPA</code>), <code>Cadran.zip</code> corrigé et validé JLCPCB (<code>39&times;39 mm</code>, <code>0,4 mm</code> ENIG), <code>Carte_V2.zip</code> régénéré en <code>JLC06081H-2116</code> (RF <code>0,135 mm</code>), <code>bom.csv</code> réaligné sur KiCad (<code>IC1</code>, <code>IC8</code>, <code>FL1</code>, <code>TH1</code> sécurisés en <code>My Parts</code> ; <code>ANT1/Y1/M1/Q3</code> en stock public).<br>🟠 <strong>Reste (15 Nov) :</strong> attendre réception de <code>U2 STM32WB55</code> (~20 Nov), puis appliquer les rotations 3D JLCPCB (<code>IC8</code>, <code>IC6</code>, <code>IC4</code>, <code>U4</code>, <code>IC1</code>, vérifier <code>ANT1</code>) avant paiement.</div>
                         <div class="task-tags">
                             <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">Exports &amp; STEP OK ✔</span>
                             <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">Roadmap FW Rédigée ✔</span>
@@ -1164,7 +1164,7 @@
                             <td><strong>Composants CMS (Pré-commande JLCPCB)</strong></td>
                             <td>STM32WB55, BQ51003, DRV2605L, MLPF-WB55-02E3, ANT1, Y1, Q3, M1</td>
                             <td>Cartes mères V2 (PCBA)</td>
-                            <td><span class="status-badge status-ordered">🟡 14 Nov : Lot COB202611141622757 arrivé ✅ (DRV2605L, BQ51003, MLPF-WB55-02E3) ; U2 en cours (20 Nov) | Anciennes refs annulées &amp; remboursées ($49.17 au total dont M1 $12.74)</span></td>
+                            <td><span class="status-badge status-ordered">🟡 15 Nov : IC1, IC8, FL1 (C1855732) &amp; TH1 (C91636) sécurisés en My Parts ✅ ; ANT1/Y1/M1/Q3 en stock public ✅ ; seul U2 en cours (~20 Nov)</span></td>
                         </tr>
                         <tr>
                             <td><strong>Carte Fille Capteurs (JLCPCB PCBA)</strong></td>

@@ -461,48 +461,34 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "HD-EMB1204-SM:HD-EMB1204-SM"
+		(symbol "Smilewatch_V2_JLC:LD-SM-430"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "M"
-				(at 16.51 7.62 0)
+				(at 0 7.62 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left top)
 				)
 			)
-			(property "Value" "HD-EMB1204-SM"
-				(at 16.51 5.08 0)
+			(property "Value" "LD-SM-430"
+				(at 0 -7.62 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left top)
 				)
 			)
-			(property "Footprint" "HDEMB1204SM"
-				(at 16.51 -94.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Datasheet" "https://api.puiaudio.com/filename/HD-EMB1204-SM.pdf"
-				(at 16.51 -194.92 0)
+			(property "Footprint" "Smilewatch_V2_JLC:SMD_LD-SM-430-1"
+				(at 0 -10.16 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -510,10 +496,20 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left top)
 				)
 			)
-			(property "Description" "12X4MM ERM HAPTIC 12000RPM"
+			(property "Datasheet" "https://www.lcsc.com/datasheet/C41348533.pdf"
+				(at 0 -12.7 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -524,8 +520,8 @@
 					)
 				)
 			)
-			(property "Height" "3.6"
-				(at 16.51 -394.92 0)
+			(property "Manufacturer" "LEADER(立得)"
+				(at 0 -15.24 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -533,11 +529,10 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left top)
 				)
 			)
-			(property "Mouser Part Number" "665-HD-EMB1204-SM"
-				(at 16.51 -494.92 0)
+			(property "MPN" "LD-SM-430"
+				(at 0 -17.78 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -545,11 +540,10 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left top)
 				)
 			)
-			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/PUI-Audio/HD-EMB1204-SM?qs=9vOqFld9vZVRpcI8oM%2FXRA%3D%3D"
-				(at 16.51 -594.92 0)
+			(property "LCSC Part" "C41348533"
+				(at 0 -20.32 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -557,48 +551,34 @@
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left top)
 				)
 			)
-			(property "Manufacturer_Name" "PUI Audio"
-				(at 16.51 -694.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Manufacturer_Part_Number" "HD-EMB1204-SM"
-				(at 16.51 -794.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(symbol "HD-EMB1204-SM_1_1"
+			(symbol "LD-SM-430_0_1"
 				(rectangle
-					(start 5.08 2.54)
-					(end 15.24 -7.62)
+					(start -1.27 5.08)
+					(end 3.81 -5.08)
 					(stroke
-						(width 0.254)
+						(width 0)
 						(type default)
 					)
 					(fill
 						(type background)
 					)
 				)
-				(pin passive line
-					(at 0 0 0)
-					(length 5.08)
+				(circle
+					(center 0 3.81)
+					(radius 0.38)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin unspecified line
+					(at -3.81 2.54 0)
+					(length 2.54)
 					(name "+"
 						(effects
 							(font
@@ -614,9 +594,9 @@
 						)
 					)
 				)
-				(pin passive line
-					(at 0 -2.54 0)
-					(length 5.08)
+				(pin unspecified line
+					(at -3.81 0 0)
+					(length 2.54)
 					(name "-"
 						(effects
 							(font
@@ -632,9 +612,9 @@
 						)
 					)
 				)
-				(pin passive line
-					(at 0 -5.08 0)
-					(length 5.08)
+				(pin unspecified line
+					(at -3.81 -2.54 0)
+					(length 2.54)
 					(name "3"
 						(effects
 							(font
@@ -643,60 +623,6 @@
 						)
 					)
 					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 20.32 0 180)
-					(length 5.08)
-					(name "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 20.32 -2.54 180)
-					(length 5.08)
-					(name "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 20.32 -5.08 180)
-					(length 5.08)
-					(name "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -974,34 +900,6 @@
 		(color 0 0 0 0)
 		(uuid "4e07290a-d21b-48f6-90c5-cbfb8bf29c40")
 	)
-	(junction
-		(at 219.71 68.58)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "87354506-76f1-4b21-997f-f7135a63a9c8")
-	)
-	(junction
-		(at 219.71 66.04)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "df9b5708-bb38-42fc-86fa-561db617c641")
-	)
-	(junction
-		(at 209.55 76.2)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e7e5bafb-318a-4b13-8284-ca37417b9aff")
-	)
-	(wire
-		(pts
-			(xy 219.71 68.58) (xy 219.71 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "010cef24-59dd-4fc2-a6f8-679c53ccc8ae")
-	)
 	(wire
 		(pts
 			(xy 138.43 59.69) (xy 146.05 59.69)
@@ -1031,16 +929,6 @@
 			(type default)
 		)
 		(uuid "2a252586-f797-45d4-88d9-6682af7cc999")
-	)
-	(wire
-		(pts
-			(xy 219.71 76.2) (xy 209.55 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2bc9646c-95d2-4ecc-83ff-343b463a6da6")
 	)
 	(wire
 		(pts
@@ -1084,16 +972,6 @@
 	)
 	(wire
 		(pts
-			(xy 219.71 63.5) (xy 219.71 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "465cb1b5-92bd-4490-9dcb-0f2fd6db81c3")
-	)
-	(wire
-		(pts
 			(xy 100.33 69.85) (xy 105.41 69.85)
 		)
 		(stroke
@@ -1124,16 +1002,6 @@
 	)
 	(wire
 		(pts
-			(xy 199.39 68.58) (xy 199.39 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "78f95e5f-8295-4b41-bb7f-a4c3eb8e4872")
-	)
-	(wire
-		(pts
 			(xy 170.18 76.2) (xy 170.18 78.74)
 		)
 		(stroke
@@ -1154,7 +1022,7 @@
 	)
 	(wire
 		(pts
-			(xy 199.39 76.2) (xy 209.55 76.2)
+			(xy 199.39 68.58) (xy 193.04 68.58)
 		)
 		(stroke
 			(width 0)
@@ -1201,16 +1069,6 @@
 			(type default)
 		)
 		(uuid "ee0def82-4e2a-40d8-bbab-710f52b2f67e")
-	)
-	(wire
-		(pts
-			(xy 219.71 66.04) (xy 219.71 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f796b381-ffa6-429a-a29e-a9c84c76f780")
 	)
 	(label "Mot-"
 		(at 193.04 66.04 0)
@@ -1313,7 +1171,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 209.55 76.2 0)
+		(at 193.04 68.58 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1324,7 +1182,7 @@
 		(fields_autoplaced yes)
 		(uuid "03d80826-e857-45d2-ba24-e2780168f1b9")
 		(property "Reference" "#PWR056"
-			(at 209.55 82.55 0)
+			(at 193.04 74.93 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1335,7 +1193,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 209.55 81.28 0)
+			(at 193.04 73.66 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1345,7 +1203,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 209.55 76.2 0)
+			(at 193.04 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1356,7 +1214,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 209.55 76.2 0)
+			(at 193.04 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1367,7 +1225,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 209.55 76.2 0)
+			(at 193.04 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1384,6 +1242,98 @@
 			(project "Carte_V2"
 				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/5e498beb-3919-4416-a5c9-a753f9598750"
 					(reference "#PWR056")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Smilewatch_V2_JLC:LD-SM-430")
+		(at 203.2 66.04 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1375ed35-0b96-4c19-a685-97191f26c8ff")
+		(property "Reference" "M1"
+			(at 203.962 59.69 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LD-SM-430"
+			(at 204.216 72.136 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Smilewatch_V2_JLC:SMD_LD-SM-430-1"
+			(at 203.2 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "${KIPRJMOD}/../../Datasheet/V2/LD-SM-430.pdf"
+			(at 203.2 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 203.2 66.04 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C41348533"
+			(at 203.2 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2c58baf9-7d14-48a9-a9ab-eb09b4cbf6c9")
+		)
+		(pin "2"
+			(uuid "a78115a9-e2da-406d-b45e-09728e38d68d")
+		)
+		(pin "3"
+			(uuid "d4b63264-b504-470e-934a-0d531ca15bd9")
+		)
+		(instances
+			(project "Carte_V2"
+				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/5e498beb-3919-4416-a5c9-a753f9598750"
+					(reference "M1")
 					(unit 1)
 				)
 			)
@@ -1854,6 +1804,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C2150692"
+			(at 121.92 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "B2"
 			(uuid "a9299f23-b162-4233-8bd4-1df744b3a499")
 		)
@@ -2056,171 +2017,6 @@
 			(project "Carte_V2"
 				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/5e498beb-3919-4416-a5c9-a753f9598750"
 					(reference "C32")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "HD-EMB1204-SM:HD-EMB1204-SM")
-		(at 199.39 63.5 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b7ccbfc1-842f-485a-8852-236c8c7196df")
-		(property "Reference" "M1"
-			(at 209.55 55.88 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "HD-EMB1204-SM"
-			(at 209.55 58.42 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "HD-EMB1204-SM:HDEMB1204SM"
-			(at 215.9 158.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Datasheet" "https://api.puiaudio.com/filename/HD-EMB1204-SM.pdf"
-			(at 215.9 258.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Description" "12X4MM ERM HAPTIC 12000RPM"
-			(at 199.39 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Height" "3.6"
-			(at 215.9 458.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Mouser Part Number" "665-HD-EMB1204-SM"
-			(at 215.9 558.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/PUI-Audio/HD-EMB1204-SM?qs=9vOqFld9vZVRpcI8oM%2FXRA%3D%3D"
-			(at 215.9 658.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Manufacturer_Name" "PUI Audio"
-			(at 215.9 758.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "Manufacturer_Part_Number" "HD-EMB1204-SM"
-			(at 215.9 858.42 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(property "JLCPCB Part#" "C20107647"
-			(at 199.39 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "83125228-d1af-4682-8ce0-0128051a11b1")
-		)
-		(pin "2"
-			(uuid "d953ff33-2bf9-4082-9204-66fb91856142")
-		)
-		(pin "4"
-			(uuid "5d0c583f-9412-4511-9aa2-7589f938b626")
-		)
-		(pin "3"
-			(uuid "2b8e8f55-8978-425b-866c-125381050a7d")
-		)
-		(pin "6"
-			(uuid "35c73854-61dd-43be-81af-a95e46f508e4")
-		)
-		(pin "5"
-			(uuid "109e943f-0f78-4499-ade6-1c98a208823b")
-		)
-		(instances
-			(project "Carte_V2"
-				(path "/e4efabaa-8f8a-45c1-9ca2-024a812f83b7/5e498beb-3919-4416-a5c9-a753f9598750"
-					(reference "M1")
 					(unit 1)
 				)
 			)

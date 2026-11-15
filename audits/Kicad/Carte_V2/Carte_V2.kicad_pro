@@ -76,104 +76,7 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [
-        [
-          "copper_edge_clearance|119493716|71140357|7442966f-7e0f-4a5c-8052-e381baa58ce4|cfe08765-c124-4735-b690-71236bcdf77a",
-          ""
-        ],
-        [
-          "copper_edge_clearance|119645549|72480788|6ef1868f-83fb-4b3d-9d00-d5de14eed517|ffb1153c-cf01-4e56-932f-7e3864454ac2",
-          ""
-        ],
-        [
-          "copper_edge_clearance|119676549|87797212|2a1f0fe4-f017-40ec-af70-05f3dd429e5b|0bb2654d-7a81-4bbc-a19d-2cadb788811c",
-          ""
-        ],
-        [
-          "copper_edge_clearance|120417332|73995499|6ef1868f-83fb-4b3d-9d00-d5de14eed517|1fee2b89-f091-4e32-a115-46f6e92d78a0",
-          ""
-        ],
-        [
-          "copper_edge_clearance|120448333|86282501|2a1f0fe4-f017-40ec-af70-05f3dd429e5b|9433be8f-be8c-4362-910c-889d50c6896c",
-          ""
-        ],
-        [
-          "silk_edge_clearance|115552584|96910000|7c41f76d-0722-4b06-ada1-5e87141ad4a5|a6b52b2c-ebdc-4910-8f2f-b0ccc81882d8",
-          ""
-        ],
-        [
-          "silk_edge_clearance|115606065|96878236|7c41f76d-0722-4b06-ada1-5e87141ad4a5|0334d1cf-3753-46d5-af0b-2efe170880c5",
-          ""
-        ],
-        [
-          "silk_edge_clearance|120454994|70678363|bbdbfff9-a332-4a4a-bc82-6a17d35cc64c|04e3351c-4493-4c8b-b4f7-d7827328575a",
-          ""
-        ],
-        [
-          "silk_edge_clearance|122604015|73423042|2455fc1f-1a4a-4f85-ba53-abe0583a62d2|a60edaff-74a2-4b90-a125-c569939d498d",
-          ""
-        ],
-        [
-          "starved_thermal|93675000|84200000|728be609-efa0-4c5a-be47-b3ee91a2817f|c497f5c9-79e0-485a-812c-e2b3677e8a7d|B.Cu",
-          ""
-        ],
-        [
-          "starved_thermal|93675000|84200000|728be609-efa0-4c5a-be47-b3ee91a2817f|c497f5c9-79e0-485a-812c-e2b3677e8a7d|F.Cu",
-          ""
-        ],
-        [
-          "starved_thermal|93675000|84900000|728be609-efa0-4c5a-be47-b3ee91a2817f|716e367c-4094-4902-88cf-e890e5a48eec|B.Cu",
-          ""
-        ],
-        [
-          "starved_thermal|93675000|84900000|728be609-efa0-4c5a-be47-b3ee91a2817f|716e367c-4094-4902-88cf-e890e5a48eec|F.Cu",
-          ""
-        ],
-        [
-          "starved_thermal|94425000|84200000|728be609-efa0-4c5a-be47-b3ee91a2817f|086acfff-f4a7-4427-a625-66f40a494908|B.Cu",
-          ""
-        ],
-        [
-          "starved_thermal|94425000|84200000|728be609-efa0-4c5a-be47-b3ee91a2817f|086acfff-f4a7-4427-a625-66f40a494908|F.Cu",
-          ""
-        ],
-        [
-          "starved_thermal|94425000|84200000|728be609-efa0-4c5a-be47-b3ee91a2817f|086acfff-f4a7-4427-a625-66f40a494908|In2.Cu",
-          ""
-        ],
-        [
-          "starved_thermal|94425000|84200000|728be609-efa0-4c5a-be47-b3ee91a2817f|086acfff-f4a7-4427-a625-66f40a494908|In3.Cu",
-          ""
-        ],
-        [
-          "starved_thermal|94425000|84900000|728be609-efa0-4c5a-be47-b3ee91a2817f|be57e560-493c-472e-97f7-3a868cc94f61|B.Cu",
-          ""
-        ],
-        [
-          "starved_thermal|95175000|84200000|728be609-efa0-4c5a-be47-b3ee91a2817f|e5427dae-f860-441f-b162-dcf706180c73|B.Cu",
-          ""
-        ],
-        [
-          "starved_thermal|95175000|84200000|728be609-efa0-4c5a-be47-b3ee91a2817f|e5427dae-f860-441f-b162-dcf706180c73|F.Cu",
-          ""
-        ],
-        [
-          "starved_thermal|95175000|84200000|728be609-efa0-4c5a-be47-b3ee91a2817f|e5427dae-f860-441f-b162-dcf706180c73|In2.Cu",
-          ""
-        ],
-        [
-          "starved_thermal|95175000|84200000|728be609-efa0-4c5a-be47-b3ee91a2817f|e5427dae-f860-441f-b162-dcf706180c73|In3.Cu",
-          ""
-        ],
-        [
-          "starved_thermal|95175000|84900000|728be609-efa0-4c5a-be47-b3ee91a2817f|468c6dd5-495b-458b-af1d-f24537e4db90|B.Cu",
-          ""
-        ],
-        [
-          "starved_thermal|95175000|84900000|728be609-efa0-4c5a-be47-b3ee91a2817f|468c6dd5-495b-458b-af1d-f24537e4db90|F.Cu",
-          ""
-        ]
-      ],
+      "drc_exclusions": [],
       "meta": {
         "version": 2
       },
@@ -651,7 +554,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../../3D/Carte_V2.3f.step",
+      "step": "../../3D/Carte_V2.4f.step",
       "svg": "",
       "vrml": ""
     },
@@ -773,6 +676,12 @@
           "label": "JLCPCB Part#",
           "name": "JLCPCB Part#",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "LCSC",
+          "name": "LCSC",
+          "show": false
         }
       ],
       "filter_string": "",
@@ -831,7 +740,7 @@
         "uuid": "e4efabaa-8f8a-45c1-9ca2-024a812f83b7"
       }
     ],
-    "used_designators": "#PWR56,#PWR59-60,#PWR70,TP8,C22,C56,#FLG4,R25-26",
+    "used_designators": "#PWR56,#PWR59-61,#PWR70,TP8,C22,C56,#FLG4-5,#FLG9,R25-26",
     "variants": []
   },
   "sheets": [

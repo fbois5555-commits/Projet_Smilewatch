@@ -38,7 +38,7 @@
     - L'atténuation supplémentaire liée à la proximité de la paroi d'acier flottante est de ~3 à 5 dB : la portée effective passe de ~10-15 m en champ libre à **~4 à 6 mètres**.
     - **Conclusion** : 4 à 6 m est largement suffisant pour une montre connectée (le smartphone étant au poignet, dans la poche ou sur le bureau à 1-2 m).
   - **Règle de routage impérative** : Conserver un dégagement maximal (au moins 1.0 à 1.5 mm de vide ou résine) entre l'antenne céramique et la paroi intérieure en acier pour limiter le désaccordage capacitif.
-- [x] **Ligne 50 Ohms (`14 Nov 2026`)** : Calculée sur le calculateur JLCPCB pour le stackup de base **`JLC06081H-7628`** (6 couches, `0,8 mm`, coplanaire `L1`/`F.Cu` référencée sur `L2`/`In1.Cu`) : largeur **`0,206 mm`**, espacement **`0,10 mm`**. Routée sur `F.Cu` (`U2.K4 → FL1 → Pi-network R21/R22/R24 → ANT1.4`, `ANT1` en `Pin 4 = FEED` / `Pin 1–3 = GND`) avec `In1.Cu` continu et vias de couture `GND`.
+- [x] **Ligne 50 Ohms — Stackup `JLC06081H-2116` (`15 Nov 2026`)** : Piste RF (`U2.K4 → FL1 → Pi-network R21/R22/R24 → ANT1.4`, `ANT1` en `Pin 4 = FEED` / `Pin 1–3 = GND`) mise à jour à **`0,135 mm`** (calculateur JLCPCB `0,1349 mm` pour **`JLC06081H-2116`**, 6 couches `0,8 mm`, prepreg `0,1164 mm`, jeu coplanaire **`0,10 mm`** sur `F.Cu` avec `In1.Cu` continu et vias de couture `GND`), DRC `0` erreur de parité/non-connecté, et `Carte_V2.zip` régénéré.
 
 ### Débogage & Signaux
 - [x] **DELs (LEDs) de débogage hardware : ABANDONNÉ / NON RETENU (Arbitrage encombrement)** :
@@ -54,8 +54,13 @@
   - **Sécurité** : La protection contre la saturation de la bobine est entièrement assurée par le firmware (timer matériel coupant l'impulsion motrice à 10–31.25 ms max et passage des GPIOs en haute impédance ou freinage dynamique LOW-LOW).
 - [ ] **Protections ESD** : Diodes TVS sur les lignes GPIO des boutons poussoirs tactiles exposés à la manipulation.
 
-### 🏁 Statut Carte Mère `Carte_V2` & Carte Capteurs `Carte_Capteur_V1` (Mise à jour 14 Novembre 2026)
-- **Routage 6 couches complet (`Carte_V2`)** : Stackup JLCPCB **`JLC06081H-7628`** (`0,8 mm`, `F.Cu`, `In1.Cu`, `In2.Cu`, `In3.Cu`, `In4.Cu`, `B.Cu`).
+### 🏁 Statut Carte Mère `Carte_V2` & Carte Capteurs `Carte_Capteur_V1` (Mise à jour 15 Novembre 2026)
+- **Routage 6 couches complet (`Carte_V2`)** : Stackup JLCPCB retenu **`JLC06081H-2116`** (`0,8 mm`, `F.Cu`, `In1.Cu`, `In2.Cu`, `In3.Cu`, `In4.Cu`, `B.Cu`) — ~100 € moins cher que `2313`, piste `50 Ω` ajustée à `0,135 mm`.
+- **Correctifs & Livrables (`15 Nov 2026`)** :
+  - `C47` passé en `0201` (`C284966`), `R28` (`4k7` `C25900`) ajouté en pull-down sur `/Capteurs/INTPA` (`PA15`/`LSM6DSOX`) et routé, `Ecran` vérifié conforme datasheet p. 10.
+  - `Cadran.kicad_pcb` + `Cadran.zip` corrigés (contour fermé 192 segments + pastille `F.Cu` sous vernis) et validés sur JLCPCB (`39 × 39 mm`, `0,4 mm` ENIG).
+  - `Carte_V2.zip` régénéré avec la piste RF `0,135 mm` (`DRC --schematic-parity` : `0` non connecté, `0` erreur de parité, `12` violations préexistantes).
+  - `production/bom.csv` entièrement réaligné sur les schémas et le PCB KiCad (`ANT1 C17410360`, `FL1 C1855732`, `M1 C41348533`, `Q3 C2830320`, `Y1 C254218`, `IC1 C2650142`, `IC2 C81080`, `IC8 C2150692`).
 - **Mise à jour Empreintes, 3D & RF (`14 Nov 2026`)** :
   - Chemins 3D `.step` corrigés dans `Smilewatch_V2_JLC.pretty` et `Carte_V2.kicad_pcb` (`ANT1`, `FL1`, `Y1`, `Q3`, `IC2`) + création de `LD-SM-430.step` (`4,0 × 11,0 × 3,6 mm`) pour `M1`.
   - Keep-out `4,0 × 6,0 mm` 6 couches intégrée à `ANT1` (`0` via dans la zone, un coin à `0,35 mm` hors `Edge.Cuts`, `BT1` hors zone active), ligne `50 Ω` coplanaire (`0,206 mm` / jeu `0,10 mm`) routée avec `In1.Cu` continu sous toute la chaîne RF.
@@ -511,20 +516,23 @@ La carte fille capteurs (`Kicad/Carte_V2/Carte_Capteur_V2/Carte_Capteur_V1.kicad
 | **`[P1-ELEC-11/12/13]` Alim, `VBAT`, Boost & BOM** | 🟡 **ROUTÉ (`⚠️ C21120`)** | Pont `2×1 MΩ + 100 nF` sur `PC4` (`U2.G4`), `IC4/IC6 = TPS7A0218P/33` (`tps7a02.pdf` EN `SBVS277C`), `R5 = 1.5 kΩ`, `R7 = DNP`, `C46 = 100 nF`, `R16 = 330 Ω`, `R17 = 2 kΩ`, `U4 = AP9101CAK-ATTRG1` (`C5588142`, *Auto-Wake-Up*, `stk=162`), `C0G2_50V1 = 220 nF` (`C21120` *25 V X7R*), `R27 = 10 kΩ`, `TH1 = 10k NTC` (`C91636`), Boost `TPS61023` + `L1 1.0 µH 0603` (`C882989`), `L1` Carte_V2 `SWPA252012S100MT` (`C37428`). |
 | **`[P2-THERM-14]` Vias `TMP117`** | 🟢 **RÉSOLU** | `Pad 7` isolé + 2 vias + plage `B.Cu` `1.2×1.8 mm` ENIG + keepout `U2_Thermal_Iso`. |
 | **`[P2-DRC-15]` DRC / ERC KiCad 10** | 🟢 **RÉSOLU** | `Carte_V2` : `ERC=0` (`62` w.), `DRC projet=0` / parité `0` *(20 `--severity-all` S1/S2 bord & IC2 connues)* ; `Carte_Capteur_V1` : `ERC=0` (`11` w.), `DRC=0` ; `Cadran` : `ERC=0`, `DRC=0` err (`55` w. bord). |
-| **Stocks JLCPCB SMT (`12 Nov 2026`)** | 🟡 **PRÉ-COMMANDE `Carte_V2`** | **`Carte_Capteur_V1` : 100% JLC en stock** (`J1` main). **`Carte_V2` : 6 refs à `stk=0`** (`U2`, `FL1`, `ANT1`, `Y1`, `Q3` (`C17388236`), `M1`) + `IC1` (`2`), `IC8` (`4`), `TH1` (`68`) à pré-commander sur JLCPCB Parts (+ activer **VIPPO**). `U4` (`C5588142`) en stock (`162`). |
-| **`[P2-PROC-17]` Livrables Usine** | 🟢 **GÉNÉRÉS (11-12 Nov)** | Packages `production/` (Gerbers `.zip`, Drill, IPC-356, `bom.csv`, `positions.csv`) des 3 cartes + `Carte_V2.csv`/`Carte_Capteur_V1.csv` + `3D/Carte_V2.3f.step` & `3D/Carte_Capteur_V2f.step` régénérés. *(Notice V3.9 à mettre à jour après validation méca finale).* |
+| **Stocks JLCPCB SMT (`15 Nov 2026`)** | 🟡 **SEUL `U2` EN ATTENTE** | **`Carte_Capteur_V1` : 100% JLC en stock** (`J1` main). **`Carte_V2` : `bom.csv` réaligné sur KiCad** (`46` lignes / `99` composants) ; **`IC1` (`C2650142`), `IC8` (`C2150692`), `FL1` (`C1855732`), `TH1` (`C91636`) sécurisés dans `My Parts`** ; `ANT1` (`646`), `Y1` (`380`), `M1` (`2 382`), `Q3` (`170 444`) en stock public ; **seul `U2` (`C1850399`) reste en `shortfall`** (attente livraison pré-commande). |
+| **`[P2-PROC-17]` Livrables Usine** | 🟢 **RÉGÉNÉRÉS (15 Nov)** | `Carte_V2.zip` (`JLC06081H-2116`, RF `0,135 mm`), `Cadran.zip` (`39×39 mm` validé JLCPCB), `bom.csv` et `positions.csv` à jour ; **rotations 3D JLCPCB à finaliser** (`IC8`, `IC6`, `IC4`, `U4`, `IC1`, vérifier `ANT1`). |
 | **`[P2-FW-16]` Firmware STM32** | ⏸️ **REPORTÉ** | Reporté après lancement fabrication matérielle (`SmileWatch1.ioc` à migrer vers `STM32WB55VGYx` ultérieurement). |
 
 ---
 
-## 📅 Point d'Étape & Prochaines Actions — 12 Novembre 2026 (GO USINE & Optimisation Calendrier)
+## 📅 Point d'Étape & Prochaines Actions — 15 Novembre 2026
 
+- [ ] **Finaliser les rotations 3D PCBA sur JLCPCB (`positions.csv`)** : pivoter **`IC8`** (`0° → 270°`), **`IC6`** (`90° → 0°`), **`IC4`** (`90° → 0°`), **`U4`** (`90° → 0°`), **`IC1`** (aligner A1 sur point blanc bas-gauche), et vérifier **`ANT1`** (`FEED` haut-droite) ; activer `Depanel boards & edge rail before delivery = Yes`.
+- [ ] **Composants hors-PCBA à souder/monter manuellement après réception** : **`C39`** (nappe/connecteur écran OLED `0,5"`), **`J2`** (`TW-05-02-G-D-157-075` vers carte capteurs), **`BT1` / `TP8`** (batterie `LIR3048`), **`TP1` / `TP3`** (bobine Qi), **`TP6` / `TP7`** (bobine Miyota 2035), plus `J1` Tag-Connect & `TP4`/`TP5` pour flash/debug.
 - [ ] **Test d'étanchéité final (Atelier horloger à Paris)** : Passage des 2 montres montées sur testeur à sec Witschi (mesure sans eau de la déformation sous air comprimé 3-5 bars) pour qualifier l'étanchéité sans danger avant tout usage aquatique (ticket de mesure à intégrer au rapport).
 1. **Approvisionnement Électronique (En cours JLCPCB)** :
-   - ✅ **Pré-commande Parts validée (12 Nov)** : `U2` (STM32WB55), `FL1` (Filtre RF), `ANT1` (Antenne Johanson), `Y1` (Quartz 32 MHz), `Q3` (`DMN2028UFU-13` `C17388236`), `M1` (Vibreur).
-   - ⏳ **Attente transit / In Stock** : Délai fournisseur estimé ~4 à 7 jours ouvrés.
-   - 🎯 **Action dès réception en stock** : Lancer la commande PCBA pour 2 cartes (`production/Carte_V2.zip` 6 couches 0.8mm avec **VIPPO** et `Carte_Capteur_V1.zip` 4 couches 0.8mm).
+   - ✅ **Sécurisé dans `My Parts`** : `IC1`, `IC8`, `FL1`, `TH1` (et reste de la BOM en stock public confortable).
+   - ⏳ **Attente transit / In Stock** : uniquement **`U2`** (`STM32WB55VGY6TR` `C1850399`).
+   - 🎯 **Action dès réception de `U2`** : Lancer la commande PCBA pour 2 cartes (`production/Carte_V2.zip` 6 couches `0.8mm` **`JLC06081H-2116`** avec **Epoxy Filled & Capped** + `Cadran.zip` `0.4mm` ENIG + `Carte_Capteur_V1.zip` 4 couches `0.8mm`).
 2. **Fabrication Mécanique en Temps Masqué (Pendant l'appro composants)** :
+   - 🔍 **`3D/carrure.SLDPRT`** : Encombrement `51,04 × 44,21 × 9,65 mm`, paroi principale `1,45–1,48 mm` OK ; vérifier avant usinage les 2 lèvres fines (`0,50 mm` et `0,64 mm`).
    - 🎯 **Impression 3D Résine SLA** : Lancer la fabrication de `Base.SLDPRT` (résine haute précision étanche) et de la cale de posage O4.
    - 🎯 **Usinage / SLM 316L** : Exporter les `.STEP` finaux de `carrure.SLDPRT` pour l'usineur.
    - 🔍 **Contrôles visuels en coupe** : Valider l'écrasement radial du joint torique et le dégagement des 10 broches Samtec.

@@ -24,9 +24,9 @@ La **SmileWatch** est une montre hybride conçue pour répondre à un cahier des
 | **Cadran** | Conception | **Cadran usiné en PCB (FR4 0.4 mm)** faisant office de cadran décoratif (sérigraphie/dorure, index, masquage) avec fenêtre découpée pour l'OLED et passage d'aiguilles. |
 | **Mouvement analogique**| Horlogerie | Mouvement quartz **Miyota 2035 modifié (sans couronne)**, dont la bobine du moteur pas-à-pas est directement pilotée par le microcontrôleur via des impulsions électriques étalonnées. |
 | **Afficheur numérique** | Écran | **PMOLED 0.5" monochrome (88 × 48 pixels)**, contrôleur **CH1115**, interface I2C, nappe 14 broches repliée sous le cadran avec écran acrylique de protection. |
-| **Microcontrôleur (MCU)**| Processeur & Sans-fil | **STMicroelectronics STM32WB55** (Dual-Core : ARM Cortex-M4 @ 64 MHz pour l'applicatif + Cortex-M0+ dédié à la stack RF BLE 5.4), filtre RF intégré **MLPF-WB-02D3**, antenne céramique 2.4 GHz **Johanson 2450AT**. |
+| **Microcontrôleur (MCU)**| Processeur & Sans-fil | **STMicroelectronics STM32WB55** (Dual-Core : ARM Cortex-M4 @ 64 MHz pour l'applicatif + Cortex-M0+ dédié à la stack RF BLE 5.4), filtre RF intégré **MLPF-WB55-02E3**, antenne céramique 2.4 GHz **Johanson 2450AT18D0100**. |
 | **Capteurs** | Biomédical & Mouvement | • **TMP117** : Température corporelle haute précision (±0.1 °C de grade médical), interfacé via un pont/pad thermique métallique.<br>• **MAX30101** : Capteur optique PPG (Fréquence cardiaque & Oxymétrie de pouls SpO2) avec masque optique Kapton noir anti-diaphonie (120 µm).<br>• **LSM6DSOX** : IMU 6 axes (accéléromètre + gyroscope) avec Machine Learning Core (MLC) pour le podomètre et la reconnaissance de gestes au poignet ultra-basse consommation.<br>• **VEML6030** : Capteur de luminosité ambiante avec guide d'onde lumineux pour l'ajustement automatique de l'OLED. |
-| **Interface & Haptique**| I/O & Retours | Contrôleur haptique évolué **TI DRV2605L** + vibreur CMS **HD-EMB1204-SM** ; 2 boutons poussoirs tactiles latéraux étanches **Alps Alpine SKSLLAE010**. |
+| **Interface & Haptique**| I/O & Retours | Contrôleur haptique évolué **TI DRV2605L** + vibreur linéaire **LD-SM-430** ; 2 boutons poussoirs tactiles latéraux étanches **Alps Alpine SKSLLAE010**. |
 | **Batterie & Autonomie**| Alimentation | Pile bouton rechargeable Li-Ion **LIR3048 (280 mAh, 3.7 V)** maintenue par contact latéral CMS Harwin (S1921-46R) et calage en mousse Poron. |
 | **Recharge** | Sans fil | Récepteur sans fil Qi **TI BQ51003** + bobine de réception Würth Elektronik (**760308101309**) + chargeur linéaire Li-Ion **TI BQ24040**. |
 | **Conversion d'énergie**| PMIC & Régulation | Convertisseur élévateur **TPS61023DRLR** (+5.0V pour LEDs capteurs, `R23/R24 = 150k/20k`, inductance **1.0 µH** `DFE18SBN1R0ME0L` `0603`), LDOs +3.3V / +1.8V **TPS7A0233DBVR / TPS7A0218PDBVR** (25 nA), protection batterie **AP9101CAK-ATTRG1** (`C5588142`). |
@@ -79,11 +79,11 @@ audits/
 │   ├── Carte_V2/                      # Carte mère V2 (6 couches : schémas + PCB KiCad 10)
 │   │   ├── Carte_Capteur_V2/          # PCB satellite capteurs optiques (KiCad 10)
 │   │   └── Cadran/                    # Cadran PCB + fichiers DXF (KiCad 10)
-│   └── Composant/                     # Librairie locale référencée par KiCad (ABM13W 32 MHz)
-├── 3D/                                # Modèles CAO SolidWorks actifs (.SLDPRT/.SLDASM) + exports .step frais des 3 PCB
+│   └── Composant/                     # Librairies locales (ABM13W 32 MHz + Smilewatch_V2_JLC : empreintes & 3D)
+├── 3D/                                # Modèles CAO SolidWorks actifs (.SLDPRT/.SLDASM) + Carte_V2.4f.step/.SLDASM
 ├── Datasheet/
 │   └── V2/                            # Fiches techniques des composants de la V2
-├── Commande/                          # Export panier composants (PDF / XLS)
+├── Commande/                          # Export panier composants & précommande JLCPCB (PDF / XLS / CSV)
 └── Fabrication_assemblage/
     └── Notice_montage_montre.pdf      # Notice d'assemblage mécanique & électronique V3.8
 ```
