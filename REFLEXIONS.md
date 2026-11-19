@@ -460,7 +460,7 @@ Secours (04-09 Jan)  [Optionnelle]        : Buffer de réserve post-Noël si fin
 | :--- | :--- | :--- | :--- |
 | **Écran micro-OLED 0.5"** | Topwin `QG-8848TSWYG02` (Contrôleur CH1115, 88×48) | ✅ **Reçu (x2)** | Datasheet V2 analysée : 14 broches au pas de 0.62 mm. Soudure directe confirmée. |
 | **Batterie Rechargeable** | LIR3048 Li-ion (3.7V - 280 mAh) | ✅ **Reçu (x2)** | Stock OK. Prête pour l'intégration mécanique. |
-| **Mouvement Quartz** | Miyota 2035 (2 fils de bobine à souder) | ✅ **2 en stock atelier + 2 neufs commandés (Sparks, 09 Nov)** | Expédition Sparks en cours. |
+| **Mouvement Quartz** | Miyota 2035 (2 fils de bobine à souder) | ✅ **4 en stock (2 atelier + 2 neufs reçus le 18 Nov)** | Prêts pour préparation bobine et pose aiguilles. |
 | **Aiguilles Horlogères** | Aiguilles Heures & Minutes pour Miyota 2035 | ✅ **Reçu (x2 sets)** | Stock OK. Pose au Bergeon 6767 lors de la phase 1. |
 | **Verre Principal Supérieur** | Glace Saphir plat haute résistance | ✅ **Reçu** | Stock OK pour le chassage avec posage O4. |
 | **Joint en I supérieur** | Joint Téflon / Hytrel profil en I | ✅ **Reçu** | Stock OK pour l'étanchéité du verre supérieur. |
@@ -468,10 +468,10 @@ Secours (04-09 Jan)  [Optionnelle]        : Buffer de réserve post-Noël si fin
 | **Boutons Poussoirs** | 4 boutons poussoirs physiques latéraux | ✅ **Reçu (4 pièces)** | 2 boutons par montre. Prêts pour montage dans la carrure. |
 | **Colle UV Optique** | Adhésif acrylique polymérisable UV | ✅ **En Stock Atelier** | Prête pour le scellement étanche du verre minéral 12 mm. |
 | **Joint Torique Fond-Carrure** | O-ring Nitrile/Viton étanchéité radiale | 🚚 **En transit** | Commande en cours d'acheminement. |
-| **Mousses Poron & Adhésifs** | Poron microcellulaire (vibreur 4.5mm, calage batterie) | 🔍 **À vérifier** | À fouiller dans les placards à la rentrée (si manquant, commander Jeudi 29 Oct). |
-| **Micro-taraud Poussoirs** | Taraud micro-mécanique pour vis de poussoirs | 🚚 **Commandé (Sparks, 09 Nov)** | Commandé avec les 2 Miyota de rechange. |
+| **Mousses Poron & Outillage Flash** | Poron (vibreur OK) + calage/contact batterie (`TP8`) ; Tag-Connect + ST-Link | 🟡 **Vibreur & Flash OK (19 Nov)** | **Tag-Connect + ST-Link + Poron vibreur en stock ✅** ; prévoir calage élastique batterie (`TP8`) et valider le jeu sur `Base` de test avant fermeture définitive. |
+| **Micro-taraud Poussoirs & 2× Miyota 2035** | Taraud Horotec Ø2.50×0.20 + 2× Miyota 2035 de rechange (Cousins UK #3064648) | ✅ **Reçu (18 Nov 2026)** | Colis reçu le 18 Nov (avec d'autres articles pour tiers). Prêt pour taraudage après perçage + chanfrein 45°. |
 | **Composants Électroniques CMS** | `Carte_V2` & `Carte_Capteur_V1` (BOM JLCPCB assainie le 11-12 Nov) | 🟢 **Pré-commande JLCPCB effectuée (12 Nov 18h)** | **Pré-commande validée pour 2 prototypes** : `U2` (`C1850399` x2), `FL1` (`C5270481` x27), `ANT1` (`C17531353` x9), `Y1` (`C6455449` x2), `Q3` (`DMN2028UFU-13` `C17388236`), `M1` (`C20107647` x2) ; `U4` (`C5588142` stk 162). Délai appro : ~4-7 jours avant lancement commande PCBA. |
-| **Carrures 316L & Bases Résine** | SLM 316L (`carrure`) + Résine SLA (`Base` + cale O4) | 🧪 **Proto PLA lancé (09 Nov)** | Finaliser `P0-MECA-6/7`, `P1-MECA-9/10` sur les `.STEP` ré-exportés avant envoi SLM/SLA. |
+| **Carrures 316L & Bases Résine** | **x4** SLM 316L (`3D/carrure_fabrication.SLDPRT`) + Résine SLA (`Base` + cale O4) | 🚚 **Carrures x4 payées & commandées (19 Nov)** | En attente de livraison SLM 316L ; à réception : alésage tour + perçage + **chanfrein 45°** + taraudage 316L. Côté `Base` SLA : finaliser `P0-MECA-6/7`, `P1-MECA-9/10` avant envoi. |
 
 ---
 
@@ -510,30 +510,34 @@ La carte fille capteurs (`Kicad/Carte_V2/Carte_Capteur_V2/Carte_Capteur_V1.kicad
 | **`[P0-MECA-5]` Hauteur aiguillage saphir** | 🟢 **RÉSOLU (09/11)** | Portée saphir relevée `+1.350 mm` (`Z=1003.313`, `+0.338 mm` minutes, `+0.138 mm` trotteuse), `0` contrainte en erreur, proto PLA lancé. |
 | **`[P0-MECA-6]` Poche `J1` & lamage Qi (`Base`)** | 🟠 **À CONFIRMER EN 3D** | `Base.SLDPRT` édité le `09/11`, poche `12×4.5×0.95 mm` et lamage `0.55 mm` à re-contrôler sous `Montre.SLDASM` sur les `.STEP` ré-exportés. |
 | **`[P0-MECA-7]` Composants `F.Cu` sous OLED** | 🔴 **OUVERT** | `Q1`, `Q2` (`TSOT-23`) et `C6/C7/C8/C20/C41/C42/C43` (`0603`) sont implantés sur `F.Cu` sous la zone dalle OLED (`dx=-4.75..+3.38, dy=+7.9..+15.7 mm`) ; contrôle/décision mécanique requis sur le nouveau `Carte_V2.3f.step`. |
-| **`[P0-MECA-8]` Gorge O-ring & clipsage** | 🟠 **À MODIFIER (inverser clips)** | Gorge ISO 3601 (`0.75×1.30 mm`, 25 %) + `Batterie.SLDPRT` `4.90 mm` OK ; **clips `Base`/`carrure` à inverser** sous SolidWorks pour faciliter la fabrication. |
+| **`[P0-MECA-8]` Gorge O-ring & clipsage** | 🟢 **INVERSION CLIPS FAITE (19 Nov)** | Gorge ISO 3601 (`0.75×1.30 mm`, 25 %) + `Batterie.SLDPRT` `4.90 mm` OK ; **inversion des clips `Base`/`carrure` effectuée** (confirmé le 19 Nov). |
 | **`[P1-MECA-9]` Poussoirs étanches** | 🟠 **OUVERT** | `Bouton.SLDASM` toujours daté du `24/09` ; poussoirs horlogers étanches (joint + circlip interne) à intégrer avant SLM 316L. |
 | **`[P1-MECA-10]` `TPS61023/L1` & `Canal_lum`** | 🟠 **À CONFIRMER SUR NOUVEAU `.STEP`** | `Canal_lum.SLDPRT` mis à jour le `09/11 06:41` ; dégagement radial de `IC3 TPS61023` (`SOT-563`) + `L1 0603` à valider dans `Montre.SLDASM` avec le nouveau `Carte_Capteur_V2f.step`. |
 | **`[P1-ELEC-11/12/13]` Alim, `VBAT`, Boost & BOM** | 🟡 **ROUTÉ (`⚠️ C21120`)** | Pont `2×1 MΩ + 100 nF` sur `PC4` (`U2.G4`), `IC4/IC6 = TPS7A0218P/33` (`tps7a02.pdf` EN `SBVS277C`), `R5 = 1.5 kΩ`, `R7 = DNP`, `C46 = 100 nF`, `R16 = 330 Ω`, `R17 = 2 kΩ`, `U4 = AP9101CAK-ATTRG1` (`C5588142`, *Auto-Wake-Up*, `stk=162`), `C0G2_50V1 = 220 nF` (`C21120` *25 V X7R*), `R27 = 10 kΩ`, `TH1 = 10k NTC` (`C91636`), Boost `TPS61023` + `L1 1.0 µH 0603` (`C882989`), `L1` Carte_V2 `SWPA252012S100MT` (`C37428`). |
 | **`[P2-THERM-14]` Vias `TMP117`** | 🟢 **RÉSOLU** | `Pad 7` isolé + 2 vias + plage `B.Cu` `1.2×1.8 mm` ENIG + keepout `U2_Thermal_Iso`. |
 | **`[P2-DRC-15]` DRC / ERC KiCad 10** | 🟢 **RÉSOLU** | `Carte_V2` : `ERC=0` (`62` w.), `DRC projet=0` / parité `0` *(20 `--severity-all` S1/S2 bord & IC2 connues)* ; `Carte_Capteur_V1` : `ERC=0` (`11` w.), `DRC=0` ; `Cadran` : `ERC=0`, `DRC=0` err (`55` w. bord). |
 | **Stocks JLCPCB SMT (`15 Nov 2026`)** | 🟡 **SEUL `U2` EN ATTENTE** | **`Carte_Capteur_V1` : 100% JLC en stock** (`J1` main). **`Carte_V2` : `bom.csv` réaligné sur KiCad** (`46` lignes / `99` composants) ; **`IC1` (`C2650142`), `IC8` (`C2150692`), `FL1` (`C1855732`), `TH1` (`C91636`) sécurisés dans `My Parts`** ; `ANT1` (`646`), `Y1` (`380`), `M1` (`2 382`), `Q3` (`170 444`) en stock public ; **seul `U2` (`C1850399`) reste en `shortfall`** (attente livraison pré-commande). |
-| **`[P2-PROC-17]` Livrables Usine** | 🟢 **RÉGÉNÉRÉS (15 Nov)** | `Carte_V2.zip` (`JLC06081H-2116`, RF `0,135 mm`), `Cadran.zip` (`39×39 mm` validé JLCPCB), `bom.csv` et `positions.csv` à jour ; **rotations 3D JLCPCB à finaliser** (`IC8`, `IC6`, `IC4`, `U4`, `IC1`, vérifier `ANT1`). |
-| **`[P2-FW-16]` Firmware STM32** | ⏸️ **REPORTÉ** | Reporté après lancement fabrication matérielle (`SmileWatch1.ioc` à migrer vers `STM32WB55VGYx` ultérieurement). |
+| **`[P2-PROC-17]` Livrables Usine** | 🟢 **CPL CORRIGÉ (19 Nov)** | `Carte_V2.zip` (`JLC06081H-2116`, RF `0,135 mm`), `Cadran.zip` (`39×39 mm` validé JLCPCB), `bom.csv` à jour ; **`positions.csv` corrigé** (`ANT1` `90°`, `IC1` `0°`, `IC4` `180°`, `IC6` `180°`, `IC8` `270°`), reste contrôle 3D `U4` (`bottom`) au ré-upload JLCPCB. |
+| **`[P2-FW-16]` Firmware STM32** | 🟢 **EN TRÈS BONNE VOIE (19 Nov)** | Développement bien avancé en temps masqué avant réception matériel. |
 
 ---
 
-## 📅 Point d'Étape & Prochaines Actions — 15 Novembre 2026
+## 📅 Point d'Étape & Prochaines Actions — 19 Novembre 2026 (Jalon critique : Réception < 16 Déc, Fin 22 Jan)
 
-- [ ] **Finaliser les rotations 3D PCBA sur JLCPCB (`positions.csv`)** : pivoter **`IC8`** (`0° → 270°`), **`IC6`** (`90° → 0°`), **`IC4`** (`90° → 0°`), **`U4`** (`90° → 0°`), **`IC1`** (aligner A1 sur point blanc bas-gauche), et vérifier **`ANT1`** (`FEED` haut-droite) ; activer `Depanel boards & edge rail before delivery = Yes`.
+- [ ] **URGENT — Remplacement / échange des boutons poussoirs (limitation des coûts)** : Prévoir rapidement le remplacement/échange des boutons poussoirs actuels par une alternative plus économique (impactera `[P1-MECA-9]` / perçage-taraudage carrure si dimensions ou filetage différents).
+- [ ] **Contrôler `U4` (`bottom`) au ré-upload `positions.csv` sur JLCPCB & commander dès réception `U2` (26 Nov)** : les rotations `top` sont corrigées dans `positions.csv` (`ANT1` `270→90°`, `IC1` `90→0°`, `IC4` `90→180°`, `IC6` `90→180°`, `IC8` `0→270°`) ; vérifier `U4` (`bottom`, `270.0`), activer `Depanel boards & edge rail before delivery = Yes` + **livraison express** pour recevoir le colis **avant le 16 décembre** (sinon reprise bloquée au **8 janvier** pour une fin définitive le **22 janvier**).
 - [ ] **Composants hors-PCBA à souder/monter manuellement après réception** : **`C39`** (nappe/connecteur écran OLED `0,5"`), **`J2`** (`TW-05-02-G-D-157-075` vers carte capteurs), **`BT1` / `TP8`** (batterie `LIR3048`), **`TP1` / `TP3`** (bobine Qi), **`TP6` / `TP7`** (bobine Miyota 2035), plus `J1` Tag-Connect & `TP4`/`TP5` pour flash/debug.
 - [ ] **Test d'étanchéité final (Atelier horloger à Paris)** : Passage des 2 montres montées sur testeur à sec Witschi (mesure sans eau de la déformation sous air comprimé 3-5 bars) pour qualifier l'étanchéité sans danger avant tout usage aquatique (ticket de mesure à intégrer au rapport).
 1. **Approvisionnement Électronique (En cours JLCPCB)** :
    - ✅ **Sécurisé dans `My Parts`** : `IC1`, `IC8`, `FL1`, `TH1` (et reste de la BOM en stock public confortable).
-   - ⏳ **Attente transit / In Stock** : uniquement **`U2`** (`STM32WB55VGY6TR` `C1850399`).
+   - ⏳ **Attente transit / In Stock** : uniquement **`U2`** (`STM32WB55VGY6TR` `C1850399`, livraison reportée au **26 Nov 2026**).
    - 🎯 **Action dès réception de `U2`** : Lancer la commande PCBA pour 2 cartes (`production/Carte_V2.zip` 6 couches `0.8mm` **`JLC06081H-2116`** avec **Epoxy Filled & Capped** + `Cadran.zip` `0.4mm` ENIG + `Carte_Capteur_V1.zip` 4 couches `0.8mm`).
 2. **Fabrication Mécanique en Temps Masqué (Pendant l'appro composants)** :
-   - 🔍 **`3D/carrure.SLDPRT`** : Encombrement `51,04 × 44,21 × 9,65 mm`, paroi principale `1,45–1,48 mm` OK ; vérifier avant usinage les 2 lèvres fines (`0,50 mm` et `0,64 mm`).
+   - 🔍 **`3D/carrure.SLDPRT`** : Encombrement `51,04 × 44,21 × 9,65 mm`, paroi principale `1,45–1,48 mm` OK ; les 2 lèvres fines (`0,50 mm` jupe inférieure et `0,64 → 0,36 mm` lèvre saphir) ainsi que le fond de gorge (`0,70 mm`) sont sous le seuil SLM de `1,50 mm`.
+   - 🎯 **Stratégie SLM 316L validée (`15-16 Nov 2026` — Clone épaissi `3D/carrure_fabrication.SLDPRT`)** :
+     - Conserver `carrure.SLDPRT` intacte aux cotes finales.
+     - **Clone fabrication créé (`16 Nov 2026`)** : `3D/carrure_fabrication.SLDPRT` épaissi par l'intérieur pour garantir **≥ 1,50 mm partout** (jupe + fond de gorge O-ring via `R_int = 18,00 mm`, portée saphir via `R_int ≤ 19,45 mm`, passages de boutons pleins ou pointés) tout en conservant la gorge O-ring extérieure.
+     - **Commande & Reprise (`x4` pièces — Payée le `19 Nov 2026`, JLC3DP `#W2026111717260831`)** : Dossier approuvé le `17 Nov`, **lancé en prod le `19 Nov 2026` avec validation aux risques du client (*non recommandé JLC3DP*) — en attente de livraison** ; à réception des 4 carrures SLM 316L : contrôle dimensionnel pour trier les meilleures pièces, **aléser/tourner l'intérieur** aux cotes finales (`Ø 38,00 mm` en bas, portée saphir `Ø 40,60 mm` en haut), réaliser le **perçage + chanfrein d'entrée à 45° + taraudage lubrifié** des boutons poussoirs (amorçage droit et débourrage fréquent dans le 316L), et **toiler/polir** la gorge O-ring extérieure (avec option d'imprégnation résine fluide / Loctite 290 après usinage si besoin au test Witschi à sec).
    - 🎯 **Impression 3D Résine SLA** : Lancer la fabrication de `Base.SLDPRT` (résine haute précision étanche) et de la cale de posage O4.
-   - 🎯 **Usinage / SLM 316L** : Exporter les `.STEP` finaux de `carrure.SLDPRT` pour l'usineur.
    - 🔍 **Contrôles visuels en coupe** : Valider l'écrasement radial du joint torique et le dégagement des 10 broches Samtec.
 3. **Firmware (Phase ultérieure)** : Créer le projet STM32CubeIDE sur **`STM32WB55VGYx` (WLCSP-100)** pendant la fabrication des cartes.

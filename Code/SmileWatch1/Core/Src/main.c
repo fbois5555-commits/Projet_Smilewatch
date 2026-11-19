@@ -102,6 +102,19 @@ int main(void)
   while (1)
   {
     SmileWatch_LoopTask(HAL_GetTick());
+    if (!SmileWatch_NeedsFastTick())
+    {
+      /* True STM32WB55 STOP2 deep sleep between RTC/EXTI wakeups (~2 uA) */
+      HAL_SuspendTick();
+      HAL_PWREx_EnterSTOP2Mode(PWR_STOPENTRY_WFI);
+      SystemClock_Config();
+      HAL_ResumeTick();
+    }
+    else
+    {
+      /* Fast-polling sleep while OLED / Sport / HRR60 / SOS is active */
+      __WFI();
+    }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -278,6 +291,18 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode  = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull  = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+  /* Sensor interrupts on GPIOA: TEMP_ALERT (PA9), IMU_INTSA (PA10), IMU_INTPA (PA15), ALS_INT (PA12) */
+  GPIO_InitStruct.Pin   = TEMP_ALERT_Pin | IMU_INTSA_Pin | IMU_INTPA_Pin | ALS_INT_Pin;
+  GPIO_InitStruct.Mode  = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull  = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /* HR interrupt (PB6) & BQ24040 ~CHG status (PB2, active low) on GPIOB */
+  GPIO_InitStruct.Pin   = HR_INT_Pin | BQ_CHG_Pin;
+  GPIO_InitStruct.Mode  = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull  = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
   /* USER CODE END MX_GPIO_Init_2 */
 }
 

@@ -1,0 +1,296 @@
+ERC report (2026-11-15T10:29:04, Encoding UTF8)
+Report includes: Errors, Warnings
+
+***** Sheet /
+[lib_symbol_issues]: La librairie de symboles 'TW-05-02-G-D-157-075' n'a pas été trouvée à 'C:/Users/fbois/Documents/Perso/Projet_Smilewatch/Kicad/Composant/LIB_TW-05-02-G-D-157-075/TW-05-02-G-D-157-075/KiCad/TW-05-02-G-D-157-075.kicad_sym'
+    ; warning
+    @(177.80 mm, 118.11 mm): Symbol J2 [TW-05-02-G-D-157-075]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(90.17 mm, 69.85 mm): Symbol C34 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(156.21 mm, 73.66 mm): Symbol C32 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(170.18 mm, 73.66 mm): Symbol C33 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(33.02 mm, 160.02 mm): Symbol C46 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(35.56 mm, 48.26 mm): Symbol C12 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(38.10 mm, 39.37 mm): Symbol C0G2_50V1 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(45.72 mm, 48.26 mm): Symbol C4 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(45.72 mm, 63.50 mm): Symbol C54 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(46.99 mm, 35.56 mm): Symbol C13 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(55.88 mm, 48.26 mm): Symbol C9 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(55.88 mm, 63.50 mm): Symbol C7 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(58.42 mm, 35.56 mm): Symbol C11 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(66.04 mm, 63.50 mm): Symbol C6 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(69.85 mm, 41.91 mm): Symbol C0G3 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(72.39 mm, 35.56 mm): Symbol C10 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(128.27 mm, 26.67 mm): Symbol C8 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(138.43 mm, 27.94 mm): Symbol C55 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(171.45 mm, 29.21 mm): Symbol C1 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(193.04 mm, 78.74 mm): Symbol C14 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(198.12 mm, 124.46 mm): Symbol C16 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'S1921' ne correspond pas à la copie en librairie 'BQ24040DSQR'
+    ; warning
+    @(234.95 mm, 25.40 mm): Symbol BT1 [S1921]
+[lib_symbol_mismatch]: Le symbole 'Thermistor_NTC' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(238.76 mm, 39.37 mm): Symbol TH1 [Thermistor_NTC]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(248.92 mm, 39.37 mm): Symbol C2 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(259.08 mm, 86.36 mm): Symbol C15 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(261.62 mm, 132.08 mm): Symbol C17 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(17.78 mm, 34.29 mm): Symbol C28 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(19.05 mm, 118.11 mm): Symbol C49 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(33.02 mm, 24.13 mm): Symbol C19 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(43.18 mm, 24.13 mm): Symbol C18 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(43.18 mm, 49.53 mm): Symbol C52 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(53.34 mm, 49.53 mm): Symbol C53 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(54.61 mm, 24.13 mm): Symbol C47 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(57.15 mm, 120.65 mm): Symbol C36 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(57.15 mm, 133.35 mm): Symbol C50 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(66.04 mm, 24.13 mm): Symbol C48 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(77.47 mm, 24.13 mm): Symbol C21 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(85.09 mm, 60.96 mm): Symbol C35 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(201.93 mm, 137.16 mm): Symbol C56 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(207.01 mm, 43.18 mm): Symbol C51 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(215.90 mm, 43.18 mm): Symbol C23 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(227.33 mm, 43.18 mm): Symbol C26 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(237.49 mm, 43.18 mm): Symbol C27 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(266.70 mm, 88.90 mm): Symbol C37 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(274.32 mm, 111.76 mm): Symbol C38 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(168.91 mm, 107.95 mm): Symbol C41 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(184.15 mm, 80.01 mm): Symbol C43 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(185.42 mm, 107.95 mm): Symbol C42 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(196.85 mm, 80.01 mm): Symbol C44 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(199.39 mm, 107.95 mm): Symbol C40 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(234.95 mm, 53.34 mm): Symbol C20 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'Conn_Oled_p0.7mm_15' ne correspond pas à la copie en librairie 'VEML6030'
+    ; warning
+    @(252.73 mm, 73.66 mm): Symbol C39 [Conn_Oled_p0.7mm_15]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(256.54 mm, 53.34 mm): Symbol C45 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(203.20 mm, 134.62 mm): Symbol C31 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(246.38 mm, 113.03 mm): Symbol C29 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(248.92 mm, 38.10 mm): Symbol C24 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(259.08 mm, 113.03 mm): Symbol C30 [C_Small]
+[lib_symbol_mismatch]: Le symbole 'C_Small' ne correspond pas à la copie en librairie 'Device'
+    ; warning
+    @(262.89 mm, 38.10 mm): Symbol C25 [C_Small]
+
+***** Sheet /Alimentation/
+[pin_to_pin]: Les pins de type Unspecified et Output sont connectées
+    ; warning
+    @(127.00 mm, 161.29 mm): Symbol Q3 Pin 6 [G1, Unspecified, Line]
+    @(72.39 mm, 163.83 mm): Symbol U4 Pin 4 [DO, Output, Line]
+[pin_to_pin]: Les pins de type Unspecified et Output sont connectées
+    ; warning
+    @(127.00 mm, 166.37 mm): Symbol Q3 Pin 4 [G2, Unspecified, Line]
+    @(72.39 mm, 158.75 mm): Symbol U4 Pin 5 [CO, Output, Line]
+[pin_to_pin]: Les pins de type Unspecified et Power input sont connectées
+    ; warning
+    @(152.40 mm, 161.29 mm): Symbol Q3 Pin 1 [S1, Unspecified, Line]
+    @(106.68 mm, 157.48 mm): Symbol #PWR058 Pin 1 [Power input, Line]
+[pin_to_pin]: Les pins de type Unspecified et Power input sont connectées
+    ; warning
+    @(152.40 mm, 166.37 mm): Symbol Q3 Pin 3 [S2, Unspecified, Line]
+    @(166.37 mm, 163.83 mm): Symbol #PWR074 Pin 1 [Power input, Line]
+
+***** Sheet /MCU/
+[pin_to_pin]: Les pins de type Unspecified et Power input sont connectées
+    ; warning
+    @(21.59 mm, 167.64 mm): Symbol ANT1 Pin 3 [GND, Unspecified, Line]
+    @(44.45 mm, 154.94 mm): Symbol #PWR041 Pin 1 [Power input, Line]
+[pin_to_pin]: Les pins de type Unspecified et Passive sont connectées
+    ; warning
+    @(21.59 mm, 170.18 mm): Symbol ANT1 Pin 4 [GND, Unspecified, Line]
+    @(49.53 mm, 175.26 mm): Symbol R24 Pin 2 [Passive, Line]
+[multiple_net_names]: +3V3 et VDD sont attachés aux mêmes éléments.  +3V3 a été choisi comme label  en netliste
+    ; warning
+    @(274.32 mm, 99.06 mm): Symbol #PWR065 Pin 1 [Power input, Line]
+    @(30.48 mm, 20.32 mm): Label 'VDD'
+[pin_to_pin]: Les pins de type Unspecified et Power input sont connectées
+    ; warning
+    @(41.91 mm, 167.64 mm): Symbol ANT1 Pin 2 [GND, Unspecified, Line]
+    @(44.45 mm, 154.94 mm): Symbol #PWR041 Pin 1 [Power input, Line]
+[pin_to_pin]: Les pins de type Unspecified et Unspecified sont connectées
+    ; warning
+    @(41.91 mm, 170.18 mm): Symbol ANT1 Pin 1 [FEED, Unspecified, Line]
+    @(41.91 mm, 167.64 mm): Symbol ANT1 Pin 2 [GND, Unspecified, Line]
+[pin_to_pin]: Les pins de type Unspecified et Power input sont connectées
+    ; warning
+    @(48.26 mm, 99.06 mm): Symbol Y1 Pin 4 [4, Unspecified, Line]
+    @(33.02 mm, 100.33 mm): Symbol #PWR061 Pin 1 [Power input, Line]
+[pin_to_pin]: Les pins de type Unspecified et Power output sont connectées
+    ; warning
+    @(48.26 mm, 104.14 mm): Symbol Y1 Pin 1 [OSC1, Unspecified, Line]
+    @(39.37 mm, 104.14 mm): Symbol #FLG09 Pin 1 [Power output, Line]
+[pin_to_pin]: Les pins de type Unspecified et Power output sont connectées
+    ; warning
+    @(63.50 mm, 99.06 mm): Symbol Y1 Pin 3 [OSC2, Unspecified, Line]
+    @(64.77 mm, 99.06 mm): Symbol #FLG05 Pin 1 [Power output, Line]
+[pin_to_pin]: Les pins de type Unspecified et Power input sont connectées
+    ; warning
+    @(63.50 mm, 104.14 mm): Symbol Y1 Pin 2 [2, Unspecified, Line]
+    @(67.31 mm, 107.95 mm): Symbol #PWR034 Pin 1 [Power input, Line]
+[pin_to_pin]: Les pins de type Unspecified et Passive sont connectées
+    ; warning
+    @(104.14 mm, 180.34 mm): Symbol FL1 Pin 1 [OUT, Unspecified, Line]
+    @(60.96 mm, 175.26 mm): Symbol R21 Pin 2 [Passive, Line]
+[pin_to_pin]: Les pins de type Unspecified et Power input sont connectées
+    ; warning
+    @(104.14 mm, 182.88 mm): Symbol FL1 Pin 2 [GND4, Unspecified, Line]
+    @(91.44 mm, 186.69 mm): Symbol #PWR036 Pin 1 [Power input, Line]
+[pin_to_pin]: Les pins de type Unspecified et Bidirectional sont connectées
+    ; warning
+    @(104.14 mm, 185.42 mm): Symbol FL1 Pin 3 [IN, Unspecified, Line]
+    @(110.49 mm, 62.23 mm): Symbol U2 Pin K4 [RF1, Bidirectional, Line]
+[pin_to_pin]: Les pins de type Unspecified et Power input sont connectées
+    ; warning
+    @(127.00 mm, 180.34 mm): Symbol FL1 Pin 6 [GND3, Unspecified, Line]
+    @(135.89 mm, 175.26 mm): Symbol #PWR089 Pin 1 [Power input, Line]
+[pin_to_pin]: Les pins de type Unspecified et Unspecified sont connectées
+    ; warning
+    @(127.00 mm, 182.88 mm): Symbol FL1 Pin 5 [GND2, Unspecified, Line]
+    @(127.00 mm, 180.34 mm): Symbol FL1 Pin 6 [GND3, Unspecified, Line]
+[pin_to_pin]: Les pins de type Unspecified et Unspecified sont connectées
+    ; warning
+    @(127.00 mm, 185.42 mm): Symbol FL1 Pin 4 [GND1, Unspecified, Line]
+    @(127.00 mm, 182.88 mm): Symbol FL1 Pin 5 [GND2, Unspecified, Line]
+
+***** Sheet /Capteurs/
+
+***** Sheet /Moteur/
+[pin_to_pin]: Les pins de type Unspecified et Passive sont connectées
+    ; warning
+    @(199.39 mm, 63.50 mm): Symbol M1 Pin 1 [+, Unspecified, Line]
+    @(105.41 mm, 69.85 mm): Symbol IC8 Pin A3 [OUT+, Passive, Line]
+[pin_to_pin]: Les pins de type Unspecified et Passive sont connectées
+    ; warning
+    @(199.39 mm, 66.04 mm): Symbol M1 Pin 2 [-, Unspecified, Line]
+    @(138.43 mm, 72.39 mm): Symbol IC8 Pin C3 [OUT-, Passive, Line]
+[pin_to_pin]: Les pins de type Unspecified et Power input sont connectées
+    ; warning
+    @(199.39 mm, 68.58 mm): Symbol M1 Pin 3 [3, Unspecified, Line]
+    @(193.04 mm, 68.58 mm): Symbol #PWR056 Pin 1 [Power input, Line]
+
+***** Sheet /Ecran/
+[multiple_net_names]: +3V3 et VDD sont attachés aux mêmes éléments.  +3V3 a été choisi comme label  en netliste
+    ; warning
+    @(196.85 mm, 76.20 mm): Symbol #PWR069 Pin 1 [Power input, Line]
+    @(201.93 mm, 76.20 mm): Label 'VDD'
+[multiple_net_names]: I2C1_SCL et SCL sont attachés aux mêmes éléments.  I2C1_SCL a été choisi comme label  en netliste
+    ; warning
+    @(245.11 mm, 99.06 mm): Global Label 'I2C1_SCL'
+    @(245.11 mm, 99.06 mm): Label 'SCL'
+[multiple_net_names]: I2C1_SDA et SDA sont attachés aux mêmes éléments.  I2C1_SDA a été choisi comme label  en netliste
+    ; warning
+    @(245.11 mm, 101.60 mm): Global Label 'I2C1_SDA'
+    @(245.11 mm, 101.60 mm): Label 'SDA'
+
+ ** ERC messages: 83  Errors 0  Warnings 83
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - SPICE model issue
+    - Assigned footprint doesn't match footprint filters

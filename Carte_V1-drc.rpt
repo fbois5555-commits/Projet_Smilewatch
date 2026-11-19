@@ -1,0 +1,1064 @@
+** Drc report for Carte_V1.kicad_pcb **
+** Created on 2026-11-09T10:33:30+0100 **
+
+** Found 294 DRC violations **
+[text_on_edge_cuts]: Texte (ou cote) sur la couche Edge.Cuts
+    Forçage local; error
+    @(96,5250 mm, 87,8786 mm): Texte PCB '' surEdge.Cuts
+[text_on_edge_cuts]: Texte (ou cote) sur la couche Edge.Cuts
+    Forçage local; error
+    @(86,2000 mm, 100,7000 mm): Texte PCB '' surEdge.Cuts
+[items_not_allowed]: Éléments non autorisés (keepout area)
+    Règle: keepout area; error
+    @(111,0381 mm, 67,5054 mm): Empreinte M1
+[clearance]: Violation d'isolation (netclass 'Default' isolation 0,1500 mm; réel 0,1411 mm)
+    Règle: netclass 'Default'; error
+    @(112,6826 mm, 68,1039 mm): Pad 3 [unconnected-(M1-Pad3)] de M1 sur B.Cu
+    @(114,6000 mm, 69,9000 mm): Via [/Moteur/Mot-] sur F.Cu - B.Cu
+[clearance]: Violation d'isolation (netclass 'Default' isolation 0,1500 mm; réel 0,1161 mm)
+    Règle: netclass 'Default'; error
+    @(112,6826 mm, 68,1039 mm): Pad 3 [unconnected-(M1-Pad3)] de M1 sur B.Cu
+    @(114,6000 mm, 69,9000 mm): Piste [/Moteur/Mot-] sur B.Cu, long. 0,2577 mm
+[clearance]: Violation d'isolation (netclass 'Default' isolation 0,1500 mm; réel 0,1340 mm)
+    Règle: netclass 'Default'; error
+    @(110,5600 mm, 66,4800 mm): Pad 6 [unconnected-(M1-Pad6)] de M1 sur B.Cu
+    @(110,6364 mm, 65,7001 mm): Via [I2C1_SCL] sur F.Cu - B.Cu
+[hole_clearance]: Violation d'isolation des trous (board setup constraints hole isolation 0,2000 mm; réel 0,1911 mm)
+    Règle: board setup constraints hole; error
+    @(112,6826 mm, 68,1039 mm): Pad 3 [unconnected-(M1-Pad3)] de M1 sur B.Cu
+    @(114,6000 mm, 69,9000 mm): Via [/Moteur/Mot-] sur F.Cu - B.Cu
+[shorting_items]: Eléments court-circuitant deux nets (nets unconnected-(M1-Pad3) et  unconnected-(M1-Pad4))
+    Forçage local; error
+    @(112,6826 mm, 68,1039 mm): Pad 3 [unconnected-(M1-Pad3)] de M1 sur B.Cu
+    @(115,4077 mm, 69,0958 mm): Pad 4 [unconnected-(M1-Pad4)] de M1 sur B.Cu
+[shorting_items]: Eléments court-circuitant deux nets (nets unconnected-(M1-Pad3) et  unconnected-(M1-Pad5))
+    Forçage local; error
+    @(112,6826 mm, 68,1039 mm): Pad 3 [unconnected-(M1-Pad3)] de M1 sur B.Cu
+    @(110,0128 mm, 67,9835 mm): Pad 5 [unconnected-(M1-Pad5)] de M1 sur B.Cu
+[shorting_items]: Eléments court-circuitant deux nets (nets unconnected-(M1-Pad3) et  unconnected-(M1-Pad6))
+    Forçage local; error
+    @(112,6826 mm, 68,1039 mm): Pad 3 [unconnected-(M1-Pad3)] de M1 sur B.Cu
+    @(110,5600 mm, 66,4800 mm): Pad 6 [unconnected-(M1-Pad6)] de M1 sur B.Cu
+[hole_clearance]: Violation d'isolation des trous (board setup constraints hole isolation 0,2000 mm; réel 0,1840 mm)
+    Règle: board setup constraints hole; error
+    @(110,5600 mm, 66,4800 mm): Pad 6 [unconnected-(M1-Pad6)] de M1 sur B.Cu
+    @(110,6364 mm, 65,7001 mm): Via [I2C1_SCL] sur F.Cu - B.Cu
+[courtyards_overlap]: Zones d'occupation d'empreintes chevauchantes
+    Règle: board setup constraints courtyard; error
+    @(115,2250 mm, 66,9000 mm): Empreinte C24
+    @(117,8250 mm, 67,1000 mm): Empreinte IC7
+[courtyards_overlap]: Zones d'occupation d'empreintes chevauchantes
+    Règle: board setup constraints courtyard; error
+    @(117,8250 mm, 67,1000 mm): Empreinte IC7
+    @(115,5250 mm, 65,6000 mm): Empreinte C25
+[courtyards_overlap]: Zones d'occupation d'empreintes chevauchantes
+    Règle: board setup constraints courtyard; error
+    @(111,0381 mm, 67,5054 mm): Empreinte M1
+    @(119,1559 mm, 71,2752 mm): Empreinte C21
+[copper_edge_clearance]: Violation d'isolation du contour du CI (board setup constraints edge isolation 0,2000 mm; réel 0,1928 mm)
+    Règle: board setup constraints edge; error
+    @(119,5954 mm, 74,6009 mm): Segment sur Edge.Cuts
+    @(118,9221 mm, 74,3648 mm): Pad 1 [/MCU/BTN2_IN] de S2 sur F.Cu
+[copper_edge_clearance]: Violation d'isolation du contour du CI (board setup constraints edge isolation 0,2000 mm; réel 0,1936 mm)
+    Règle: board setup constraints edge; error
+    @(119,5954 mm, 74,6009 mm): Segment sur Edge.Cuts
+    @(118,1504 mm, 72,8501 mm): Pad 2 [GND] de S2 sur F.Cu
+[copper_edge_clearance]: Violation d'isolation du contour du CI (board setup constraints edge isolation 0,2000 mm; réel 0,1989 mm)
+    Règle: board setup constraints edge; error
+    @(118,4512 mm, 71,6855 mm): Segment sur Edge.Cuts
+    @(118,4831 mm, 71,0252 mm): Pad MP2 [GND] de S2 sur F.Cu
+[copper_edge_clearance]: Violation d'isolation du contour du CI (board setup constraints edge isolation 0,2000 mm; réel 0,1898 mm)
+    Règle: board setup constraints edge; error
+    @(118,3644 mm, 88,1474 mm): Segment sur Edge.Cuts
+    @(118,1813 mm, 87,4279 mm): Pad 1 [/MCU/BTN1_IN] de S1 sur F.Cu
+[copper_edge_clearance]: Violation d'isolation du contour du CI (board setup constraints edge isolation 0,2000 mm; réel 0,1898 mm)
+    Règle: board setup constraints edge; error
+    @(118,3644 mm, 88,1474 mm): Segment sur Edge.Cuts
+    @(118,9531 mm, 85,9132 mm): Pad 2 [GND] de S1 sur F.Cu
+[copper_edge_clearance]: Violation d'isolation du contour du CI (board setup constraints edge isolation 0,2000 mm; réel 0,0000 mm)
+    Règle: board setup constraints edge; error
+    @(118,4512 mm, 71,6855 mm): Segment sur Edge.Cuts
+    @(118,6088 mm, 71,6809 mm): Pad 1 [GNDPWR] de C21 sur B.Cu
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(100,9250 mm, 62,3200 mm): Piste [/MCU/NRST] sur F.Cu, long. 0,4808 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(100,9250 mm, 63,1750 mm): Piste [/MCU/NRST] sur F.Cu, long. 0,3500 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(89,3250 mm, 85,3000 mm): Piste [/MCU/NRST] sur F.Cu, long. 0,6750 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(90,0000 mm, 85,3000 mm): Piste [/MCU/NRST] sur F.Cu, long. 0,1414 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(100,9250 mm, 63,5250 mm): Piste [/MCU/NRST] sur F.Cu, long. 0,2475 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(101,2650 mm, 61,9800 mm): Piste [/MCU/NRST] sur F.Cu, long. 0,0350 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(100,9250 mm, 63,1750 mm): Piste [/MCU/NRST] sur F.Cu, long. 0,8550 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(94,9100 mm, 81,8100 mm): Piste [/Alimentation/CHG] sur F.Cu, long. 0,4101 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(94,4250 mm, 81,8100 mm): Piste [/Alimentation/CHG] sur F.Cu, long. 0,4850 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(105,0000 mm, 66,3500 mm): Piste [/Alimentation/CHG] sur F.Cu, long. 0,2967 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(104,7033 mm, 66,3500 mm): Piste [/Alimentation/CHG] sur F.Cu, long. 0,1084 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(102,6000 mm, 68,4533 mm): Piste [/Alimentation/CHG] sur B.Cu, long. 2,8661 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(102,6000 mm, 68,7000 mm): Piste [/Alimentation/CHG] sur B.Cu, long. 0,2467 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(95,2000 mm, 82,1000 mm): Piste [/Alimentation/CHG] sur In3.Cu, long. 0,4964 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(102,6000 mm, 71,8507 mm): Piste [/Alimentation/CHG] sur In3.Cu, long. 3,1507 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(94,8490 mm, 76,6510 mm): Piste [/Alimentation/CHG] sur In3.Cu, long. 0,2135 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(94,8490 mm, 81,7490 mm): Piste [/Alimentation/CHG] sur In3.Cu, long. 2,7490 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(94,8490 mm, 79,0000 mm): Piste [/Alimentation/CHG] sur In3.Cu, long. 2,3490 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(97,7000 mm, 72,5745 mm): Piste [/Alimentation/CHG] sur In3.Cu, long. 0,1293 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(97,7000 mm, 74,0854 mm): Piste [/Alimentation/CHG] sur In3.Cu, long. 1,5109 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(102,7493 mm, 72,0000 mm): Piste [/Alimentation/CHG] sur In3.Cu, long. 0,2111 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(97,7418 mm, 74,1271 mm): Piste [/Alimentation/CHG] sur In3.Cu, long. 0,0591 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(102,2169 mm, 72,4831 mm): Piste [/Alimentation/CHG] sur In4.Cu, long. 4,4255 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(102,7493 mm, 72,0000 mm): Piste [/Alimentation/CHG] sur In4.Cu, long. 0,0493 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(97,7418 mm, 74,5582 mm): Piste [/Alimentation/CHG] sur In4.Cu, long. 2,7461 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(102,7000 mm, 72,0000 mm): Piste [/Alimentation/CHG] sur In4.Cu, long. 0,6831 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(95,8000 mm, 76,5000 mm): Piste [/Alimentation/CHG] sur In4.Cu, long. 0,8000 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(97,7418 mm, 74,1271 mm): Piste [/Alimentation/CHG] sur In4.Cu, long. 0,4311 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(110,6364 mm, 65,7001 mm): Piste [I2C1_SCL] sur F.Cu, long. 0,0362 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(115,5800 mm, 91,3200 mm): Piste [I2C1_SCL] sur F.Cu, long. 0,1697 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(113,1250 mm, 91,3200 mm): Piste [I2C1_SCL] sur F.Cu, long. 2,4550 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(112,2000 mm, 73,7000 mm): Piste [I2C1_SCL] sur F.Cu, long. 0,5250 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(110,6364 mm, 65,7364 mm): Piste [I2C1_SCL] sur F.Cu, long. 0,7971 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(111,2000 mm, 66,3000 mm): Piste [I2C1_SCL] sur F.Cu, long. 0,6250 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(116,4842 mm, 66,4250 mm): Piste [I2C1_SCL] sur F.Cu, long. 0,5580 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(112,1000 mm, 73,8000 mm): Piste [I2C1_SCL] sur F.Cu, long. 0,1414 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(117,0422 mm, 66,4250 mm): Piste [I2C1_SCL] sur F.Cu, long. 0,1592 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(115,5000 mm, 76,6000 mm): Piste [I2C1_SCL] sur In3.Cu, long. 0,2000 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(110,6364 mm, 65,7001 mm): Piste [I2C1_SCL] sur In3.Cu, long. 1,8286 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(115,8260 mm, 91,0740 mm): Piste [I2C1_SCL] sur In3.Cu, long. 0,1782 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(110,6364 mm, 67,5287 mm): Piste [I2C1_SCL] sur In3.Cu, long. 1,6456 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(115,5000 mm, 76,8000 mm): Piste [I2C1_SCL] sur In3.Cu, long. 0,4610 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(111,8000 mm, 68,6923 mm): Piste [I2C1_SCL] sur In3.Cu, long. 4,8077 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(111,8000 mm, 73,5000 mm): Piste [I2C1_SCL] sur In3.Cu, long. 0,4243 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(115,8260 mm, 77,1260 mm): Piste [I2C1_SCL] sur In3.Cu, long. 13,9480 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(111,5872 mm, 66,6510 mm): Piste [I2C1_SCL] sur In4.Cu, long. 4,6709 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(112,1000 mm, 73,8000 mm): Piste [I2C1_SCL] sur In4.Cu, long. 0,4243 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(115,5000 mm, 76,5000 mm): Piste [I2C1_SCL] sur In4.Cu, long. 0,1000 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(116,2582 mm, 66,6510 mm): Piste [I2C1_SCL] sur In4.Cu, long. 0,3196 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(113,1000 mm, 74,1000 mm): Piste [I2C1_SCL] sur In4.Cu, long. 3,3941 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(110,6364 mm, 65,7001 mm): Piste [I2C1_SCL] sur In4.Cu, long. 1,3448 mm
+[track_width]: Largeur piste (configuration des contraintes du PCB largeur min 0,2000 mm; réelle 0,1500 mm)
+    Règle: netclass 'Default'; error
+    @(112,4000 mm, 74,1000 mm): Piste [I2C1_SCL] sur In4.Cu, long. 0,7000 mm
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche In1.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(93,6750 mm, 84,9000 mm): Pad métallisé 11 [GND] de IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche In1.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(94,4250 mm, 84,9000 mm): Pad métallisé 11 [GND] de IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche In1.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(95,1750 mm, 84,9000 mm): Pad métallisé 11 [GND] de IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche In1.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(93,6750 mm, 84,2000 mm): Pad métallisé 11 [GND] de IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche In1.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(94,4250 mm, 84,2000 mm): Pad métallisé 11 [GND] de IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche In1.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(95,1750 mm, 84,2000 mm): Pad métallisé 11 [GND] de IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche In3.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(95,1750 mm, 84,9000 mm): Pad métallisé 11 [GND] de IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche B.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(93,6750 mm, 84,9000 mm): Pad métallisé 11 [GND] de IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche In3.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(94,4250 mm, 84,2000 mm): Pad métallisé 11 [GND] de IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche In3.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(95,1750 mm, 84,2000 mm): Pad métallisé 11 [GND] de IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche B.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(94,4250 mm, 84,9000 mm): Pad métallisé 11 [GND] de IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche B.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(95,1750 mm, 84,9000 mm): Pad métallisé 11 [GND] de IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(117,5725 mm, 66,0396 mm): Pad 4 [GND] de IC7 sur F.Cu
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche B.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(93,6750 mm, 84,2000 mm): Pad métallisé 11 [GND] de IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche B.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(94,4250 mm, 84,2000 mm): Pad métallisé 11 [GND] de IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(94,4250 mm, 85,7625 mm): Pad 3 [GND] de IC2 sur F.Cu
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche B.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(95,1750 mm, 84,2000 mm): Pad métallisé 11 [GND] de IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche B.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(124,2250 mm, 81,5100 mm): Pad 2 [GND] de R17 sur B.Cu
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(95,1750 mm, 84,9000 mm): Pad métallisé 11 [GND] de IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche B.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(105,0000 mm, 62,0000 mm): Pad 2 [GND] de C51 sur B.Cu
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(94,4250 mm, 84,2000 mm): Pad métallisé 11 [GND] de IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(89,3250 mm, 84,0300 mm): Pad 5 [GND] de J1 sur F.Cu
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(90,1250 mm, 80,7500 mm): Pad 2 [GND] de IC6 sur F.Cu
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(107,3500 mm, 88,2000 mm): Pad 1 [GND] de C42 sur F.Cu
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(113,8750 mm, 72,5500 mm): Pad 9 [GND] de AC1 sur F.Cu
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(118,8250 mm, 82,6500 mm): Pad 2 [GND] de IC4 sur F.Cu
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(105,0250 mm, 89,8800 mm): Pad 1 [GND] de C44 sur F.Cu
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(100,7250 mm, 94,7900 mm): Pad 2 [GND] de TH2 sur F.Cu
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(102,7250 mm, 97,1100 mm): Pad 2 [GND] de R6 sur F.Cu
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(103,1750 mm, 63,1750 mm): Pad 5 [GND] de U1 sur F.Cu
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(97,7500 mm, 69,5250 mm): Pad 31 [GND] de U1 sur F.Cu
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(105,0000 mm, 63,6500 mm): Pad 60 [GND] de U1 sur F.Cu
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(119,6000 mm, 78,3000 mm): Pad 2 [GND] de C17 sur F.Cu
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(113,9000 mm, 63,9000 mm): Pad 2 [GND] de C34 sur F.Cu
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Forçage local; error
+    @(84,1250 mm, 58,9000 mm): Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1
+    @(108,2500 mm, 89,7000 mm): Pad 1 [GND] de C41 sur F.Cu
+[solder_mask_bridge]: L’ouverture du masque de soudure de dessous relie des éléments de différents nets
+    Règle: configuration largeur min masque de soudure; error
+    @(112,6826 mm, 68,1039 mm): Pad 3 [unconnected-(M1-Pad3)] de M1 sur B.Cu
+    @(115,4077 mm, 69,0958 mm): Pad 4 [unconnected-(M1-Pad4)] de M1 sur B.Cu
+[solder_mask_bridge]: L’ouverture du masque de soudure de dessous relie des éléments de différents nets
+    Règle: configuration largeur min masque de soudure; error
+    @(112,6826 mm, 68,1039 mm): Pad 3 [unconnected-(M1-Pad3)] de M1 sur B.Cu
+    @(110,0128 mm, 67,9835 mm): Pad 5 [unconnected-(M1-Pad5)] de M1 sur B.Cu
+[solder_mask_bridge]: L’ouverture du masque de soudure de dessous relie des éléments de différents nets
+    Règle: configuration largeur min masque de soudure; error
+    @(112,6826 mm, 68,1039 mm): Pad 3 [unconnected-(M1-Pad3)] de M1 sur B.Cu
+    @(110,5600 mm, 66,4800 mm): Pad 6 [unconnected-(M1-Pad6)] de M1 sur B.Cu
+[via_dangling]: La via est non connectée ou seulement sur une couche
+    Forçage local; warning
+    @(91,0000 mm, 85,0000 mm): Via [/MCU/SWDIO] sur F.Cu - B.Cu
+[track_dangling]: La piste a une extrémité non connectée
+    Forçage local; warning
+    @(98,2757 mm, 96,0178 mm): Piste [/Alimentation/RECT] sur In3.Cu, long. 0,0024 mm
+[track_dangling]: La piste a une extrémité non connectée
+    Forçage local; warning
+    @(98,1250 mm, 95,9250 mm): Piste [Net-(IC1-AD)] sur F.Cu, long. 0,1061 mm
+[track_dangling]: La piste a une extrémité non connectée
+    Forçage local; warning
+    @(98,1250 mm, 93,5250 mm): Piste [Net-(IC1-AD)] sur F.Cu, long. 0,0354 mm
+[via_dangling]: La via est non connectée ou seulement sur une couche
+    Forçage local; warning
+    @(109,0000 mm, 69,7000 mm): Via [/Capteurs/ALS_INT] sur F.Cu - B.Cu
+[track_dangling]: La piste a une extrémité non connectée
+    Forçage local; warning
+    @(117,4000 mm, 71,0000 mm): Piste [GNDPWR] sur In4.Cu, long. 0,5657 mm
+[silk_edge_clearance]: Sérigraphie tronquée par bord de PCB
+    Règle: board setup constraints silk; warning
+    @(105,6471 mm, 80,1713 mm): Arc sur Edge.Cuts
+    @(94,3590 mm, 96,3854 mm): Champ référence de C12
+[silk_edge_clearance]: Sérigraphie tronquée par bord de PCB
+    Règle: board setup constraints silk; warning
+    @(105,6471 mm, 80,1713 mm): Arc sur Edge.Cuts
+    @(101,2100 mm, 61,7100 mm): Champ référence de FB1
+[silk_edge_clearance]: Sérigraphie tronquée par bord de PCB
+    Règle: board setup constraints silk; warning
+    @(119,5954 mm, 74,6009 mm): Segment sur Edge.Cuts
+    @(119,2850 mm, 75,8000 mm): Champ référence de C38
+[silk_edge_clearance]: Sérigraphie tronquée par bord de PCB
+    Règle: board setup constraints silk; warning
+    @(105,6471 mm, 80,1713 mm): Arc sur Edge.Cuts
+    @(92,6250 mm, 93,9000 mm): Champ référence de C4
+[silk_edge_clearance]: Sérigraphie tronquée par bord de PCB
+    Règle: board setup constraints silk; warning
+    @(108,9731 mm, 86,8591 mm): Segment sur Edge.Cuts
+    @(108,1250 mm, 86,7700 mm): Champ référence de C42
+[silk_edge_clearance]: Sérigraphie tronquée par bord de PCB
+    Règle: board setup constraints silk; warning
+    @(105,6250 mm, 80,1591 mm): Arc sur Edge.Cuts
+    @(106,3250 mm, 72,0700 mm): Champ référence de R23
+[silk_edge_clearance]: Sérigraphie tronquée par bord de PCB
+    Règle: board setup constraints silk; warning
+    @(105,6471 mm, 80,1713 mm): Arc sur Edge.Cuts
+    @(110,6250 mm, 98,1700 mm): Segment de C39 sur F.Silkscreen
+[silk_edge_clearance]: Sérigraphie tronquée par bord de PCB
+    Règle: board setup constraints silk; warning
+    @(108,9731 mm, 86,8591 mm): Segment sur Edge.Cuts
+    @(108,9650 mm, 88,0000 mm): Champ référence de C40
+[silk_edge_clearance]: Sérigraphie tronquée par bord de PCB
+    Règle: board setup constraints silk; warning
+    @(105,6471 mm, 80,1713 mm): Arc sur Edge.Cuts
+    @(97,3050 mm, 62,5800 mm): Segment de U1 sur F.Silkscreen
+[silk_edge_clearance]: Sérigraphie tronquée par bord de PCB
+    Règle: board setup constraints silk; warning
+    @(105,6471 mm, 80,1713 mm): Arc sur Edge.Cuts
+    @(97,3050 mm, 64,4050 mm): Segment de U1 sur F.Silkscreen
+[silk_edge_clearance]: Sérigraphie tronquée par bord de PCB
+    Règle: board setup constraints silk; warning
+    @(118,3644 mm, 88,1474 mm): Segment sur Edge.Cuts
+    @(119,6810 mm, 87,2380 mm): Champ référence de S1
+[silk_edge_clearance]: Sérigraphie tronquée par bord de PCB
+    Règle: board setup constraints silk; warning
+    @(105,6471 mm, 80,1713 mm): Arc sur Edge.Cuts
+    @(109,0250 mm, 99,4300 mm): Champ référence de C45
+[silk_edge_clearance]: Sérigraphie tronquée par bord de PCB
+    Règle: board setup constraints silk; warning
+    @(105,6253 mm, 80,1591 mm): Arc sur Edge.Cuts
+    @(114,4950 mm, 81,2000 mm): Champ référence de C16
+[silk_edge_clearance]: Sérigraphie tronquée par bord de PCB
+    Règle: board setup constraints silk; warning
+    @(105,6471 mm, 80,1713 mm): Arc sur Edge.Cuts
+    @(125,1250 mm, 77,8000 mm): Champ référence de U4
+[silk_edge_clearance]: Sérigraphie tronquée par bord de PCB
+    Règle: board setup constraints silk; warning
+    @(118,4512 mm, 71,6855 mm): Segment sur Edge.Cuts
+    @(120,5250 mm, 70,0000 mm): Champ référence de C21
+[silk_edge_clearance]: Sérigraphie tronquée par bord de PCB
+    Règle: board setup constraints silk; warning
+    @(118,4512 mm, 71,6855 mm): Segment sur Edge.Cuts
+    @(115,2631 mm, 72,2673 mm): Polygone de C21 sur B.Silkscreen
+[holes_co_located]: Trous forés co-localisés
+    Forçage local; warning
+    @(91,3250 mm, 91,0000 mm): Via [Net-(C11-Pad1)] sur F.Cu - B.Cu
+    @(91,3250 mm, 91,0000 mm): Via [Net-(C11-Pad1)] sur F.Cu - B.Cu
+[hole_to_hole]: Trou percé trop près d'un autre trou (board setup constraints min 0,1995 mm; réel 0,1328 mm)
+    Règle: board setup constraints; warning
+    @(97,6375 mm, 96,6625 mm): Via [GND] sur F.Cu - B.Cu
+    @(97,4375 mm, 96,4625 mm): Via [GND] sur F.Cu - B.Cu
+[holes_co_located]: Trous forés co-localisés
+    Forçage local; warning
+    @(119,0000 mm, 91,0000 mm): Via [GND] sur F.Cu - B.Cu
+    @(119,0000 mm, 91,0000 mm): Via [GND] sur F.Cu - B.Cu
+[hole_to_hole]: Trou percé trop près d'un autre trou (board setup constraints min 0,1995 mm; réel 0,1500 mm)
+    Règle: board setup constraints; warning
+    @(98,1250 mm, 95,0000 mm): Via [Net-(IC1-AD)] sur F.Cu - B.Cu
+    @(98,1250 mm, 95,3000 mm): Via [Net-(IC1-AD)] sur F.Cu - B.Cu
+[lib_footprint_mismatch]: L’empreinte 'VEML6030' ne correspond pas à la copie en librairie 'LIB_VEML6030'.
+    Forçage local; warning
+    @(117,8250 mm, 67,1000 mm): Empreinte IC7
+[lib_footprint_mismatch]: L’empreinte 'SKSLLAE010' ne correspond pas à la copie en librairie 'SKSLLAE010'.
+    Forçage local; warning
+    @(119,6500 mm, 73,0400 mm): Empreinte S2
+[lib_footprint_mismatch]: L’empreinte 'ST-SiP-LGA-86-11x7.3mm' ne correspond pas à la copie en librairie 'RF_Module'.
+    Forçage local; warning
+    @(102,9250 mm, 66,3500 mm): Empreinte U1
+[lib_footprint_mismatch]: L’empreinte 'SKSLLAE010' ne correspond pas à la copie en librairie 'SKSLLAE010'.
+    Forçage local; warning
+    @(119,6810 mm, 87,2380 mm): Empreinte S1
+[lib_footprint_mismatch]: L’empreinte 'BGA9C50P3X3_144X144X62' ne correspond pas à la copie en librairie 'DRV2605LYZFR'.
+    Forçage local; warning
+    @(112,3250 mm, 65,8000 mm): Empreinte IC8
+[lib_footprint_mismatch]: L’empreinte 'HDEMB1204SM' ne correspond pas à la copie en librairie 'HD-EMB1204-SM'.
+    Forçage local; warning
+    @(111,0381 mm, 67,5054 mm): Empreinte M1
+[lib_footprint_mismatch]: L’empreinte 'S1921' ne correspond pas à la copie en librairie 'BQ24040DSQR'.
+    Forçage local; warning
+    @(101,5697 mm, 66,0084 mm): Empreinte C22
+[text_height]: Hauteur de texte hors de plage (board setup constraints silk text height hauteur min 1,0000 mm; réel 0,8000 mm)
+    Règle: board setup constraints silk text height; warning
+    @(115,2250 mm, 67,9000 mm): Champ référence de C24
+[text_thickness]: Epaisseur de texte hors de plage (board setup constraints silk text thickness épaisseur min 0,1500 mm; réelle 0,1000 mm)
+    Règle: board setup constraints silk text thickness; warning
+    @(120,5250 mm, 70,0000 mm): Champ référence de C21
+[text_thickness]: Epaisseur de texte hors de plage (board setup constraints silk text thickness épaisseur min 0,1500 mm; réelle 0,1000 mm)
+    Règle: board setup constraints silk text thickness; warning
+    @(101,0533 mm, 64,0599 mm): Champ référence de C22
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(95,6650 mm, 91,9922 mm): Champ référence de C5
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(93,7250 mm, 67,0800 mm): Champ référence de R18
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(107,9250 mm, 71,3000 mm): Champ référence de C30
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(97,1600 mm, 92,2000 mm): Champ référence de C10
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(101,2100 mm, 61,7100 mm): Champ référence de FB1
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(108,5250 mm, 97,3300 mm): Champ référence de C20
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(96,1626 mm, 95,6511 mm): Champ référence de C9
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(94,8250 mm, 84,5500 mm): Champ référence de IC2
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(119,2850 mm, 75,8000 mm): Champ référence de C38
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(100,5550 mm, 96,6000 mm): Champ référence de R7
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(98,8250 mm, 64,3200 mm): Champ référence de R19
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(91,2000 mm, 88,3520 mm): Champ référence de TP4
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(106,0250 mm, 92,7000 mm): Champ référence de Q1
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(107,0750 mm, 93,9800 mm): Polygone de Q1 sur F.Silkscreen
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(105,9250 mm, 93,1300 mm): Champ référence de R14
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(90,1250 mm, 79,5000 mm): Champ référence de IC6
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(117,6700 mm, 85,9000 mm): Champ référence de R11
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(113,9250 mm, 67,0000 mm): Champ référence de C32
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(92,2550 mm, 81,3000 mm): Champ référence de TH1
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(98,1000 mm, 93,0000 mm): Champ référence de C11
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(116,3400 mm, 85,9000 mm): Champ référence de C37
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(88,9550 mm, 79,1000 mm): Champ référence de C15
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(98,8250 mm, 65,8000 mm): Champ référence de R20
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(116,5250 mm, 65,0000 mm): Champ référence de C25
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(113,5673 mm, 74,0568 mm): Champ référence de AC1
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(105,1550 mm, 88,8000 mm): Champ référence de C43
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(99,4250 mm, 92,5000 mm): Champ référence de C0G1
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(118,8250 mm, 81,4000 mm): Champ référence de IC4
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(110,3750 mm, 92,8700 mm): Champ référence de C39
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(103,8650 mm, 89,4000 mm): Champ référence de C44
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(102,6594 mm, 97,0000 mm): Champ référence de C6
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(101,8878 mm, 63,8800 mm): Champ référence de C49
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(99,5550 mm, 95,3000 mm): Champ référence de TH2
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(99,2000 mm, 95,5700 mm): Champ référence de C7
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(108,9650 mm, 88,0000 mm): Champ référence de C40
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(98,1250 mm, 94,8000 mm): Champ référence de IC1
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(103,7250 mm, 94,7000 mm): Champ référence de Q2
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(105,0050 mm, 93,6500 mm): Polygone de Q2 sur F.Silkscreen
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(122,8250 mm, 79,7000 mm): Champ référence de Q3
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(118,8250 mm, 76,8700 mm): Champ référence de C17
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(96,7000 mm, 94,6000 mm): Champ référence de C3
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(98,2000 mm, 94,8000 mm): Champ référence de C13
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(109,0250 mm, 88,2700 mm): Champ référence de C41
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(114,3650 mm, 73,5000 mm): Champ référence de C31
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(123,0550 mm, 81,0000 mm): Champ référence de R17
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(111,0381 mm, 67,5054 mm): Champ référence de M1
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(121,3950 mm, 82,6000 mm): Champ référence de C46
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(95,0328 mm, 68,9833 mm): Champ référence de J2
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(90,1250 mm, 87,7520 mm): Champ référence de TP3
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(122,6950 mm, 82,1000 mm): Champ référence de R16
+[silk_over_copper]: Sérigraphie tronquée par masque de soudure
+    Forçage local; warning
+    @(91,3250 mm, 89,5520 mm): Champ référence de TP1
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(96,3600 mm, 92,0922 mm): Segment de C10 sur F.Silkscreen
+    @(95,6650 mm, 91,9922 mm): Champ référence de C5
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(97,1600 mm, 92,2000 mm): Champ référence de C10
+    @(98,1000 mm, 93,0000 mm): Champ référence de C11
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(97,1600 mm, 92,2000 mm): Champ référence de C10
+    @(99,4250 mm, 92,5000 mm): Champ référence de C0G1
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(97,1600 mm, 92,2000 mm): Champ référence de C10
+    @(97,6400 mm, 92,1922 mm): Segment de C13 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(97,1600 mm, 92,2000 mm): Champ référence de C10
+    @(96,6400 mm, 92,3078 mm): Segment de C3 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(97,1600 mm, 92,2000 mm): Champ référence de C10
+    @(97,3600 mm, 92,3078 mm): Segment de C3 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(98,1000 mm, 93,0000 mm): Champ référence de C11
+    @(99,4250 mm, 92,5000 mm): Champ référence de C0G1
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(97,6400 mm, 92,1922 mm): Segment de C13 sur F.Silkscreen
+    @(99,4250 mm, 92,5000 mm): Champ référence de C0G1
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(91,2000 mm, 88,3520 mm): Champ référence de TP4
+    @(90,0250 mm, 88,0000 mm): Champ référence de J1
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(96,9250 mm, 95,8630 mm): Segment de IC1 sur F.Silkscreen
+    @(96,1626 mm, 95,6511 mm): Champ référence de C9
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(99,7880 mm, 95,8630 mm): Segment de IC1 sur F.Silkscreen
+    @(96,1626 mm, 95,6511 mm): Champ référence de C9
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(96,7000 mm, 94,6000 mm): Champ référence de C3
+    @(96,1626 mm, 95,6511 mm): Champ référence de C9
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(96,4620 mm, 95,4000 mm): Segment de IC1 sur F.Silkscreen
+    @(96,1626 mm, 95,6511 mm): Champ référence de C9
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(96,4620 mm, 95,8630 mm): Cercle de IC1 sur F.Silkscreen
+    @(96,1626 mm, 95,6511 mm): Champ référence de C9
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(96,7000 mm, 94,6000 mm): Champ référence de C3
+    @(96,4620 mm, 95,4000 mm): Segment de IC1 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(96,7000 mm, 94,6000 mm): Champ référence de C3
+    @(96,9250 mm, 95,8630 mm): Segment de IC1 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(96,7000 mm, 94,6000 mm): Champ référence de C3
+    @(96,4620 mm, 93,7370 mm): Segment de IC1 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(98,1000 mm, 93,0000 mm): Champ référence de C11
+    @(98,1250 mm, 94,8000 mm): Champ référence de IC1
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(98,1000 mm, 93,0000 mm): Champ référence de C11
+    @(98,2000 mm, 94,8000 mm): Champ référence de C13
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(98,1000 mm, 93,0000 mm): Champ référence de C11
+    @(97,6400 mm, 92,1922 mm): Segment de C13 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(98,1000 mm, 93,0000 mm): Champ référence de C11
+    @(96,4620 mm, 93,7370 mm): Segment de IC1 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(98,2000 mm, 94,8000 mm): Champ référence de C13
+    @(96,4620 mm, 93,7370 mm): Segment de IC1 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(98,1250 mm, 94,8000 mm): Champ référence de IC1
+    @(98,2000 mm, 94,8000 mm): Champ référence de C13
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(98,7400 mm, 92,1922 mm): Segment de C11 sur F.Silkscreen
+    @(99,4250 mm, 92,5000 mm): Champ référence de C0G1
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(98,1250 mm, 94,8000 mm): Champ référence de IC1
+    @(96,4620 mm, 93,7370 mm): Segment de IC1 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(99,2000 mm, 95,5700 mm): Champ référence de C7
+    @(98,1250 mm, 94,8000 mm): Champ référence de IC1
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(99,5550 mm, 95,3000 mm): Champ référence de TH2
+    @(99,7880 mm, 93,7370 mm): Segment de IC1 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(99,2000 mm, 95,5700 mm): Champ référence de C7
+    @(99,7880 mm, 93,7370 mm): Segment de IC1 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(99,7880 mm, 95,8630 mm): Segment de IC1 sur F.Silkscreen
+    @(98,1250 mm, 94,8000 mm): Champ référence de IC1
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(99,7880 mm, 95,8630 mm): Segment de IC1 sur F.Silkscreen
+    @(98,2000 mm, 94,8000 mm): Champ référence de C13
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(99,7880 mm, 95,8630 mm): Segment de IC1 sur F.Silkscreen
+    @(99,2000 mm, 95,5700 mm): Champ référence de C7
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(99,7880 mm, 95,8630 mm): Segment de IC1 sur F.Silkscreen
+    @(99,5550 mm, 95,3000 mm): Champ référence de TH2
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(106,0250 mm, 92,7000 mm): Champ référence de Q1
+    @(105,9250 mm, 93,1300 mm): Champ référence de R14
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(107,5950 mm, 91,9000 mm): Champ référence de R15
+    @(105,9250 mm, 93,1300 mm): Champ référence de R14
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(107,0850 mm, 91,7400 mm): Segment de Q1 sur F.Silkscreen
+    @(107,5950 mm, 91,9000 mm): Champ référence de R15
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(107,0850 mm, 91,7400 mm): Segment de Q1 sur F.Silkscreen
+    @(105,9250 mm, 93,1300 mm): Champ référence de R14
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(108,9650 mm, 88,0000 mm): Champ référence de C40
+    @(108,1250 mm, 86,7700 mm): Champ référence de C42
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(107,5950 mm, 91,9000 mm): Champ référence de R15
+    @(107,0850 mm, 91,7400 mm): Segment de Q1 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(106,0250 mm, 92,7000 mm): Champ référence de Q1
+    @(106,0450 mm, 91,7464 mm): Segment de R15 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(110,3750 mm, 92,8700 mm): Champ référence de C39
+    @(109,3150 mm, 91,7550 mm): Segment de Q1 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(109,0250 mm, 88,2700 mm): Champ référence de C41
+    @(108,9650 mm, 88,0000 mm): Champ référence de C40
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(109,0250 mm, 88,2700 mm): Champ référence de C41
+    @(109,7650 mm, 88,1078 mm): Segment de C40 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(108,9650 mm, 88,0000 mm): Champ référence de C40
+    @(108,8844 mm, 89,1900 mm): Segment de C41 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(109,0250 mm, 88,2700 mm): Champ référence de C41
+    @(107,9844 mm, 88,7100 mm): Segment de C42 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(107,9844 mm, 87,6900 mm): Segment de C42 sur F.Silkscreen
+    @(109,0250 mm, 88,2700 mm): Champ référence de C41
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(100,6000 mm, 91,5300 mm): Champ référence de R5
+    @(99,4250 mm, 92,5000 mm): Champ référence de C0G1
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(100,4464 mm, 92,3200 mm): Segment de R5 sur F.Silkscreen
+    @(99,4250 mm, 92,5000 mm): Champ référence de C0G1
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(100,4464 mm, 93,0800 mm): Segment de R5 sur F.Silkscreen
+    @(99,4250 mm, 92,5000 mm): Champ référence de C0G1
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(102,8250 mm, 93,1700 mm): Champ référence de C8
+    @(102,7650 mm, 93,6400 mm): Segment de Q2 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(100,5550 mm, 96,6000 mm): Champ référence de R7
+    @(99,5550 mm, 95,3000 mm): Champ référence de TH2
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(103,8950 mm, 96,6000 mm): Champ référence de R6
+    @(102,6594 mm, 97,0000 mm): Champ référence de C6
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(99,2000 mm, 95,5700 mm): Champ référence de C7
+    @(99,5550 mm, 95,3000 mm): Champ référence de TH2
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(99,5550 mm, 95,3000 mm): Champ référence de TH2
+    @(99,0594 mm, 96,4900 mm): Segment de C7 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(99,2000 mm, 95,5700 mm): Champ référence de C7
+    @(98,2000 mm, 94,8000 mm): Champ référence de C13
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(102,1050 mm, 96,7536 mm): Segment de R7 sur F.Silkscreen
+    @(102,6594 mm, 97,0000 mm): Champ référence de C6
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(102,3450 mm, 96,4464 mm): Segment de R6 sur F.Silkscreen
+    @(102,6594 mm, 97,0000 mm): Champ référence de C6
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(103,1050 mm, 96,4464 mm): Segment de R6 sur F.Silkscreen
+    @(102,6594 mm, 97,0000 mm): Champ référence de C6
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(102,6844 mm, 95,1100 mm): Segment de C8 sur F.Silkscreen
+    @(103,7250 mm, 94,7000 mm): Champ référence de Q2
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(105,3850 mm, 89,5078 mm): Segment de C44 sur F.Silkscreen
+    @(105,1550 mm, 88,8000 mm): Champ référence de C43
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(105,1550 mm, 88,8000 mm): Champ référence de C43
+    @(104,6650 mm, 89,5078 mm): Segment de C44 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(103,8650 mm, 89,4000 mm): Champ référence de C44
+    @(102,7800 mm, 90,5200 mm): Segment de Q2 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(102,7650 mm, 93,6400 mm): Segment de Q2 sur F.Silkscreen
+    @(105,9250 mm, 93,1300 mm): Champ référence de R14
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(102,8250 mm, 93,1700 mm): Champ référence de C8
+    @(102,7650 mm, 93,6400 mm): Segment de Q2 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(109,1656 mm, 97,4900 mm): Segment de C45 sur F.Silkscreen
+    @(108,5250 mm, 97,3300 mm): Champ référence de C20
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(110,3750 mm, 92,8700 mm): Champ référence de C39
+    @(110,2050 mm, 91,7550 mm): Segment de Q1 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(115,2250 mm, 67,9000 mm): Champ référence de C24
+    @(113,9250 mm, 67,0000 mm): Champ référence de C32
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(113,3200 mm, 64,8050 mm): Segment de IC8 sur F.Silkscreen
+    @(113,9250 mm, 67,0000 mm): Champ référence de C32
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(113,3200 mm, 66,7950 mm): Segment de IC8 sur F.Silkscreen
+    @(113,9250 mm, 67,0000 mm): Champ référence de C32
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(114,3650 mm, 73,5000 mm): Champ référence de C31
+    @(113,5673 mm, 74,0568 mm): Champ référence de AC1
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(117,3787 mm, 68,7586 mm): Champ référence de R9
+    @(117,9483 mm, 68,5088 mm): Segment de IC7 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(118,8250 mm, 76,8700 mm): Champ référence de C17
+    @(119,2850 mm, 75,8000 mm): Champ référence de C38
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(116,3400 mm, 85,9000 mm): Champ référence de C37
+    @(116,1200 mm, 85,7464 mm): Segment de R11 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(116,3400 mm, 85,9000 mm): Champ référence de C37
+    @(116,8800 mm, 85,7464 mm): Segment de R11 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(117,3450 mm, 81,1000 mm): Segment de IC4 sur F.Silkscreen
+    @(118,8250 mm, 81,4000 mm): Champ référence de IC4
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(120,3050 mm, 81,7000 mm): Segment de IC4 sur F.Silkscreen
+    @(118,8250 mm, 81,4000 mm): Champ référence de IC4
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(117,1400 mm, 86,0078 mm): Segment de C37 sur F.Silkscreen
+    @(117,6700 mm, 85,9000 mm): Champ référence de R11
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(117,4240 mm, 87,0420 mm): Segment de S1 sur F.Silkscreen
+    @(117,6700 mm, 85,9000 mm): Champ référence de R11
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(117,5131 mm, 87,0874 mm): Segment de S1 sur F.Silkscreen
+    @(117,6700 mm, 85,9000 mm): Champ référence de R11
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(117,5131 mm, 87,0874 mm): Segment de S1 sur F.Silkscreen
+    @(117,6700 mm, 85,9000 mm): Champ référence de R11
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(117,4685 mm, 87,0647 mm): Arc de S1 sur F.Silkscreen
+    @(117,6700 mm, 85,9000 mm): Champ référence de R11
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(117,4685 mm, 87,0647 mm): Arc de S1 sur F.Silkscreen
+    @(117,6700 mm, 85,9000 mm): Champ référence de R11
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(117,4685 mm, 87,0647 mm): Arc de S1 sur F.Silkscreen
+    @(117,6700 mm, 85,9000 mm): Champ référence de R11
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(117,6700 mm, 85,9000 mm): Champ référence de R11
+    @(117,8600 mm, 86,0078 mm): Segment de C37 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(88,9550 mm, 79,1000 mm): Champ référence de C15
+    @(91,6050 mm, 79,8000 mm): Segment de IC6 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(88,9550 mm, 79,1000 mm): Champ référence de C15
+    @(90,1250 mm, 79,5000 mm): Champ référence de IC6
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(88,9550 mm, 79,1000 mm): Champ référence de C15
+    @(88,6450 mm, 79,2000 mm): Segment de IC6 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(90,1250 mm, 79,5000 mm): Champ référence de IC6
+    @(88,6450 mm, 79,2000 mm): Segment de IC6 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(91,6050 mm, 79,8000 mm): Segment de IC6 sur F.Silkscreen
+    @(90,1250 mm, 79,5000 mm): Champ référence de IC6
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(88,9550 mm, 79,1000 mm): Champ référence de C15
+    @(88,6250 mm, 81,3500 mm): Segment de IC6 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(88,9550 mm, 79,1000 mm): Champ référence de C15
+    @(88,6450 mm, 79,8000 mm): Segment de IC6 sur F.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(106,3250 mm, 72,0700 mm): Champ référence de R23
+    @(107,9250 mm, 71,3000 mm): Champ référence de C30
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(110,0250 mm, 66,0000 mm): Champ référence de IC8
+    @(110,2250 mm, 67,8000 mm): Champ référence de C33
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(123,0550 mm, 81,0000 mm): Champ référence de R17
+    @(122,6950 mm, 82,1000 mm): Champ référence de R16
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(121,3950 mm, 82,6000 mm): Champ référence de C46
+    @(121,9050 mm, 82,2536 mm): Segment de R16 sur B.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(122,6950 mm, 82,1000 mm): Champ référence de R16
+    @(122,3150 mm, 82,4594 mm): Segment de C46 sur B.Silkscreen
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(95,5328 mm, 68,1172 mm): Segment de J2 sur B.Silkscreen
+    @(95,0328 mm, 68,9833 mm): Champ référence de J2
+[silk_overlap]: Recouvrement de sérigraphie
+    Règle: board setup constraints silk; warning
+    @(90,1250 mm, 89,2000 mm): Cercle de TP3 sur B.Silkscreen
+    @(91,3250 mm, 89,5520 mm): Champ référence de TP1
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** End of Report **

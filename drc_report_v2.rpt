@@ -1,0 +1,41 @@
+** Drc report for Carte_V2.kicad_pcb **
+** Created on 2026-11-10T20:13:14 **
+** Report includes: Errors, Warnings **
+
+** Found 4 DRC violations **
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Local override; error
+    @(84.1250 mm, 58.9000 mm): Zone [GND] on F.Cu, B.Cu and 3 more, priority 1
+    @(93.6750 mm, 84.9000 mm): PTH pad 11 [GND] of IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Local override; error
+    @(84.1250 mm, 58.9000 mm): Zone [GND] on F.Cu, B.Cu and 3 more, priority 1
+    @(93.6750 mm, 84.2000 mm): PTH pad 11 [GND] of IC2
+[starved_thermal]: Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)
+    Local override; error
+    @(84.1250 mm, 58.9000 mm): Zone [GND] on F.Cu, B.Cu and 3 more, priority 1
+    @(95.1750 mm, 84.2000 mm): PTH pad 11 [GND] of IC2
+[silk_over_copper]: Silkscreen clipped by solder mask
+    Local override; warning
+    @(111.5060 mm, 86.6370 mm): Reference field of TP8
+    @(111.5060 mm, 89.5350 mm): Pad 1 [GNDPWR] of TP8 on B.Cu
+
+** Found 1 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(84.1250 mm, 58.9000 mm): Zone [GND] on F.Cu, B.Cu and 3 more, priority 1
+    @(84.1250 mm, 58.9000 mm): Zone [GND] on F.Cu, B.Cu and 3 more, priority 1
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - PTH inside courtyard
+    - NPTH inside courtyard
+    - Footprint component type doesn't match footprint pads
+    - Footprint doesn't match copy in library
+
+** End of Report **

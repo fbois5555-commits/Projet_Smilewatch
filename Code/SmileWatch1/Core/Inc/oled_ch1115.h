@@ -66,6 +66,7 @@ void OLED_DrawStr(int16_t x, int16_t y, const char *str, uint8_t scale, uint8_t 
 /* Access raw 528-byte page buffer [6][88] */
 const uint8_t* OLED_GetFramebuffer(void);
 bool OLED_IsPoweredOn(void);
+uint16_t OLED_CountLitPixels(void);
 
 #ifdef __cplusplus
 }

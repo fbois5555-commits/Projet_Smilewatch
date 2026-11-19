@@ -340,6 +340,14 @@ void OLED_DrawIcon(int16_t x, int16_t y, OLED_IconId_t icon_id, uint8_t color)
     OLED_DrawBitmap(x, y, k_icons_8x8[icon_id], 8U, 8U, color);
 }
 
+static uint8_t OLED_GlyphPx(const uint8_t *glyph, int8_t col, int8_t row)
+{
+    if ((col < 0) || (col >= 5) || (row < 0) || (row >= 7)) {
+        return 0U;
+    }
+    return ((glyph[col] & (uint8_t)(1U << (uint8_t)row)) != 0U) ? 1U : 0U;
+}
+
 void OLED_DrawChar(int16_t x, int16_t y, char c, uint8_t scale, uint8_t color)
 {
     if (scale == 0U) scale = 1U;
@@ -350,6 +358,32 @@ void OLED_DrawChar(int16_t x, int16_t y, char c, uint8_t scale, uint8_t color)
         c = '?';
     }
     const uint8_t *glyph = k_font5x7[(uint8_t)c - 0x20U];
+    if (scale == 2U) {
+        /* HD Scale2x / EPX sub-pixel smoothing on 10x14 grid (eliminates staircase edges) */
+        for (int8_t col = 0; col < 5; col++) {
+            for (int8_t row = 0; row < 7; row++) {
+                uint8_t p = OLED_GlyphPx(glyph, col, row);
+                uint8_t a = OLED_GlyphPx(glyph, col, (int8_t)(row - 1)); /* Up */
+                uint8_t b = OLED_GlyphPx(glyph, (int8_t)(col + 1), row); /* Right */
+                uint8_t l = OLED_GlyphPx(glyph, (int8_t)(col - 1), row); /* Left */
+                uint8_t d = OLED_GlyphPx(glyph, col, (int8_t)(row + 1)); /* Down */
+
+                uint8_t e0 = ((l == a) && (l != d) && (a != b)) ? a : p;
+                uint8_t e1 = ((a == b) && (a != l) && (b != d)) ? b : p;
+                uint8_t e2 = ((d == l) && (d != b) && (l != a)) ? l : p;
+                uint8_t e3 = ((b == d) && (b != a) && (d != l)) ? d : p;
+
+                int16_t px = (int16_t)(x + col * 2);
+                int16_t py = (int16_t)(y + row * 2);
+                if (e0 != 0U) OLED_DrawPixel(px, py, color);
+                if (e1 != 0U) OLED_DrawPixel((int16_t)(px + 1), py, color);
+                if (e2 != 0U) OLED_DrawPixel(px, (int16_t)(py + 1), color);
+                if (e3 != 0U) OLED_DrawPixel((int16_t)(px + 1), (int16_t)(py + 1), color);
+            }
+        }
+        return;
+    }
+
     for (uint8_t col = 0U; col < 5U; col++) {
         uint8_t line = glyph[col];
         for (uint8_t row = 0U; row < 7U; row++) {
@@ -386,4 +420,22 @@ const uint8_t* OLED_GetFramebuffer(void)
 bool OLED_IsPoweredOn(void)
 {
     return s_oled_powered;
+}
+
+uint16_t OLED_CountLitPixels(void)
+{
+    if (!s_oled_powered) {
+        return 0U;
+    }
+    uint16_t count = 0U;
+    for (uint8_t page = 0U; page < OLED_PAGES; page++) {
+        for (uint8_t col = 0U; col < OLED_WIDTH; col++) {
+            uint8_t b = s_vram[page][col];
+            while (b != 0U) {
+                b &= (uint8_t)(b - 1U);
+                count++;
+            }
+        }
+    }
+    return count;
 }

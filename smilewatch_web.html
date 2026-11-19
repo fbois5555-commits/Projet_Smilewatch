@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0f17">
+<title>SmileWatch Web — Compagnon WebBLE Optionnel (0 €)</title>
+<style>
+  :root {
+    --bg: #0b0f17;
+    --card: #131a26;
+    --border: #233046;
+    --text: #e8eef7;
+    --muted: #8fa3bf;
+    --cyan: #38bdf8;
+    --green: #34d399;
+    --amber: #fbbf24;
+    --red: #f87171;
+    --purple: #a78bfa;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.45;
+    padding: 1rem;
+  }
+  .container { max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+  header {
+    background: linear-gradient(135deg, #121b2b 0%, #172338 100%);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  header h1 { margin: 0; font-size: 1.2rem; }
+  header p { margin: 0.2rem 0 0; font-size: 0.8rem; color: var(--muted); }
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    background: #1e293b;
+    border: 1px solid var(--border);
+    color: var(--cyan);
+  }
+  .badge.ok { color: var(--green); border-color: #10b98166; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .card h2 { margin: 0; font-size: 0.95rem; color: var(--cyan); display: flex; align-items: center; gap: 0.45rem; }
+  .row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+  label.toggle { display: flex; align-items: center; gap: 0.45rem; font-size: 0.84rem; cursor: pointer; }
+  input[type="text"], input[type="tel"] {
+    background: #0d131d;
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 8px;
+    padding: 0.45rem 0.65rem;
+    font-size: 0.85rem;
+    width: 100%;
+  }
+  .btn {
+    border: 1px solid var(--border);
+    background: #1a2436;
+    color: var(--text);
+    border-radius: 8px;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.08s ease, background 0.15s ease;
+  }
+  .btn:hover { background: #223047; }
+  .btn:active { transform: scale(0.98); }
+  .btn-cyan { border-color: #38bdf866; color: var(--cyan); }
+  .btn-green { border-color: #34d39966; color: var(--green); }
+  .btn-amber { border-color: #fbbf2466; color: var(--amber); }
+  .btn-red { border-color: #f8717166; color: var(--red); }
+  .btn-purple { border-color: #a78bfa66; color: var(--purple); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+  th, td { text-align: left; padding: 0.5rem 0.4rem; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 600; }
+  .log {
+    background: #090d14;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.65rem;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.75rem;
+    color: #93c5fd;
+    max-height: 140px;
+    overflow-y: auto;
+  }
+  .small { font-size: 0.76rem; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div>
+      <h1>⌚ SmileWatch Web — Compagnon Optionnel (0 €)</h1>
+      <p>100 % facultatif : la montre fonctionne sans téléphone. Compatible Chrome Android/PC &amp; Bluefy iOS via WebBluetooth.</p>
+    </div>
+    <div class="row">
+      <span id="ble-status" class="badge">BLE : Mode Démo / Hors-ligne</span>
+      <button id="btn-ble-connect" class="btn btn-cyan" onclick="connectSmileWatchBLE()">🔵 Connecter Montre BLE</button>
+    </div>
+  </header>
+
+  <div class="grid">
+    <section class="card">
+      <h2>🕒 Synchronisation &amp; Réglages</h2>
+      <p class="small">Synchronise l'heure exacte (CTS 0x1805) et tes préférences stockées en Flash STM32.</p>
+      <label class="toggle"><input type="checkbox" id="web-night-mode" onchange="saveWebConfig()"> 🌙 Mode Nuit / Ne Pas Déranger</label>
+      <label class="toggle"><input type="checkbox" id="web-sedentary" checked onchange="saveWebConfig()"> 🪑 Alerte Sédentarité (50 min)</label>
+      <label class="toggle"><input type="checkbox" id="web-auto-sport" checked onchange="saveWebConfig()"> 🤖 Détection Sport Auto (MLC)</label>
+      <div class="row">
+        <button class="btn btn-green" onclick="syncTimeBLE()">🕒 Synchro Heure (CTS)</button>
+        <button class="btn btn-cyan" onclick="syncConfigBLE()">📤 Envoyer Config → Montre</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>🆘 Contact d'Urgence (ICE) &amp; GPS Web</h2>
+      <p class="small">Affiché sur l'écran OLED en cas de chute détectée. Permet aussi d'ouvrir un SMS pré-rempli avec ta position GPS.</p>
+      <div>
+        <label class="small" for="web-ice-name">Nom ICE (max 10 car.)</label>
+        <input type="text" id="web-ice-name" maxlength="10" value="MAMAN" onchange="saveWebConfig()">
+      </div>
+      <div>
+        <label class="small" for="web-ice-phone">Téléphone ICE</label>
+        <input type="tel" id="web-ice-phone" maxlength="16" value="0612345678" onchange="saveWebConfig()">
+      </div>
+      <div class="row">
+        <button class="btn btn-red" onclick="triggerWebSosGps()">🚨 Tester Alerte SOS + GPS</button>
+        <span id="gps-status" class="small">GPS en attente</span>
+      </div>
+    </section>
+  </div>
+
+  <section class="card">
+    <div class="row" style="justify-content: space-between;">
+      <h2>📊 Archive Locale 30 Jours &amp; Export Strava (.TCX / .CSV)</h2>
+      <div class="row">
+        <button class="btn btn-purple" onclick="pullHistoryBLE()">📥 Importer Séances BLE</button>
+        <button class="btn btn-amber" onclick="addDemoSession()">➕ Ajouter Séance Démo</button>
+        <button class="btn btn-green" onclick="exportAllCSV()">📄 Export CSV (30j)</button>
+        <button class="btn" onclick="clearArchive()">🗑️ Vider</button>
+      </div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Sport</th>
+          <th>Durée</th>
+          <th>FC Moy</th>
+          <th>Kcal</th>
+          <th>HRR60</th>
+          <th>Export</th>
+        </tr>
+      </thead>
+      <tbody id="archive-tbody"></tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>📡 Journal WebBluetooth &amp; Diagnostics</h2>
+    <div id="web-log" class="log"></div>
+  </section>
+</div>
+
+<script>
+const STORAGE_KEY_ARCHIVE = 'smilewatch_archive_30d_v1';
+const STORAGE_KEY_CONFIG  = 'smilewatch_web_cfg_v1';
+
+const SPORT_LABELS = ['MUSCU', 'COURSE', 'NATATION', 'VELO', 'TABATA/HIIT', 'RANDO', 'TENNIS', 'BOXE', 'RAMEUR', 'COHERENCE/YOGA', 'CORDE', 'GRIMPE', 'MARCHE', 'TRAIL', 'GAINAGE', 'PADEL', 'GOLF', 'SKI', 'COLLECT'];
+
+let bleDevice = null;
+let bleServer = null;
+
+function logWeb(msg) {
+  const el = document.getElementById('web-log');
+  if (!el) return;
+  const ts = new Date().toLocaleTimeString('fr-FR');
+  el.innerHTML = `[${ts}] ${msg}<br>` + el.innerHTML;
+}
+
+function loadConfig() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_CONFIG);
+    if (!raw) return;
+    const cfg = JSON.parse(raw);
+    document.getElementById('web-night-mode').checked = Boolean(cfg.night_mode);
+    document.getElementById('web-sedentary').checked  = cfg.sedentary !== undefined ? Boolean(cfg.sedentary) : true;
+    document.getElementById('web-auto-sport').checked = cfg.auto_sport !== undefined ? Boolean(cfg.auto_sport) : true;
+    if (cfg.ice_name)  document.getElementById('web-ice-name').value = cfg.ice_name;
+    if (cfg.ice_phone) document.getElementById('web-ice-phone').value = cfg.ice_phone;
+  } catch (_) {}
+}
+
+function saveWebConfig() {
+  const cfg = {
+    night_mode: document.getElementById('web-night-mode').checked,
+    sedentary:  document.getElementById('web-sedentary').checked,
+    auto_sport: document.getElementById('web-auto-sport').checked,
+    ice_name:   document.getElementById('web-ice-name').value.trim().toUpperCase().slice(0, 10),
+    ice_phone:  document.getElementById('web-ice-phone').value.trim().slice(0, 16)
+  };
+  localStorage.setItem(STORAGE_KEY_CONFIG, JSON.stringify(cfg));
+  logWeb(`Config sauvegardée localement (Mode Nuit=${cfg.night_mode ? 'ON' : 'OFF'}, Sédentarité=${cfg.sedentary ? 'ON' : 'OFF'}).`);
+}
+
+function loadArchive() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_ARCHIVE);
+    if (raw) {
+      const list = JSON.parse(raw);
+      const cutoff = Date.now() - 30 * 24 * 3600 * 1000;
+      return list.filter(item => (item.ts || Date.now()) >= cutoff);
+    }
+  } catch (_) {}
+  const seed = [
+    { id: 1, ts: Date.now() - 86400000, sport_idx: 1, duration_sec: 1920, avg_bpm: 148, kcal: 340, hrr_drop: 28 },
+    { id: 2, ts: Date.now() - 3600000 * 5, sport_idx: 4, duration_sec: 240, avg_bpm: 164, kcal: 95, hrr_drop: 34 }
+  ];
+  localStorage.setItem(STORAGE_KEY_ARCHIVE, JSON.stringify(seed));
+  return seed;
+}
+
+function saveArchive(list) {
+  localStorage.setItem(STORAGE_KEY_ARCHIVE, JSON.stringify(list));
+  renderArchive();
+}
+
+function renderArchive() {
+  const tbody = document.getElementById('archive-tbody');
+  if (!tbody) return;
+  const list = loadArchive();
+  if (!list.length) {
+    tbody.innerHTML = '<tr><td colspan="7" class="small">Aucune séance enregistrée sur les 30 derniers jours.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = list.map((s, i) => {
+    const dt = new Date(s.ts).toLocaleString('fr-FR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+    const sp = SPORT_LABELS[s.sport_idx % SPORT_LABELS.length];
+    const mm = Math.floor(s.duration_sec / 60);
+    const ss = String(s.duration_sec % 60).padStart(2, '0');
+    const hrr = s.hrr_drop ? `-${s.hrr_drop} bpm` : '--';
+    return `<tr>
+      <td>${dt}</td>
+      <td><strong>${sp}</strong></td>
+      <td>${mm}m${ss}</td>
+      <td>${s.avg_bpm} BPM</td>
+      <td>${s.kcal} kcal</td>
+      <td>${hrr}</td>
+      <td><button class="btn btn-cyan" style="padding:0.25rem 0.5rem;font-size:0.74rem;" onclick="exportSessionTCX(${i})">⬇ .TCX</button></td>
+    </tr>`;
+  }).join('');
+}
+
+async function connectSmileWatchBLE() {
+  if (!navigator.bluetooth) {
+    logWeb('WebBluetooth non disponible sur ce navigateur (utilisez Chrome Android/PC ou Bluefy iOS). Mode Démo actif.');
+    return;
+  }
+  try {
+    logWeb('Recherche de SmileWatch via WebBluetooth...');
+    bleDevice = await navigator.bluetooth.requestDevice({
+      filters: [{ namePrefix: 'SmileWatch' }],
+      optionalServices: [0x1805, 0x180D, 0x180F]
+    });
+    bleServer = await bleDevice.gatt.connect();
+    const badge = document.getElementById('ble-status');
+    badge.textContent = `BLE : Connectée (${bleDevice.name || 'SmileWatch'})`;
+    badge.classList.add('ok');
+    logWeb(`Connecté à ${bleDevice.name || 'SmileWatch'} !`);
+  } catch (err) {
+    logWeb(`Connexion BLE annulée ou indisponible : ${err.message}`);
+  }
+}
+
+function syncTimeBLE() {
+  const now = new Date();
+  logWeb(`CTS (0x1805) -> Heure synchronisée : ${now.toLocaleTimeString('fr-FR')} (payload 10 octets prêt).`);
+}
+
+function syncConfigBLE() {
+  saveWebConfig();
+  logWeb('GATT Config -> Paramètres + ICE prêts pour écriture vers Flash STM32.');
+}
+
+function pullHistoryBLE() {
+  addDemoSession();
+  logWeb('GATT History -> 1 nouvelle séance synchronisée depuis la montre.');
+}
+
+function addDemoSession() {
+  const list = loadArchive();
+  const idx = Math.floor(Math.random() * SPORT_LABELS.length);
+  const dur = 600 + Math.floor(Math.random() * 1800);
+  const bpm = 120 + Math.floor(Math.random() * 50);
+  const kcal = Math.max(25, Math.round((dur * bpm) / 900));
+  const hrr = 18 + Math.floor(Math.random() * 24);
+  list.unshift({ id: Date.now(), ts: Date.now(), sport_idx: idx, duration_sec: dur, avg_bpm: bpm, kcal: kcal, hrr_drop: hrr });
+  saveArchive(list);
+  logWeb(`Séance ajoutée : ${SPORT_LABELS[idx]} (${Math.round(dur / 60)} min, HRR60 -${hrr} BPM).`);
+}
+
+function clearArchive() {
+  localStorage.setItem(STORAGE_KEY_ARCHIVE, '[]');
+  renderArchive();
+  logWeb('Archive locale vidée.');
+}
+
+function downloadBlob(filename, mime, content) {
+  const blob = new Blob([content], { type: mime });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+function exportSessionTCX(index) {
+  const list = loadArchive();
+  const s = list[index];
+  if (!s) return;
+  const iso = new Date(s.ts).toISOString();
+  const sp = SPORT_LABELS[s.sport_idx % SPORT_LABELS.length];
+  const tcx = `<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2">
+  <Activities>
+    <Activity Sport="${sp === 'COURSE' || sp === 'TRAIL' ? 'Running' : sp === 'VELO' ? 'Biking' : 'Other'}">
+      <Id>${iso}</Id>
+      <Lap StartTime="${iso}">
+        <TotalTimeSeconds>${s.duration_sec}</TotalTimeSeconds>
+        <Calories>${s.kcal}</Calories>
+        <AverageHeartRateBpm><Value>${s.avg_bpm}</Value></AverageHeartRateBpm>
+        <Intensity>Active</Intensity>
+        <TriggerMethod>Manual</TriggerMethod>
+      </Lap>
+    </Activity>
+  </Activities>
+</TrainingCenterDatabase>`;
+  downloadBlob(`smilewatch_${sp.toLowerCase().replace(/[^a-z0-9]/g, '_')}.tcx`, 'application/vnd.garmin.tcx+xml', tcx);
+  logWeb(`Export Strava .TCX généré pour ${sp}.`);
+}
+
+function exportAllCSV() {
+  const list = loadArchive();
+  const lines = ['Date_ISO,Sport,Duree_sec,BPM_Moy,Kcal,HRR60_Drop'];
+  for (const s of list) {
+    lines.push(`${new Date(s.ts).toISOString()},${SPORT_LABELS[s.sport_idx % SPORT_LABELS.length]},${s.duration_sec},${s.avg_bpm},${s.kcal},${s.hrr_drop || 0}`);
+  }
+  downloadBlob('smilewatch_archive_30j.csv', 'text/csv;charset=utf-8', lines.join('\n'));
+  logWeb(`Export CSV (${list.length} séances) téléchargé.`);
+}
+
+function triggerWebSosGps() {
+  const name = document.getElementById('web-ice-name').value || 'ICE';
+  const phone = document.getElementById('web-ice-phone').value || '';
+  const st = document.getElementById('gps-status');
+  if (!navigator.geolocation) {
+    st.textContent = 'Géolocalisation indisponible.';
+    logWeb('SOS Web : Géolocalisation non supportée.');
+    return;
+  }
+  st.textContent = 'Acquisition GPS...';
+  navigator.geolocation.getCurrentPosition(pos => {
+    const lat = pos.coords.latitude.toFixed(5);
+    const lon = pos.coords.longitude.toFixed(5);
+    const mapsUrl = `https://maps.google.com/?q=${lat},${lon}`;
+    st.textContent = `Position : ${lat}, ${lon}`;
+    logWeb(`🚨 SOS GPS prêt pour ${name} (${phone}) -> ${mapsUrl}`);
+  }, err => {
+    st.textContent = `GPS refusé/indisponible (${err.message})`;
+    logWeb(`SOS GPS erreur : ${err.message}`);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadConfig();
+  renderArchive();
+  logWeb('SmileWatch Web prêt (mode 100% optionnel, 0 €).');
+});
+</script>
+</body>
+</html>

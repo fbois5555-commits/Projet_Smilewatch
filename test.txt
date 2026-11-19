@@ -1,0 +1,21 @@
+		(symbol "MCU_ST_STM32WB:STM32WB55VGYx"
+
+			(property "Value" "STM32WB55VGYx"
+
+			(property "ki_keywords" "Arm Cortex-M4 STM32WB STM32WBx5"
+
+			(symbol "STM32WB55VGYx_0_1"
+
+			(symbol "STM32WB55VGYx_1_1"
+
+			(property "Description" "2.4 GHz low pass filter matched to STM32WB5x and STM32WB1x in WLCSP and UFBGA packages"
+
+		(lib_id "MCU_ST_STM32WB:STM32WB55VGYx")
+
+		(property "Reference" "U2"
+
+		(property "Value" "STM32WB55VGYx"
+
+					(reference "U2")
+
+		(property "Description" "2.4 GHz low pass filter matched to STM32WB5x and STM32WB1x in WLCSP and UFBGA packages"

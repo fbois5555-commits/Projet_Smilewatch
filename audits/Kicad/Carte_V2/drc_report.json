@@ -1,0 +1,440 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-26T11:31:50",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "key": "pth_inside_courtyard"
+        },
+        {
+            "description": "NPTH inside courtyard",
+            "key": "npth_inside_courtyard"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        },
+        {
+            "description": "Footprint doesn't match copy in library",
+            "key": "lib_footprint_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.6",
+    "schematic_parity": [],
+    "source": "Carte_V2.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "Violation d'isolation du contour du CI (configuration des contraintes du contour du PCB isolation 0,2000 mm; réel 0,1555 mm)",
+            "items": [
+                {
+                    "description": "Arc sur Edge.Cuts",
+                    "pos": {
+                        "x": 105.625,
+                        "y": 80.1591
+                    },
+                    "uuid": "32f1a51b-3f4d-4484-8891-0f9cb099017c"
+                },
+                {
+                    "description": "Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1",
+                    "pos": {
+                        "x": 84.125,
+                        "y": 58.9
+                    },
+                    "uuid": "728be609-efa0-4c5a-be47-b3ee91a2817f"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "Violation d'isolation du contour du CI (configuration des contraintes du contour du PCB isolation 0,2000 mm; réel 0,1582 mm)",
+            "items": [
+                {
+                    "description": "Arc sur Edge.Cuts",
+                    "pos": {
+                        "x": 105.625,
+                        "y": 80.1591
+                    },
+                    "uuid": "32f1a51b-3f4d-4484-8891-0f9cb099017c"
+                },
+                {
+                    "description": "Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1",
+                    "pos": {
+                        "x": 84.125,
+                        "y": 58.9
+                    },
+                    "uuid": "728be609-efa0-4c5a-be47-b3ee91a2817f"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "Violation d'isolation du contour du CI (configuration des contraintes du contour du PCB isolation 0,2000 mm; réel 0,1582 mm)",
+            "items": [
+                {
+                    "description": "Arc sur Edge.Cuts",
+                    "pos": {
+                        "x": 105.625,
+                        "y": 80.1591
+                    },
+                    "uuid": "32f1a51b-3f4d-4484-8891-0f9cb099017c"
+                },
+                {
+                    "description": "Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1",
+                    "pos": {
+                        "x": 84.125,
+                        "y": 58.9
+                    },
+                    "uuid": "728be609-efa0-4c5a-be47-b3ee91a2817f"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "Violation d'isolation du contour du CI (configuration des contraintes du contour du PCB isolation 0,2000 mm; réel 0,1562 mm)",
+            "items": [
+                {
+                    "description": "Arc sur Edge.Cuts",
+                    "pos": {
+                        "x": 105.625,
+                        "y": 80.1591
+                    },
+                    "uuid": "32f1a51b-3f4d-4484-8891-0f9cb099017c"
+                },
+                {
+                    "description": "Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1",
+                    "pos": {
+                        "x": 84.125,
+                        "y": 58.9
+                    },
+                    "uuid": "728be609-efa0-4c5a-be47-b3ee91a2817f"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "Violation d'isolation du contour du CI (configuration des contraintes du contour du PCB isolation 0,2000 mm; réel 0,1748 mm)",
+            "items": [
+                {
+                    "description": "Arc sur Edge.Cuts",
+                    "pos": {
+                        "x": 105.625,
+                        "y": 80.1591
+                    },
+                    "uuid": "32f1a51b-3f4d-4484-8891-0f9cb099017c"
+                },
+                {
+                    "description": "Zone [+3V8] sur B.Cu, priorité 3",
+                    "pos": {
+                        "x": 90.725,
+                        "y": 84.1
+                    },
+                    "uuid": "9f909431-84f3-483f-8fc4-924adb4714fd"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "Violation d'isolation du contour du CI (configuration des contraintes du contour du PCB isolation 0,2000 mm; réel 0,1669 mm)",
+            "items": [
+                {
+                    "description": "Arc sur Edge.Cuts",
+                    "pos": {
+                        "x": 105.625,
+                        "y": 80.1591
+                    },
+                    "uuid": "32f1a51b-3f4d-4484-8891-0f9cb099017c"
+                },
+                {
+                    "description": "Zone [+3V3] sur In1.Cu, priorité 2",
+                    "pos": {
+                        "x": 84.125,
+                        "y": 58.9
+                    },
+                    "uuid": "2166cd33-3091-4197-bfb4-5089642e8d4a"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "Violation d'isolation du contour du CI (configuration des contraintes du contour du PCB isolation 0,2000 mm; réel 0,1556 mm)",
+            "items": [
+                {
+                    "description": "Arc sur Edge.Cuts",
+                    "pos": {
+                        "x": 105.625,
+                        "y": 80.1591
+                    },
+                    "uuid": "32f1a51b-3f4d-4484-8891-0f9cb099017c"
+                },
+                {
+                    "description": "Zone [+3V3] sur In4.Cu, priorité 0",
+                    "pos": {
+                        "x": 84.1,
+                        "y": 58.8
+                    },
+                    "uuid": "b9b2b096-6fcf-41ba-990c-1e175118576b"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)",
+            "items": [
+                {
+                    "description": "Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1",
+                    "pos": {
+                        "x": 84.125,
+                        "y": 58.9
+                    },
+                    "uuid": "728be609-efa0-4c5a-be47-b3ee91a2817f"
+                },
+                {
+                    "description": "Pad K1 [GND] de U2 sur F.Cu",
+                    "pos": {
+                        "x": 106.4825,
+                        "y": 66.6625
+                    },
+                    "uuid": "5b214332-9350-4f50-aa78-2aab830f9f76"
+                }
+            ],
+            "severity": "error",
+            "type": "starved_thermal"
+        },
+        {
+            "description": "Connexion de frein thermique à la zone incomplète (couche B.Cu ; zone nbre min de rayons 2 ; réel 1)",
+            "items": [
+                {
+                    "description": "Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1",
+                    "pos": {
+                        "x": 84.125,
+                        "y": 58.9
+                    },
+                    "uuid": "728be609-efa0-4c5a-be47-b3ee91a2817f"
+                },
+                {
+                    "description": "Pad métallisé 11 [GND] de IC2",
+                    "pos": {
+                        "x": 93.675,
+                        "y": 84.2
+                    },
+                    "uuid": "c497f5c9-79e0-485a-812c-e2b3677e8a7d"
+                }
+            ],
+            "severity": "error",
+            "type": "starved_thermal"
+        },
+        {
+            "description": "Connexion de frein thermique à la zone incomplète (couche B.Cu ; zone nbre min de rayons 2 ; réel 1)",
+            "items": [
+                {
+                    "description": "Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1",
+                    "pos": {
+                        "x": 84.125,
+                        "y": 58.9
+                    },
+                    "uuid": "728be609-efa0-4c5a-be47-b3ee91a2817f"
+                },
+                {
+                    "description": "Pad métallisé 11 [GND] de IC2",
+                    "pos": {
+                        "x": 94.425,
+                        "y": 84.2
+                    },
+                    "uuid": "086acfff-f4a7-4427-a625-66f40a494908"
+                }
+            ],
+            "severity": "error",
+            "type": "starved_thermal"
+        },
+        {
+            "description": "Connexion de frein thermique à la zone incomplète (couche B.Cu ; zone nbre min de rayons 2 ; réel 1)",
+            "items": [
+                {
+                    "description": "Zone [GND] sur F.Cu, B.Cu et 3 en plus, priorité 1",
+                    "pos": {
+                        "x": 84.125,
+                        "y": 58.9
+                    },
+                    "uuid": "728be609-efa0-4c5a-be47-b3ee91a2817f"
+                },
+                {
+                    "description": "Pad métallisé 11 [GND] de IC2",
+                    "pos": {
+                        "x": 95.175,
+                        "y": 84.2
+                    },
+                    "uuid": "e5427dae-f860-441f-b162-dcf706180c73"
+                }
+            ],
+            "severity": "error",
+            "type": "starved_thermal"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Arc sur Edge.Cuts",
+                    "pos": {
+                        "x": 105.64715,
+                        "y": 80.17128
+                    },
+                    "uuid": "7c41f76d-0722-4b06-ada1-5e87141ad4a5"
+                },
+                {
+                    "description": "Segment de C39 sur F.Silkscreen",
+                    "pos": {
+                        "x": 110.625,
+                        "y": 96.91
+                    },
+                    "uuid": "a6b52b2c-ebdc-4910-8f2f-b0ccc81882d8"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Arc sur Edge.Cuts",
+                    "pos": {
+                        "x": 105.64715,
+                        "y": 80.17128
+                    },
+                    "uuid": "7c41f76d-0722-4b06-ada1-5e87141ad4a5"
+                },
+                {
+                    "description": "Segment de C39 sur F.Silkscreen",
+                    "pos": {
+                        "x": 115.625,
+                        "y": 96.91
+                    },
+                    "uuid": "0334d1cf-3753-46d5-af0b-2efe170880c5"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segment sur Edge.Cuts",
+                    "pos": {
+                        "x": 119.494893,
+                        "y": 71.139921
+                    },
+                    "uuid": "bbdbfff9-a332-4a4a-bc82-6a17d35cc64c"
+                },
+                {
+                    "description": "Segment de M1 sur B.Silkscreen",
+                    "pos": {
+                        "x": 115.253929,
+                        "y": 66.314152
+                    },
+                    "uuid": "04e3351c-4493-4c8b-b4f7-d7827328575a"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by board edge",
+            "items": [
+                {
+                    "description": "Segment sur Edge.Cuts",
+                    "pos": {
+                        "x": 121.042373,
+                        "y": 74.186409
+                    },
+                    "uuid": "2455fc1f-1a4a-4f85-ba53-abe0583a62d2"
+                },
+                {
+                    "description": "Segment de M1 sur B.Silkscreen",
+                    "pos": {
+                        "x": 123.067582,
+                        "y": 72.870585
+                    },
+                    "uuid": "a60edaff-74a2-4b90-a125-c569939d498d"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_edge_clearance"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Polygone de U2 sur F.Silkscreen",
+                    "pos": {
+                        "x": 106.9125,
+                        "y": 70.6825
+                    },
+                    "uuid": "b1f4dd87-72cf-41bb-baa5-b2eca2d84a9e"
+                },
+                {
+                    "description": "Pad 1 [Net-(U2-VLXSMPS)] de L1 sur F.Cu",
+                    "pos": {
+                        "x": 107.925,
+                        "y": 69.6
+                    },
+                    "uuid": "af91d0af-3506-4243-955b-54cecd59f268"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Polygone de U2 sur F.Silkscreen",
+                    "pos": {
+                        "x": 106.9125,
+                        "y": 70.6825
+                    },
+                    "uuid": "b1f4dd87-72cf-41bb-baa5-b2eca2d84a9e"
+                },
+                {
+                    "description": "Pad 1 [+3V3] de C48 sur F.Cu",
+                    "pos": {
+                        "x": 106.82,
+                        "y": 71.5
+                    },
+                    "uuid": "e5f2cbb9-2128-40c4-92e3-a279b51adc68"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        }
+    ]
+}
