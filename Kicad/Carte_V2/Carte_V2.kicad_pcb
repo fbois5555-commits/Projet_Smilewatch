@@ -22975,7 +22975,7 @@
 				)
 			)
 		)
-		(property "Value" "ECS-.327-7-1210-TR"
+		(property "Value" "ECS-.327-9-1210-TR"
 			(at -0.3 0 90)
 			(layer "F.SilkS")
 			(hide yes)
@@ -22999,7 +22999,7 @@
 				)
 			)
 		)
-		(property "Description" "Crystals 32.786kHz 7pF 20ppm -40C +85C"
+		(property "Description" "Crystals 32.768kHz 9pF 20ppm -40C +85C"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -23063,7 +23063,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "ECS-.327-7-1210-TR"
+		(property "Manufacturer_Part_Number" "ECS-.327-9-1210-TR"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -23076,7 +23076,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Part#" "C2450077"
+		(property "JLCPCB Part#" "C2450044"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")

@@ -911,8 +911,15 @@ static void Render_ScreenHome(void)
         SmileWatch_DrawHeader("HOME", 1U);
         (void)snprintf(buf, sizeof(buf), "%02u:%02u", s_state.hours, s_state.minutes);
         OLED_DrawStr(4, 13, buf, 2, 1);
-        (void)snprintf(buf, sizeof(buf), ":%02u", s_state.seconds);
-        OLED_DrawStr(65, 20, buf, 1, 1);
+        if (s_state.tz2_enabled) {
+            int32_t m2 = ((int32_t)s_state.hours * 60 + (int32_t)s_state.minutes + (int32_t)s_state.tz2_offset_half_h * 30 + 1440) % 1440;
+            (void)snprintf(buf, sizeof(buf), "%02ld:%02ld", (long)(m2 / 60), (long)(m2 % 60));
+            OLED_DrawStr(58, 12, "TZ2", 1, 1);
+            OLED_DrawStr(56, 20, buf, 1, 1);
+        } else {
+            (void)snprintf(buf, sizeof(buf), ":%02u", s_state.seconds);
+            OLED_DrawStr(65, 20, buf, 1, 1);
+        }
         OLED_DrawLine(3, 28, 84, 28, 1);
 
         OLED_DrawBitmap(5, 30, k_garmin_heart_10x9, 10, 9, 1);
@@ -986,7 +993,7 @@ static void Render_ScreenHeart(void)
         OLED_DrawBitmap(5, hy, k_garmin_heart_10x9, 10, 9, 1);
         (void)snprintf(buf, sizeof(buf), "%u", s_state.heart_bpm);
         OLED_DrawStr(18, 13, buf, 2, 1);
-        OLED_DrawStr(55, 20, "BPM", 1, 1);
+        OLED_DrawStr(55, 20, s_state.tachy_alert_active ? "TACHY" : "BPM", 1, 1);
         OLED_DrawStr(67, 13, s_state.hr_measuring ? "ON" : "OFF", 1, 1);
 
         int16_t prev_y = 38;
@@ -1494,19 +1501,26 @@ static void Render_ScreenChrono(void)
         OLED_DrawStr(11, 37, s_state.chrono_running ? "4HL: LAP" :
                              (s_state.chrono_tenths > 0UL) ? "4HL: RESET" : "4HL: START", 1, 1);
     } else if (s_state.sub_view == 1U) {
-        (void)snprintf(buf, sizeof(buf), "TIMER %uM", s_state.timer_preset_sec / 60U);
-        OLED_DrawStr(4, 12, buf, 1, 1);
-        OLED_DrawStr(64, 12, s_state.timer_running ? "ON" : "OFF", 1, 1);
-        (void)snprintf(buf, sizeof(buf), "%02u:%02u", s_state.timer_rem_sec / 60U, s_state.timer_rem_sec % 60U);
-        OLED_DrawStr(14, 21, buf, 2, 1);
+        if (s_state.pomo_active) {
+            OLED_DrawStr(4, 12, s_state.pomo_work ? "POMO TRAV" : "POMO PAUS", 1, 1);
+            (void)snprintf(buf, sizeof(buf), "%02u:%02u", s_state.pomo_sec_left / 60U, s_state.pomo_sec_left % 60U);
+            OLED_DrawStr(14, 21, buf, 2, 1);
+            OLED_DrawStr(11, 37, "25M / 5M", 1, 1);
+        } else {
+            (void)snprintf(buf, sizeof(buf), "TIMER %uM", s_state.timer_preset_sec / 60U);
+            OLED_DrawStr(4, 12, buf, 1, 1);
+            OLED_DrawStr(64, 12, s_state.timer_running ? "ON" : "OFF", 1, 1);
+            (void)snprintf(buf, sizeof(buf), "%02u:%02u", s_state.timer_rem_sec / 60U, s_state.timer_rem_sec % 60U);
+            OLED_DrawStr(14, 21, buf, 2, 1);
 
-        OLED_DrawRoundRect(10, 37, 68, 5, 2, 1);
-        for (int16_t gx = 12; gx < 76; gx += 2) {
-            OLED_DrawPixel(gx, 39, 1);
-        }
-        if (s_state.timer_preset_sec > 0U) {
-            uint32_t w = ((uint32_t)s_state.timer_rem_sec * 66UL) / (uint32_t)s_state.timer_preset_sec;
-            if (w > 0UL) OLED_FillRoundRect(11, 38, (int16_t)w, 3, 1, 1);
+            OLED_DrawRoundRect(10, 37, 68, 5, 2, 1);
+            for (int16_t gx = 12; gx < 76; gx += 2) {
+                OLED_DrawPixel(gx, 39, 1);
+            }
+            if (s_state.timer_preset_sec > 0U) {
+                uint32_t w = ((uint32_t)s_state.timer_rem_sec * 66UL) / (uint32_t)s_state.timer_preset_sec;
+                if (w > 0UL) OLED_FillRoundRect(11, 38, (int16_t)w, 3, 1, 1);
+            }
         }
     } else {
         OLED_DrawStr(4, 13, "DERNIER LAP:", 1, 1);
@@ -1855,7 +1869,14 @@ static void Render_ScreenConfig(void)
         OLED_DrawStr(4, 21, buf, 1, 1);
         (void)snprintf(buf, sizeof(buf), "DRV:%s FL:%s", s_state.hw_drv_ok ? "OK" : "--", s_state.hw_flash_ok ? "OK" : "--");
         OLED_DrawStr(4, 29, buf, 1, 1);
-        OLED_DrawStr(11, 37, "4HL:SAUVER", 1, 1);
+        if (s_state.sync_needed_alert) {
+            OLED_DrawStr(11, 37, "SYNC WEB!", 1, 1);
+        } else if (s_state.last_sync_day > 0U) {
+            (void)snprintf(buf, sizeof(buf), "SYN:%02u/%02u", s_state.last_sync_day, s_state.last_sync_month);
+            OLED_DrawStr(11, 37, buf, 1, 1);
+        } else {
+            OLED_DrawStr(11, 37, "4HL:SAUVER", 1, 1);
+        }
     }
 }
 
@@ -1895,6 +1916,12 @@ void SmileWatch_RenderCurrentScreen(void)
         return;
     }
 
+    if (s_state.torch_active) {
+        OLED_FillRect(0, 0, 88, 48, 1);
+        OLED_Flush(s_hi2c);
+        return;
+    }
+
     if (s_state.sos_active) {
         Render_SosOverlay();
         OLED_Flush(s_hi2c);
@@ -1912,6 +1939,12 @@ void SmileWatch_RenderCurrentScreen(void)
         case SW_SCREEN_SMART:    Render_ScreenSmart();    break;
         case SW_SCREEN_CONFIG:   Render_ScreenConfig();   break;
         default:                 Render_ScreenHome();     break;
+    }
+
+    if (s_state.menu_anim_ticks == 2U) {
+        OLED_FillRect(0, 0, 88, 3, 1);
+    } else if (s_state.menu_anim_ticks == 1U) {
+        OLED_DrawLine(0, 0, 0, 47, 1);
     }
 
     OLED_Flush(s_hi2c);
@@ -1950,6 +1983,37 @@ void SmileWatch_Init(I2C_HandleTypeDef *hi2c)
     s_state.wake_summary_active   = false;
     s_state.wake_summary_shown_today = false;
     s_state.last_sleep_min   = 46U;
+    s_state.torch_active     = false;
+    s_state.tz2_enabled      = true;
+    s_state.tz2_offset_half_h = -12;
+    s_state.pomo_active      = false;
+    s_state.pomo_work        = true;
+    s_state.pomo_sec_left    = 1500U;
+    s_state.tachy_alert_active = false;
+    s_state.tachy_sec        = 0U;
+    s_state.nap_detect_active = false;
+    s_state.nap_sched_min    = 0U;
+    s_state.nap_rem_sec      = 0U;
+    s_state.nap_elapsed_min  = 0U;
+    s_state.cinema_mode_enabled = false;
+    s_state.cinema_rem_min   = 0U;
+    s_state.uv_sun_sec       = 0U;
+    s_state.uv_alert_active  = false;
+    s_state.alarm_sel_idx    = 0U;
+    s_state.alarms[0]        = (SW_AlarmItem_t){ 7U, 30U, true,  0U };
+    s_state.alarms[1]        = (SW_AlarmItem_t){ 13U, 0U, false, 1U };
+    s_state.alarms[2]        = (SW_AlarmItem_t){ 20U, 0U, false, 2U };
+    s_state.haptic_level     = 1U;
+    s_state.auto_gym_set_enabled = true;
+    s_state.gym_still_sec    = 0U;
+    s_state.tabata_work_sec  = 20U;
+    s_state.tabata_rest_sec  = 10U;
+    s_state.tabata_rounds_total = 8U;
+    s_state.program_count    = 0U;
+    s_state.program_idx      = 0U;
+    s_state.program_active   = false;
+    (void)snprintf(s_state.device_uid, sizeof(s_state.device_uid), "SW-%08lX",
+                   (unsigned long)(HAL_GetUIDw0() ^ HAL_GetUIDw1() ^ HAL_GetUIDw2()));
 
     s_state.heart_bpm        = 72U;
     s_state.spo2_pct         = 98U;
@@ -2174,7 +2238,88 @@ void SmileWatch_SaveWorkoutSession(void)
 
 bool SmileWatch_NeedsFastTick(void)
 {
-    return s_state.display_awake || s_state.sport_active || s_state.hrr_active || s_state.sos_active;
+    return s_state.display_awake || s_state.sport_active || s_state.hrr_active || s_state.sos_active || s_state.torch_active;
+}
+
+void SmileWatch_ToggleTorch(uint32_t now_ms)
+{
+    s_state.torch_active = !s_state.torch_active;
+    s_state.last_activity_ms = now_ms;
+    if (s_state.torch_active) {
+        s_state.display_awake = true;
+        OLED_PowerOn();
+        OLED_Init(s_hi2c);
+        OLED_SetContrast(s_hi2c, 255U);
+    } else {
+        OLED_SetContrast(s_hi2c, s_state.oled_contrast);
+    }
+    SmileWatch_RenderCurrentScreen();
+}
+
+void SmileWatch_StartPomodoro(uint32_t now_ms)
+{
+    s_state.pomo_active = !s_state.pomo_active;
+    s_state.pomo_work = true;
+    s_state.pomo_sec_left = 1500U;
+    s_state.current_screen = SW_SCREEN_CHRONO;
+    s_state.sub_view = 1U;
+    s_state.display_awake = true;
+    s_state.last_activity_ms = now_ms;
+    SmileWatch_RenderCurrentScreen();
+}
+
+void SmileWatch_StartNapTimer(uint8_t minutes, uint32_t now_ms)
+{
+    s_state.nap_sched_min = minutes;
+    s_state.nap_rem_sec = (uint16_t)minutes * 60U;
+    s_state.last_activity_ms = now_ms;
+}
+
+void SmileWatch_ArchiveDailyRecord(void)
+{
+    /* 90% circular ring buffer (328 days); remaining 10% (37 days) is safety/queue margin */
+    uint16_t idx = (uint16_t)(s_state.daily_head % SW_DAILY_RING_CAP);
+    s_state.daily_history[idx].steps_k10     = (uint16_t)(s_state.steps_count / 10UL);
+    s_state.daily_history[idx].rhr_bpm       = s_state.rhr_base_bpm;
+    s_state.daily_history[idx].hrv_ms        = (uint8_t)(s_state.hrv_rmssd_ms > 255U ? 255U : s_state.hrv_rmssd_ms);
+    s_state.daily_history[idx].sleep_min_x10 = s_state.last_sleep_min;
+    s_state.daily_history[idx].body_bat      = s_state.body_battery;
+    s_state.daily_head = (uint16_t)((idx + 1U) % SW_DAILY_RING_CAP);
+    if (s_state.daily_count < SW_DAILY_RING_CAP) s_state.daily_count++;
+    if (s_state.daily_unsynced_count < SW_DAILY_RING_CAP) s_state.daily_unsynced_count++;
+    /* Reminder when approaching 90% ring capacity (~295/328 days) */
+    s_state.sync_needed_alert = (s_state.daily_unsynced_count >= 295U);
+    s_state.hw_flash_ok = FlashStorage_Save(&s_state, &s_miyota);
+}
+
+void SmileWatch_MarkWebSynced(void)
+{
+    s_state.daily_unsynced_count = 0U;
+    s_state.sync_needed_alert    = false;
+    s_state.last_sync_day        = s_state.day;
+    s_state.last_sync_month      = s_state.month;
+    s_state.last_sync_hour       = s_state.hours;
+    s_state.last_sync_min        = s_state.minutes;
+    s_state.hw_flash_ok          = FlashStorage_Save(&s_state, &s_miyota);
+}
+
+void SmileWatch_SetCinemaMode(bool enabled, uint8_t minutes, uint32_t now_ms)
+{
+    s_state.cinema_mode_enabled = enabled;
+    s_state.cinema_rem_min      = enabled ? minutes : 0U;
+    s_state.last_activity_ms    = now_ms;
+    if (enabled && s_state.display_awake) {
+        s_state.display_awake = false;
+        OLED_PowerOff();
+        SmileWatch_SyncMiyotaWithPillPause();
+    }
+}
+
+void SmileWatch_AlignMiyotaStep(int16_t delta_sec)
+{
+    int32_t next = (int32_t)s_miyota.target_pos_sec + (int32_t)delta_sec;
+    while (next < 0) next += (int32_t)MIYOTA_SEC_PER_12H;
+    s_miyota.target_pos_sec = (uint32_t)(next % (int32_t)MIYOTA_SEC_PER_12H);
 }
 
 void SmileWatch_ShowWakeSummary(uint32_t now_ms)
@@ -2226,23 +2371,49 @@ void SmileWatch_HandleLookToWake(bool looking_at_watch, uint32_t now_ms)
     }
 }
 
-void SmileWatch_HandleWristFlick(uint32_t now_ms)
+void SmileWatch_HandleGesture(SW_GestureType_t gesture, uint32_t now_ms)
 {
     if (!s_state.wrist_nav_enabled || SmileWatch_IsNightQuiet() || s_state.sos_active || s_state.survival_mode) return;
     if (!s_state.display_awake && s_state.look_to_wake_enabled) return;
     s_state.last_activity_ms = now_ms;
+
     if (!s_state.display_awake) {
+        if (gesture == SW_GESTURE_WRIST_DOWN) return;
         s_state.display_awake = true;
         SmileWatch_SyncMiyotaWithPillPause();
         OLED_PowerOn();
         OLED_Init(s_hi2c);
-    } else if (s_state.current_screen == SW_SCREEN_SPORT && s_state.sub_view == 0U) {
-        s_state.sport_type = (uint8_t)((s_state.sport_type + 1U) % SW_SPORT_COUNT);
     } else {
-        s_state.sub_view = (uint8_t)((s_state.sub_view + 1U) % 3U);
+        switch (gesture) {
+            case SW_GESTURE_FLICK_NEXT:
+                s_state.current_screen = (SW_ScreenId_t)((s_state.current_screen + 1U) % SW_SCREEN_COUNT);
+                s_state.sub_view = 0U;
+                s_state.menu_anim_ticks = 2U;
+                break;
+            case SW_GESTURE_FLICK_PREV:
+                s_state.current_screen = (SW_ScreenId_t)((s_state.current_screen + SW_SCREEN_COUNT - 1U) % SW_SCREEN_COUNT);
+                s_state.sub_view = 0U;
+                s_state.menu_anim_ticks = 2U;
+                break;
+            case SW_GESTURE_DOUBLE_PINCH:
+                s_state.sub_view = (uint8_t)((s_state.sub_view + 1U) % 3U);
+                break;
+            case SW_GESTURE_WRIST_DOWN:
+                s_state.display_awake = false;
+                OLED_PowerOff();
+                SmileWatch_SyncMiyotaWithPillPause();
+                return;
+            default:
+                break;
+        }
     }
     SmileWatch_TriggerHaptic(now_ms, 18U);
     SmileWatch_RenderCurrentScreen();
+}
+
+void SmileWatch_HandleWristFlick(uint32_t now_ms)
+{
+    SmileWatch_HandleGesture(SW_GESTURE_FLICK_NEXT, now_ms);
 }
 
 void SmileWatch_TriggerFallSos(uint32_t now_ms)
@@ -2268,6 +2439,13 @@ void SmileWatch_HandleButtonEvent(SW_ButtonEvent_t evt, uint32_t now_ms)
     if (evt == SW_BTN_EVT_NONE) return;
 
     s_state.last_activity_ms = now_ms;
+
+    if (s_state.torch_active) {
+        s_state.torch_active = false;
+        OLED_SetContrast(s_hi2c, s_state.oled_contrast);
+        SmileWatch_RenderCurrentScreen();
+        return;
+    }
 
     if (s_state.sos_active) {
         if ((evt == SW_BTN_EVT_4H_SHORT) || (evt == SW_BTN_EVT_4H_LONG)) {
@@ -2308,6 +2486,7 @@ void SmileWatch_HandleButtonEvent(SW_ButtonEvent_t evt, uint32_t now_ms)
         case SW_BTN_EVT_2H_SHORT:
             s_state.current_screen = (SW_ScreenId_t)((s_state.current_screen + 1U) % SW_SCREEN_COUNT);
             s_state.sub_view = 0U;
+            s_state.menu_anim_ticks = 2U;
             SmileWatch_TriggerHaptic(now_ms, 25U);
             break;
 
@@ -2666,11 +2845,15 @@ void SmileWatch_LoopTask(uint32_t now_ms)
                 if (s_state.hours == 0U) {
                     s_state.smart_wake_triggered = false;
                     s_state.wake_summary_shown_today = false;
+                    SmileWatch_ArchiveDailyRecord();
                 }
             }
         }
-        /* Ultimate Reserve Mode (< 10% battery): cut BLE, HR, and auto-wake */
+        /* Ultimate Reserve Mode (< 10% battery): save Flash before cutting BLE, HR, and sensors */
         if ((s_state.battery_pct <= 10U) && !s_state.qi_charging) {
+            if (!s_state.survival_mode) {
+                SmileWatch_ArchiveDailyRecord();
+            }
             s_state.survival_mode = true;
             s_state.ble_connected = false;
             s_state.hr_measuring  = false;
@@ -2727,6 +2910,22 @@ void SmileWatch_LoopTask(uint32_t now_ms)
 
         if (s_state.sport_active) {
             s_state.sport_sec++;
+            /* Auto-finish gym set after 20s stillness */
+            if (s_state.auto_gym_set_enabled && (s_state.sport_type == 0U) && (s_state.gym_reps > 0U)) {
+                if (sample.imu_still) {
+                    s_state.gym_still_sec++;
+                    if (s_state.gym_still_sec >= 20U) {
+                        s_state.gym_still_sec = 0U;
+                        s_state.gym_sets++;
+                        s_state.gym_reps = 0U;
+                        s_state.gym_rest_sec = 60U;
+                        Sensors_PlayHaptic(s_hi2c, 14U);
+                        SmileWatch_TriggerHaptic(now_ms, 80U);
+                    }
+                } else {
+                    s_state.gym_still_sec = 0U;
+                }
+            }
             if (s_state.tri_active) {
                 s_state.tri_total_sec++;
             }
@@ -2737,13 +2936,14 @@ void SmileWatch_LoopTask(uint32_t now_ms)
                 } else {
                     if (s_state.tabata_work) {
                         s_state.tabata_work = false;
-                        s_state.tabata_sec_left = 10U;
+                        s_state.tabata_sec_left = (s_state.tabata_rest_sec > 0U) ? s_state.tabata_rest_sec : 10U;
                         Sensors_PlayHaptic(s_hi2c, 16U);
                         SmileWatch_TriggerHaptic(now_ms, 80U);
                     } else {
                         s_state.tabata_work = true;
-                        s_state.tabata_sec_left = 20U;
-                        s_state.tabata_round = (s_state.tabata_round < 8U) ? (uint8_t)(s_state.tabata_round + 1U) : 1U;
+                        s_state.tabata_sec_left = (s_state.tabata_work_sec > 0U) ? s_state.tabata_work_sec : 20U;
+                        uint8_t max_r = (s_state.tabata_rounds_total > 0U) ? s_state.tabata_rounds_total : 8U;
+                        s_state.tabata_round = (s_state.tabata_round < max_r) ? (uint8_t)(s_state.tabata_round + 1U) : 1U;
                         Sensors_PlayHaptic(s_hi2c, 14U);
                         SmileWatch_TriggerHaptic(now_ms, 140U);
                     }
@@ -2809,6 +3009,88 @@ void SmileWatch_LoopTask(uint32_t now_ms)
                 SmileWatch_TriggerHaptic(now_ms, 250U);
             }
         }
+        /* Pomodoro 25m/5m */
+        if (s_state.pomo_active) {
+            if (s_state.pomo_sec_left > 0U) {
+                s_state.pomo_sec_left--;
+            }
+            if (s_state.pomo_sec_left == 0U) {
+                s_state.pomo_work = !s_state.pomo_work;
+                s_state.pomo_sec_left = s_state.pomo_work ? 1500U : 300U;
+                Sensors_PlayHaptic(s_hi2c, 14U);
+                SmileWatch_TriggerHaptic(now_ms, 180U);
+            }
+        }
+        /* Scheduled Nap Timer */
+        if (s_state.nap_rem_sec > 0U) {
+            s_state.nap_rem_sec--;
+            if (s_state.nap_rem_sec == 0U) {
+                s_state.nap_sched_min = 0U;
+                if (s_state.body_battery <= 88U) s_state.body_battery = (uint8_t)(s_state.body_battery + 12U);
+                Sensors_PlayHaptic(s_hi2c, 52U);
+                SmileWatch_TriggerHaptic(now_ms, 260U);
+            }
+        }
+        /* Daytime Nap Detection (12h..18h light sleep / stillness) */
+        if ((s_state.seconds == 0U) && (s_state.hours >= 12U) && (s_state.hours <= 18U) && !s_state.sport_active) {
+            if (sample.imu_still && (s_state.sleep_stage == 1U)) {
+                s_state.nap_elapsed_min++;
+                if (s_state.nap_elapsed_min >= 20U) {
+                    s_state.nap_detect_active = true;
+                    if ((s_state.nap_elapsed_min == 20U) && (s_state.body_battery <= 90U)) {
+                        s_state.body_battery = (uint8_t)(s_state.body_battery + 10U);
+                    }
+                }
+            } else {
+                s_state.nap_elapsed_min = 0U;
+                s_state.nap_detect_active = false;
+            }
+        }
+        /* Cinema Mode 2h countdown */
+        if ((s_state.seconds == 0U) && s_state.cinema_mode_enabled && (s_state.cinema_rem_min > 0U)) {
+            s_state.cinema_rem_min--;
+            if (s_state.cinema_rem_min == 0U) {
+                s_state.cinema_mode_enabled = false;
+            }
+        }
+        /* UV / Strong Sun Alert (> 25000 lux for 10 min) */
+        if ((s_state.ambient_lux >= 25000U) && !SmileWatch_IsNightQuiet() && !s_state.survival_mode) {
+            if (s_state.uv_sun_sec < 600U) {
+                s_state.uv_sun_sec++;
+            } else if (!s_state.uv_alert_active) {
+                s_state.uv_alert_active = true;
+                SmileWatch_PushNotification("CREME SOL!", "METS CREME SOLAIRE", now_ms);
+            }
+        } else {
+            s_state.uv_sun_sec = 0U;
+            s_state.uv_alert_active = false;
+        }
+        /* Multi-Alarms check */
+        if (s_state.seconds == 0U) {
+            for (uint8_t ai = 0U; ai < SW_ALARMS_MAX; ai++) {
+                if (s_state.alarms[ai].enabled &&
+                    (s_state.hours == s_state.alarms[ai].hour) &&
+                    (s_state.minutes == s_state.alarms[ai].min)) {
+                    Sensors_PlayHaptic(s_hi2c, 52U);
+                    SmileWatch_TriggerHaptic(now_ms, 280U);
+                }
+            }
+        }
+        /* Resting Tachycardia Alert (>105 BPM while still for 10 min) */
+        if (!s_state.sport_active && sample.imu_still && (s_state.heart_bpm > 105U) && s_state.hr_measuring) {
+            if (s_state.tachy_sec < 600U) {
+                s_state.tachy_sec++;
+            } else if (!s_state.tachy_alert_active) {
+                s_state.tachy_alert_active = true;
+                if (!SmileWatch_IsNightQuiet()) {
+                    Sensors_PlayHaptic(s_hi2c, 14U);
+                    SmileWatch_TriggerHaptic(now_ms, 150U);
+                }
+            }
+        } else {
+            s_state.tachy_sec = 0U;
+            s_state.tachy_alert_active = false;
+        }
 
         /* Smart Wake-Up (-20 min window, triggers outside Deep Sleep) */
         if (s_state.alarm_enabled && s_state.smart_wake_enabled &&
@@ -2865,6 +3147,9 @@ void SmileWatch_LoopTask(uint32_t now_ms)
             s_state.chrono_tenths++;
         }
         if (s_state.display_awake) {
+            if (s_state.menu_anim_ticks > 0U) {
+                s_state.menu_anim_ticks--;
+            }
             s_state.ppg_phase = (uint8_t)((s_state.ppg_phase + 1U) % 22U);
             SmileWatch_RenderCurrentScreen();
         }

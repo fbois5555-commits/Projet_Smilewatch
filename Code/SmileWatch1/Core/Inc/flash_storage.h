@@ -17,7 +17,7 @@ extern "C" {
 #include <stdbool.h>
 #include "smilewatch_ui.h"
 
-#define SW_FLASH_MAGIC        0x53575636UL /* "SWV6" */
+#define SW_FLASH_MAGIC        0x53575642UL /* "SWVB" */
 #define SW_FLASH_PAGE_INDEX   127U         /* Last 4 KB page of 512 KB App Flash */
 #define SW_FLASH_PAGE_ADDR    0x0807F000UL
 

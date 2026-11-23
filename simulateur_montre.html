@@ -1124,9 +1124,23 @@
                     <label style="cursor:pointer; display:flex; align-items:center; gap:0.3rem;">
                         <input type="checkbox" id="chk-coach" checked onchange="toggleWatchSetting('coach', this.checked)"> 🏃 Coach Sport + Optimiseur
                     </label>
+                    <label style="cursor:pointer; display:flex; align-items:center; gap:0.3rem;">
+                        <input type="checkbox" id="chk-auto-gym-set" checked onchange="toggleWatchSetting('auto_gym_set', this.checked)"> 🏋️ Fin Série Auto (20s)
+                    </label>
+                    <label style="display:flex; align-items:center; gap:0.3rem;">
+                        📳 Haptique :
+                        <select id="select-haptic-level" class="mini-select" onchange="toggleWatchSetting('haptic_level', this.value)">
+                            <option value="0">Doux</option>
+                            <option value="1" selected>Normal</option>
+                            <option value="2">Fort</option>
+                        </select>
+                    </label>
                 </div>
                 <div style="display:flex; flex-wrap:wrap; gap:0.38rem; margin-top:0.2rem;">
-                    <button class="btn btn-cyan" onclick="simWristFlick()">👋 Coup de poignet (Nav Mains-Libres)</button>
+                    <button class="btn btn-cyan" onclick="simWristFlick()">👋 Poignet + (Menu)</button>
+                    <button class="btn btn-cyan" onclick="simGesture('prev')">↩️ Poignet - (Préc.)</button>
+                    <button class="btn btn-cyan" onclick="simGesture('pinch')">🤏 Double Pincement</button>
+                    <button class="btn btn-cyan" onclick="simGesture('down')">⬇️ Baisser Poignet</button>
                     <button class="btn btn-cyan" onclick="simLookToWake()">👀 Regarder la Montre</button>
                     <button class="btn btn-red" onclick="simFallSos()">🚨 Simuler Chute (SOS 10s)</button>
                     <button class="btn btn-green" id="btn-cancel-sos" onclick="cancelFallSos()">✅ Annuler SOS</button>
@@ -1138,6 +1152,15 @@
                     <button class="btn btn-green" onclick="startCoherenceSim()">🧘 Cohérence 5s/5s</button>
                     <button class="btn btn-gold" onclick="simSedentaryTrigger()">🪑 Alerte Sédentarité</button>
                     <button class="btn btn-red" onclick="simReserveMode()">🔋 Test Réserve (&lt;10%)</button>
+                    <button class="btn btn-cyan" onclick="simToggleTorch()">🔦 Lampe Torche</button>
+                    <button class="btn btn-purple" onclick="simStartPomodoro()">🍅 Pomodoro 25/5</button>
+                    <button class="btn btn-green" onclick="simStartNap(20)">😴 Sieste 20m</button>
+                    <button class="btn btn-gold" onclick="simToggleTz2()">🌍 Double Fuseau</button>
+                    <button class="btn btn-red" onclick="simTachycardia()">💓 Test Tachycardie</button>
+                    <button class="btn btn-green" onclick="simWebFifoSync()">📤 Sync Web (Vider File)</button>
+                    <button class="btn btn-purple" onclick="simCinemaMode()">🎬 Mode Cinéma (2h)</button>
+                    <button class="btn btn-amber" onclick="simSunscreenAlert()">☀️ Test Crème Solaire</button>
+                    <button class="btn btn-cyan" onclick="simAlignMiyota()">🧭 Aligner Miyota (+1m)</button>
                     <a class="btn btn-blue" href="smilewatch_web.html" target="_blank" style="text-decoration:none;">🌐 Ouvrir Appli Web Compagnon</a>
                 </div>
                 <div id="ui-history-list" style="background:rgba(15,23,42,0.72); border:1px solid var(--border-subtle); border-radius:8px; padding:0.45rem 0.65rem; font-size:0.71rem; font-family:'JetBrains Mono', Consolas, monospace; color:var(--text-secondary); line-height:1.5;"></div>
@@ -1747,7 +1770,7 @@ const s_state = {
     fw_major: 2, fw_minor: 1,
     flash_used_pct: 6, ram_used_pct: 2, mlc_trees_used: 4,
 
-    current_screen: 0, sub_view: 0,
+    current_screen: 0, sub_view: 0, menu_anim_ticks: 0,
     split_6h_mode: 0, split_6h: false, split_6h_force: false,
     display_awake: true, ppg_phase: 0,
 
@@ -1785,7 +1808,23 @@ const s_state = {
     coach_status: 0, coach_rec_code: 1,
     training_load_acute: 42, training_load_chronic: 40,
     pre_illness_alert: false, wake_summary_active: false,
-    wake_summary_shown_today: false, last_sleep_min: 46
+    wake_summary_shown_today: false, last_sleep_min: 46,
+    torch_active: false, tz2_enabled: true, tz2_offset_half_h: -12,
+    pomo_active: false, pomo_work: true, pomo_sec_left: 1500,
+    tachy_alert_active: false, tachy_sec: 0,
+    nap_detect_active: false, nap_sched_min: 0, nap_rem_sec: 0, nap_elapsed_min: 0,
+    daily_history: [], daily_head: 0, daily_count: 0,
+    daily_unsynced_count: 0, sync_needed_alert: false,
+    last_sync_day: 0, last_sync_month: 0, last_sync_hour: 0, last_sync_min: 0,
+    cinema_mode_enabled: false, cinema_rem_min: 0,
+    uv_sun_sec: 0, uv_alert_active: false,
+    alarms: [
+        { hour: 7, min: 30, enabled: true, kind: 0 },
+        { hour: 13, min: 0, enabled: false, kind: 1 },
+        { hour: 20, min: 0, enabled: false, kind: 2 }
+    ],
+    alarm_sel_idx: 0,
+    haptic_level: 1, auto_gym_set_enabled: true, gym_still_sec: 0
 };
 
 const s_miyota = {
@@ -2018,8 +2057,15 @@ const k_default_c_screens = [
         SmileWatch_DrawHeader("HOME", 1U);
         (void)snprintf(buf, sizeof(buf), "%02u:%02u", s_state.hours, s_state.minutes);
         OLED_DrawStr(4, 13, buf, 2, 1);
-        (void)snprintf(buf, sizeof(buf), ":%02u", s_state.seconds);
-        OLED_DrawStr(65, 20, buf, 1, 1);
+        if (s_state.tz2_enabled) {
+            int32_t m2 = ((int32_t)s_state.hours * 60 + (int32_t)s_state.minutes + (int32_t)s_state.tz2_offset_half_h * 30 + 1440) % 1440;
+            (void)snprintf(buf, sizeof(buf), "%02ld:%02ld", (long)(m2 / 60), (long)(m2 % 60));
+            OLED_DrawStr(58, 12, "TZ2", 1, 1);
+            OLED_DrawStr(56, 20, buf, 1, 1);
+        } else {
+            (void)snprintf(buf, sizeof(buf), ":%02u", s_state.seconds);
+            OLED_DrawStr(65, 20, buf, 1, 1);
+        }
         OLED_DrawLine(3, 28, 84, 28, 1);
 
         OLED_DrawBitmap(5, 30, k_garmin_heart_10x9, 10, 9, 1);
@@ -2089,7 +2135,7 @@ const k_default_c_screens = [
         OLED_DrawBitmap(5, hy, k_garmin_heart_10x9, 10, 9, 1);
         (void)snprintf(buf, sizeof(buf), "%u", s_state.heart_bpm);
         OLED_DrawStr(18, 13, buf, 2, 1);
-        OLED_DrawStr(55, 20, "BPM", 1, 1);
+        OLED_DrawStr(55, 20, s_state.tachy_alert_active ? "TACHY" : "BPM", 1, 1);
         OLED_DrawStr(67, 13, s_state.hr_measuring ? "ON" : "OFF", 1, 1);
 
         int16_t prev_y = 38;
@@ -2581,19 +2627,26 @@ const k_default_c_screens = [
         OLED_DrawStr(11, 37, s_state.chrono_running ? "4HL: LAP" :
                              (s_state.chrono_tenths > 0UL) ? "4HL: RESET" : "4HL: START", 1, 1);
     } else if (s_state.sub_view == 1U) {
-        (void)snprintf(buf, sizeof(buf), "TIMER %uM", s_state.timer_preset_sec / 60U);
-        OLED_DrawStr(4, 12, buf, 1, 1);
-        OLED_DrawStr(64, 12, s_state.timer_running ? "ON" : "OFF", 1, 1);
-        (void)snprintf(buf, sizeof(buf), "%02u:%02u", s_state.timer_rem_sec / 60U, s_state.timer_rem_sec % 60U);
-        OLED_DrawStr(14, 21, buf, 2, 1);
+        if (s_state.pomo_active) {
+            OLED_DrawStr(4, 12, s_state.pomo_work ? "POMO TRAV" : "POMO PAUS", 1, 1);
+            (void)snprintf(buf, sizeof(buf), "%02u:%02u", s_state.pomo_sec_left / 60U, s_state.pomo_sec_left % 60U);
+            OLED_DrawStr(14, 21, buf, 2, 1);
+            OLED_DrawStr(11, 37, "25M / 5M", 1, 1);
+        } else {
+            (void)snprintf(buf, sizeof(buf), "TIMER %uM", s_state.timer_preset_sec / 60U);
+            OLED_DrawStr(4, 12, buf, 1, 1);
+            OLED_DrawStr(64, 12, s_state.timer_running ? "ON" : "OFF", 1, 1);
+            (void)snprintf(buf, sizeof(buf), "%02u:%02u", s_state.timer_rem_sec / 60U, s_state.timer_rem_sec % 60U);
+            OLED_DrawStr(14, 21, buf, 2, 1);
 
-        OLED_DrawRoundRect(10, 37, 68, 5, 2, 1);
-        for (int16_t gx = 12; gx < 76; gx += 2) {
-            OLED_DrawPixel(gx, 39, 1);
-        }
-        if (s_state.timer_preset_sec > 0U) {
-            uint32_t w = ((uint32_t)s_state.timer_rem_sec * 66UL) / (uint32_t)s_state.timer_preset_sec;
-            if (w > 0UL) OLED_FillRoundRect(11, 38, (int16_t)w, 3, 1, 1);
+            OLED_DrawRoundRect(10, 37, 68, 5, 2, 1);
+            for (int16_t gx = 12; gx < 76; gx += 2) {
+                OLED_DrawPixel(gx, 39, 1);
+            }
+            if (s_state.timer_preset_sec > 0U) {
+                uint32_t w = ((uint32_t)s_state.timer_rem_sec * 66UL) / (uint32_t)s_state.timer_preset_sec;
+                if (w > 0UL) OLED_FillRoundRect(11, 38, (int16_t)w, 3, 1, 1);
+            }
         }
     } else {
         OLED_DrawStr(4, 13, "DERNIER LAP:", 1, 1);
@@ -2930,7 +2983,14 @@ const k_default_c_screens = [
         OLED_DrawStr(4, 21, buf, 1, 1);
         (void)snprintf(buf, sizeof(buf), "DRV:%s FL:%s", s_state.hw_drv_ok ? "OK" : "--", s_state.hw_flash_ok ? "OK" : "--");
         OLED_DrawStr(4, 29, buf, 1, 1);
-        OLED_DrawStr(11, 37, "4HL:SAUVER", 1, 1);
+        if (s_state.sync_needed_alert) {
+            OLED_DrawStr(11, 37, "SYNC WEB!", 1, 1);
+        } else if (s_state.last_sync_day > 0U) {
+            (void)snprintf(buf, sizeof(buf), "SYN:%02u/%02u", s_state.last_sync_day, s_state.last_sync_month);
+            OLED_DrawStr(11, 37, buf, 1, 1);
+        } else {
+            OLED_DrawStr(11, 37, "4HL:SAUVER", 1, 1);
+        }
     }
 }`
 ];
@@ -3068,13 +3128,20 @@ function renderSosOverlayJS() {
 function renderCurrentScreen() {
     OLED_Clear();
     if (s_state.display_awake) {
-        if (s_state.sos_active) {
+        if (s_state.torch_active) {
+            OLED_FillRect(0, 0, 88, 48, 1);
+        } else if (s_state.sos_active) {
             renderSosOverlayJS();
         } else {
             try {
                 executeCScreenCode(g_c_screens[s_state.current_screen]);
             } catch (err) {
                 // Error already rendered on OLED
+            }
+            if (s_state.menu_anim_ticks === 2) {
+                OLED_FillRect(0, 0, 88, 3, 1);
+            } else if (s_state.menu_anim_ticks === 1) {
+                OLED_DrawLine(0, 0, 0, 47, 1);
             }
         }
     }
@@ -3237,6 +3304,13 @@ function triggerHaptic(ms) {
 function triggerButtonEvent(type) {
     const now = performance.now();
 
+    if (s_state.torch_active) {
+        s_state.torch_active = false;
+        renderCurrentScreen();
+        logI2C(`🔦 TORCHE OLED -> Éteinte par bouton`);
+        return;
+    }
+
     if (s_state.sos_active && (type === '4H_SHORT' || type === '4H_LONG')) {
         cancelFallSos();
         return;
@@ -3267,6 +3341,7 @@ function triggerButtonEvent(type) {
     if (type === '2H_SHORT') {
         s_state.current_screen = (s_state.current_screen + 1) % 9;
         s_state.sub_view = 0;
+        s_state.menu_anim_ticks = 2;
         triggerHaptic(25);
         loadSelectedCFunction(s_state.current_screen);
         logI2C(`EXTI [PC5 2h] Court -> Écran ${s_state.current_screen + 1}: ${SCREEN_NAMES[s_state.current_screen]}`);
@@ -4654,9 +4729,14 @@ function updateConfigAndHistoryUI() {
     const flashEl = document.getElementById('ui-flash-status');
     if (flashEl) {
         const pauseTag = s_state.pill_hand_paused ? ' • ⏸️ AIGUILLE EN PAUSE (:24)' : '';
-        flashEl.innerText = s_state.hw_flash_ok
+        const fifoPct = Math.round((s_state.daily_unsynced_count * 100) / 328);
+        const lastSyncStr = s_state.last_sync_day > 0
+            ? ` • Dernière synchro: ${String(s_state.last_sync_day).padStart(2,'0')}/${String(s_state.last_sync_month).padStart(2,'0')} ${String(s_state.last_sync_hour).padStart(2,'0')}:${String(s_state.last_sync_min).padStart(2,'0')}`
+            : ' • Jamais synchronisée';
+        const fifoTag = ` • Circulaire 90%: ${s_state.daily_unsynced_count}/328j (${fifoPct}%${s_state.sync_needed_alert ? ' ⚠️ RAPPEL SYNC!' : ''})${lastSyncStr}`;
+        flashEl.innerText = (s_state.hw_flash_ok
             ? `Flash Page 127 : SYNCHRO (${s_state.history_count} séances)${pauseTag}`
-            : `Flash Page 127 : EN ATTENTE${pauseTag}`;
+            : `Flash Page 127 : EN ATTENTE${pauseTag}`) + fifoTag;
     }
 
     const histEl = document.getElementById('ui-history-list');
@@ -4703,6 +4783,10 @@ function toggleWatchSetting(key, enabled) {
         s_state.look_to_wake_enabled = val;
     } else if (key === 'coach') {
         s_state.coach_enabled = val;
+    } else if (key === 'auto_gym_set') {
+        s_state.auto_gym_set_enabled = val;
+    } else if (key === 'haptic_level') {
+        s_state.haptic_level = Number(enabled) || 0;
     }
     updateConfigAndHistoryUI();
     renderCurrentScreen();
@@ -4727,29 +4811,45 @@ function simLookToWake() {
 }
 
 function simWristFlick() {
+    simGesture('next');
+}
+
+function simGesture(kind) {
     if (!s_state.wrist_nav_enabled || s_state.night_mode_enabled) {
-        showToast(s_state.night_mode_enabled ? "Mode Nuit actif : poignet silencieux !" : "Navigation poignet désactivée dans les paramètres !");
-        logI2C(`EXTI [LSM6DSOX Gyro] -> Rotation poignet ignorée (${s_state.night_mode_enabled ? 'MODE NUIT ON' : 'NAV POIGN: OFF'})`);
-        return;
-    }
-    if (!s_state.display_awake && s_state.look_to_wake_enabled) {
-        showToast("Allumage au regard actif : cliquez sur '👀 Regarder la Montre' pour allumer !");
-        logI2C(`LSM6DSOX -> Mouvement ignoré (Look-to-Wake : écran reste éteint)`);
+        showToast(s_state.night_mode_enabled ? "Mode Nuit actif : gestes silencieux !" : "Navigation par gestes désactivée (optionnelle) !");
         return;
     }
     if (s_state.sos_active || s_state.survival_mode) return;
+    if (!s_state.display_awake && s_state.look_to_wake_enabled) {
+        showToast("Allumage au regard actif : cliquez sur '👀 Regarder la Montre' d'abord !");
+        return;
+    }
     if (!s_state.display_awake) {
+        if (kind === 'down') return;
         s_state.display_awake = true;
-    } else if (s_state.current_screen === 4 && s_state.sub_view === 0) {
-        s_state.sport_type = (s_state.sport_type + 1) % 19;
-        updateSportAndCapacityUI();
-    } else {
+    } else if (kind === 'next') {
+        s_state.current_screen = (s_state.current_screen + 1) % 9;
+        s_state.sub_view = 0;
+        s_state.menu_anim_ticks = 2;
+        loadSelectedCFunction(s_state.current_screen);
+    } else if (kind === 'prev') {
+        s_state.current_screen = (s_state.current_screen + 8) % 9;
+        s_state.sub_view = 0;
+        s_state.menu_anim_ticks = 2;
+        loadSelectedCFunction(s_state.current_screen);
+    } else if (kind === 'pinch') {
         s_state.sub_view = (s_state.sub_view + 1) % 3;
+    } else if (kind === 'down') {
+        s_state.display_awake = false;
+        SmileWatch_SyncMiyotaWithPillPause();
+        renderCurrentScreen();
+        logI2C(`LSM6DSOX -> Poignet baissé : OLED éteint immédiatement`);
+        return;
     }
     triggerHaptic(18);
     updateNavigationUI();
     renderCurrentScreen();
-    logI2C(`LSM6DSOX [Gyro Z > 240dps] -> Nav mains-libres (Écran ${s_state.current_screen + 1}${['A','B','C'][s_state.sub_view]})`);
+    logI2C(`GESTE [${kind.toUpperCase()}] -> Écran ${s_state.current_screen + 1}${['A','B','C'][s_state.sub_view]}`);
 }
 
 function simFallSos() {
@@ -4947,6 +5047,89 @@ function simReserveMode() {
     s_state.display_awake = true;
     updateNavigationUI(); updatePowerBudgetUI(performance.now()); loadSelectedCFunction(0); renderCurrentScreen();
     logI2C(`🔋 MODE SURVIE EXTRÊME (<10%) -> Podomètre + BLE + MAX30101 + Look-to-Wake coupés (Miyota seule)`);
+}
+
+function simToggleTorch() {
+    s_state.torch_active = !s_state.torch_active;
+    if (s_state.torch_active) s_state.display_awake = true;
+    renderCurrentScreen();
+    logI2C(`🔦 TORCHE OLED -> ${s_state.torch_active ? 'ALLUMÉE (88x48 blanc max 255)' : 'ÉTEINTE'}`);
+}
+
+function simStartPomodoro() {
+    s_state.pomo_active = !s_state.pomo_active;
+    s_state.pomo_work = true;
+    s_state.pomo_sec_left = 1500;
+    s_state.current_screen = 5;
+    s_state.sub_view = 1;
+    s_state.display_awake = true;
+    triggerHaptic(40);
+    updateNavigationUI(); loadSelectedCFunction(5); renderCurrentScreen();
+    logI2C(`🍅 POMODORO -> ${s_state.pomo_active ? 'Démarré (25m Travail / 5m Pause)' : 'Arrêté'}`);
+}
+
+function simStartNap(mins) {
+    s_state.nap_sched_min = mins;
+    s_state.nap_rem_sec = mins * 60;
+    triggerHaptic(30);
+    showToast(`Sieste programmée : réveil doux dans ${mins} min`);
+    logI2C(`😴 SIESTE PROGRAMMÉE -> Réveil doux dans ${mins} min`);
+}
+
+function simToggleTz2() {
+    s_state.tz2_enabled = !s_state.tz2_enabled;
+    s_state.current_screen = 0;
+    s_state.sub_view = 1;
+    s_state.display_awake = true;
+    updateNavigationUI(); loadSelectedCFunction(0); renderCurrentScreen();
+    logI2C(`🌍 DOUBLE FUSEAU -> ${s_state.tz2_enabled ? 'ON (TZ2 géoloc tel -6h)' : 'OFF'}`);
+}
+
+function simTachycardia() {
+    document.getElementById('slider-bpm').value = 118;
+    s_state.heart_bpm = 118;
+    document.getElementById('val-bpm').innerText = '118 BPM';
+    s_state.tachy_alert_active = true;
+    s_state.current_screen = 1;
+    s_state.sub_view = 0;
+    s_state.display_awake = true;
+    triggerHaptic(150);
+    updateNavigationUI(); loadSelectedCFunction(1); renderCurrentScreen();
+    logI2C(`💓 TACHYCARDIE REPOS -> >105 BPM immobile détecté (Alerte douce activée)`);
+}
+
+function simWebFifoSync() {
+    const flushed = s_state.daily_unsynced_count;
+    s_state.daily_unsynced_count = 0;
+    s_state.sync_needed_alert = false;
+    s_state.last_sync_day = s_state.day;
+    s_state.last_sync_month = s_state.month;
+    s_state.last_sync_hour = s_state.hours;
+    s_state.last_sync_min = s_state.minutes;
+    updateConfigAndHistoryUI();
+    renderCurrentScreen();
+    showToast(`Sauvegarde Web OK (${flushed} j) — ${String(s_state.day).padStart(2,'0')}/${String(s_state.month).padStart(2,'0')} ${String(s_state.hours).padStart(2,'0')}:${String(s_state.minutes).padStart(2,'0')}`);
+    logI2C(`📤 BLE WEB SYNC -> ${flushed} jours sauvegardés sur smilewatch_web.html (Dernière synchro: ${String(s_state.day).padStart(2,'0')}/${String(s_state.month).padStart(2,'0')} ${String(s_state.hours).padStart(2,'0')}:${String(s_state.minutes).padStart(2,'0')}).`);
+}
+
+function simCinemaMode() {
+    s_state.cinema_mode_enabled = !s_state.cinema_mode_enabled;
+    s_state.cinema_rem_min = s_state.cinema_mode_enabled ? 120 : 0;
+    if (s_state.cinema_mode_enabled) s_state.display_awake = false;
+    renderCurrentScreen();
+    showToast(s_state.cinema_mode_enabled ? "Mode Cinéma activé (2h : OLED + haptique coupés)" : "Mode Cinéma désactivé");
+    logI2C(`🎬 MODE CINÉMA -> ${s_state.cinema_mode_enabled ? 'ON (120 min, BLE tel/montre)' : 'OFF'}`);
+}
+
+function simSunscreenAlert() {
+    s_state.uv_alert_active = true;
+    pushNotificationJS("CREME SOL!", "METS CREME SOLAIRE");
+    logI2C(`☀️ VEML6030 (>25 000 lux) -> Alerte "METS CREME SOLAIRE" déclenchée !`);
+}
+
+function simAlignMiyota() {
+    s_miyota.target_pos_sec = (s_miyota.target_pos_sec + 60) % 43200;
+    logI2C(`🧭 MIYOTA ALIGN -> +1 min mécanique (recalage aiguilles)`);
 }
 
 function simTriggerAlarm() {
@@ -5500,6 +5683,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (now - last100msTick >= 100) {
             last100msTick += 100;
+            if (s_state.menu_anim_ticks > 0) s_state.menu_anim_ticks--;
             if (s_state.chrono_running) {
                 s_state.chrono_tenths++;
             }
@@ -5630,6 +5814,24 @@ window.addEventListener('DOMContentLoaded', () => {
                     s_state.timer_running = false;
                     triggerHaptic(250);
                     logI2C(`TIMER -> Compte à rebours terminé !`);
+                }
+            }
+            if (s_state.pomo_active) {
+                if (s_state.pomo_sec_left > 0) s_state.pomo_sec_left--;
+                if (s_state.pomo_sec_left === 0) {
+                    s_state.pomo_work = !s_state.pomo_work;
+                    s_state.pomo_sec_left = s_state.pomo_work ? 1500 : 300;
+                    triggerHaptic(180);
+                    logI2C(`🍅 POMODORO -> ${s_state.pomo_work ? 'Reprise Travail (25m)' : 'Pause (5m) !'}`);
+                }
+            }
+            if (s_state.nap_rem_sec > 0) {
+                s_state.nap_rem_sec--;
+                if (s_state.nap_rem_sec === 0) {
+                    s_state.nap_sched_min = 0;
+                    s_state.body_battery = Math.min(100, s_state.body_battery + 12);
+                    triggerHaptic(260);
+                    logI2C(`😴 SIESTE TERMINÉE -> Réveil doux (+12 Body Battery)`);
                 }
             }
             if (s_state.alarm_enabled && s_state.smart_wake_enabled &&

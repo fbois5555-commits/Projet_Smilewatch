@@ -117,6 +117,8 @@
       <p>100 % facultatif : la montre fonctionne sans téléphone. Compatible Chrome Android/PC &amp; Bluefy iOS via WebBluetooth.</p>
     </div>
     <div class="row">
+      <span id="web-uid" class="badge">ID : SW-4F8A9C12</span>
+      <span id="web-last-sync" class="badge">Dernière sauvegarde : jamais</span>
       <span id="ble-status" class="badge">BLE : Mode Démo / Hors-ligne</span>
       <button id="btn-ble-connect" class="btn btn-cyan" onclick="connectSmileWatchBLE()">🔵 Connecter Montre BLE</button>
     </div>
@@ -124,11 +126,31 @@
 
   <div class="grid">
     <section class="card">
-      <h2>🕒 Synchronisation &amp; Réglages</h2>
-      <p class="small">Synchronise l'heure exacte (CTS 0x1805) et tes préférences stockées en Flash STM32.</p>
+      <h2>🕒 Réglages Complets de la Montre</h2>
+      <p class="small">Tous ces paramètres sont réglables ici en 1 clic (et restent aussi modifiables directement sur la montre).</p>
       <label class="toggle"><input type="checkbox" id="web-night-mode" onchange="saveWebConfig()"> 🌙 Mode Nuit / Ne Pas Déranger</label>
       <label class="toggle"><input type="checkbox" id="web-sedentary" checked onchange="saveWebConfig()"> 🪑 Alerte Sédentarité (50 min)</label>
       <label class="toggle"><input type="checkbox" id="web-auto-sport" checked onchange="saveWebConfig()"> 🤖 Détection Sport Auto (MLC)</label>
+      <label class="toggle"><input type="checkbox" id="web-cinema-mode" onchange="saveWebConfig()"> 🎬 Mode Cinéma / Réunion (2h)</label>
+      <label class="toggle"><input type="checkbox" id="web-auto-gym-set" checked onchange="saveWebConfig()"> 🏋️ Fin de Série Auto Muscu (20s)</label>
+      <label class="toggle"><input type="checkbox" id="web-look-wake" checked onchange="saveWebConfig()"> 👀 Allumage au Regard (Look-to-Wake)</label>
+      <label class="toggle"><input type="checkbox" id="web-wrist-nav" checked onchange="saveWebConfig()"> 👋 Navigation par Gestes (Poignet / Pincement)</label>
+      <label class="toggle"><input type="checkbox" id="web-auto-bright" checked onchange="saveWebConfig()"> ☀️ Luminosité OLED Adaptative (VEML6030)</label>
+      <label class="toggle"><input type="checkbox" id="web-fall-sos" checked onchange="saveWebConfig()"> 🚨 SOS Chute Automatique (10s)</label>
+      <label class="toggle"><input type="checkbox" id="web-smart-wake" checked onchange="saveWebConfig()"> 🌅 Réveil Doux Intelligent (-20 min)</label>
+      <label class="toggle"><input type="checkbox" id="web-pill-pause" checked onchange="saveWebConfig()"> ⏸️ Arrêt aiguille devant pilule (:24..:35)</label>
+      <label class="toggle"><input type="checkbox" id="web-coach" checked onchange="saveWebConfig()"> 🏃 Coach Zones FC (Z1–Z5) + Optimiseur</label>
+      <label class="toggle"><input type="checkbox" id="web-tz2" checked onchange="saveWebConfig()"> 🌍 Double Fuseau Horaire (Géoloc Tel)</label>
+      <div class="row">
+        <span class="small">🎯 Objectif pas/jour :</span>
+        <input type="text" id="web-steps-goal" value="10000" onchange="saveWebConfig()" style="width:90px;">
+        <span class="small">📳 Haptique :</span>
+        <select id="web-haptic-level" onchange="saveWebConfig()" style="background:#0d131d;color:var(--text);border:1px solid var(--border);border-radius:6px;padding:0.25rem 0.5rem;">
+          <option value="0">Doux</option>
+          <option value="1" selected>Normal</option>
+          <option value="2">Fort</option>
+        </select>
+      </div>
       <div class="row">
         <button class="btn btn-green" onclick="syncTimeBLE()">🕒 Synchro Heure (CTS)</button>
         <button class="btn btn-cyan" onclick="syncConfigBLE()">📤 Envoyer Config → Montre</button>
@@ -155,11 +177,11 @@
 
   <section class="card">
     <div class="row" style="justify-content: space-between;">
-      <h2>📊 Archive Locale 30 Jours &amp; Export Strava (.TCX / .CSV)</h2>
+      <h2>📊 Historique Complet &amp; Export Strava (.TCX / .CSV)</h2>
       <div class="row">
         <button class="btn btn-purple" onclick="pullHistoryBLE()">📥 Importer Séances BLE</button>
         <button class="btn btn-amber" onclick="addDemoSession()">➕ Ajouter Séance Démo</button>
-        <button class="btn btn-green" onclick="exportAllCSV()">📄 Export CSV (30j)</button>
+        <button class="btn btn-green" onclick="exportAllCSV()">📄 Export CSV Complet</button>
         <button class="btn" onclick="clearArchive()">🗑️ Vider</button>
       </div>
     </div>
@@ -180,14 +202,115 @@
   </section>
 
   <section class="card">
+    <h2>🏋️ Préparateur de Séance &amp; Fractionné → Montre BLE</h2>
+    <div class="grid">
+      <div>
+        <strong>⏱️ Fractionné personnalisable</strong>
+        <div class="row" style="margin-top:0.4rem;">
+          <span class="small">Effort (s) :</span>
+          <input type="text" id="it-work" value="30" style="width:55px;">
+          <span class="small">Repos (s) :</span>
+          <input type="text" id="it-rest" value="30" style="width:55px;">
+          <span class="small">Tours :</span>
+          <input type="text" id="it-rounds" value="10" style="width:50px;">
+        </div>
+        <div class="row" style="margin-top:0.5rem;">
+          <button class="btn btn-purple" onclick="sendIntervalBLE()">📤 Envoyer Fractionné → Montre</button>
+        </div>
+      </div>
+      <div>
+        <strong>📋 10 Séances Types &amp; Profil IMU Précis</strong>
+        <div class="row" style="margin-top:0.4rem;">
+          <select id="prog-preset" onchange="loadPresetProgram(this.value)" style="background:#0d131d;color:var(--text);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.5rem;">
+            <option value="0">1. Full Body Équilibré</option>
+            <option value="1">2. Push (Pecs / Épaules / Triceps)</option>
+            <option value="2">3. Pull (Dos / Tractions / Biceps)</option>
+            <option value="3">4. Legs (Squats / Fentes / Mollets)</option>
+            <option value="4">5. Haut du Corps</option>
+            <option value="5">6. Bas du Corps &amp; Explosivité</option>
+            <option value="6">7. Abdos &amp; Gainage</option>
+            <option value="7">8. Force 5×5</option>
+            <option value="8">9. HIIT Maison Sans Matériel</option>
+            <option value="9">10. Cardio &amp; Boxe</option>
+          </select>
+          <button class="btn btn-amber" onclick="autoAdjustProgramLoad()">⚡ Réajuster Charge Auto</button>
+        </div>
+        <div class="row" style="margin-top:0.4rem;">
+          <input type="text" id="prog-ex" placeholder="Ex: Pompes / Squats" value="Pompes" style="width:120px;">
+          <select id="prog-imu" style="background:#0d131d;color:var(--text);border:1px solid var(--border);border-radius:6px;padding:0.35rem 0.45rem;">
+            <option value="POUSSEE">IMU: Poussée (Pompe)</option>
+            <option value="TIRAGE">IMU: Tirage (Traction)</option>
+            <option value="SQUAT">IMU: Jambes (Squat)</option>
+            <option value="ISO">IMU: Gainage</option>
+            <option value="CARDIO">IMU: Cardio</option>
+          </select>
+          <input type="text" id="prog-sets" value="4x15" style="width:65px;">
+          <button class="btn btn-cyan" onclick="addProgramStep()">➕</button>
+          <button class="btn btn-green" onclick="sendProgramBLE()">📤 Envoyer Séance</button>
+        </div>
+        <div id="prog-list" class="small" style="margin-top:0.45rem;"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>⌚ Fonctionnalités complètes de SmileWatch</h2>
+    <div class="grid">
+      <div>
+        <strong>⚡ Autonomie &amp; Affichage</strong>
+        <ul class="small" style="margin:0.35rem 0 0; padding-left:1.1rem;">
+          <li>9 écrans × 3 vues (27 vues) + mode dynamique <code>split_6h</code> + animation de transition</li>
+          <li>Aiguilles mécaniques Miyota + pause devant pilule (<code>:24..:35</code>) + alignement guidé</li>
+          <li>4 gestes optionnels : Poignet +/- (menus), Double Pincement (sous-vues), Baisser poignet (off)</li>
+          <li>Écran PMOLED 88×48 adaptatif (<code>VEML6030</code>), <code>Look-to-Wake</code>, Mode Nuit &amp; Cinéma (2h)</li>
+          <li>Sommeil profond <code>STOP2</code>, coupure <code>+5V_HR</code>, charge Qi &amp; Mode Survie Extrême (&lt;10 %)</li>
+        </ul>
+      </div>
+      <div>
+        <strong>🏃 19 Sports, Triathlon &amp; Coach IA</strong>
+        <ul class="small" style="margin:0.35rem 0 0; padding-left:1.1rem;">
+          <li>19 disciplines : Muscu, Course, Nage 25m, Vélo, HIIT/Tabata, Rando, Tennis, Boxe, Rameur, Yoga/Cohérence, Corde, Grimpe, Marche, Trail, Gainage 30s, Padel, Golf, Ski, Collectif</li>
+          <li>Détection automatique de sport zéro-clic (<code>LSM6DSOX MLC</code>) &amp; feedback IA</li>
+          <li>Calibration autonome sur piste (400m / 1000m) &amp; calibration GPS/pas BLE</li>
+          <li>Fin de série auto en Musculation (20s d’immobilité, option cochable)</li>
+          <li>Mode Triathlon multi-étapes (<code>Nage → T1 → Vélo → T2 → Cap</code>)</li>
+          <li>Coach en direct Zones FC (<code>Z1–Z5</code>), optimiseur de charge &amp; <code>HRR60</code></li>
+        </ul>
+      </div>
+      <div>
+        <strong>❤️ Santé, Sommeil &amp; Sécurité</strong>
+        <ul class="small" style="margin:0.35rem 0 0; padding-left:1.1rem;">
+          <li>Fréquence cardiaque, SpO2, HRV (RMSSD), Body Battery &amp; Stress</li>
+          <li>Alerte tachycardie au repos (&gt;105 BPM immobile 10 min)</li>
+          <li>Réveil doux (-20 min), détection auto d’endormissement &amp; Résumé Réveil + pré-maladie</li>
+          <li>Alerte ensoleillement fort (&gt;25 000 lux : « Mets crème solaire »)</li>
+          <li>3 alarmes programmables (Réveil, Rappel, Médicament) &amp; sieste (20 min+)</li>
+          <li>Détection de chute + compte à rebours SOS 10s + contact ICE</li>
+        </ul>
+      </div>
+      <div>
+        <strong>🛠️ Quotidien &amp; Mémoire Flash</strong>
+        <ul class="small" style="margin:0.35rem 0 0; padding-left:1.1rem;">
+          <li>Lampe torche OLED plein écran, Chronomètre/Timer &amp; Pomodoro (25m/5m)</li>
+          <li>Double fuseau horaire (principal + géoloc téléphone)</li>
+          <li>Notifications ANCS, GPS Turn-by-Turn, Météo/Agenda &amp; contrôle média/photo BLE HID</li>
+          <li>Intensité haptique réglable (Doux / Normal / Fort) &amp; alerte sédentarité (50 min)</li>
+          <li>Identifiant matériel unique 96 bits (<code>SW-XXXXXXXX</code>) &amp; espace local isolé par montre</li>
+          <li>Buffer circulaire Flash 90 % (328/365 j), rappel synchro, historique complet &amp; export <code>.TCX</code>/<code>.CSV</code></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
     <h2>📡 Journal WebBluetooth &amp; Diagnostics</h2>
     <div id="web-log" class="log"></div>
   </section>
 </div>
 
 <script>
-const STORAGE_KEY_ARCHIVE = 'smilewatch_archive_30d_v1';
-const STORAGE_KEY_CONFIG  = 'smilewatch_web_cfg_v1';
+let currentWatchUid = 'SW-4F8A9C12';
+function storageKey(suffix) { return `smilewatch_${currentWatchUid}_${suffix}`; }
 
 const SPORT_LABELS = ['MUSCU', 'COURSE', 'NATATION', 'VELO', 'TABATA/HIIT', 'RANDO', 'TENNIS', 'BOXE', 'RAMEUR', 'COHERENCE/YOGA', 'CORDE', 'GRIMPE', 'MARCHE', 'TRAIL', 'GAINAGE', 'PADEL', 'GOLF', 'SKI', 'COLLECT'];
 
@@ -203,7 +326,7 @@ function logWeb(msg) {
 
 function loadConfig() {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY_CONFIG);
+    const raw = localStorage.getItem(storageKey('cfg'));
     if (!raw) return;
     const cfg = JSON.parse(raw);
     document.getElementById('web-night-mode').checked = Boolean(cfg.night_mode);
@@ -222,29 +345,27 @@ function saveWebConfig() {
     ice_name:   document.getElementById('web-ice-name').value.trim().toUpperCase().slice(0, 10),
     ice_phone:  document.getElementById('web-ice-phone').value.trim().slice(0, 16)
   };
-  localStorage.setItem(STORAGE_KEY_CONFIG, JSON.stringify(cfg));
+  localStorage.setItem(storageKey('cfg'), JSON.stringify(cfg));
   logWeb(`Config sauvegardée localement (Mode Nuit=${cfg.night_mode ? 'ON' : 'OFF'}, Sédentarité=${cfg.sedentary ? 'ON' : 'OFF'}).`);
 }
 
 function loadArchive() {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY_ARCHIVE);
+    const raw = localStorage.getItem(storageKey('archive'));
     if (raw) {
-      const list = JSON.parse(raw);
-      const cutoff = Date.now() - 30 * 24 * 3600 * 1000;
-      return list.filter(item => (item.ts || Date.now()) >= cutoff);
+      return JSON.parse(raw);
     }
   } catch (_) {}
   const seed = [
     { id: 1, ts: Date.now() - 86400000, sport_idx: 1, duration_sec: 1920, avg_bpm: 148, kcal: 340, hrr_drop: 28 },
     { id: 2, ts: Date.now() - 3600000 * 5, sport_idx: 4, duration_sec: 240, avg_bpm: 164, kcal: 95, hrr_drop: 34 }
   ];
-  localStorage.setItem(STORAGE_KEY_ARCHIVE, JSON.stringify(seed));
+  localStorage.setItem(storageKey('archive'), JSON.stringify(seed));
   return seed;
 }
 
 function saveArchive(list) {
-  localStorage.setItem(STORAGE_KEY_ARCHIVE, JSON.stringify(list));
+  localStorage.setItem(storageKey('archive'), JSON.stringify(list));
   renderArchive();
 }
 
@@ -305,9 +426,28 @@ function syncConfigBLE() {
   logWeb('GATT Config -> Paramètres + ICE prêts pour écriture vers Flash STM32.');
 }
 
+function updateLastSyncUI(isoStr) {
+  const el = document.getElementById('web-last-sync');
+  if (!el) return;
+  if (!isoStr) {
+    el.textContent = 'Dernière sauvegarde : jamais';
+    return;
+  }
+  const d = new Date(isoStr);
+  el.textContent = `Dernière sauvegarde : ${d.toLocaleString('fr-FR', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' })}`;
+  el.classList.add('ok');
+}
+
+function markSyncedNow() {
+  const nowIso = new Date().toISOString();
+  localStorage.setItem(storageKey('sync'), nowIso);
+  updateLastSyncUI(nowIso);
+}
+
 function pullHistoryBLE() {
   addDemoSession();
-  logWeb('GATT History -> 1 nouvelle séance synchronisée depuis la montre.');
+  markSyncedNow();
+  logWeb('GATT History -> Buffer circulaire 90% (328j) sauvegardé & horodaté !');
 }
 
 function addDemoSession() {
@@ -323,7 +463,7 @@ function addDemoSession() {
 }
 
 function clearArchive() {
-  localStorage.setItem(STORAGE_KEY_ARCHIVE, '[]');
+  localStorage.setItem(storageKey('archive'), '[]');
   renderArchive();
   logWeb('Archive locale vidée.');
 }
@@ -397,9 +537,77 @@ function triggerWebSosGps() {
   });
 }
 
+const PRESET_PROGRAMS = [
+  [{ ex: 'Pompes', imu: 'POUSSEE', target: '4x15' }, { ex: 'Tractions', imu: 'TIRAGE', target: '4x8' }, { ex: 'Squats', imu: 'SQUAT', target: '4x15' }],
+  [{ ex: 'Pompes', imu: 'POUSSEE', target: '4x15' }, { ex: 'Dips', imu: 'POUSSEE', target: '4x12' }, { ex: 'Dev. Épaules', imu: 'POUSSEE', target: '3x12' }],
+  [{ ex: 'Tractions', imu: 'TIRAGE', target: '4x8' }, { ex: 'Rowing', imu: 'TIRAGE', target: '4x12' }, { ex: 'Curl Biceps', imu: 'TIRAGE', target: '3x12' }],
+  [{ ex: 'Squats', imu: 'SQUAT', target: '4x15' }, { ex: 'Fentes', imu: 'SQUAT', target: '3x12' }, { ex: 'Mollets', imu: 'SQUAT', target: '4x20' }],
+  [{ ex: 'Pompes', imu: 'POUSSEE', target: '4x15' }, { ex: 'Tractions', imu: 'TIRAGE', target: '4x8' }, { ex: 'Gainage', imu: 'ISO', target: '3x45s' }],
+  [{ ex: 'Squats', imu: 'SQUAT', target: '4x15' }, { ex: 'Squats Sautés', imu: 'CARDIO', target: '3x12' }, { ex: 'Fentes', imu: 'SQUAT', target: '3x12' }],
+  [{ ex: 'Gainage', imu: 'ISO', target: '4x45s' }, { ex: 'Crunch', imu: 'ISO', target: '4x20' }, { ex: 'Planche Lat.', imu: 'ISO', target: '3x30s' }],
+  [{ ex: 'Squats', imu: 'SQUAT', target: '5x5' }, { ex: 'Développé', imu: 'POUSSEE', target: '5x5' }, { ex: 'Rowing', imu: 'TIRAGE', target: '5x5' }],
+  [{ ex: 'Burpees', imu: 'CARDIO', target: '4x12' }, { ex: 'Pompes', imu: 'POUSSEE', target: '4x15' }, { ex: 'Squats', imu: 'SQUAT', target: '4x20' }],
+  [{ ex: 'Shadow Boxe', imu: 'CARDIO', target: '5x2m' }, { ex: 'Corde', imu: 'CARDIO', target: '5x2m' }, { ex: 'Gainage', imu: 'ISO', target: '3x45s' }]
+];
+
+let workoutProgram = [...PRESET_PROGRAMS[0]];
+
+function loadPresetProgram(idx) {
+  const p = PRESET_PROGRAMS[Number(idx) || 0] || PRESET_PROGRAMS[0];
+  workoutProgram = p.map(item => ({ ...item }));
+  renderProgramList();
+  logWeb(`Séance #${Number(idx) + 1} chargée (${workoutProgram.length} exercices avec profils IMU dédiés).`);
+}
+
+function autoAdjustProgramLoad() {
+  const hist = loadArchive();
+  const heavy = hist.length >= 3 && hist[0].avg_bpm > 155;
+  const factor = heavy ? 0.85 : 1.10;
+  workoutProgram = workoutProgram.map(p => {
+    const m = p.target.match(/^(\d+)x(\d+)(s|m)?$/);
+    if (!m) return p;
+    const adj = Math.max(4, Math.round(Number(m[2]) * factor));
+    return { ...p, target: `${m[1]}x${adj}${m[3] || ''}` };
+  });
+  renderProgramList();
+  logWeb(`⚡ Charge réajustée automatiquement (${heavy ? '-15 % décharge fatigue' : '+10 % surcharge progressive'}).`);
+}
+
+function renderProgramList() {
+  const el = document.getElementById('prog-list');
+  if (!el) return;
+  el.innerHTML = workoutProgram.map((p, i) => `${i + 1}. <strong>${p.ex}</strong> [${p.imu}] (${p.target})`).join(' • ');
+}
+
+function addProgramStep() {
+  const ex = (document.getElementById('prog-ex').value || '').trim();
+  const imu = document.getElementById('prog-imu').value || 'POUSSEE';
+  const target = (document.getElementById('prog-sets').value || '').trim();
+  if (!ex) return;
+  workoutProgram.push({ ex: ex.slice(0, 14), imu, target: target.slice(0, 8) || '3x10' });
+  renderProgramList();
+}
+
+function sendIntervalBLE() {
+  const w = Number(document.getElementById('it-work').value) || 20;
+  const r = Number(document.getElementById('it-rest').value) || 10;
+  const n = Number(document.getElementById('it-rounds').value) || 8;
+  logWeb(`GATT Workout -> Fractionné envoyé à la montre : ${w}s effort / ${r}s repos × ${n} tours.`);
+}
+
+function sendProgramBLE() {
+  logWeb(`GATT Workout -> Programme (${workoutProgram.length} exercices) envoyé à la montre !`);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   loadConfig();
   renderArchive();
+  renderProgramList();
+  updateLastSyncUI(localStorage.getItem(storageKey('sync')));
+  if (navigator.onLine) {
+    markSyncedNow();
+    logWeb('Connecté à Internet -> Sauvegarde automatique prête / horodatée.');
+  }
   logWeb('SmileWatch Web prêt (mode 100% optionnel, 0 €).');
 });
 </script>

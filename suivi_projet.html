@@ -585,8 +585,8 @@
         <!-- Global Progress Card -->
         <section class="progress-card">
             <div class="progress-details">
-                <h2>Passe Corrective V2.1 — Carrures x4 (#W2026111717260831), CPL Corrigé &amp; Attente U2 (26 Nov)</h2>
-                <p><strong>19 Nov 2026 :</strong> <strong>4 carrures SLM 316L (<code>#W2026111717260831</code>, <code>3D/carrure_fabrication.SLDPRT</code>) payées / lancées aux risques client</strong> ; <strong>colis Cousins UK <code>#3064648</code> reçu le 18 Nov</strong> (taraud Horotec + 2&times; Miyota 2035 + joints/glaces), et <code>4&times; C9117</code> expédiés (<code>#3068804</code>, Royal Mail <code>AN175221184GB</code>). <strong>Inversion des clips faite ✅</strong> ; <strong><code>positions.csv</code> corrigé ✅</strong> (<code>ANT1</code> <code>90°</code>, <code>IC1</code> <code>0°</code>, <code>IC4/IC6</code> <code>180°</code>, <code>IC8</code> <code>270°</code>) ; firmware en très bonne voie (refonte UI <strong>8 écrans &times; 3 sous-vues</strong> dans <code>Code/SmileWatch1</code> &amp; <code>simulateur_montre.html</code>). <strong>Contrainte critique :</strong> <code>U2</code> attendu le <strong>26 Nov</strong> &rarr; réception PCBA impérative <strong>&lt; 16 Déc</strong> (sinon reprise bloquée au <strong>8 Jan</strong> pour fin le <strong>22 Jan</strong>).</p>
+                <h2>Passe Corrective V2.1 — PCBA #W2026112203094487 Approuvé ✅ | SLM 316L en Prod (MàJ 23 Nov)</h2>
+                <p><strong>23 Nov 2026 :</strong> 🎉 <strong>Commande PCBA JLCPCB <code>#W2026112203094487</code> (<code>Carte_V2_Y4</code> + <code>SMT026112162921</code>) Review Approuvée</strong> (21 Nov 20h53 CET — <code>$440.50</code> TTC DHL Express DDP, <code>-$22.08</code> <code>My Parts</code>, <code>Depanel = Yes</code>, <strong>Epoxy Filled &amp; Capped</strong>) ! <code>U2</code> (<code>C1850399</code>) arrivé le 21 Nov, <code>Y2</code> basculé sur <code>ECS-.327-9-1210-TR</code> (<code>C2450044</code>), réception attendue <strong>&lt; 16 Déc</strong>. <strong>Contrôle 23 Nov :</strong> stocks BOM en direct (<code>U2=0</code>, <code>IC1=0</code>, <code>IC8=6 &lt;10</code>, <code>TH1=12</code>, <code>FL1=19</code> — tous sécurisés via <code>My Parts</code> ; <code>IC7</code>/<code>U4</code> remontés &ge; 100) ; remboursements <code>COB202611130128967</code> (<code>M1 $12.74</code>, <code>FL1 $9.03</code> + vérif crédit <code>ANT1/Y1/Q3</code>) toujours en attente de confirmation bancaire/mail ; modifs locales BLE/KiCad/Web en attente de commit. <strong>Méca (21 Nov) :</strong> clipsage <code>Base</code>/<code>carrure</code> &amp; O-ring (<code>ID &gt; 39 mm</code>) à reprendre à réception des 4 carrures SLM 316L (<code>#W2026111717260831</code>).</p>
                 
                 <div class="progress-bar-wrap">
                     <div class="progress-bar-fill" id="global-progress-bar"></div>
@@ -595,7 +595,7 @@
                 <div class="progress-counters">
                     <span>Terminées : <strong id="count-done">0</strong> / <strong id="count-total">0</strong></span>
                     <span>Taux d'achèvement : <strong id="count-percent">0%</strong></span>
-                    <span>Prochaine étape : <strong id="next-task-name" style="color:var(--accent-cyan)">Vérif U4 (bottom) + Commande PCBA dès U2 (26 Nov) — Réception impérative &lt; 16 Déc</strong></span>
+                    <span>Prochaine étape : <strong id="next-task-name" style="color:var(--accent-cyan)">Réception SLM 316L + Base/O-ring + Réception PCBA (&lt; 16 Déc)</strong></span>
                 </div>
             </div>
 
@@ -627,7 +627,7 @@
             <!-- SPRINT CORRECTIF V2.1 (AUDIT 360 DU 08 NOV) -->
             <div class="section-header" style="border-color: rgba(239, 68, 68, 0.45); background: rgba(239, 68, 68, 0.08);">
                 <div class="section-title" style="color: #fca5a5;">
-                    <span>🛠️ Audit 360° &amp; Passe V2.1 (MàJ 19 Nov)</span> — Élec + BOM + Gerbers `2116` ✅ | Rotations 3D &amp; Réception `U2` en attente
+                    <span>🛠️ Audit 360° &amp; Passe V2.1 (MàJ 23 Nov)</span> — PCBA `#W2026112203094487` Approuvé ✅ | Suivi Stocks, Remboursements &amp; Méca
                 </div>
                 <span class="section-progress" id="prog-v21" style="color: #f87171;">0/8</span>
             </div>
@@ -636,7 +636,7 @@
                 <!-- CHECKLIST SYNTHESE PRE-AUDIT ARGON (11-15 NOV 2026) -->
                 <div style="background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.35); border-radius: 12px; padding: 1.1rem 1.25rem; margin-bottom: 1rem;">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.6rem;">
-                        <span style="font-weight:700; color:#60a5fa; font-size:0.92rem;">⚠️ Bilan Passe V2.1 — Points Vérifiés &amp; Restes Avant GO Usine (MàJ 19 Nov 2026)</span>
+                        <span style="font-weight:700; color:#60a5fa; font-size:0.92rem;">⚠️ Bilan Passe V2.1 — Points Vérifiés &amp; Restes Avant GO Usine (MàJ 23 Nov 2026)</span>
                         <span style="font-size:0.75rem; background:rgba(16, 185, 129, 0.2); color:#34d399; padding:0.25rem 0.55rem; border-radius:6px; font-family:'JetBrains Mono',monospace;">ERC=0 &amp; DRC Parité=0 (3 PCB)</span>
                     </div>
                     <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.9rem; font-size:0.83rem;">
@@ -646,16 +646,16 @@
                                 <li><code>LIR3048</code> &amp; correctifs 15 Nov : <code>BT1</code> (<code>+3V8</code>), <code>TP8</code> (<code>GNDPWR</code>), <code>C47</code> en <code>0201</code> (<code>C284966</code>), <code>R28</code> (<code>4k7</code> <code>C25900</code>) pull-down sur <code>INTPA</code>, <code>Ecran</code> conforme datasheet p. 10.</li>
                                 <li>OLED &amp; RF : <code>Q2.2=GND</code>, <code>Q1.2/R15=+3V8</code>, <code>R13=560kΩ</code>, <code>R21/R24=DNP</code>, Keepout <code>ANT1</code> (<code>4,0&times;6,0 mm</code> 6 couches, <code>Pin 4=FEED</code>), ligne <code>50 Ω</code> <strong><code>JLC06081H-2116</code></strong> ajustée à <strong><code>0,135 mm</code></strong> / jeu <code>0,10 mm</code> (<code>In1.Cu</code> continu), <code>M1</code> <code>LD-SM-430.step</code> &amp; <code>Cadran.zip</code> (<code>39&times;39 mm</code>) validés JLCPCB.</li>
                                 <li>Alim &amp; Capteurs : <code>TPS61023DRLR</code> (293.2°), <code>TCA9517DR</code> (stk 5738), vias <code>TMP117</code>, <code>TPS7A02</code>, <code>J1</code> Samtec en soudure manuelle.</li>
-                                <li>Hors-PCBA à souder manuellement : <code>C39</code> (OLED), <code>J2</code> (carte capteurs), <code>BT1/TP8</code> (batterie), <code>TP1/TP3</code> (Qi), <code>TP6/TP7</code> (Miyota).</li>
-                                <li><strong>Firmware &amp; Simulateur (19 Nov) :</strong> Refonte UI <code>smilewatch_ui.h/.c</code> &amp; <code>simulateur_montre.html</code> vers <strong>8 écrans &times; 3 sous-vues (24 écrans)</strong> + 10 sports + lissage EPX Scale2x (<code>oled_ch1115.c</code>).</li>
+                                <li>Hors-PCBA à souder/monter manuellement : nappe OLED (soudure directe à plat, sans connecteur), <code>J2</code> (inter-carte Samtec — à commander), <code>BT1</code> ressort Harwin <code>S1921-46R</code> (à commander) + Poron <code>TP8</code>, pad thermique, Kapton, bracelet ; Tag-Connect reçu ✅.</li>
+                                <li><strong>Firmware, BLE &amp; Docs (21 Nov) :</strong> Service GATT BLE custom (<code>ble_smilewatch.h/.c</code>), UI portée à <strong>9 écrans &times; 3 vues (27 vues)</strong>, 19 sports + triathlon, compagnon WebBLE (<code>smilewatch_web.html</code>) &amp; simulateur mis à jour, plus <code>README.md</code> par dossier.</li>
                             </ul>
                         </div>
                         <div style="background:rgba(15,23,42,0.6); padding:0.75rem; border-radius:8px; border:1px solid rgba(255,255,255,0.06);">
                             <div style="font-weight:600; color:#fbbf24; margin-bottom:0.35rem;">⚠️ Points Ouverts Avant GO Usine</div>
                             <ul style="margin:0; padding-left:1.1rem; color:var(--text-secondary); line-height:1.5;">
                                 <li><strong>Rotations 3D JLCPCB (<code>positions.csv</code>) :</strong> ✅ <strong><code>top</code> corrigé (19 Nov)</strong> (<code>ANT1</code> <code>270&rarr;90°</code>, <code>IC1</code> <code>90&rarr;0°</code>, <code>IC4</code> <code>90&rarr;180°</code>, <code>IC6</code> <code>90&rarr;180°</code>, <code>IC8</code> <code>0&rarr;270°</code>) ; reste à vérifier <code>U4</code> (<code>bottom</code>) au ré-upload + activer <code>Depanel = Yes</code> + livraison express.</li>
-                                <li><strong>Stocks JLCPCB (MàJ 19 Nov 09h) :</strong> <code>bom.csv</code> réaligné sur KiCad (<code>46</code> lignes / <code>99</code> comp.) ; <code>IC1</code> (stk <code>0</code>), <code>IC8</code> (stk critique <code>6</code>), <code>TH1</code> (chute <code>62&rarr;12</code>) et <code>FL1</code> (<code>19</code>) sécurisés en <code>My Parts ✅</code> ; <strong>⚠️ alerte <code>IC7 VEML6030</code> en chute à <code>16</code> pcs</strong> (<code>94&rarr;39&rarr;16</code>, 2 pcs en <code>My Parts</code>) ; <strong><code>U2 STM32WB55VGYx</code> (<code>C1850399</code>, stk <code>0</code>) en attente</strong> (glissé au <strong>26 Nov</strong>). Remboursements <code>COB202611130128967</code> notifiés (<code>M1</code> $12.74, <code>FL1</code> $9.03, <code>ANT1</code> $9.76, <code>Y1</code> $8.86, <code>Q3</code> $8.79 ; annulation <code>C17531353</code> en cours).</li>
-                                <li><strong>Méca CAO (<code>carrure_fabrication.SLDPRT</code>) :</strong> <strong>4 carrures SLM 316L payées (19 Nov, JLC3DP <code>#W2026111717260831</code>)</strong> ; <strong>inversion des clips faite ✅</strong> ; à réception carrures : alésage tour + perçage + <strong>chanfrein 45°</strong> + taraudage (taraud reçu le 18 Nov). Restes sur <code>Base</code>/assemblage : sous OLED (<code>P0-MECA-7</code>), poche <code>J1</code>/Qi (<code>P0-MECA-6</code>), poussoirs <code>Bouton.SLDASM</code> (<code>P1-MECA-9</code>), radial <code>TPS61023/L1</code> (<code>P1-MECA-10</code>).</li>
+                                <li><strong>Stocks &amp; Commande JLCPCB (MàJ 23 Nov) :</strong> ✅ <strong>Commande PCBA <code>#W2026112203094487</code> (<code>Carte_V2_Y4</code> + <code>SMT026112162921</code>) payée (<code>$440.50</code> TTC DHL Express DDP) &amp; <em>Order Review Approved</em> (21 Nov 20h53)</strong> ! <code>U2</code>, <code>IC1</code>, <code>IC8</code>, <code>TH1</code> &amp; <code>FL1</code> utilisés depuis <code>My Parts ✅</code> (<code>-$22.08</code>) ; <code>Y2 = ECS-.327-9-1210-TR</code> (<code>C2450044</code>). <strong>Check BOM 23 Nov (48 réf.) :</strong> public <code>U2=0</code>, <code>IC1=0</code>, <code>IC8=6 &lt;10</code>, <code>TH1=12</code>, <code>FL1=19</code> (protégés par <code>My Parts</code>) ; <code>IC7</code>/<code>U4</code>/<code>Y2</code> &ge; 100. <strong>Remboursements <code>COB202611130128967</code> :</strong> <code>M1 $12.74</code> &amp; <code>FL1 $9.03</code> notifiés le 14 Nov (crédits <code>ANT1/Y1/Q3</code> &amp; encaissement à pointer).</li>
+                                <li><strong>Méca CAO (retour 21 Nov) :</strong> <strong>4 carrures SLM 316L payées (JLC3DP <code>#W2026111717260831</code>) ✅</strong> ; <code>P0-MECA-6</code> (<code>0,07 mm</code> sur <code>J1</code>) &amp; <code>P1-MECA-10</code> vérifiés OK (calage angulaire <code>carrure</code>/<code>Base</code> à voir le 22 Nov). <code>Base</code> jugée propre, à revoir uniquement avec un nouveau O-ring (à acheter en <strong>magasin physique</strong>, sans frais de port) + clipsage à réception des carrures SLM. À commander : <code>J2</code>, ressort batterie <code>S1921-46R</code>, pad thermique, Kapton, bracelet. Arbitrage poussoirs économiques en cours (<code>P1-MECA-9</code>) ; reste <code>P0-MECA-7</code> (sous OLED).</li>
                                 <li><strong>Revue Datasheets JLC :</strong> <code>C0G2_50V1=C21120</code> (220nF 25V X7R au lieu de C0G 50V), budget <code>IC6 TPS7A0233</code> (200 mA max).</li>
                             </ul>
                         </div>
@@ -737,8 +737,8 @@
                 <div class="task-card" data-id="t26" onclick="toggleTask('t26')" style="border-left: 4px solid #f59e0b;">
                     <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
                     <div class="task-info">
-                        <div class="task-title">[P0-MECA-8 / P1-MECA-9] O-ring 25 % &amp; Inversion clips validés — Reste poussoirs Bouton.SLDASM</div>
-                        <div class="task-desc">✅ <strong>O-ring 25 % (09 Nov) &amp; Inversion clips (19 Nov) :</strong> gorge ISO 3601 (0.75&times;1.30 mm) validée, <code>Canal_lum</code> mis à jour, <strong>inversion des clips Base/carrure effectuée</strong>.<br>🟠 <strong>Reste CAO :</strong> intégrer les poussoirs horlogers étanches <code>Bouton.SLDASM</code> (<code>P1-MECA-9</code>) et lancer la <code>Base</code> SLA.</div>
+                        <div class="task-title">[P0-MECA-8 / P1-MECA-9] O-ring &amp; Clips (retour proto résine 21 Nov) — Poussoirs économiques</div>
+                        <div class="task-desc">✅ <strong>Inversion des clips faite (19 Nov)</strong>, gorge ISO 3601 (0.75&times;1.30 mm) tracée, <code>P0-MECA-6</code> (0,07 mm sur <code>J1</code>) &amp; <code>P1-MECA-10</code> vérifiés OK.<br>🔴 <strong>Retour proto résine (21 Nov) :</strong> <code>Base</code> propre globalement, mais clipsage non fonctionnel (rainure bouchée en résine) et O-ring trop grand (<code>ID &gt; 39 mm</code>) — <strong>trouver un magasin physique</strong> (éviter frais de port) pour un joint <code>ID ~38,0–38,5 &times; 1,00 mm</code> et ajuster <code>Base.SLDPRT</code> au nouveau joint + carrures SLM.<br>🟠 <strong>Reste CAO / Appros :</strong> calage angulaire <code>carrure</code>/<code>Base</code> (22 Nov), arbitrage poussoirs économiques (<code>P1-MECA-9</code>), et commander <code>J2</code> Samtec, ressort batterie Harwin <code>S1921-46R</code>, pad thermique, Kapton, bracelet.</div>
                         <div class="task-tags">
                             <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">O-ring 25% Validé ✔</span>
                             <span class="tag-pill tag-meca">Inverser Clips + Bouton.SLDASM</span>
@@ -761,8 +761,8 @@
                 <div class="task-card" data-id="t28" onclick="toggleTask('t28')" style="border-left: 4px solid #f59e0b;">
                     <div class="task-checkbox-wrap"><div class="custom-checkbox">✔</div></div>
                     <div class="task-info">
-                        <div class="task-title">[P2-PROC-17 ✔ &amp; Sourcing/FW] Exports production/ &amp; STEP validés — Pré-commande Parts JLC &amp; Roadmap Firmware V2.1 (13 Nov)</div>
-                        <div class="task-desc">✅ <strong>Fait (11-19 Nov) :</strong> <code>C47</code> (<code>0201</code>), <code>R28</code> (<code>4k7</code> pull-down <code>INTPA</code>), <code>Cadran.zip</code> corrigé et validé JLCPCB (<code>39&times;39 mm</code>, <code>0,4 mm</code> ENIG), <code>Carte_V2.zip</code> régénéré en <code>JLC06081H-2116</code> (RF <code>0,135 mm</code>), <code>bom.csv</code> réaligné sur KiCad (<code>IC1</code>, <code>IC8</code>, <code>FL1</code>, <code>TH1</code> sécurisés en <code>My Parts</code> ; <code>ANT1/Y1/M1/Q3</code> en stock public), et <strong><code>positions.csv</code> corrigé</strong> (<code>ANT1</code> <code>90°</code>, <code>IC1</code> <code>0°</code>, <code>IC4/IC6</code> <code>180°</code>, <code>IC8</code> <code>270°</code>).<br>🟠 <strong>Reste (19 Nov) :</strong> attendre réception de <code>U2 STM32WB55</code> (reporté au <strong>26 Nov</strong>), vérifier <code>U4</code> (<code>bottom</code>) au ré-upload de <code>positions.csv</code> et commander en express pour réception <strong>&lt; 16 Déc</strong>.</div>
+                        <div class="task-title">[P2-PROC-17 ✔] Exports production/, Y2 corrigé &amp; PCBA #W2026112203094487 Approuvé (21–23 Nov ✅)</div>
+                        <div class="task-desc">✅ <strong>Fait (11–23 Nov) :</strong> <code>C47</code> (<code>0201</code>), <code>R28</code> (<code>4k7</code> pull-down <code>INTPA</code>), <code>Cadran.zip</code> (<code>39&times;39 mm</code>, <code>0,4 mm</code> ENIG), <code>Carte_V2.zip</code> (<code>JLC06081H-2116</code>, RF <code>0,135 mm</code>), <code>Y2</code> remplacé par <code>ECS-.327-9-1210-TR</code> (<code>C2450044</code>), rotations 3D validées (<code>IC1/IC4/IC6/IC8</code>, <code>U4</code>, <code>S1/S2</code>), <code>U2</code> arrivé en <code>My Parts</code> (21 Nov), commande PCBA <strong><code>#W2026112203094487</code> (<code>Carte_V2_Y4</code> + <code>SMT026112162921</code>) payée (<code>$440.50</code> TTC DHL Express DDP) &amp; <em>Order Review Approved</em></strong> (réception &lt; 16 Déc). ⏳ <strong>Suivi 23 Nov :</strong> modifs locales (BLE/KiCad/Web) à commiter ; remboursements <code>COB202611130128967</code> (<code>M1 $12.74</code>, <code>FL1 $9.03</code> + crédit <code>ANT1/Y1/Q3</code>) à pointer sur relevé.</div>
                         <div class="task-tags">
                             <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">Exports &amp; STEP OK ✔</span>
                             <span class="tag-pill" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">Roadmap FW Rédigée ✔</span>
@@ -1163,9 +1163,9 @@
                         </tr>
                         <tr>
                             <td><strong>Composants CMS (Pré-commande JLCPCB)</strong></td>
-                            <td>STM32WB55, BQ51003, DRV2605L, MLPF-WB55-02E3, ANT1, Y1, Q3, M1</td>
+                            <td>STM32WB55, BQ51003, DRV2605L, MLPF-WB55-02E3, ANT1, Y1, Y2, Q3, M1</td>
                             <td>Cartes mères V2 (PCBA)</td>
-                            <td><span class="status-badge status-ordered">🟡 MàJ 19 Nov (09h) : IC1 (stk 0), IC8 (stk 6 &lt; 10), TH1 (chute 62&rarr;12) &amp; FL1 (19) sécurisés en My Parts ✅ ; ⚠️ IC7 VEML6030 chute à 16 pcs (2 pcs My Parts) ; U2 (stk 0) en attente (~26 Nov) ; remboursements COB202611130128967 notifiés (M1 $12.74, FL1 $9.03, ANT1 $9.76, Y1 $8.86, Q3 $8.79)</span></td>
+                            <td><span class="status-badge status-ordered">🚚 MàJ 23 Nov : PCBA #W2026112203094487 (Carte_V2_Y4 + SMT026112162921) Payé &amp; Approuvé ($440.50 TTC, DHL Express DDP) ✅ — U2/IC1/IC8/TH1/FL1 My Parts utilisés, Y2=C2450044, réception &lt; 16 Déc | Stocks BOM 23 Nov : U2=0, IC1=0, IC8=6 (&lt;10), TH1=12, FL1=19 (couverts My Parts), IC7/U4/Y2 &ge;100 | Remboursements COB202611130128967 (M1 $12.74, FL1 $9.03, crédit ANT1/Y1/Q3) à pointer</span></td>
                         </tr>
                         <tr>
                             <td><strong>Carte Fille Capteurs (JLCPCB PCBA)</strong></td>
@@ -1183,13 +1183,13 @@
                             <td><strong>Carrures Principales Inox 316L (x4)</strong></td>
                             <td>Impression 3D Métal SLM 316L (<code>carrure_fabrication.SLDPRT</code>, JLC3DP) + Alésage tour + Chanfrein 45° &amp; Taraudage maison</td>
                             <td>Structure mécanique, lunette et cornes (<strong>x4</strong> pour marge usinage/taraudage/étanchéité)</td>
-                            <td><span class="status-badge status-ordered">🚚 Lancé aux risques client x4 (19 Nov — #W2026111717260831 — ⚠️ mail JLCPCB 18 Nov 21h45 : Payment Pending à vérifier)</span></td>
+                            <td><span class="status-badge status-ordered">🚚 Payé &amp; lancé aux risques client x4 (19 Nov — #W2026111717260831) ✅</span></td>
                         </tr>
                         <tr>
                             <td><strong>Bases Inférieures (Fond de boîte)</strong></td>
                             <td>Impression Résine Haute Précision Extérieure (SLA)</td>
                             <td>Logement capteurs (TMP117, MAX30101), batterie & O-ring (x2)</td>
-                            <td><span class="status-badge status-todo">🖨️ Sous-traitance Résine Extérieure (Figeage Vendredi)</span></td>
+                            <td><span class="status-badge status-todo">🟡 Retour proto résine (21 Nov) : clipsage &amp; O-ring (&gt;39 mm) à reprendre — figeage SLA final après réception carrures SLM</span></td>
                         </tr>
                     </tbody>
                 </table>

@@ -15,6 +15,23 @@ La **SmileWatch** est une montre hybride conçue pour répondre à un cahier des
 
 ---
 
+## ✨ Fonctionnalités Embarquées Complètes
+
+- **Affichage & Énergie** : 9 écrans × 3 vues (27 vues), mode dynamique `split_6h`, pause mécanique des aiguilles Miyota devant la pilule OLED (`:24..:35`), luminosité adaptative (`VEML6030` → `CH1115`), allumage au regard (`Look-to-Wake`), Mode Nuit / DND, sommeil profond `STOP2`, coupure `+5V_HR` hors séance, charge sans fil Qi (`BQ24040`) et Mode Survie Extrême (`< 10 %` : Miyota seule, podomètre et capteurs coupés).
+- **19 Sports, Triathlon & Coach IA** : Musculation, Course, Natation 25m, Vélo, HIIT/Tabata, Rando, Tennis, Boxe, Rameur, Yoga/Cohérence 5s/5s, Corde à sauter, Escalade, Marche rapide, Trail (hydratation 20m), Gainage 30s, Padel, Golf, Ski, Collectif + Triathlon multi-étapes. Détection auto zéro-clic (`LSM6DSOX MLC`), calibration piste `400m/1000m`, calibration GPS/pas BLE, Coach Zones FC (`Z1–Z5`), optimiseur de charge aiguë/chronique et `HRR60`.
+- **Santé, Sommeil & Sécurité** : FC, SpO2, HRV (RMSSD), Body Battery, Stress, alerte tachycardie au repos (`>105 BPM` immobile 10 min), réveil doux (`-20 min`), Résumé Réveil + détection pré-maladie (`TMP117` + RHR + HRV), détection & programmation de sieste, détection de chute + compte à rebours SOS `10s` + contact `ICE`.
+- **Quotidien, Mémoire & WebBLE Optionnel** : Lampe torche OLED, Chronomètre/Timer, Pomodoro (`25m/5m`), double fuseau horaire, notifications ANCS, GPS Turn-by-Turn, Météo/Agenda, contrôle média/photo BLE HID, alerte sédentarité optionnelle (`50 min`), diagnostic I2C1, FOTA BLE, buffer circulaire Flash `90 %` (`328/365` j) avec rappel et horodatage, plus compagnon WebBLE 0 € ([smilewatch_web.html](smilewatch_web.html)) avec export Strava `.TCX` / `.CSV`.
+
+## 📚 Documentation par Dossier
+
+- [Code/](Code/README.md) — Firmware STM32WB55, drivers I2C1/OLED/Miyota, moteur UI & Flash.
+- [Kicad/](Kicad/README.md) — Schémas, PCB 6 couches, antenne RF & empilement.
+- [3D/](3D/README.md) — Boîtier Acier 316L SLM/CNC, posage d'assemblage O4 & mécanique.
+- [Fabrication_assemblage/](Fabrication_assemblage/README.md) — BOM, plans de montage, étanchéité & procédures.
+- [Datasheet/](Datasheet/README.md) — Fiches techniques des composants critiques.
+
+---
+
 ## 🛠️ Spécifications Techniques
 
 | Domaine | Caractéristique | Spécification |

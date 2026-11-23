@@ -35,7 +35,26 @@ typedef enum {
 } SW_ScreenId_t;
 
 #define SW_SPORT_COUNT 19U
-#define SW_HISTORY_MAX 8U
+typedef struct {
+    uint8_t hour;
+    uint8_t min;
+    bool    enabled;
+    uint8_t kind; /* 0=REVEIL, 1=RAPPEL, 2=MEDOC */
+} SW_AlarmItem_t;
+
+#define SW_ALARMS_MAX 3U
+
+typedef struct {
+    uint16_t steps_k10;      /* Steps / 10 */
+    uint8_t  rhr_bpm;
+    uint8_t  hrv_ms;
+    uint8_t  sleep_min_x10;
+    uint8_t  body_bat;
+} SW_DailyRecord_t;
+
+#define SW_HISTORY_MAX    8U
+#define SW_DAILY_HIST_MAX 365U
+#define SW_DAILY_RING_CAP 328U /* 90% circular buffer; 10% safety/queue margin */
 
 typedef struct {
     uint8_t  sport_type;     /* 0..9 */
@@ -153,6 +172,7 @@ typedef struct {
     /* UI, Annex Split-Screen 6h & Haptic state */
     SW_ScreenId_t current_screen;
     uint8_t       sub_view;        /* 0, 1, or 2 */
+    uint8_t       menu_anim_ticks; /* Simple 2-frame transition animation on menu change */
     bool          split_6h;        /* Active split-screen avoidance state */
     uint8_t       split_6h_mode;   /* Annex option: 0=OFF (default), 1=AUTO 6h, 2=FORCED ON */
     bool          split_6h_force;  /* Legacy helper synced with split_6h_mode == 2 */
@@ -249,6 +269,47 @@ typedef struct {
     bool               wake_summary_active;    /* Morning summary card on HOME */
     bool               wake_summary_shown_today;/* Prevents re-triggering same day */
     uint8_t            last_sleep_min;         /* Estimated sleep duration (x10 min) */
+
+    /* Torch, Dual Timezone (Phone Geoloc), Pomodoro, Tachycardia, Nap & 7-Day Flash Log */
+    bool               torch_active;           /* Full-screen 88x48 white OLED torch */
+    bool               tz2_enabled;            /* Dual timezone display */
+    int8_t             tz2_offset_half_h;      /* Phone-synced offset in 30-min steps */
+    bool               pomo_active;            /* Pomodoro 25m/5m active */
+    bool               pomo_work;              /* True=25m work, False=5m break */
+    uint16_t           pomo_sec_left;          /* Remaining Pomodoro seconds */
+    bool               tachy_alert_active;     /* Resting HR >105 BPM for >10 min */
+    uint16_t           tachy_sec;              /* Continuous high-HR stillness seconds */
+    bool               nap_detect_active;      /* Daytime nap detected */
+    uint8_t            nap_sched_min;          /* Scheduled nap timer (0=off, 20/30/45) */
+    uint16_t           nap_rem_sec;            /* Scheduled nap countdown */
+    uint8_t            nap_elapsed_min;        /* Auto-detected nap minutes */
+    SW_DailyRecord_t   daily_history[SW_DAILY_HIST_MAX];
+    uint16_t           daily_head;
+    uint16_t           daily_count;
+    uint16_t           daily_unsynced_count;   /* Pending days before Web sync */
+    bool               sync_needed_alert;      /* Reminder when approaching 90% ring cap */
+    uint8_t            last_sync_day;          /* Last Web/cloud backup day (1..31, 0=never) */
+    uint8_t            last_sync_month;        /* Last Web/cloud backup month (1..12) */
+    uint8_t            last_sync_hour;         /* Last Web/cloud backup hour */
+    uint8_t            last_sync_min;          /* Last Web/cloud backup minute */
+
+    /* Cinema Mode, UV/Sunscreen Alert & Multi-Alarms */
+    bool               cinema_mode_enabled;    /* 2h silent/dark mode (phone/watch) */
+    uint8_t            cinema_rem_min;         /* Remaining cinema minutes */
+    uint16_t           uv_sun_sec;             /* Continuous >25k lux seconds */
+    bool               uv_alert_active;        /* "CREME SOL!" alert */
+    SW_AlarmItem_t     alarms[SW_ALARMS_MAX];  /* 3 programmable alarms */
+    uint8_t            alarm_sel_idx;          /* Selected alarm 0..2 */
+    uint8_t            haptic_level;           /* 0=DOUX, 1=NORMAL, 2=FORT */
+    bool               auto_gym_set_enabled;   /* Auto-finish gym set after 20s still */
+    uint8_t            gym_still_sec;          /* Stillness counter during gym */
+    char               device_uid[16];         /* Unique 96-bit STM32WB55 hardware UID */
+    uint8_t            tabata_work_sec;        /* Custom interval work seconds (def 20) */
+    uint8_t            tabata_rest_sec;        /* Custom interval rest seconds (def 10) */
+    uint8_t            tabata_rounds_total;    /* Custom interval rounds (def 8) */
+    uint8_t            program_count;          /* BLE-uploaded workout steps (0..6) */
+    uint8_t            program_idx;            /* Current step index */
+    bool               program_active;         /* True when running custom BLE program */
 } SW_SystemState_t;
 
 /* Public Application API */
@@ -257,9 +318,24 @@ void SmileWatch_LoopTask(uint32_t now_ms);
 bool SmileWatch_NeedsFastTick(void);
 void SmileWatch_HandleLookToWake(bool looking_at_watch, uint32_t now_ms);
 void SmileWatch_ShowWakeSummary(uint32_t now_ms);
+void SmileWatch_ToggleTorch(uint32_t now_ms);
+void SmileWatch_StartPomodoro(uint32_t now_ms);
+void SmileWatch_StartNapTimer(uint8_t minutes, uint32_t now_ms);
+void SmileWatch_ArchiveDailyRecord(void);
+void SmileWatch_MarkWebSynced(void);
+void SmileWatch_SetCinemaMode(bool enabled, uint8_t minutes, uint32_t now_ms);
+void SmileWatch_AlignMiyotaStep(int16_t delta_sec);
 void SmileWatch_HandleButtonEvent(SW_ButtonEvent_t evt, uint32_t now_ms);
+typedef enum {
+    SW_GESTURE_FLICK_NEXT = 0,
+    SW_GESTURE_FLICK_PREV,
+    SW_GESTURE_DOUBLE_PINCH,
+    SW_GESTURE_WRIST_DOWN
+} SW_GestureType_t;
+
 void SmileWatch_PushNotification(const char *title, const char *body, uint32_t now_ms);
 void SmileWatch_HandleWristFlick(uint32_t now_ms);
+void SmileWatch_HandleGesture(SW_GestureType_t gesture, uint32_t now_ms);
 void SmileWatch_TriggerFallSos(uint32_t now_ms);
 void SmileWatch_SaveWorkoutSession(void);
 void SmileWatch_UpdatePhysioEngine(bool imu_still, uint32_t now_ms);

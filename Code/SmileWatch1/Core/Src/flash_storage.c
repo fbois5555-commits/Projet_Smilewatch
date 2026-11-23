@@ -47,6 +47,19 @@ typedef struct {
     uint8_t  target_hr_zone;
     uint16_t training_load_acute;
     uint16_t training_load_chronic;
+    int8_t   tz2_offset_half_h;
+    uint8_t  tz2_enabled;
+    uint16_t daily_head;
+    uint16_t daily_count;
+    uint16_t daily_unsynced_count;
+    uint8_t  last_sync_day;
+    uint8_t  last_sync_month;
+    uint8_t  last_sync_hour;
+    uint8_t  last_sync_min;
+    uint8_t  haptic_level;
+    uint8_t  auto_gym_set_enabled;
+    SW_AlarmItem_t alarms[SW_ALARMS_MAX];
+    SW_DailyRecord_t daily_history[SW_DAILY_HIST_MAX];
     char     ice_name[12];
     char     ice_phone[16];
     SW_WorkoutRecord_t workout_history[SW_HISTORY_MAX];
@@ -114,6 +127,22 @@ bool FlashStorage_Load(SW_SystemState_t *state, Miyota_Handle_t *miyota)
     state->target_hr_zone          = (rec.target_hr_zone >= 1U && rec.target_hr_zone <= 5U) ? rec.target_hr_zone : 3U;
     state->training_load_acute     = rec.training_load_acute;
     state->training_load_chronic   = rec.training_load_chronic;
+    state->tz2_offset_half_h       = rec.tz2_offset_half_h;
+    state->tz2_enabled             = (rec.tz2_enabled != 0U);
+    if (rec.daily_count <= SW_DAILY_HIST_MAX) {
+        state->daily_count          = rec.daily_count;
+        state->daily_head           = (uint16_t)(rec.daily_head % SW_DAILY_RING_CAP);
+        state->daily_unsynced_count = (rec.daily_unsynced_count <= SW_DAILY_HIST_MAX) ? rec.daily_unsynced_count : rec.daily_count;
+        state->sync_needed_alert    = (state->daily_unsynced_count >= 295U);
+        state->last_sync_day        = rec.last_sync_day;
+        state->last_sync_month      = rec.last_sync_month;
+        state->last_sync_hour       = rec.last_sync_hour;
+        state->last_sync_min        = rec.last_sync_min;
+        state->haptic_level         = (rec.haptic_level <= 2U) ? rec.haptic_level : 1U;
+        state->auto_gym_set_enabled = (rec.auto_gym_set_enabled != 0U);
+        memcpy(state->alarms, rec.alarms, sizeof(state->alarms));
+        memcpy(state->daily_history, rec.daily_history, sizeof(state->daily_history));
+    }
     if (rec.ice_name[0] != '\0') {
         strncpy(state->ice_name, rec.ice_name, sizeof(state->ice_name) - 1U);
         state->ice_name[sizeof(state->ice_name) - 1U] = '\0';
@@ -171,6 +200,19 @@ bool FlashStorage_Save(const SW_SystemState_t *state, const Miyota_Handle_t *miy
     rec.target_hr_zone          = state->target_hr_zone;
     rec.training_load_acute     = state->training_load_acute;
     rec.training_load_chronic   = state->training_load_chronic;
+    rec.tz2_offset_half_h       = state->tz2_offset_half_h;
+    rec.tz2_enabled             = state->tz2_enabled ? 1U : 0U;
+    rec.daily_head              = state->daily_head;
+    rec.daily_count             = state->daily_count;
+    rec.daily_unsynced_count    = state->daily_unsynced_count;
+    rec.last_sync_day           = state->last_sync_day;
+    rec.last_sync_month         = state->last_sync_month;
+    rec.last_sync_hour          = state->last_sync_hour;
+    rec.last_sync_min           = state->last_sync_min;
+    rec.haptic_level            = state->haptic_level;
+    rec.auto_gym_set_enabled    = state->auto_gym_set_enabled ? 1U : 0U;
+    memcpy(rec.alarms, state->alarms, sizeof(rec.alarms));
+    memcpy(rec.daily_history, state->daily_history, sizeof(rec.daily_history));
     strncpy(rec.ice_name, state->ice_name, sizeof(rec.ice_name) - 1U);
     strncpy(rec.ice_phone, state->ice_phone, sizeof(rec.ice_phone) - 1U);
     rec.history_count       = state->history_count;
